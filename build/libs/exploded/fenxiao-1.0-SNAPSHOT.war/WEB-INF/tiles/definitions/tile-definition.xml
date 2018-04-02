@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="baseLayout" template="/WEB-INF/tiles/template/baseLayout.jsp">
+        <put-attribute name="title" value="首页"/>
+        <put-attribute name="content" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp"/>
+    </definition>
+
+    <definition name="admin/home" extends="baseLayout">
+        <put-attribute name="title" value="首页"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/home.jsp"/>
+    </definition>
+
+    <definition name="admin/productList" extends="baseLayout">
+        <put-attribute name="title" value="商品列表"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/productList.jsp"/>
+    </definition>
+
+    <definition name="admin/editProduct" extends="baseLayout">
+        <put-attribute name="title" value="商品编辑"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/editProduct.jsp"/>
+    </definition>
+
+    <definition name="admin/change_password" extends="baseLayout">
+        <put-attribute name="title" value="密码修改"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/change_password.jsp"/>
+    </definition>
+
+    <definition name="admin/orderList" extends="baseLayout">
+        <put-attribute name="title" value="Products"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/orderList.jsp"/>
+    </definition>
+
+</tiles-definitions>

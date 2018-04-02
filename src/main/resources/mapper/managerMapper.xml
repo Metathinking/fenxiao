@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.fenxiao.repository.ManagerRepository">
+    <resultMap id="m_manager" type="com.hu.fenxiao.domain.Manager">
+        <id column="f_id" property="id"/>
+        <result column="f_name" property="name"/>
+        <result column="f_password" property="password"/>
+    </resultMap>
+    <insert id="create" parameterType="com.hu.fenxiao.domain.Manager">
+insert into m_manager ( f_id,f_name,f_password)
+values (#{id,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},#{password,jdbcType=VARCHAR})</insert>
+    <update id="update" parameterType="com.hu.fenxiao.domain.Manager">
+update m_manager set f_password=#{password,jdbcType=VARCHAR}
+where f_name=#{name}</update>
+    <select id="find" resultMap="m_manager">
+select * from m_manager where f_name=#{name} and f_password=#{password}
+</select>
+    <select id="getCount" resultType="int">select count(f_id) FROM m_manager</select>
+    <select id="getMaxId" resultType="int">select IFNULL(max(f_id),10000) FROM m_manager</select>
+</mapper>
