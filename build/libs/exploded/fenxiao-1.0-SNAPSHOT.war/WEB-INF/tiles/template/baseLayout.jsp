@@ -62,7 +62,7 @@
             <a href="/">会员管理</a> /
             <a href="/admin/order/list">订单管理</a> /
             <a href="/">抽成设置</a> /
-            <a href="/">厂商信息</a> /
+            <a href="/admin/manufacturer/edit">厂商信息</a> /
 
             <a href="/admin/change_password/">密码修改</a> /
             <a href="/admin/logout/">退出</a>

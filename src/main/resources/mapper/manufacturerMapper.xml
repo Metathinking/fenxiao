@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.fenxiao.repository.ManufacturerRepository">
+    <resultMap id="m_manufacturer" type="com.hu.fenxiao.domain.Manufacturer">
+        <id column="f_id" property="id"/>
+        <result column="f_name" property="name"/>
+        <result column="f_phone" property="phone"/>
+        <result column="f_address" property="address"/>
+        <result column="f_introduction" property="introduction"/>
+    </resultMap>
+    <insert id="create"
+            parameterType="com.hu.fenxiao.domain.Manufacturer">
+insert into m_manufacturer ( f_id,f_name,f_phone,f_address,f_introduction)
+values (#{id,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},
+#{address,jdbcType=VARCHAR},#{introduction,jdbcType=VARCHAR})
+</insert>
+    <update id="update"
+            parameterType="com.hu.fenxiao.domain.Manufacturer">update m_manufacturer set f_name=#{name,jdbcType=VARCHAR},f_phone=#{phone,jdbcType=VARCHAR},f_address=#{address,jdbcType=VARCHAR},f_introduction=#{introduction,jdbcType=VARCHAR} where f_id=#{id}</update>
+    <select id="findById" resultMap="m_manufacturer">select * from m_manufacturer where f_id=#{id}</select>
+</mapper>

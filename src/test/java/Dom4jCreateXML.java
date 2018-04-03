@@ -22,7 +22,12 @@ public class Dom4jCreateXML {
 
     public static void main(String[] args) {
 //        createMapper(Product.class,directoryPath, Arrays.asList(INSERT,LIST,UPDATE,DELETE,GET_MAX_ID,FIND_BY_ID));
-        createMapper(Manager.class,directoryPath,Arrays.asList(INSERT,UPDATE,GET_MAX_ID,GET_COUNT,FIND_BY_ID));
+//        createMapper(Manager.class,directoryPath,Arrays.asList(INSERT,UPDATE,GET_MAX_ID,GET_COUNT,FIND_BY_ID));
+//        createMapper(Manufacturer.class,directoryPath,Arrays.asList(INSERT,UPDATE,FIND_BY_ID));
+        createMapper(Member.class, directoryPath, Arrays.asList(INSERT, UPDATE, LIST, GET_COUNT, GET_MAX_ID, FIND_BY_ID));
+        createMapper(CartItem.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_MAX_ID,FIND_BY_ID));
+        createMapper(Order.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_MAX_ID,GET_COUNT,FIND_BY_ID));
+        createMapper(OrderItem.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_COUNT,GET_MAX_ID,FIND_BY_ID));
     }
 
     private static final String INSERT = "INSERT";
@@ -39,50 +44,50 @@ public class Dom4jCreateXML {
     private static String directoryPath = "G:" + File.separator + "workspace" + File.separator + "fenxiao" + File.separator + "src" + File.separator + "main" + File.separator
             + "resources" + File.separator + "mapper";
 
-    private static void createMapper(Class clazz,String directoryPath,List<String> elementType) {
+    private static void createMapper(Class clazz, String directoryPath, List<String> elementType) {
         Document document = DocumentHelper.createDocument();
         document.addDocType("mapper", "-//mybatis.org//DTD Mapper 3.0//EN", "http://mybatis.org/dtd/mybatis-3-mapper.dtd");
         Element mapper = document.addElement("mapper");
         mapper.addAttribute("namespace", getDomainRepository(clazz));
         Element resultMap = mapper.addElement("resultMap");
-        resultMap.addAttribute("id", getSqlName(clazz.getSimpleName(),"m_"))
+        resultMap.addAttribute("id", getSqlName(clazz.getSimpleName(), "m_"))
                 .addAttribute("type", clazz.getName());
         Field[] fields = clazz.getDeclaredFields();
         for (int i = 0; i < fields.length; i++) {
             String name = fields[i].getName();
             if (name.equals("id")) {
                 resultMap.addElement("id")
-                        .addAttribute("column", getSqlName(name,"f_"))
+                        .addAttribute("column", getSqlName(name, "f_"))
                         .addAttribute("property", name);
-            }else{
+            } else {
                 resultMap.addElement("result")
-                        .addAttribute("column", getSqlName(name,"f_"))
+                        .addAttribute("column", getSqlName(name, "f_"))
                         .addAttribute("property", name);
             }
         }
-        if(elementType.contains(INSERT)){
+        if (elementType.contains(INSERT)) {
             addInsertElement(mapper, clazz);
         }
-        if(elementType.contains(UPDATE)){
-            addUpdateElement(mapper,clazz);
+        if (elementType.contains(UPDATE)) {
+            addUpdateElement(mapper, clazz);
         }
-        if(elementType.contains(DELETE)){
-            addDeleteElement(mapper,clazz);
+        if (elementType.contains(DELETE)) {
+            addDeleteElement(mapper, clazz);
         }
-        if(elementType.contains(LIST)){
-            addListElement(mapper,clazz);
+        if (elementType.contains(LIST)) {
+            addListElement(mapper, clazz);
         }
-        if(elementType.contains(FIND_BY_ID)){
-            addFindByIdElement(mapper,clazz);
+        if (elementType.contains(FIND_BY_ID)) {
+            addFindByIdElement(mapper, clazz);
         }
-        if(elementType.contains(GET_COUNT)){
-            addGetCountElement(mapper,clazz);
+        if (elementType.contains(GET_COUNT)) {
+            addGetCountElement(mapper, clazz);
         }
-        if(elementType.contains(GET_MAX_ID)){
-            addGetMaxIdElement(mapper,clazz);
+        if (elementType.contains(GET_MAX_ID)) {
+            addGetMaxIdElement(mapper, clazz);
         }
-        if(elementType.contains(LIST_BY_FROM_ID)){
-            addListByFromId(mapper,clazz);
+        if (elementType.contains(LIST_BY_FROM_ID)) {
+            addListByFromId(mapper, clazz);
         }
         try {
             String name = changeFirstCharToLower(clazz.getSimpleName());
@@ -95,40 +100,40 @@ public class Dom4jCreateXML {
         }
     }
 
-    private static void addListElement(Element mapper,Class clazz){
+    private static void addListElement(Element mapper, Class clazz) {
         StringBuilder sql = new StringBuilder("select * from ");
-        sql.append(getSqlName(clazz.getSimpleName(),"m_"))
+        sql.append(getSqlName(clazz.getSimpleName(), "m_"))
                 .append(" order by f_id limit #{start},#{size}");
         mapper.addElement("select")
-                .addAttribute("id","list")
-                .addAttribute("resultMap",getSqlName(clazz.getSimpleName(),"m_"))
+                .addAttribute("id", "list")
+                .addAttribute("resultMap", getSqlName(clazz.getSimpleName(), "m_"))
                 .addText(sql.toString());
     }
 
-    private static void addFindByIdElement(Element mapper,Class clazz){
+    private static void addFindByIdElement(Element mapper, Class clazz) {
         StringBuilder sql = new StringBuilder("select * from ");
-        sql.append(getSqlName(clazz.getSimpleName(),"m_")).append(" where f_id=#{id}");
+        sql.append(getSqlName(clazz.getSimpleName(), "m_")).append(" where f_id=#{id}");
         mapper.addElement("select")
-                .addAttribute("id","findById")
-                .addAttribute("resultMap", getSqlName(clazz.getSimpleName(),"m_"))
+                .addAttribute("id", "findById")
+                .addAttribute("resultMap", getSqlName(clazz.getSimpleName(), "m_"))
                 .addText(sql.toString());
     }
 
-    private static void addGetCountElement(Element mapper,Class clazz){
+    private static void addGetCountElement(Element mapper, Class clazz) {
         StringBuilder sql = new StringBuilder("select count(f_id) FROM ");
-        sql.append(getSqlName(clazz.getSimpleName(),"m_"));
+        sql.append(getSqlName(clazz.getSimpleName(), "m_"));
         mapper.addElement("select")
-                .addAttribute("id","getCount")
-                .addAttribute("resultType","int")
+                .addAttribute("id", "getCount")
+                .addAttribute("resultType", "int")
                 .addText(sql.toString());
     }
 
-    private static void addGetMaxIdElement(Element mapper,Class clazz){
+    private static void addGetMaxIdElement(Element mapper, Class clazz) {
         StringBuilder sql = new StringBuilder("select IFNULL(max(f_id),10000) FROM ");
-        sql.append(getSqlName(clazz.getSimpleName(),"m_"));
+        sql.append(getSqlName(clazz.getSimpleName(), "m_"));
         mapper.addElement("select")
-                .addAttribute("id","getMaxId")
-                .addAttribute("resultType","int")
+                .addAttribute("id", "getMaxId")
+                .addAttribute("resultType", "int")
                 .addText(sql.toString());
     }
 
@@ -147,12 +152,12 @@ public class Dom4jCreateXML {
 
     private static void addInsertElement(Element mapper, Class clazz) {
         StringBuilder sql = new StringBuilder("insert into ");
-        sql.append(getSqlName(clazz.getSimpleName(),"m_")).append(" ( ");
+        sql.append(getSqlName(clazz.getSimpleName(), "m_")).append(" ( ");
         Field[] fields = clazz.getDeclaredFields();
         StringBuilder values = new StringBuilder("(");
         for (int i = 0; i < fields.length; i++) {
             String name = fields[i].getName();
-            sql.append(getSqlName(name,"f_"));
+            sql.append(getSqlName(name, "f_"));
             Class type = fields[i].getType();
             values.append("#{").append(name).append(",jdbcType=");
             findJdbcType(values, type);
@@ -172,19 +177,19 @@ public class Dom4jCreateXML {
 
     private static void addUpdateElement(Element mapper, Class clazz) {
         StringBuilder sql = new StringBuilder("update ");
-        sql.append(getSqlName(clazz.getSimpleName(),"m_"));
+        sql.append(getSqlName(clazz.getSimpleName(), "m_"));
         sql.append(" set ");
         Field[] fields = clazz.getDeclaredFields();
-        for (int i=0;i<fields.length;i++) {
+        for (int i = 0; i < fields.length; i++) {
             Field field = fields[i];
             if (field.getName().equals("id")) {
                 continue;
             }
-            sql.append(getSqlName(field.getName(),"f_")).append("=#{").append(field.getName())
+            sql.append(getSqlName(field.getName(), "f_")).append("=#{").append(field.getName())
                     .append(",jdbcType=");
-            findJdbcType(sql,field.getType());
+            findJdbcType(sql, field.getType());
             sql.append("}");
-            if(i!=fields.length-1){
+            if (i != fields.length - 1) {
                 sql.append(",");
             }
         }
@@ -195,20 +200,20 @@ public class Dom4jCreateXML {
                 .addText(sql.toString());
     }
 
-    private static void addDeleteElement(Element mapper,Class clazz){
+    private static void addDeleteElement(Element mapper, Class clazz) {
         StringBuilder sql = new StringBuilder("delete from ");
-        sql.append(getSqlName(clazz.getSimpleName(),"m_"))
+        sql.append(getSqlName(clazz.getSimpleName(), "m_"))
                 .append(" where f_id=#{id}");
         mapper.addElement("delete")
-                .addAttribute("id","delete")
+                .addAttribute("id", "delete")
                 .addText(sql.toString());
     }
 
-    private static void addListByFromId(Element mapper,Class clazz){
+    private static void addListByFromId(Element mapper, Class clazz) {
         StringBuilder sql = new StringBuilder("select * from ");
-        sql.append(getSqlName(clazz.getSimpleName(),"m_")).append(" where f_from_id=#{fromId}");
+        sql.append(getSqlName(clazz.getSimpleName(), "m_")).append(" where f_from_id=#{fromId}");
         mapper.addElement("select")
-                .addAttribute("id","listByFromId")
+                .addAttribute("id", "listByFromId")
                 .addText(sql.toString());
     }
 
@@ -232,16 +237,16 @@ public class Dom4jCreateXML {
         }
     }
 
-    private static String getSqlName(String fieldName, String prefix){
+    private static String getSqlName(String fieldName, String prefix) {
         char[] chars = fieldName.toCharArray();
         StringBuilder builder = new StringBuilder(prefix);
-        for(int i=0;i<chars.length;i++){
-            if(chars[i]>='A'&&chars[i]<'Z'){
-                if(i!=0){
+        for (int i = 0; i < chars.length; i++) {
+            if (chars[i] >= 'A' && chars[i] < 'Z') {
+                if (i != 0) {
                     builder.append("_");
                 }
                 builder.append(String.valueOf(chars[i]).toLowerCase());
-            }else{
+            } else {
                 builder.append(chars[i]);
             }
         }

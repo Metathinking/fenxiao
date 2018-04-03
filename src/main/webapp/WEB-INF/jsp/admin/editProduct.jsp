@@ -21,8 +21,6 @@
 <div id="content" class="colM" ng-app="app" ng-controller="editProductController">
     <h1>添加商品</h1>
     <div id="content-main">
-        <%--<form enctype="multipart/form-data" action="/admin/product/edit" method="post" id="product_form" novalidate>--%>
-        <input type='hidden' name='id' value='${product.id}'/>
         <div>
             <fieldset class="module aligned ">
                 <div class="form-row field-name">
@@ -59,6 +57,12 @@
                     <div>
                         <label class="required" for="id_price">价格:</label>
                         <input type="number" name="price" step="any" required id="id_price" ng-model="product.price"/>元
+                    </div>
+                </div>
+                <div class="form-row field-price">
+                    <div>
+                        <label class="required" for="id_score">积分:</label>
+                        <input type="number" name="score" step="any" required id="id_score" ng-model="product.score"/>元
                     </div>
                 </div>
                 <div class="form-row field-image">
@@ -155,19 +159,8 @@
                 <input type="button" value="保存并继续" name="_addanother" ng-click="save(true)"/>
                 <%--<input type="submit" value="Save and continue editing" name="_continue"/>--%>
             </div>
-            <%--<script type="text/javascript"--%>
-            <%--id="django-admin-form-add-constants"--%>
-            <%--src="/resources/js/change_form.js"--%>
 
-            <%--data-model-name="product">--%>
-            <%--</script>--%>
-            <%--<script type="text/javascript"--%>
-            <%--id="django-admin-prepopulated-fields-constants"--%>
-            <%--src="/resources/js/prepopulate_init.js"--%>
-            <%--data-prepopulated-fields="[]">--%>
-            <%-- </script> --%>
         </div>
-        <%--</form>--%>
     </div>
     <br class="clear"/>
 </div>
@@ -192,14 +185,6 @@
 <script>
     app.controller("editProductController", function ($scope, $http) {
         $scope.error = "";
-//        private int id;
-//        private String name;
-//        private String xiangXing;//香型
-//        private String rongLiang;//容量
-//        private String duShu;//度数
-//        private double price;//价格
-//        private String image;//图片
-//        private String introduction;//介绍
 
         $scope.product = {
             id: '${product.id}',
@@ -208,6 +193,7 @@
             rongLiang: "${product.rongLiang}",
             duShu: "${product.duShu}",
             price: ${product.price},
+            score:${product.score},
             image: "${product.image}"
         };
 

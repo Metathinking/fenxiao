@@ -2,9 +2,11 @@ package com.hu.fenxiao.type;
 
 public enum OrderStatus {
 
-    XIA_DAN("下单"),
+    NO_PAY("未付款"),
+    PAY("付款"),
     FA_HUO("发货"),
-    WAN_CHENG("完成");
+    WAN_CHENG("完成"),
+    CLOSE("关闭");
 
     private String name;
 

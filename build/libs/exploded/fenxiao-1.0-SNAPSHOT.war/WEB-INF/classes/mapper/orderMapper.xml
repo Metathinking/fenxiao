@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.fenxiao.repository.OrderRepository">
+    <resultMap id="m_order" type="com.hu.fenxiao.domain.Order">
+        <id column="f_id" property="id"/>
+        <result column="f_member_openid" property="memberOpenid"/>
+        <result column="f_member_name" property="memberName"/>
+        <result column="f_phone" property="phone"/>
+        <result column="f_address" property="address"/>
+        <result column="f_grand_total" property="grandTotal"/>
+        <result column="f_order_time" property="orderTime"/>
+        <result column="f_pay_time" property="payTime"/>
+        <result column="f_send_time" property="sendTime"/>
+        <result column="f_status" property="status"/>
+        <result column="f_remark" property="remark"/>
+    </resultMap>
+    <insert id="create"
+            parameterType="com.hu.fenxiao.domain.Order">
+insert into m_order ( f_id,f_member_openid,f_member_name,f_phone,f_address,f_grand_total,
+f_order_time,f_pay_time,f_send_time,f_status,f_remark) values (#{id,jdbcType=INTEGER},
+#{memberOpenid,jdbcType=VARCHAR},#{memberName,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},
+#{address,jdbcType=VARCHAR},#{grandTotal,jdbcType=DOUBLE},#{orderTime,jdbcType=BIGINT},
+#{payTime,jdbcType=BIGINT},#{sendTime,jdbcType=BIGINT},#{status,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR})</insert>
+    <update id="update"
+            parameterType="com.hu.fenxiao.domain.Order">
+update m_order set f_member_openid=#{memberOpenid,jdbcType=VARCHAR},f_member_name=#{memberName,jdbcType=VARCHAR},
+f_phone=#{phone,jdbcType=VARCHAR},f_address=#{address,jdbcType=VARCHAR},f_grand_total=#{grandTotal,jdbcType=DOUBLE},
+f_order_time=#{orderTime,jdbcType=BIGINT},f_pay_time=#{payTime,jdbcType=BIGINT},
+f_send_time=#{sendTime,jdbcType=BIGINT},f_status=#{status,jdbcType=VARCHAR},f_remark=#{remark,jdbcType=VARCHAR}
+where f_id=#{id}</update>
+    <select id="list" resultMap="m_order">select * from m_order order by f_id limit #{start},#{size}</select>
+    <select id="findById" resultMap="m_order">select * from m_order where f_id=#{id}</select>
+    <select id="getCount" resultType="int">select count(f_id) FROM m_order</select>
+    <select id="getMaxId" resultType="int">select IFNULL(max(f_id),10000) FROM m_order</select>
+</mapper>

@@ -576,6 +576,20 @@ ul.messagelist li.error {
     background-position: 5px 12px;
 }
 
+.successnote {
+    font-size: 14px;
+    font-weight: 700;
+    display: block;
+    padding: 10px 12px;
+    margin: 0 0 10px 0;
+    color: #3c763d;
+    border: 1px solid #3c763d;
+    border-radius: 4px;
+    background-color: #fff;
+    background-position: 5px 12px;
+}
+
+
 ul.errorlist {
     margin: 0 0 4px;
     padding: 0;

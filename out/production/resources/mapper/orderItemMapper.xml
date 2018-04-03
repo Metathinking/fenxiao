@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.fenxiao.repository.OrderItemRepository">
+    <resultMap id="m_order_item" type="com.hu.fenxiao.domain.OrderItem">
+        <id column="f_id" property="id"/>
+        <result column="f_order_id" property="orderId"/>
+        <result column="f_product_id" property="productId"/>
+        <result column="f_name" property="name"/>
+        <result column="f_xiang_xing" property="xiangXing"/>
+        <result column="f_rong_liang" property="rongLiang"/>
+        <result column="f_du_shu" property="duShu"/>
+        <result column="f_price" property="price"/>
+        <result column="f_image" property="image"/>
+        <result column="f_introduction" property="introduction"/>
+        <result column="f_quantity" property="quantity"/>
+        <result column="f_total_price" property="totalPrice"/>
+    </resultMap>
+    <insert id="create" parameterType="com.hu.fenxiao.domain.OrderItem">
+insert into m_order_item ( f_id,f_order_id,f_product_id,f_name,f_xiang_xing,
+f_rong_liang,f_du_shu,f_price,f_image,f_introduction,f_quantity,f_total_price)
+values (#{id,jdbcType=INTEGER},#{orderId,jdbcType=INTEGER},#{productId,jdbcType=INTEGER},
+#{name,jdbcType=VARCHAR},#{xiangXing,jdbcType=VARCHAR},#{rongLiang,jdbcType=VARCHAR},
+#{duShu,jdbcType=VARCHAR},#{price,jdbcType=DOUBLE},#{image,jdbcType=VARCHAR},
+#{introduction,jdbcType=VARCHAR},#{quantity,jdbcType=INTEGER},#{totalPrice,jdbcType=DOUBLE})
+</insert>
+    <select id="list" resultMap="m_order_item">
+select * from m_order_item where f_order_id=#{orderId} order by f_id
+</select>
+    <select id="getMaxId" resultType="int">
+select IFNULL(max(f_id),10000) FROM m_order_item
+</select>
+</mapper>

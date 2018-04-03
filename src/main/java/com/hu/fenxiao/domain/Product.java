@@ -1,7 +1,5 @@
 package com.hu.fenxiao.domain;
 
-import java.util.List;
-
 public class Product {
 
     private int id;
@@ -11,8 +9,17 @@ public class Product {
     private String duShu;//度数
     private double price;//价格
     private String image;//图片
+    private int score;//购买产品获取积分
 //    private List<String> imageList;
     private String introduction;//介绍
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
     public double getPrice() {
         return price;

@@ -15,7 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("admin/product")
@@ -46,7 +48,7 @@ public class ProductController {
     }
 
     /**
-     * @param product //     * @param isContinue 是否继续编辑
+     * @param product
      * @return
      */
     @RequestMapping(value = "edit", method = RequestMethod.POST)

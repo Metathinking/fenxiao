@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.fenxiao.repository.MemberRepository">
+    <resultMap id="m_member" type="com.hu.fenxiao.domain.Member">
+        <id column="f_id" property="id"/>
+        <result column="f_name" property="name"/>
+        <result column="f_phone" property="phone"/>
+        <result column="f_address" property="address"/>
+        <result column="f_unionid" property="unionid"/>
+        <result column="f_openid" property="openid"/>
+        <result column="f_nickname" property="nickname"/>
+        <result column="f_sex" property="sex"/>
+        <result column="f_province" property="province"/>
+        <result column="f_city" property="city"/>
+        <result column="f_country" property="country"/>
+        <result column="f_headimgurl" property="headimgurl"/>
+        <result column="f_time" property="f_time"/>
+    </resultMap>
+    <insert id="create" parameterType="com.hu.fenxiao.domain.Member">
+insert into m_member ( f_id,f_name,f_phone,f_address,f_unionid,f_openid,f_nickname,f_sex,
+f_province,f_city,f_country,f_headimgurl)
+values (#{id,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{address,jdbcType=VARCHAR},
+#{unionid,jdbcType=VARCHAR},#{openid,jdbcType=VARCHAR},#{nickname,jdbcType=VARCHAR},#{sex,jdbcType=INTEGER},
+#{province,jdbcType=VARCHAR},#{city,jdbcType=VARCHAR},#{country,jdbcType=VARCHAR},#{headimgurl,jdbcType=VARCHAR},
+#{time,jdbcType=BIGINT})
+</insert>
+    <update id="update" parameterType="com.hu.fenxiao.domain.Member">
+update m_member set f_name=#{name,jdbcType=VARCHAR},f_phone=#{phone,jdbcType=VARCHAR},
+f_address=#{address,jdbcType=VARCHAR},f_unionid=#{unionid,jdbcType=VARCHAR},f_openid=#{openid,jdbcType=VARCHAR},
+f_nickname=#{nickname,jdbcType=VARCHAR},f_sex=#{sex,jdbcType=INTEGER},f_province=#{province,jdbcType=VARCHAR},
+f_city=#{city,jdbcType=VARCHAR},f_country=#{country,jdbcType=VARCHAR},f_headimgurl=#{headimgurl,jdbcType=VARCHAR},
+f_time=#{time,jdbcType=BIGINT}
+where f_id=#{id}
+</update>
+    <select id="list" resultMap="m_member">select * from m_member order by f_id limit #{start},#{size}</select>
+    <select id="findByOpenId" resultMap="m_member">select * from m_member where f_openid=#{openid}</select>
+    <select id="getCount" resultType="int">select count(f_id) FROM m_member</select>
+    <select id="getMaxId" resultType="int">select IFNULL(max(f_id),10000) FROM m_member</select>
+</mapper>
