@@ -33,6 +33,10 @@
         <put-attribute name="content" value="/WEB-INF/jsp/admin/manufacturer.jsp"/>
     </definition>
 
+    <definition name="admin/member" extends="baseLayout">
+        <put-attribute name="title" value="会员列表"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/member.jsp"/>
+    </definition>
     <definition name="admin/orderList" extends="baseLayout">
         <put-attribute name="title" value="Products"/>
         <put-attribute name="content" value="/WEB-INF/jsp/admin/orderList.jsp"/>

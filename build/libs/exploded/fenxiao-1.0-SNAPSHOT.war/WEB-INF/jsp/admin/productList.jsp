@@ -11,7 +11,7 @@
 
 <div class="breadcrumbs">
     <a href="/admin/">首页</a>
-    &rsaquo; <a href="/admin/product/list">商品列表</a>
+    &rsaquo; 商品列表
 </div>
 <!-- Content -->
 <div id="content" class="flex">
@@ -25,24 +25,11 @@
             </li>
         </ul>
         <div class="module" id="changelist">
-            <form id="changelist-form" method="post" novalidate><input type='hidden' name='csrfmiddlewaretoken'
-                                                                       value='Bg6NhNLw9OlQVBmqdhC8r39bQD7qfxO4FnwUzB3EAZyHFwfuKBkHdH3ajFq1o2mK'/>
-                <%--<div class="actions">--%>
-                <%--<label>Action: <select name="action" required>--%>
-                <%--<option value="" selected>---------</option>--%>
-                <%--<option value="delete_selected">Delete selected products</option>--%>
-                <%--</select></label><input type="hidden" name="select_across" value="0" class="select-across" />--%>
-                <%--<button type="submit" class="button" title="Run the selected action" name="index" value="0">Go</button>--%>
-                <%--<span class="action-counter" data-actions-icnt="1">0 of 1 selected</span>--%>
-                <%--</div>--%>
+            <form id="changelist-form" method="post" novalidate>
                 <div class="results">
                     <table id="result_list">
                         <thead>
                         <tr>
-                            <%--<th scope="col"  class="action-checkbox-column">--%>
-                            <%--<div class="text"><span><input type="checkbox" id="action-toggle" /></span></div>--%>
-                            <%--<div class="clear"></div>--%>
-                            <%--</th>--%>
                             <th scope="col" class="sortable column-name">
                                 <div class="text"><a href="?o=1">名称</a></div>
                                 <div class="clear"></div>
@@ -72,8 +59,6 @@
                         <tbody>
                         <c:forEach items="${list}" var="product">
                         <tr class="row1">
-                            <%--<td class="action-checkbox"><input type="checkbox" name="_selected_action" value="1"--%>
-                                                               <%--class="action-select"/></td>--%>
                             <th class="field-name"><a href="/admin/music/product/1/change/">${product.name}</a></th>
                             <td class="field-xiangXing">${product.xiangXing}</td>
                             <td class="field-rongLiang">${product.rongLiang} ml</td>

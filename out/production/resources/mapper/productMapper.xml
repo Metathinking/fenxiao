@@ -13,7 +13,7 @@
         <result column="f_introduction" property="introduction"/>
     </resultMap>
     <insert id="create" parameterType="com.hu.fenxiao.domain.Product">
-insert into m_product ( f_id,f_name,f_xiang_xing,f_rong_liang,f_du_shu,f_price,f_image,f_introduction)
+insert into m_product ( f_id,f_name,f_xiang_xing,f_rong_liang,f_du_shu,f_price,f_image,f_introduction,f_score)
 values (#{id,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},#{xiangXing,jdbcType=VARCHAR},#{rongLiang,jdbcType=VARCHAR},
 #{duShu,jdbcType=VARCHAR},#{price,jdbcType=DOUBLE},#{image,jdbcType=VARCHAR},#{introduction,jdbcType=VARCHAR},
 #{score,jdbcType=INTEGER})

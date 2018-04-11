@@ -40,6 +40,10 @@ public class FileController {
             String filePath = saveUploadImage(request.getSession().getServletContext(), file);
             String contextPath = request.getContextPath();
             String serverUrl = request.getScheme() + "://" + request.getServerName() + contextPath;
+            int serverPort = request.getServerPort();
+            if (serverPort != 80) {
+                serverUrl += ":" + serverPort;
+            }
             return new Tip(true, 100, "保存成功", serverUrl + filePath);
         } catch (Exception e) {
             return ExceptionTipHandler.handler(e);

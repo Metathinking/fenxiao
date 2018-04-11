@@ -154,6 +154,9 @@
                     </div>
                 </div>
             </fieldset>
+            <p class="errornote" ng-if="error">
+                {{error}}
+            </p>
             <div class="submit-row">
                 <input type="button" value="保存" class="default" name="_save" ng-click="save(false)"/>
                 <input type="button" value="保存并继续" name="_addanother" ng-click="save(true)"/>
@@ -185,7 +188,6 @@
 <script>
     app.controller("editProductController", function ($scope, $http) {
         $scope.error = "";
-
         $scope.product = {
             id: '${product.id}',
             name: "${product.name}",
@@ -258,7 +260,7 @@
         //保存文章 end
         $scope.reset = function () {
             $scope.error = "";
-            $scope.article = {};
+            $scope.product = {};
             $scope.imageController.images = [];
             $scope.imageController.uploader.queue = [];
             window.editor.html('');

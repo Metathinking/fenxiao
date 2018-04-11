@@ -43,34 +43,25 @@
 <!-- Container -->
 <div id="container">
 
-
     <!-- Header -->
     <div id="header">
         <div id="branding">
-
-            <h1 id="site-name"><a href="/admin/">Django administration</a></h1>
-
+            <h1 id="site-name"><a href="/admin/">后台管理</a></h1>
         </div>
-
-
         <div id="user-tools">
-
-            Welcome,
+            欢迎,
             <strong>admin</strong>.
-
             <a href="/admin/product/list">商品管理</a> /
-            <a href="/">会员管理</a> /
+            <a href="/admin/member/list">会员管理</a> /
             <a href="/admin/order/list">订单管理</a> /
             <a href="/">抽成设置</a> /
             <a href="/admin/manufacturer/edit">厂商信息</a> /
-
             <a href="/admin/change_password/">密码修改</a> /
             <a href="/admin/logout/">退出</a>
         </div>
 
     </div>
     <!-- END Header -->
-
 
         <tiles:insertAttribute name="content"/>
         <tiles:insertAttribute name="footer"/>
