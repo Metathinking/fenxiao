@@ -9,7 +9,7 @@ public class CartItem {
     private int productId;
     private String name;
     private int quantity;
-    private int price;
+    private double price;
     private double totalPrice;
     private String productImage;
 
@@ -61,11 +61,11 @@ public class CartItem {
         this.quantity = quantity;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 

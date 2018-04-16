@@ -17,8 +17,6 @@ public class HomeController {
     @Autowired
     private ProductService productService;
 
-
-
     @RequestMapping(value = {"","home","index"},method = RequestMethod.GET)
     public String home(Model model){
         List<Product> productList = productService.list();

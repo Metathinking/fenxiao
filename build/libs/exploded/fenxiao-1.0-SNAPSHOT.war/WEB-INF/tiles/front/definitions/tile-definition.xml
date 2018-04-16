@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <definition name="front_base_layout" template="/WEB-INF/tiles/front/template/baseLayout.jsp">
+        <put-attribute name="title" value="首页"/>
+        <put-attribute name="content" value=""/>
+        <put-attribute name="footer" value="/WEB-INF/tiles/front/template/footer.jsp"/>
+    </definition>
+
+    <definition name="front/index" extends="front_base_layout">
+        <put-attribute name="title" value="首页"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/front/index.jsp"/>
+    </definition>
+
+    <definition name="front/product_detail" extends="front_base_layout">
+        <put-attribute name="title" value="商品详情"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/front/product_detail.jsp"/>
+        <put-attribute name="footer" value=""/>
+    </definition>
+
+    <definition name="front/cart" extends="front_base_layout">
+        <put-attribute name="title" value="购物车"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/front/cart.jsp"/>
+    </definition>
+
+    <definition name="front/member" extends="front_base_layout">
+        <put-attribute name="title" value="会员中心"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/front/member.jsp"/>
+    </definition>
+</tiles-definitions>

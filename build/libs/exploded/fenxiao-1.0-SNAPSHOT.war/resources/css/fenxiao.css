@@ -1,0 +1,173 @@
+
+body{
+    margin-bottom: 100px;
+    background: #dcdcdc;
+    min-width: 600px;
+    height: 100%;
+}
+footer .main_footer{
+    background: #ea412e;
+    color: #FFFFFF;
+}
+
+/*.container-fluid {*/
+    /*padding-left: 0;*/
+    /*padding-right: 0;*/
+/*}*/
+/*.footer-block{*/
+/*background: #FFFFFF;*/
+/*}*/
+.footer-block .active{
+    color: #9f3025;
+    text-decoration: none;
+}
+footer .main_footer a{
+    color: #FFFFFF;
+}
+footer .main_footer a:hover,footer a:active{
+    color: #9f3025;
+    text-decoration: none;
+}
+@media (max-width: 600px) {
+    .carousel-control{
+        display: none;
+    }
+}
+/* header*/
+.header{
+    padding: 0;
+}
+header img{
+    max-height: 300px;
+}
+/* content */
+.description{
+    padding-left: 2%;
+}
+.price , .shop-cart{
+    color: #9f3025;
+}
+.shop-cart:hover{
+    color: #f24931;
+}
+.shop-cart{
+    padding-top: 8px;
+    font-size: 24px;
+}
+.product_item{
+    background: #FFFFFF;
+    border:1px solid #d3d3d3;
+}
+.product_img{
+    max-width: 100%;
+}
+/* cart item start*/
+.cart_body{
+    padding: 0;
+}
+.cart_item{
+    background: #FFFFFF;
+    margin: 5px 0;
+    padding: auto 0;
+}
+.cart_item_delete{
+    color: #d6d6d6;
+    float: right;
+    margin-right: 15px
+}
+.cart_item_calc{
+    position: relative;
+    bottom: 0;
+}
+.cart_item_count{
+    width:3rem;
+}
+.cart_img{
+    /*max-width: 100%;*/
+    margin: 0  auto;
+}
+.cart_description{
+    padding-top: 2%;
+    height: 200px;
+}
+.select{
+    color: #9f3025;
+}
+.check{
+    padding: auto auto;
+}
+/*cart item end*/
+/* mine start*/
+.mine_header{
+    padding: 0;
+    background: #ea412e;
+    color: #FFFFFF;
+}
+.mine_header_img{
+    width:30%;
+    margin: 20px;
+}
+.mine_item{
+    background: #FFFFFF;
+    padding: 10px;
+    font-size: 24px;
+    color: #4b4b4b;
+    border: 1px solid #dcdcdc;
+}
+/* mine end*/
+/* order list start*/
+.order{
+    margin-top: 8%;
+}
+.order_nav {
+    background: #FFFFFF;
+}
+.order_nav a{
+    color: #292929;
+}
+.order_nav .active{
+    border-bottom: 3px solid #9f3025;
+}
+.order_nav .active a{
+    color: #9f3025;
+}
+.order_body{
+    padding: 0;
+}
+.order_item{
+    background: #FFFFFF;
+    font-size: 18px;
+    padding: 8px;
+}
+.order_item_status{
+    color: #9f3025;
+    float: right;
+    margin-right: 15px;
+}
+.order_item_time{
+    color: #4b4b4b;
+}
+/* order list end*/
+/* product detail start*/
+.product_body{
+    background: #FFFFFF;
+}
+.product_price{
+    font-size: 16px;
+    color: #9f3025;
+}
+.product_footer{
+    background: #FFFFFF;
+    padding: 4px;
+    color: #4b4b4b;
+}
+.product_add{
+    border-radius: 25px;
+}
+/* product detail end*/
+/* 订单确认 start*/
+.info{
+    border-bottom: 5px dashed #7d7d7d;
+}
+
+/* 订单确认 end*/

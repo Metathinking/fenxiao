@@ -12,19 +12,21 @@
         <result column="f_product_image" property="productImage"/>
     </resultMap>
     <insert id="create" parameterType="com.hu.fenxiao.domain.CartItem">
-insert into m_cart_item ( f_id,f_cart_id,f_product_id,f_name,f_quantity,f_price,f_total_price)
+insert into m_cart_item ( f_id,f_cart_id,f_product_id,f_name,f_quantity,f_price,f_total_price,f_product_image)
  values (#{id,jdbcType=INTEGER},#{cartId,jdbcType=INTEGER},#{productId,jdbcType=INTEGER},
- #{name,jdbcType=VARCHAR},#{quantity,jdbcType=INTEGER},#{price,jdbcType=INTEGER},#{totalPrice,jdbcType=DOUBLE},
+ #{name,jdbcType=VARCHAR},#{quantity,jdbcType=INTEGER},#{price,jdbcType=DOUBLE},#{totalPrice,jdbcType=DOUBLE},
  #{productImage,jdbcType=VARCHAR})
 </insert>
     <update id="update" parameterType="com.hu.fenxiao.domain.CartItem">
 update m_cart_item set f_cart_id=#{cartId,jdbcType=INTEGER},f_product_id=#{productId,jdbcType=INTEGER},
-f_name=#{name,jdbcType=VARCHAR},f_quantity=#{quantity,jdbcType=INTEGER},f_price=#{price,jdbcType=INTEGER},
+f_name=#{name,jdbcType=VARCHAR},f_quantity=#{quantity,jdbcType=INTEGER},f_price=#{price,jdbcType=DOUBLE},
 f_total_price=#{totalPrice,jdbcType=DOUBLE},f_product_image=#{productImage,jdbcType=VARCHAR} where f_id=#{id}
 </update>
     <select id="list" resultMap="m_cart_item">
-select * from m_cart_item order by f_id limit #{start},#{size}
+select * from m_cart_item where f_cart_id=#{cartId} order by f_id
 </select>
     <select id="findById" resultMap="m_cart_item">select * from m_cart_item where f_id=#{id}</select>
+    <select id="findByCartIdAndProductId" resultMap="m_cart_item">select * from m_cart_item where f_cart_id=#{cartId} and f_product_id=#{productId}</select>
     <select id="getMaxId" resultType="int">select IFNULL(max(f_id),10000) FROM m_cart_item</select>
+    <delete id="delete">delete from m_cart_item where f_id=#{id}</delete>
 </mapper>

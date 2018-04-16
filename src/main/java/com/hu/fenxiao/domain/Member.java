@@ -1,5 +1,8 @@
 package com.hu.fenxiao.domain;
 
+/**
+ * 用户会员
+ */
 public class Member {
 
     private int id;
