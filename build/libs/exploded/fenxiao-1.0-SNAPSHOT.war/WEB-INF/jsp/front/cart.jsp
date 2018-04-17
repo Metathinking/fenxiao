@@ -12,7 +12,7 @@
     <%--<c:forEach items="${cartItemList}" var="cartItem">--%>
     <div class="row cart_item" ng-repeat="cartItem in cartItemList">
         <div class="col-xs-1">
-            <input type="checkbox" class=""/>
+            <input type="checkbox" class="" ng-model="cartItem.select"/>
             <%--<h3 class="text-center select check">--%>
             <%--<span class="glyphicon glyphicon-check"></span>--%>
             <%--</h3>--%>
@@ -23,19 +23,19 @@
             </a>
         </div>
         <div class="col-xs-7 cart_description">
-            <h4>{{cartItem.name}}
-                <a class="cart_item_delete">
+            <h4><span ng-bind="cartItem.name"></span>
+                <a class="cart_item_delete" ng-click="deleteCartItem(cartItem.id,$index)">
                     <span class="glyphicon glyphicon-trash"></span>
                 </a>
             </h4>
             <%--<p>容量：500ml</p>--%>
-            <p class="price">价格：￥{{cartItem.price}}</p>
+            <p class="price">价格：￥<span ng-bind="cartItem.price"></span></p>
             <div class="cart_item_calc">
-                <button type="button" ng-click="">
+                <button type="button" ng-click="cartItemReduce(cartItem)">
                     <span class="glyphicon glyphicon-minus"></span>
                 </button>
-                <input type="text" class="cart_item_count"/>
-                <button type="button" ng-click="">
+                <input type="text" class="cart_item_count" ng-value="cartItem.quantity"/>
+                <button type="button" ng-click="cartItemRaise(cartItem)">
                     <span class="glyphicon glyphicon-plus"></span>
                 </button>
             </div>
@@ -45,7 +45,7 @@
 
     <div>
         <div class="">
-            <button type="button">结算</button>
+            <button type="button" ng-click="orderSubmit()">结算</button>
         </div>
     </div>
 
@@ -71,7 +71,6 @@
             }).error(function (response, status, headers, cfg) {
 
             });
-            alert("sss");
         };
 
         /**
@@ -100,7 +99,7 @@
          * 删除购物车商品
          * @param _productId
          */
-        $scope.deleteCartItem = function (_cartItemId) {
+        $scope.deleteCartItem = function (_cartItemId, _index) {
             var req = {
                 method: 'POST',
                 url: context + '/member/cart/delete?cartItemId=' + _cartItemId,
@@ -109,6 +108,7 @@
                 },
             }
             $http(req).success(function (response, status, headers, cfg) {
+                $scope.cartItemList.splice(_index, 1);
                 if (response.success) {
 
                 } else {
@@ -119,17 +119,17 @@
             });
         };
 
-        $scope.cartItemRaise = function (_productId) {
+        $scope.cartItemRaise = function (_cartItem) {
             var req = {
                 method: 'POST',
-                url: context + '/member/cart/raise?productId=' + _productId,
+                url: context + '/member/cart/raise?productId=' + _cartItem.productId,
                 headers: {
                     'Content-Type': 'application/json'
                 },
             }
             $http(req).success(function (response, status, headers, cfg) {
                 if (response.success) {
-
+                    _cartItem.quantity = response.data;
                 } else {
 
                 }
@@ -138,17 +138,17 @@
             });
         };
 
-        $scope.cartItemReduce = function (_productId) {
+        $scope.cartItemReduce = function (_cartItem) {
             var req = {
                 method: 'POST',
-                url: context + '/member/cart/add?productId=' + _productId,
+                url: context + '/member/cart/reduce?productId=' + _cartItem.productId,
                 headers: {
                     'Content-Type': 'application/json'
                 },
             }
             $http(req).success(function (response, status, headers, cfg) {
                 if (response.success) {
-
+                    _cartItem.quantity = response.data;
                 } else {
 
                 }
@@ -156,5 +156,19 @@
 
             });
         };
-    })
+
+        /**
+         * 结算
+         */
+        $scope.orderSubmit = function () {
+            var ids = [];
+            for (var i = 0; i < $scope.cartItemList.length; i++) {
+                if ($scope.cartItemList[i].select == true) {
+                    ids.push($scope.cartItemList[i].id);
+                }
+            }
+            window.location.href = "/member/order/be_sure?ids=" + ids;
+
+        };
+    });
 </script>

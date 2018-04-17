@@ -28,4 +28,10 @@
         <put-attribute name="title" value="会员中心"/>
         <put-attribute name="content" value="/WEB-INF/jsp/front/member.jsp"/>
     </definition>
+
+    <definition name="front/order_affirm" extends="front_base_layout">
+        <put-attribute name="title" value="订单确认"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/front/order_affirm.jsp"/>
+        <put-attribute name="footer" value=""/>
+    </definition>
 </tiles-definitions>

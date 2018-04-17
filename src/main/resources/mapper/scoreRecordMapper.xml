@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.fenxiao.repository.ScoreRecordRepository">
+    <resultMap id="m_score_record" type="com.hu.fenxiao.domain.ScoreRecord">
+        <id column="f_id" property="id"/>
+        <result column="f_member_id" property="memberId"/>
+        <result column="f_order_id" property="orderId"/>
+        <result column="f_before" property="before"/>
+        <result column="f_score" property="score"/>
+        <result column="f_after" property="after"/>
+        <result column="f_reason" property="reason"/>
+        <result column="f_time" property="time"/>
+        <result column="f_status" property="status"/>
+    </resultMap>
+    <insert id="create"
+            parameterType="com.hu.fenxiao.domain.ScoreRecord">insert into m_score_record ( f_id,f_member_id,f_order_id,f_before,f_score,f_after,f_reason,f_time,f_status) values (#{id,jdbcType=INTEGER},#{memberId,jdbcType=INTEGER},#{orderId,jdbcType=INTEGER},#{before,jdbcType=DOUBLE},#{score,jdbcType=DOUBLE},#{after,jdbcType=DOUBLE},#{reason,jdbcType=VARCHAR},#{time,jdbcType=BIGINT},#{status,jdbcType=VARCHAR})</insert>
+    <update id="update"
+            parameterType="com.hu.fenxiao.domain.ScoreRecord">update m_score_record set f_member_id=#{memberId,jdbcType=INTEGER},f_order_id=#{orderId,jdbcType=INTEGER},f_before=#{before,jdbcType=DOUBLE},f_score=#{score,jdbcType=DOUBLE},f_after=#{after,jdbcType=DOUBLE},f_reason=#{reason,jdbcType=VARCHAR},f_time=#{time,jdbcType=BIGINT},f_status=#{status,jdbcType=VARCHAR} where f_id=#{id}</update>
+    <select id="list"
+            resultMap="m_score_record">select * from m_score_record order by f_id limit #{start},#{size}</select>
+    <select id="findById" resultMap="m_score_record">select * from m_score_record where f_id=#{id}</select>
+    <select id="getCount" resultType="int">select count(f_id) FROM m_score_record</select>
+    <select id="getMaxId" resultType="int">select IFNULL(max(f_id),10000) FROM m_score_record</select>
+</mapper>

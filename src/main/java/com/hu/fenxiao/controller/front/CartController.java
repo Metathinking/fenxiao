@@ -20,7 +20,6 @@ public class CartController {
 
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String list() {
-
         return "front/cart";
     }
 
@@ -58,14 +57,14 @@ public class CartController {
     @ResponseBody
     public Tip raise(@RequestParam String productId) {
         int quantity = cartItemService.raise(10001, productId);
-        return new Tip(true, 100, quantity + "");
+        return new Tip(true, 100, quantity + "",quantity);
     }
 
     @RequestMapping(value = "reduce", method = RequestMethod.POST)
     @ResponseBody
     public Tip reduce(@RequestParam String productId) {
         int quantity = cartItemService.reduce(10001, productId);
-        return new Tip(true, 100, quantity + "");
+        return new Tip(true, 100, quantity + "",quantity);
     }
 
     /**

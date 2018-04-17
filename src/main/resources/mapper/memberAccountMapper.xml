@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.fenxiao.repository.MemberAccountRepository">
+    <resultMap id="m_member_account" type="com.hu.fenxiao.domain.MemberAccount">
+        <id column="f_id" property="id"/>
+        <result column="f_money" property="money"/>
+        <result column="f_score" property="score"/>
+    </resultMap>
+    <insert id="create"
+            parameterType="com.hu.fenxiao.domain.MemberAccount">insert into m_member_account ( f_id,f_money,f_score) values (#{id,jdbcType=INTEGER},#{money,jdbcType=DOUBLE},#{score,jdbcType=INTEGER})</insert>
+    <update id="update"
+            parameterType="com.hu.fenxiao.domain.MemberAccount">update m_member_account set f_money=#{money,jdbcType=DOUBLE},f_score=#{score,jdbcType=INTEGER} where f_id=#{id}</update>
+    <select id="list"
+            resultMap="m_member_account">select * from m_member_account order by f_id limit #{start},#{size}</select>
+    <select id="findById" resultMap="m_member_account">select * from m_member_account where f_id=#{id}</select>
+    <select id="getCount" resultType="int">select count(f_id) FROM m_member_account</select>
+</mapper>
