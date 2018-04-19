@@ -6,18 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/angular-1.5.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fenxiao.js"></script>
-<script charset="utf-8" src="${pageContext.request.contextPath}/resources/js/angular-file-upload.min.js"></script>
-<script charset="utf-8" src="${pageContext.request.contextPath}/resources/js/controller.js"></script>
-<script charset="utf-8" src="${pageContext.request.contextPath}/resources/kindeditor/kindeditor-all-min.js"></script>
-<script charset="utf-8" src="${pageContext.request.contextPath}/resources/kindeditor/lang/zh-CN.js"></script>
+
 <div class="breadcrumbs">
     <a href="/admin/">首页</a>
     &rsaquo; 厂商信息
 </div>
 <!-- Content -->
-<div id="content" class="colM" ng-app="app" ng-controller="manufacturerController">
+<div id="content" class="colM"  ng-controller="manufacturerController">
     <h1>厂商信息</h1>
     <div id="content-main">
         <div>

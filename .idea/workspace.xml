@@ -6,55 +6,65 @@
     </artifacts-to-build>
   </component>
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/editProduct.jsp" description="&lt;script&gt;&#10;&#10;&lt;/script&gt;" line="187" />
+    <bookmark url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/product_edit.jsp" description="&lt;script&gt;&#10;&#10;&lt;/script&gt;" line="187" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f81dd4f2-7d1d-49b0-8ae7-ff2a0c2252ac" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/front/CartController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/CartItemRepository.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/CartItemService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/CartItemServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/cart.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/mine.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/front/definitions/tile-definition.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/front/template/baseLayout.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/front/template/footer.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/fenxiao.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/font-awesome.min.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/jsp/front/index_1.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/jsp/front/order_list.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/jsp/front/order_over.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/jsp/front/order_submit.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/jsp/front/product_detail.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/jsp/index.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/tiles/definitions/tile-definition.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/tiles/template/baseLayout.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/tiles/template/footer.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/resources/css/2002_1.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/resources/css/bannerAnimation.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/resources/css/front_base.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/index_1.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/order_list.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/order_over.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/order_submit.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/2002_1.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/bannerAnimation.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/resources/css/front_base.min.css" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/com/hu/fenxiao/controller/front/HomeController.class" afterPath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/com/hu/fenxiao/controller/front/HomeController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/hu/fenxiao/controller/front/HomeController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/hu/fenxiao/controller/front/HomeController.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminScoreProductController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminYongJinSettingController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/ScoreProduct.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/MemberAccountRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/MoneyRecordRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/ScoreProductRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/ScoreRecordRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/YongJinSettingRepository.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/ScoreProductService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/YongJinSettingService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/ScoreProductServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/YongJinSettingServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mapper/moneyRecordMapper.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mapper/scoreProductMapper.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mapper/yongJinSettingMapper.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/score_product_edit.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/score_product_list.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/yong_jin_setting.jsp" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/jsp/admin/editProduct.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/jsp/admin/productList.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/com/hu/fenxiao/domain/Cart.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/com/hu/fenxiao/domain/ProductImage.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/classes/com/hu/fenxiao/domain/vo/CartVO.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/Cart.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/ProductImage.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/vo/CartVO.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/com/hu/fenxiao/controller/admin/AdminProductController.class" afterPath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/com/hu/fenxiao/controller/admin/AdminProductController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/com/hu/fenxiao/controller/front/OrderController.class" afterPath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/com/hu/fenxiao/controller/front/OrderController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/com/hu/fenxiao/domain/MoneyRecord.class" afterPath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/com/hu/fenxiao/domain/MoneyRecord.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/com/hu/fenxiao/domain/ScoreRecord.class" afterPath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/com/hu/fenxiao/domain/ScoreRecord.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/com/hu/fenxiao/service/OrderService.class" afterPath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/com/hu/fenxiao/service/OrderService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/com/hu/fenxiao/service/impl/OrderServiceImpl.class" afterPath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/com/hu/fenxiao/service/impl/OrderServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/hu/fenxiao/controller/admin/AdminProductController.class" afterPath="$PROJECT_DIR$/out/production/classes/com/hu/fenxiao/controller/admin/AdminProductController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/hu/fenxiao/domain/MoneyRecord.class" afterPath="$PROJECT_DIR$/out/production/classes/com/hu/fenxiao/domain/MoneyRecord.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/hu/fenxiao/domain/ScoreRecord.class" afterPath="$PROJECT_DIR$/out/production/classes/com/hu/fenxiao/domain/ScoreRecord.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/classes/com/hu/fenxiao/domain/YongJinSetting.class" afterPath="$PROJECT_DIR$/out/production/classes/com/hu/fenxiao/domain/YongJinSetting.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/classes/Dom4jCreateXML.class" afterPath="$PROJECT_DIR$/out/test/classes/Dom4jCreateXML.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/dispatcher-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/jsp/front/index.jsp" afterPath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/jsp/front/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/front/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/front/HomeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/CartItem.java" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/CartItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/Member.java" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/Member.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/cartItemMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/cartItemMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/product_detail.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/product_detail.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/index.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/definitions/tile-definition.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/admin/definitions/tile-definition.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/template/baseLayout.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/admin/template/baseLayout.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/template/footer.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/admin/template/footer.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/mapper/cartItemMapper.xml" afterPath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/classes/mapper/cartItemMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/jsp/front/order_affirm.jsp" afterPath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/jsp/front/order_affirm.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/tiles/admin/definitions/tile-definition.xml" afterPath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/tiles/admin/definitions/tile-definition.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/tiles/admin/template/baseLayout.jsp" afterPath="$PROJECT_DIR$/build/libs/exploded/fenxiao-1.0-SNAPSHOT.war/WEB-INF/tiles/admin/template/baseLayout.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminProductController.java" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminProductController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/MoneyRecord.java" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/MoneyRecord.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/ScoreRecord.java" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/ScoreRecord.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/YongJinSetting.java" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/YongJinSetting.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/OrderServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/OrderServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/memberAccountMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/memberAccountMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/scoreRecordMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/scoreRecordMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/manufacturer.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/manufacturer.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/admin/definitions/tile-definition.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/admin/definitions/tile-definition.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/admin/template/baseLayout.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/admin/template/baseLayout.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/Dom4jCreateXML.java" afterPath="$PROJECT_DIR$/src/test/java/Dom4jCreateXML.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/editProduct.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/product_edit.jsp" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/productList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/product_list.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -90,44 +100,114 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Dom4jCreateXML.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/Dom4jCreateXML.java">
+      <file leaf-file-name="baseLayout.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/admin/template/baseLayout.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="30" column="111" lean-forward="true" selection-start-line="30" selection-start-column="111" selection-end-line="30" selection-end-column="111" />
+            <state relative-caret-position="440">
+              <caret line="35" column="113" lean-forward="false" selection-start-line="35" selection-start-column="113" selection-end-line="35" selection-end-column="113" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="memberAccountMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/memberAccountMapper.xml">
+      <file leaf-file-name="score_product_edit.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/score_product_edit.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="38" lean-forward="false" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+            <state relative-caret-position="176">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="13" selection-end-column="113" />
               <folding>
-                <marker date="1523939525002" expanded="true" signature="550:685" ph="insert into m_member_account... " />
-                <marker date="1523939525002" expanded="true" signature="783:894" ph="update m_mem... " />
-                <marker date="1523939525002" expanded="true" signature="967:1034" ph="select * fro... m_member_account" />
-                <marker date="1523939525002" expanded="true" signature="1099:1146" ph="select * fro... m_member_account" />
-                <marker date="1523939525002" expanded="true" signature="1199:1239" ph="select count... m_member_account" />
+                <marker date="1524044167769" expanded="true" signature="11109:11118" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scoreRecordMapper.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/scoreRecordMapper.xml">
+      <file leaf-file-name="product_edit.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/product_edit.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="10" column="53" lean-forward="true" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+            <state relative-caret-position="176">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="13" selection-end-column="113" />
               <folding>
-                <marker date="1523939524911" expanded="true" signature="870:1220" ph="insert into m_score_record... " />
-                <marker date="1523939524911" expanded="true" signature="1316:1642" ph="update m_sco... " />
-                <marker date="1523939524911" expanded="true" signature="1713:1778" ph="select * fro... m_score_record" />
-                <marker date="1523939524911" expanded="true" signature="1841:1886" ph="select * fro... m_score_record" />
-                <marker date="1523939524911" expanded="true" signature="1939:1977" ph="select count... m_score_record" />
-                <marker date="1523939524911" expanded="true" signature="2030:2080" ph="select IFNUL... m_score_record" />
+                <marker date="1524044167659" expanded="true" signature="11036:11045" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/home.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home2.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/home2.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1848">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="change_password.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/change_password.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="YongJinSettingServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/YongJinSettingServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="181">
+              <caret line="21" column="60" lean-forward="true" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminYongJinSettingController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminYongJinSettingController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="203">
+              <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="yong_jin_setting.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/yong_jin_setting.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="365">
+              <caret line="57" column="60" lean-forward="false" selection-start-line="57" selection-start-column="60" selection-end-line="57" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="yongJinSettingMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/yongJinSettingMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="335">
+              <caret line="17" column="62" lean-forward="false" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
+              <folding>
+                <marker date="1524044292058" expanded="true" signature="652:881" ph="insert into m_yong_jin_setting... " />
+                <marker date="1524044292058" expanded="true" signature="970:1175" ph="update m_yon... " />
+                <marker date="1524044292058" expanded="true" signature="1244:1293" ph="select * fro... m_yong_jin_setting" />
+                <marker date="1524044292058" expanded="true" signature="1348:1390" ph="select count... m_yong_jin_setting" />
               </folding>
             </state>
           </provider>
@@ -138,16 +218,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Jsp File" />
         <option value="Interface" />
         <option value="Class" />
-        <option value="Jsp File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dianying</find>
-      <find>static</find>
       <find>static/admin</find>
       <find>1.5</find>
       <find>selectTitleImage</find>
@@ -173,6 +251,11 @@
       <find>cartController</find>
       <find>alert</find>
       <find>changeInfo</find>
+      <find>/admin</find>
+      <find>price</find>
+      <find>editProductController</find>
+      <find>DOUBLE</find>
+      <find>angular</find>
     </findStrings>
     <replaceStrings>
       <replace>resources</replace>
@@ -541,39 +624,11 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/MoneyRecord.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/TiXianRecord.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminManufacturerController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/shouhuo_info.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/order_submit.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/order_over.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/order_list.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/css/front.css" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/FileController.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/productMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/editProduct.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/index_1.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/template/baseLayout.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/admin/definitions/tile-definition.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/index.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/admin/template/footer.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/front/HomeController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/dispatcher-servlet.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/Member.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/CartItem.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/mine.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/front/MemberController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/front/template/footer.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/front/ScoreProductController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/product_detail.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/CartItemRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/front/ProductController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/ProductService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/ProductServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/ProductRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminProductController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/CartItemService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/CartItemServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/front/template/baseLayout.jsp" />
@@ -587,11 +642,39 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/order_affirm.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/cartItemMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/MemberRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/OrderServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/ScoreRecord.java" />
-        <option value="$PROJECT_DIR$/src/test/java/Dom4jCreateXML.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/memberAccountMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/MoneyRecord.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/ScoreRecord.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/scoreRecordMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/moneyRecordMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/MoneyRecoredRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/ScoreRecordRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/MoneyRecordRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/MemberAccountRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/OrderServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/ScoreProduct.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/ScoreProductService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/ScoreProdutServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/ScoreProdctServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/ScoreProductRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/ScoreProductServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/scoreProductMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminProductController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminScoreProductController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/score_product_list.jsp" />
+        <option value="$PROJECT_DIR$/src/test/java/Dom4jCreateXML.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/YongJinSettingRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/YongJinSettingService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/YongJinSettingServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminYongJinSettingController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/admin/definitions/tile-definition.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/YongJinSetting.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/manufacturer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/admin/template/baseLayout.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/score_product_edit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/product_edit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/yongJinSettingMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/yong_jin_setting.jsp" />
       </list>
     </option>
   </component>
@@ -632,6 +715,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -694,6 +778,18 @@
               <item name="hu" type="462c0819:PsiDirectoryNode" />
               <item name="fenxiao" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fenxiao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fenxiao" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="hu" type="462c0819:PsiDirectoryNode" />
+              <item name="fenxiao" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="fenxiao" type="b2602c69:ProjectViewProjectNode" />
@@ -801,6 +897,74 @@
               <item name="fenxiao" type="b2602c69:ProjectViewProjectNode" />
               <item name="fenxiao" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fenxiao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fenxiao" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fenxiao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fenxiao" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fenxiao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fenxiao" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="tiles" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fenxiao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fenxiao" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="tiles" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fenxiao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fenxiao" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="tiles" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="definitions" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fenxiao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fenxiao" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+              <item name="tiles" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="template" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fenxiao" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fenxiao" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
@@ -814,10 +978,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -827,15 +990,14 @@
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.58850574" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hy" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../wx" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\workspace\fenxiao\src\main\webapp\resources\css" />
-      <recent name="G:\workspace\fenxiao\src\main\webapp\WEB-INF\tiles\front" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\workspace\fenxiao\src\main\webapp\WEB-INF\jsp\front" />
-      <recent name="G:\workspace\fenxiao\src\main\webapp\resources\img" />
-      <recent name="G:\workspace\fenxiao\src\main\webapp\resources\js" />
+      <recent name="G:\workspace\fenxiao\src\main\webapp\WEB-INF\tiles\admin" />
+      <recent name="G:\workspace\fenxiao\src\main\webapp\WEB-INF\jsp\admin" />
+      <recent name="G:\workspace\fenxiao\src\main\webapp\WEB-INF\jsp" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.hu.fenxiao.util" />
@@ -844,11 +1006,12 @@
       <recent name="com.hu.fenxiao.service.impl" />
       <recent name="com.hu.fenxiao.service" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\workspace\fenxiao\src\main\webapp\WEB-INF\jsp\front" />
-      <recent name="G:\workspace\fenxiao\src\main\webapp\WEB-INF\tiles\admin" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\workspace\fenxiao\src\main\webapp\WEB-INF\jsp\admin" />
-      <recent name="G:\workspace\fenxiao\src\main\webapp\WEB-INF\jsp" />
+      <recent name="G:\workspace\fenxiao\src\main\webapp\resources\css" />
+      <recent name="G:\workspace\fenxiao\src\main\webapp\WEB-INF\tiles\front" />
+      <recent name="G:\workspace\fenxiao\src\main\webapp\WEB-INF\jsp\front" />
+      <recent name="G:\workspace\fenxiao\src\main\webapp\resources\img" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -863,7 +1026,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Dom4jCreateXML">
+  <component name="RunManager" selected="Tomcat Server.tomcat">
     <configuration name="Dom4jCreateXML" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="Dom4jCreateXML" />
@@ -1060,11 +1223,12 @@
       <workItem from="1522979027108" duration="7796000" />
       <workItem from="1523230074096" duration="1209000" />
       <workItem from="1523409117404" duration="38722000" />
+      <workItem from="1523939763166" duration="13558000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="134525000" />
+    <option name="totallyTimeSpent" value="148083000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1079,7 +1243,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24886535" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6535163" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52487135" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32761577" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1090,7 +1254,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5608919" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32526475" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25189108" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933104" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1111,147 +1275,59 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/ProductServiceImpl.java</url>
-          <line>37</line>
-          <properties />
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="54" />
+      <option name="time" value="56" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/Product.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/CartItemServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        <state relative-caret-position="-814">
+          <caret line="22" column="16" lean-forward="false" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/OrderServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="114" column="7" lean-forward="false" selection-start-line="114" selection-start-column="7" selection-end-line="114" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/ScoreRecordRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="21" column="42" lean-forward="false" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
           <folding>
-            <element signature="e#527#528#0" expanded="false" />
-            <element signature="e#555#556#0" expanded="false" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/ProductService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        <state relative-caret-position="154">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="18" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/util/ExceptionTipHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="13" column="22" lean-forward="false" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/member.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1149">
-          <caret line="53" column="6" lean-forward="false" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/front/MemberController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/ScoreProductService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
-          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <caret line="10" column="41" lean-forward="false" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/admin/DateTimeShortcuts.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/ScoreProductRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/admin/RelatedObjectLookups.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-660">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/cancel.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/front/ScoreProductController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#382#383#0" expanded="true" />
-            <element signature="e#407#408#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1408">
-          <caret line="64" column="123" lean-forward="false" selection-start-line="64" selection-start-column="85" selection-end-line="64" selection-end-column="123" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/product_detail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-176">
-          <caret line="10" column="56" lean-forward="false" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/productMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="25" column="71" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="71" />
-          <folding>
-            <marker date="1522838289573" expanded="true" signature="857:1222" ph="insert into m_product... " />
-            <marker date="1522838289573" expanded="true" signature="1304:1645" ph="update m_pro... " />
-            <marker date="1522838289573" expanded="true" signature="1679:1717" ph="delete from " />
-            <marker date="1522838289573" expanded="true" signature="1892:1929" ph="select * fro... m_product" />
-            <marker date="1522838289573" expanded="true" signature="1988:2028" ph="select * fro... m_product" />
-            <marker date="1522838289573" expanded="true" signature="2081:2126" ph="select IFNUL... m_product" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/CartItemRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="23" column="92" lean-forward="false" selection-start-line="23" selection-start-column="92" selection-end-line="23" selection-end-column="92" />
+        <state relative-caret-position="132">
+          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
@@ -1260,93 +1336,101 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/ProductRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" column="18" lean-forward="false" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminProductController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="950">
-          <caret line="81" column="48" lean-forward="false" selection-start-line="81" selection-start-column="48" selection-end-line="81" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/ProductService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="18" selection-end-column="12" />
+        <state relative-caret-position="161">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="22" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/ProductServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="247">
+          <caret line="21" column="42" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="21" selection-end-column="42" />
           <folding>
-            <element signature="e#948#949#0" expanded="true" />
-            <element signature="e#1001#1002#0" expanded="true" />
+            <element signature="e#694#695#0" expanded="false" />
+            <element signature="e#743#744#0" expanded="false" />
+            <element signature="e#780#781#0" expanded="false" />
+            <element signature="e#824#825#0" expanded="false" />
+            <element signature="e#859#860#0" expanded="false" />
+            <element signature="e#906#907#0" expanded="false" />
+            <element signature="e#948#949#0" expanded="false" />
+            <element signature="e#1001#1002#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/front/ProductController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/ScoreProductServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="20" column="47" lean-forward="false" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+        <state relative-caret-position="396">
+          <caret line="42" column="50" lean-forward="false" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#777#778#0" expanded="false" />
+            <element signature="e#836#837#0" expanded="false" />
+            <element signature="e#887#888#0" expanded="false" />
+            <element signature="e#936#937#0" expanded="false" />
+            <element signature="e#990#991#0" expanded="false" />
+            <element signature="e#1042#1043#0" expanded="false" />
+            <element signature="e#1103#1104#0" expanded="false" />
+            <element signature="e#1161#1162#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/fenxiao.js">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/scoreProductMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-528">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="484">
+          <caret line="22" column="43" lean-forward="false" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+          <folding>
+            <marker date="1523965724354" expanded="true" signature="651:867" ph="insert into m_score_product... " />
+            <marker date="1523965724354" expanded="true" signature="954:1146" ph="update m_sco... " />
+            <marker date="1523965724354" expanded="true" signature="1181:1225" ph="delete from " />
+            <marker date="1523965724354" expanded="true" signature="1286:1329" ph="select * fro... m_score_product" />
+            <marker date="1523965724354" expanded="true" signature="1395:1441" ph="select * fro... m_score_product" />
+            <marker date="1523965724354" expanded="true" signature="1495:1546" ph="select IFNUL... m_score_product" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/fenxiao.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/front/template/footer.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="9" column="62" lean-forward="false" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/util/Tip.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/base.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
-          <caret line="25" column="11" lean-forward="false" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+          <caret line="219" column="1" lean-forward="false" selection-start-line="219" selection-start-column="1" selection-end-line="219" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/front.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/product_list.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="13" lean-forward="false" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/ScoreProduct.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding>
+            <element signature="e#272#273#0" expanded="true" />
+            <element signature="e#297#298#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/score_product_list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="616">
+          <caret line="40" column="72" lean-forward="false" selection-start-line="40" selection-start-column="72" selection-end-line="40" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/Cart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1359,137 +1443,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/front/CartController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#657#658#0" expanded="true" />
-            <element signature="e#692#693#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/CartItemService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/front/definitions/tile-definition.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="33" column="75" lean-forward="false" selection-start-line="33" selection-start-column="75" selection-end-line="33" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/CartItemServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="22" column="16" lean-forward="false" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/front/template/baseLayout.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-aop/4.0.3.RELEASE/78f4f26931a651f8236758b449355fe9204d96c1/spring-aop-4.0.3.RELEASE-sources.jar!/org/springframework/aop/support/AopUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="321" column="0" lean-forward="false" selection-start-line="321" selection-start-column="0" selection-end-line="321" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/ImageInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
-          <caret line="921" column="0" lean-forward="false" selection-start-line="921" selection-start-column="0" selection-end-line="921" selection-end-column="0" />
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/cart.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/FileController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/front/OrderController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="50" column="25" lean-forward="true" selection-start-line="50" selection-start-column="25" selection-end-line="50" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/OrderService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/OrderRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="9" column="17" lean-forward="false" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/OrderItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/front/order_affirm.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="57" column="68" lean-forward="false" selection-start-line="57" selection-start-column="68" selection-end-line="57" selection-end-column="68" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#nav#0;n#footer#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="e#2991#2998#1#HTML" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/cartItemMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="19" column="8" lean-forward="false" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-          <folding>
-            <marker date="1523938552739" expanded="true" signature="821:1271" ph="insert into m_cart_item... " />
-            <marker date="1523938552739" expanded="true" signature="1373:1692" ph="update m_car... " />
-            <marker date="1523938552739" expanded="true" signature="1750:1815" ph="select * fro... m_cart_item" />
-            <marker date="1523938552739" expanded="true" signature="1876:1918" ph="select * fro... m_cart_item" />
-            <marker date="1523938552739" expanded="true" signature="1994:2075" ph="select * fro... m_cart_item" />
-            <marker date="1523938552739" expanded="true" signature="2128:2175" ph="select IFNUL... m_cart_item" />
-            <marker date="1523938552739" expanded="true" signature="2209:2249" ph="delete from " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        <state relative-caret-position="119">
+          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1502,125 +1467,287 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/OrderServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/vo/CartVO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="104" column="28" lean-forward="true" selection-start-line="104" selection-start-column="28" selection-end-line="104" selection-end-column="28" />
+        <state relative-caret-position="88">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/OrderItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="43" column="17" lean-forward="false" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
           <folding>
-            <element signature="e#1442#1453#0" expanded="true" />
+            <element signature="e#842#843#0" expanded="false" />
+            <element signature="e#884#885#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/type/OrderStatus.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="13" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/ProductImage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
-          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/ScoreRecord.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+        <state relative-caret-position="638">
+          <caret line="41" column="28" lean-forward="false" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
           <folding>
-            <element signature="e#445#446#0" expanded="true" />
-            <element signature="e#478#479#0" expanded="true" />
-            <element signature="e#506#507#0" expanded="true" />
-            <element signature="e#538#539#0" expanded="true" />
-            <element signature="e#569#570#0" expanded="true" />
-            <element signature="e#614#615#0" expanded="true" />
-            <element signature="e#654#655#0" expanded="true" />
-            <element signature="e#685#686#0" expanded="true" />
-            <element signature="e#715#716#0" expanded="true" />
-            <element signature="e#758#759#0" expanded="true" />
-            <element signature="e#796#797#0" expanded="true" />
-            <element signature="e#829#830#0" expanded="true" />
-            <element signature="e#858#859#0" expanded="true" />
-            <element signature="e#902#903#0" expanded="true" />
-            <element signature="e#938#939#0" expanded="true" />
-            <element signature="e#970#971#0" expanded="true" />
-            <element signature="e#998#999#0" expanded="true" />
-            <element signature="e#1040#1041#0" expanded="true" />
-            <element signature="e#1074#1075#0" expanded="true" />
-            <element signature="e#1106#1107#0" expanded="true" />
-            <element signature="e#1134#1135#0" expanded="true" />
-            <element signature="e#1176#1177#0" expanded="true" />
-            <element signature="e#1210#1211#0" expanded="true" />
-            <element signature="e#1243#1244#0" expanded="true" />
-            <element signature="e#1272#1273#0" expanded="true" />
-            <element signature="e#1316#1317#0" expanded="true" />
-            <element signature="e#1352#1353#0" expanded="true" />
-            <element signature="e#1381#1382#0" expanded="true" />
-            <element signature="e#1408#1409#0" expanded="true" />
-            <element signature="e#1446#1447#0" expanded="true" />
-            <element signature="e#1478#1479#0" expanded="true" />
-            <element signature="e#1511#1512#0" expanded="true" />
-            <element signature="e#1540#1541#0" expanded="true" />
-            <element signature="e#1584#1585#0" expanded="true" />
-            <element signature="e#1620#1621#0" expanded="true" />
+            <element signature="e#846#847#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/MemberRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/TiXianRecord.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/Member.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-154">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/MemberAccount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        <state relative-caret-position="242">
+          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/Dom4jCreateXML.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="30" column="111" lean-forward="true" selection-start-line="30" selection-start-column="111" selection-end-line="30" selection-end-column="111" />
+        <state relative-caret-position="308">
+          <caret line="37" column="0" lean-forward="true" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/memberAccountMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/repository/YongJinSettingRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" column="38" lean-forward="false" selection-start-line="1" selection-start-column="38" selection-end-line="1" selection-end-column="38" />
+        <state relative-caret-position="308">
+          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
           <folding>
-            <marker date="1523939525002" expanded="true" signature="550:685" ph="insert into m_member_account... " />
-            <marker date="1523939525002" expanded="true" signature="783:894" ph="update m_mem... " />
-            <marker date="1523939525002" expanded="true" signature="967:1034" ph="select * fro... m_member_account" />
-            <marker date="1523939525002" expanded="true" signature="1099:1146" ph="select * fro... m_member_account" />
-            <marker date="1523939525002" expanded="true" signature="1199:1239" ph="select count... m_member_account" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/scoreRecordMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/ManagerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="10" column="53" lean-forward="true" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+        <state relative-caret-position="88">
+          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="39" column="34" lean-forward="false" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
           <folding>
-            <marker date="1523939524911" expanded="true" signature="870:1220" ph="insert into m_score_record... " />
-            <marker date="1523939524911" expanded="true" signature="1316:1642" ph="update m_sco... " />
-            <marker date="1523939524911" expanded="true" signature="1713:1778" ph="select * fro... m_score_record" />
-            <marker date="1523939524911" expanded="true" signature="1841:1886" ph="select * fro... m_score_record" />
-            <marker date="1523939524911" expanded="true" signature="1939:1977" ph="select count... m_score_record" />
-            <marker date="1523939524911" expanded="true" signature="2030:2080" ph="select IFNUL... m_score_record" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminOrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminMemberController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminScoreProductController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="39" column="32" lean-forward="false" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/YongJinSettingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminManufacturerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="40" column="5" lean-forward="true" selection-start-line="21" selection-start-column="3" selection-end-line="40" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/admin/definitions/tile-definition.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="47" column="47" lean-forward="false" selection-start-line="47" selection-start-column="47" selection-end-line="47" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/fenxiao.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/manufacturer.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <marker date="1524044139379" expanded="true" signature="8088:8097" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/domain/YongJinSetting.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="10" selection-end-column="48" />
+          <folding>
+            <element signature="e#268#269#0" expanded="true" />
+            <element signature="e#293#294#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles/admin/template/baseLayout.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="35" column="113" lean-forward="false" selection-start-line="35" selection-start-column="113" selection-end-line="35" selection-end-column="113" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/score_product_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="13" selection-end-column="113" />
+          <folding>
+            <marker date="1524044167769" expanded="true" signature="11109:11118" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/product_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="13" selection-end-column="113" />
+          <folding>
+            <marker date="1524044167659" expanded="true" signature="11036:11045" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/home.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/home2.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1848">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/change_password.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/yongJinSettingMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="17" column="62" lean-forward="false" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
+          <folding>
+            <marker date="1524044292058" expanded="true" signature="652:881" ph="insert into m_yong_jin_setting... " />
+            <marker date="1524044292058" expanded="true" signature="970:1175" ph="update m_yon... " />
+            <marker date="1524044292058" expanded="true" signature="1244:1293" ph="select * fro... m_yong_jin_setting" />
+            <marker date="1524044292058" expanded="true" signature="1348:1390" ph="select count... m_yong_jin_setting" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/controller/admin/AdminYongJinSettingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="28" column="42" lean-forward="false" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/admin/yong_jin_setting.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="57" column="60" lean-forward="false" selection-start-line="57" selection-start-column="60" selection-end-line="57" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hu/fenxiao/service/impl/YongJinSettingServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="21" column="60" lean-forward="true" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -3,21 +3,14 @@ package com.hu.fenxiao.controller.admin;
 import com.hu.fenxiao.domain.Product;
 import com.hu.fenxiao.service.ProductService;
 import com.hu.fenxiao.util.ExceptionTipHandler;
-import com.hu.fenxiao.util.FileUtil;
 import com.hu.fenxiao.util.Tip;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("admin/product")
@@ -30,7 +23,7 @@ public class AdminProductController {
     public String list(Model model) {
         List<Product> list = productService.list();
         model.addAttribute("list", list);
-        return "admin/productList";
+        return "admin/product_list";
     }
 
     @RequestMapping(value = "edit", method = RequestMethod.GET)
@@ -44,7 +37,7 @@ public class AdminProductController {
             }
             model.addAttribute("product", product);
         }
-        return "admin/editProduct";
+        return "admin/product_edit";
     }
 
     /**

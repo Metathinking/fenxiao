@@ -5,9 +5,9 @@ public class ScoreRecord {
     private int id;
     private int memberId;
     private int orderId;//订单编号
-    private double before;//变动之前的金额
-    private double score;//变动金额 ，可为负
-    private double after;//变动之后的金额
+    private int before;//变动之前的金额
+    private int score;//变动金额 ，可为负
+    private int after;//变动之后的金额
     private String reason;//变动原因
     private long time;//时间
     /**
@@ -39,27 +39,27 @@ public class ScoreRecord {
         this.orderId = orderId;
     }
 
-    public double getBefore() {
+    public int getBefore() {
         return before;
     }
 
-    public void setBefore(double before) {
+    public void setBefore(int before) {
         this.before = before;
     }
 
-    public double getScore() {
+    public int getScore() {
         return score;
     }
 
-    public void setScore(double score) {
+    public void setScore(int score) {
         this.score = score;
     }
 
-    public double getAfter() {
+    public int getAfter() {
         return after;
     }
 
-    public void setAfter(double after) {
+    public void setAfter(int after) {
         this.after = after;
     }
 

@@ -22,14 +22,18 @@ public class Dom4jCreateXML {
 
     public static void main(String[] args) {
 //        createMapper(Product.class,directoryPath, Arrays.asList(INSERT,LIST,UPDATE,DELETE,GET_MAX_ID,FIND_BY_ID));
+//        createMapper(ScoreProduct.class,directoryPath, Arrays.asList(INSERT,LIST,UPDATE,DELETE,GET_MAX_ID,FIND_BY_ID));
 //        createMapper(Manager.class,directoryPath,Arrays.asList(INSERT,UPDATE,GET_MAX_ID,GET_COUNT,FIND_BY_ID));
 //        createMapper(Manufacturer.class,directoryPath,Arrays.asList(INSERT,UPDATE,FIND_BY_ID));
 //        createMapper(Member.class, directoryPath, Arrays.asList(INSERT, UPDATE, LIST, GET_COUNT, GET_MAX_ID, FIND_BY_ID));
 //        createMapper(CartItem.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_MAX_ID,FIND_BY_ID));
 //        createMapper(Order.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_MAX_ID,GET_COUNT,FIND_BY_ID));
 //        createMapper(OrderItem.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_COUNT,GET_MAX_ID,FIND_BY_ID));
-        createMapper(MemberAccount.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_COUNT,FIND_BY_ID));
-        createMapper(ScoreRecord.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_COUNT,FIND_BY_ID,GET_MAX_ID));
+//        createMapper(MemberAccount.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_COUNT,FIND_BY_ID));
+//        createMapper(ScoreRecord.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_COUNT,FIND_BY_ID,GET_MAX_ID));
+//        createMapper(MoneyRecord.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_COUNT,FIND_BY_ID,GET_MAX_ID));
+        createMapper(YongJinSetting.class,directoryPath,Arrays.asList(INSERT,UPDATE,GET_COUNT,FIND_BY_ID));
+
     }
 
     private static final String INSERT = "INSERT";

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.fenxiao.repository.ScoreProductRepository">
+    <resultMap id="m_score_product" type="com.hu.fenxiao.domain.ScoreProduct">
+        <id column="f_id" property="id"/>
+        <result column="f_name" property="name"/>
+        <result column="f_image" property="image"/>
+        <result column="f_score" property="score"/>
+        <result column="f_introduction" property="introduction"/>
+    </resultMap>
+    <insert id="create" parameterType="com.hu.fenxiao.domain.ScoreProduct">
+insert into m_score_product ( f_id,f_name,f_image,f_score,f_introduction)
+values (#{id,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},#{image,jdbcType=VARCHAR},
+#{score,jdbcType=INTEGER},#{introduction,jdbcType=VARCHAR})
+</insert>
+    <update id="update" parameterType="com.hu.fenxiao.domain.ScoreProduct">
+update m_score_product set f_name=#{name,jdbcType=VARCHAR},f_image=#{image,jdbcType=VARCHAR},
+f_score=#{score,jdbcType=INTEGER},f_introduction=#{introduction,jdbcType=VARCHAR}
+where f_id=#{id}
+</update>
+    <delete id="delete">delete from m_score_product where f_id=#{id}</delete>
+    <select id="list" resultMap="m_score_product">
+select * from m_score_product order by f_id
+</select>
+    <select id="findById" resultMap="m_score_product">
+select * from m_score_product where f_id=#{id}
+</select>
+    <select id="getMaxId" resultType="int">select IFNULL(max(f_id),10000) FROM m_score_product</select>
+</mapper>

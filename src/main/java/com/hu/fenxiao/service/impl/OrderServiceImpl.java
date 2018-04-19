@@ -112,7 +112,7 @@ public class OrderServiceImpl implements OrderService {
         order.setGrandTotal(grandTotal);
         orderRepository.create(order);
         orderItemRepository.create(itemList);
-
+//todo
 //        private long payTime;//付款时间
 //        private long sendTime;//发货时间
     }

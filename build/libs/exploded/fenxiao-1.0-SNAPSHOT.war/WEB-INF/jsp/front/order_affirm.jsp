@@ -43,6 +43,10 @@
         </div>
         <%--</c:forEach>--%>
     </div>
+    <div class="form-group">
+        <label>备注</label>
+        <input type="text" class="form-control" ng-model="orderVO.order.remark"/>
+    </div>
     <footer>
         <nav class="navbar navbar-default navbar-fixed-bottom ">
             <div class="">
@@ -51,7 +55,7 @@
                         <h4 class="price">￥<span ng-bind="orderVO.order.grandTotal"></span></h4>
                     </div>
                     <div class="col-xs-4 text-center" style="padding-top: 8px">
-                        <a class="btn btn-danger" ng-click="submit">
+                        <a class="btn btn-danger" ng-click="submit()">
                             提交订单
                         </a>
                     </div>
@@ -96,7 +100,11 @@
 </div>
 <script>
     app.controller("affirm", function ($scope, $http) {
-
+        $scope.info={
+            memberName:'',
+            phone:'',
+            address:''
+        };
         $scope.init = function () {
             var req = {
                 method: 'POST',
@@ -108,6 +116,11 @@
             $http(req).success(function (response, status, headers, cfg) {
                 if (response.success) {
                     $scope.orderVO = response.data;
+                    $scope.info={
+                        memberName: $scope.orderVO.order.memberName,
+                        phone: $scope.orderVO.order.phone,
+                        address: $scope.orderVO.order.address
+                    };
                 } else {
 
                 }
@@ -116,18 +129,30 @@
             });
         };
 
-        $scope.info={
-            memberName:'',
-            phone:'',
-            address:''
-        };
+
         $scope.changeInfo = function () {
             $scope.orderVO.order.memberName=$scope.info.memberName;
             $scope.orderVO.order.phone=$scope.info.phone;
             $scope.orderVO.order.address=$scope.info.address;
         };
         $scope.submit = function () {
+            var req = {
+                method: 'POST',
+                url: context + '/member/order/submit',
+                data:$scope.orderVO,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            }
+            $http(req).success(function (response, status, headers, cfg) {
+                if (response.success) {
+                    //todo 跳转支付功能
+                } else {
 
+                }
+            }).error(function (response, status, headers, cfg) {
+
+            });
         };
     })
 </script>

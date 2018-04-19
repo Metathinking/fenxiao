@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.fenxiao.repository.YongJinSettingRepository">
+    <resultMap id="m_yong_jin_setting" type="com.hu.fenxiao.domain.YongJinSetting">
+        <id column="f_id" property="id"/>
+        <result column="f_second_to_first" property="secondToFirst"/>
+        <result column="f_member_to_first" property="memberToFirst"/>
+        <result column="f_member_to_second" property="memberToSecond"/>
+    </resultMap>
+    <insert id="create" parameterType="com.hu.fenxiao.domain.YongJinSetting">
+insert into m_yong_jin_setting ( f_id,f_second_to_first,f_member_to_first,f_member_to_second)
+values (#{id,jdbcType=INTEGER},#{secondToFirst,jdbcType=INTEGER},#{memberToFirst,jdbcType=INTEGER},
+#{memberToSecond,jdbcType=INTEGER})
+</insert>
+    <update id="update" parameterType="com.hu.fenxiao.domain.YongJinSetting">
+update m_yong_jin_setting
+set f_second_to_first=#{secondToFirst,jdbcType=INTEGER},
+f_member_to_first=#{memberToFirst,jdbcType=INTEGER},f_member_to_second=#{memberToSecond,jdbcType=INTEGER}
+where f_id=#{id}
+</update>
+    <select id="findById" resultMap="m_yong_jin_setting">
+select * from m_yong_jin_setting where f_id=#{id}
+</select>
+    <select id="getCount" resultType="int">
+select count(f_id) FROM m_yong_jin_setting
+</select>
+</mapper>

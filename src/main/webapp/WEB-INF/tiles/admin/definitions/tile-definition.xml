@@ -13,14 +13,24 @@
         <put-attribute name="content" value="/WEB-INF/jsp/admin/home.jsp"/>
     </definition>
 
-    <definition name="admin/productList" extends="baseLayout">
+    <definition name="admin/product_list" extends="baseLayout">
         <put-attribute name="title" value="商品列表"/>
-        <put-attribute name="content" value="/WEB-INF/jsp/admin/productList.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/product_list.jsp"/>
     </definition>
 
-    <definition name="admin/editProduct" extends="baseLayout">
+    <definition name="admin/score_product_list" extends="baseLayout">
+        <put-attribute name="title" value="积分商品列表"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/score_product_list.jsp"/>
+    </definition>
+
+    <definition name="admin/product_edit" extends="baseLayout">
         <put-attribute name="title" value="商品编辑"/>
-        <put-attribute name="content" value="/WEB-INF/jsp/admin/editProduct.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/product_edit.jsp"/>
+    </definition>
+
+    <definition name="admin/score_product_edit" extends="baseLayout">
+        <put-attribute name="title" value="积分商品编辑"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/score_product_edit.jsp"/>
     </definition>
 
     <definition name="admin/change_password" extends="baseLayout">
@@ -31,6 +41,12 @@
     <definition name="admin/manufacturer" extends="baseLayout">
         <put-attribute name="title" value="厂商信息"/>
         <put-attribute name="content" value="/WEB-INF/jsp/admin/manufacturer.jsp"/>
+    </definition>
+
+
+    <definition name="admin/yong_jin_setting" extends="baseLayout">
+        <put-attribute name="title" value="佣金设置"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/yong_jin_setting.jsp"/>
     </definition>
 
     <definition name="admin/member" extends="baseLayout">

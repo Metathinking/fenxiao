@@ -6,20 +6,20 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/angular-1.5.0.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fenxiao.js"></script>
-<script charset="utf-8" src="${pageContext.request.contextPath}/resources/js/angular-file-upload.min.js"></script>
-<script charset="utf-8" src="${pageContext.request.contextPath}/resources/js/controller.js"></script>
-<script charset="utf-8" src="${pageContext.request.contextPath}/resources/kindeditor/kindeditor-all-min.js"></script>
-<script charset="utf-8" src="${pageContext.request.contextPath}/resources/kindeditor/lang/zh-CN.js"></script>
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/angular-1.5.0.min.js"></script>--%>
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fenxiao.js"></script>--%>
+<%--<script charset="utf-8" src="${pageContext.request.contextPath}/resources/js/angular-file-upload.min.js"></script>--%>
+<%--<script charset="utf-8" src="${pageContext.request.contextPath}/resources/js/controller.js"></script>--%>
+<%--<script charset="utf-8" src="${pageContext.request.contextPath}/resources/kindeditor/kindeditor-all-min.js"></script>--%>
+<%--<script charset="utf-8" src="${pageContext.request.contextPath}/resources/kindeditor/lang/zh-CN.js"></script>--%>
 <div class="breadcrumbs">
     <a href="/admin/">首页</a>
-    &rsaquo; <a href="/admin/product/list/">商品列表</a>
-    &rsaquo; 添加商品
+    &rsaquo; <a href="/admin/score_product/list/">积分商品列表</a>
+    &rsaquo; 添加积分商品
 </div>
 <!-- Content -->
 <div id="content" class="colM" ng-app="app" ng-controller="editProductController">
-    <h1>添加商品</h1>
+    <h1>添加积分商品</h1>
     <div id="content-main">
         <div>
             <fieldset class="module aligned ">
@@ -30,39 +30,39 @@
                                ng-model="product.name"/>
                     </div>
                 </div>
-                <div class="form-row field-xiangXing">
-                    <div>
-                        <label class="required" for="id_xiangXing">香型:</label>
-                        <input type="text" name="xiangXing" class="vTextField" maxlength="100" required
-                               ng-model="product.xiangXing"
-                               id="id_xiangXing"/>
-                    </div>
-                </div>
-                <div class="form-row field-rongLiang">
-                    <div>
-                        <label class="required" for="id_rongLiang">容量:</label>
-                        <input type="text" name="rongLiang" class="vTextField" maxlength="100" required
-                               ng-model="product.rongLiang"
-                               id="id_rongLiang"/> ml
-                    </div>
-                </div>
-                <div class="form-row field-duShu">
-                    <div>
-                        <label class="required" for="id_duShu">度数:</label>
-                        <input type="text" name="duShu" class="vTextField" maxlength="100" required id="id_duShu"
-                               ng-model="product.duShu"/>度
-                    </div>
-                </div>
-                <div class="form-row field-price">
-                    <div>
-                        <label class="required" for="id_price">价格:</label>
-                        <input type="number" name="price" step="any" required id="id_price" ng-model="product.price"/>元
-                    </div>
-                </div>
+                <%--<div class="form-row field-xiangXing">--%>
+                    <%--<div>--%>
+                        <%--<label class="required" for="id_xiangXing">香型:</label>--%>
+                        <%--<input type="text" name="xiangXing" class="vTextField" maxlength="100" required--%>
+                               <%--ng-model="product.xiangXing"--%>
+                               <%--id="id_xiangXing"/>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+                <%--<div class="form-row field-rongLiang">--%>
+                    <%--<div>--%>
+                        <%--<label class="required" for="id_rongLiang">容量:</label>--%>
+                        <%--<input type="text" name="rongLiang" class="vTextField" maxlength="100" required--%>
+                               <%--ng-model="product.rongLiang"--%>
+                               <%--id="id_rongLiang"/> ml--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+                <%--<div class="form-row field-duShu">--%>
+                    <%--<div>--%>
+                        <%--<label class="required" for="id_duShu">度数:</label>--%>
+                        <%--<input type="text" name="duShu" class="vTextField" maxlength="100" required id="id_duShu"--%>
+                               <%--ng-model="product.duShu"/>度--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+                <%--<div class="form-row field-price">--%>
+                    <%--<div>--%>
+                        <%--<label class="required" for="id_price">价格:</label>--%>
+                        <%--<input type="number" name="price" step="any" required id="id_price" ng-model="product.price"/>元--%>
+                    <%--</div>--%>
+                <%--</div>--%>
                 <div class="form-row field-price">
                     <div>
                         <label class="required" for="id_score">积分:</label>
-                        <input type="number" name="score" step="any" required id="id_score" ng-model="product.score"/>元
+                        <input type="number" name="score" step="any" required id="id_score" ng-model="product.score"/>
                     </div>
                 </div>
                 <div class="form-row field-image">
@@ -191,10 +191,6 @@
         $scope.product = {
             id: '${product.id}',
             name: "${product.name}",
-            xiangXing: "${product.xiangXing}",
-            rongLiang: "${product.rongLiang}",
-            duShu: "${product.duShu}",
-            price: ${product.price},
             score:${product.score},
             image: "${product.image}"
         };
@@ -236,7 +232,7 @@
 //                $scope.article.open = isOpen;
             var req = {
                 method: 'POST',
-                url: context + '/admin/product/edit',
+                url: context + '/admin/score_product/edit',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -248,7 +244,7 @@
                         alert(response.msg);
                         $scope.reset();
                     } else {
-                        window.location.href = "/admin/product/list";
+                        window.location.href = "/admin/score_product/list";
                     }
                 } else {
                     $scope.error = response.msg;
