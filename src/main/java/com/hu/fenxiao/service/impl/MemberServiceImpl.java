@@ -15,32 +15,31 @@ public class MemberServiceImpl implements MemberService {
     @Autowired
     private MemberRepository memberRepository;
 
-    @Override
-    public Member create(Member member) {
-        int maxId = memberRepository.getMaxId();
-        maxId++;
-        member.setId(maxId);
-        member.setName(member.getNickname());
-        member.setTime(System.currentTimeMillis());
-        memberRepository.create(member);
-        return member;
-    }
-
-    @Override
-    public void update(Member member) {
-        Member db = memberRepository.findByOpenId(member.getOpenid());
-        db.setName(member.getName());
-        db.setPhone(member.getPhone());
-        db.setAddress(member.getAddress());
-        db.setUnionid(member.getUnionid());
-        db.setNickname(member.getNickname());
-        db.setSex(member.getSex());
-        db.setProvince(member.getProvince());
-        db.setCity(member.getCity());
-        db.setCountry(member.getCountry());
-        db.setHeadimgurl(member.getHeadimgurl());
-        db.setTime(System.currentTimeMillis());
-        memberRepository.update(db);
+    public Member edit(Member member) {
+        Member db = findByOpenId(member.getOpenid());
+        if (db == null) {
+            int maxId = memberRepository.getMaxId();
+            maxId++;
+            member.setId(maxId);
+            member.setName(member.getNickname());
+            member.setTime(System.currentTimeMillis());
+            memberRepository.create(member);
+            return member;
+        } else {
+            db.setName(member.getName());
+            db.setPhone(member.getPhone());
+            db.setAddress(member.getAddress());
+            db.setUnionid(member.getUnionid());
+            db.setNickname(member.getNickname());
+            db.setSex(member.getSex());
+            db.setProvince(member.getProvince());
+            db.setCity(member.getCity());
+            db.setCountry(member.getCountry());
+            db.setHeadimgurl(member.getHeadimgurl());
+            db.setTime(System.currentTimeMillis());
+            memberRepository.update(db);
+            return db;
+        }
     }
 
     @Override

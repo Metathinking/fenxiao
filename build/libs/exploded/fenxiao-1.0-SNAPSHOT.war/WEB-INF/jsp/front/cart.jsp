@@ -22,7 +22,7 @@
                 <img class="media-object cart_img" ng-src="{{cartItem.productImage}}" alt="...">
             </a>
         </div>
-        <div class="col-xs-7 cart_description">
+        <div class="col-xs-6 cart_description">
             <h4><span ng-bind="cartItem.name"></span>
                 <a class="cart_item_delete" ng-click="deleteCartItem(cartItem.id,$index)">
                     <span class="glyphicon glyphicon-trash"></span>

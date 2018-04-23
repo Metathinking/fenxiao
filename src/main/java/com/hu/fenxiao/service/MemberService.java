@@ -7,13 +7,11 @@ import java.util.Map;
 
 public interface MemberService {
 
-    Member create(Member member);
+    Member edit(Member member);
 
-    void update(Member member);
+    List<Member> list(Map<String, Object> params);
 
-    List<Member> list(Map<String,Object> params);
-
-    int getCount(Map<String,Object> params);
+    int getCount(Map<String, Object> params);
 
     Member findByOpenId(String openid);
 

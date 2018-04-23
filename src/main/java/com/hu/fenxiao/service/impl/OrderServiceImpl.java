@@ -6,6 +6,8 @@ import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.repository.*;
 import com.hu.fenxiao.service.OrderService;
 import com.hu.fenxiao.type.OrderStatus;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,8 @@ import java.util.Map;
 
 @Service
 public class OrderServiceImpl implements OrderService {
+
+    private Logger logger= LogManager.getLogger(OrderServiceImpl.class);
 
     @Autowired
     private OrderRepository orderRepository;
@@ -89,10 +93,11 @@ public class OrderServiceImpl implements OrderService {
      * @param orderVO
      */
     @Override
-    public void create(OrderVO orderVO) {
+    public OrderVO create(OrderVO orderVO) {
         int maxId = orderRepository.getMaxId();
         maxId++;
         Order order = orderVO.getOrder();
+        order.setMemberOpenid("11");//todo 模拟
         order.setId(maxId);
         order.setOrderTime(System.currentTimeMillis());
         order.setStatus(OrderStatus.NO_PAY.name());
@@ -112,9 +117,28 @@ public class OrderServiceImpl implements OrderService {
         order.setGrandTotal(grandTotal);
         orderRepository.create(order);
         orderItemRepository.create(itemList);
+        return orderVO;
 //todo
 //        private long payTime;//付款时间
 //        private long sendTime;//发货时间
+    }
+
+    /**
+     * 付款成功，微信通知，可能重复通知，需要判断
+     * @param id
+     * @return
+     */
+    @Override
+    public void paySuccess(String id) {
+        Order db = orderRepository.findById(id);
+        if(db==null){
+            logger.error("订单丢失："+id);
+        }
+        String status = db.getStatus();
+        if (OrderStatus.NO_PAY.name()==status){
+            db.setStatus(OrderStatus.PAY.name());
+            orderRepository.update(db);
+        }
     }
 
     @Override

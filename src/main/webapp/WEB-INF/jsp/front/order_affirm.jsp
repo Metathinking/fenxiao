@@ -14,7 +14,7 @@
             <div class="col-xs-1">
                 <span class="glyphicon glyphicon-map-marker"></span>
             </div>
-            <div class="col-xs-11"  data-toggle="modal" data-target="#addPage">
+            <div class="col-xs-11" data-toggle="modal" data-target="#addPage">
                 <p>收货人：{{orderVO.order.memberName}}</p>
                 <p>电话：{{orderVO.order.phone}}</p>
                 <p>收货地址：{{orderVO.order.address}}</p>
@@ -91,19 +91,21 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="changeInfo()">完成</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="changeInfo()">完成
+                        </button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+<script charset="utf-8" src="${pageContext.request.contextPath}/resources/js/jweixin-1.1.0.js"></script>
 <script>
     app.controller("affirm", function ($scope, $http) {
-        $scope.info={
-            memberName:'',
-            phone:'',
-            address:''
+        $scope.info = {
+            memberName: '',
+            phone: '',
+            address: ''
         };
         $scope.init = function () {
             var req = {
@@ -116,7 +118,7 @@
             $http(req).success(function (response, status, headers, cfg) {
                 if (response.success) {
                     $scope.orderVO = response.data;
-                    $scope.info={
+                    $scope.info = {
                         memberName: $scope.orderVO.order.memberName,
                         phone: $scope.orderVO.order.phone,
                         address: $scope.orderVO.order.address
@@ -131,22 +133,50 @@
 
 
         $scope.changeInfo = function () {
-            $scope.orderVO.order.memberName=$scope.info.memberName;
-            $scope.orderVO.order.phone=$scope.info.phone;
-            $scope.orderVO.order.address=$scope.info.address;
+            $scope.orderVO.order.memberName = $scope.info.memberName;
+            $scope.orderVO.order.phone = $scope.info.phone;
+            $scope.orderVO.order.address = $scope.info.address;
         };
         $scope.submit = function () {
             var req = {
                 method: 'POST',
-                url: context + '/member/order/submit',
-                data:$scope.orderVO,
+                url: context + '/member/order/order_submit',
+                data: $scope.orderVO,
                 headers: {
                     'Content-Type': 'application/json'
                 },
             }
             $http(req).success(function (response, status, headers, cfg) {
                 if (response.success) {
-                    //todo 跳转支付功能
+                    //支付模块 start
+                    function onBridgeReady() {
+                        WeixinJSBridge.invoke(
+                            'getBrandWCPayRequest', {
+                                "appId": "wx0b80f1b0a4c1602f",     //公众号名称，由商户传入
+                                "timeStamp": "1395712654",         //时间戳，自1970年以来的秒数
+                                "nonceStr": "e61463f8efa94090b1f366cccfbbb444", //随机串
+                                "package": "prepay_id=u802345jgfjsdfgsdg888",
+                                "signType": "MD5",         //微信签名方式：
+                                "paySign": "70EA570631E4BB79628FBCA90534C63FF7FADD89" //微信签名
+                            },
+                            function (res) {
+                                if (res.err_msg == "get_brand_wcpay_request:ok") {
+                                }     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
+                            }
+                        );
+                    }
+
+                    if (typeof WeixinJSBridge == "undefined") {
+                        if (document.addEventListener) {
+                            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+                        } else if (document.attachEvent) {
+                            document.attachEvent('WeixinJSBridgeReady', onBridgeReady);
+                            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+                        }
+                    } else {
+                        onBridgeReady();
+                    }
+                    //支付模块 end
                 } else {
 
                 }

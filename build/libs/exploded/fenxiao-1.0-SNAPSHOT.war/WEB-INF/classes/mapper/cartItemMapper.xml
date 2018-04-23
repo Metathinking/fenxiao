@@ -13,12 +13,9 @@
     </resultMap>
     <insert id="create" parameterType="com.hu.fenxiao.domain.CartItem">
 insert into m_cart_item ( f_id,f_cart_id,f_product_id,f_name,f_quantity,f_price,f_total_price,f_product_image)
- values
-        <foreach collection="list" item="item" separator=",">
-  (#{item.id,jdbcType=INTEGER},#{item.cartId,jdbcType=INTEGER},#{item.productId,jdbcType=INTEGER},
- #{item.name,jdbcType=VARCHAR},#{item.quantity,jdbcType=INTEGER},#{item.price,jdbcType=DOUBLE},#{item.totalPrice,jdbcType=DOUBLE},
- #{item.productImage,jdbcType=VARCHAR})
-        </foreach>
+ values(#{id,jdbcType=INTEGER},#{cartId,jdbcType=INTEGER},#{productId,jdbcType=INTEGER},
+ #{name,jdbcType=VARCHAR},#{quantity,jdbcType=INTEGER},#{price,jdbcType=DOUBLE},#{totalPrice,jdbcType=DOUBLE},
+ #{productImage,jdbcType=VARCHAR})
 </insert>
     <update id="update" parameterType="com.hu.fenxiao.domain.CartItem">
 update m_cart_item set f_cart_id=#{cartId,jdbcType=INTEGER},f_product_id=#{productId,jdbcType=INTEGER},

@@ -10,7 +10,9 @@ public interface OrderService {
 
     OrderVO affirm(String memberId,List<String> ids);
 
-    void create(OrderVO orderVO);
+    OrderVO create(OrderVO orderVO);
+
+    void paySuccess(String id);
 
     void update(Order order);
 

@@ -12,26 +12,26 @@
             <div class="row text-center">
                 <div class="col-xs-3 footer-block">
                     <a class="center-block active" href="/">
-                        <h3><span class="glyphicon glyphicon-home"></span></h3>
-                        <h5>首页</h5>
+                        <h4><span class="glyphicon glyphicon-home"></span></h4>
+                        <h6>首页</h6>
                     </a>
                 </div>
                 <div class="col-xs-3 footer-block">
-                    <a class="center-block" href="/score">
-                        <h3><span class="glyphicon glyphicon-signal"></span></h3>
-                        <h5>积分</h5>
+                    <a class="center-block" href="/score_product_list">
+                        <h4><span class="glyphicon glyphicon-signal"></span></h4>
+                        <h6>积分</h6>
                     </a>
                 </div>
                 <div class="col-xs-3 footer-block">
                     <a class="center-block" href="/member/cart/list">
-                        <h3><span class="glyphicon glyphicon-shopping-cart"></span></h3>
-                        <h5>购物车</h5>
+                        <h4><span class="glyphicon glyphicon-shopping-cart"></span></h4>
+                        <h6>购物车</h6>
                     </a>
                 </div>
                 <div class="col-xs-3 footer-block">
                     <a class="center-block" href="/member">
-                        <h3><span class="glyphicon glyphicon-user"></span></h3>
-                        <h5>我</h5>
+                        <h4><span class="glyphicon glyphicon-user"></span></h4>
+                        <h6>我</h6>
                     </a>
                 </div>
             </div>

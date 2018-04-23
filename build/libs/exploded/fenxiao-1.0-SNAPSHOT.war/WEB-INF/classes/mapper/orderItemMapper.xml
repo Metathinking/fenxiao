@@ -18,10 +18,13 @@
     <insert id="create" parameterType="com.hu.fenxiao.domain.OrderItem">
 insert into m_order_item ( f_id,f_order_id,f_product_id,f_name,f_xiang_xing,
 f_rong_liang,f_du_shu,f_price,f_image,f_introduction,f_quantity,f_total_price)
-values (#{id,jdbcType=INTEGER},#{orderId,jdbcType=INTEGER},#{productId,jdbcType=INTEGER},
-#{name,jdbcType=VARCHAR},#{xiangXing,jdbcType=VARCHAR},#{rongLiang,jdbcType=VARCHAR},
-#{duShu,jdbcType=VARCHAR},#{price,jdbcType=DOUBLE},#{image,jdbcType=VARCHAR},
-#{introduction,jdbcType=VARCHAR},#{quantity,jdbcType=INTEGER},#{totalPrice,jdbcType=DOUBLE})
+values
+        <foreach collection="list" item="item" separator=",">
+ (#{item.id,jdbcType=INTEGER},#{item.orderId,jdbcType=INTEGER},#{item.productId,jdbcType=INTEGER},
+#{item.name,jdbcType=VARCHAR},#{item.xiangXing,jdbcType=VARCHAR},#{item.rongLiang,jdbcType=VARCHAR},
+#{item.duShu,jdbcType=VARCHAR},#{item.price,jdbcType=DOUBLE},#{item.image,jdbcType=VARCHAR},
+#{item.introduction,jdbcType=VARCHAR},#{item.quantity,jdbcType=INTEGER},#{item.totalPrice,jdbcType=DOUBLE})
+        </foreach>
 </insert>
     <select id="list" resultMap="m_order_item">
 select * from m_order_item where f_order_id=#{orderId} order by f_id

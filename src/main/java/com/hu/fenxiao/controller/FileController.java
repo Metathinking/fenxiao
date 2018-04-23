@@ -38,13 +38,14 @@ public class FileController {
     public Tip uploadImage(@RequestParam(value = "file") MultipartFile file, HttpServletRequest request) {
         try {
             String filePath = saveUploadImage(request.getSession().getServletContext(), file);
-            String contextPath = request.getContextPath();
-            String serverUrl = request.getScheme() + "://" + request.getServerName() + contextPath;
-            int serverPort = request.getServerPort();
-            if (serverPort != 80) {
-                serverUrl += ":" + serverPort;
-            }
-            return new Tip(true, 100, "保存成功", serverUrl + filePath);
+//            String contextPath = request.getContextPath();
+//            String serverUrl = request.getScheme() + "://" + request.getServerName() + contextPath;
+//            int serverPort = request.getServerPort();
+//            if (serverPort != 80) {
+//                serverUrl += ":" + serverPort;
+//            }
+//            return new Tip(true, 100, "保存成功", serverUrl + filePath);
+            return new Tip(true, 100, "保存成功",   filePath);
         } catch (Exception e) {
             return ExceptionTipHandler.handler(e);
         }
