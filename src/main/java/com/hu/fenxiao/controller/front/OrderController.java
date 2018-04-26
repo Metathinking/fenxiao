@@ -101,6 +101,15 @@ public class OrderController {
         return "front/pay_success";
     }
 
+    /**
+     * 订单列表
+     *
+     * @param index
+     * @param status
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String gotoList(@RequestParam(required = false) Integer index,
                            @RequestParam(required = false) String status,
@@ -120,7 +129,7 @@ public class OrderController {
                 map.put("status", status);
             }
             Member member = (Member) session.getAttribute("MEMBER");
-            map.put("memberOpenid",member.getOpenid());
+            map.put("memberOpenid", member.getOpenid());
 
             List<OrderVO> list = orderService.list(map);
             int count = orderService.getCount(map);
@@ -135,6 +144,36 @@ public class OrderController {
         return "front/order_list";
     }
 
+    /**
+     * 订单详情
+     *
+     * @param id
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "detail", method = RequestMethod.GET)
+    public String detail(@RequestParam String id, Model model) {
+        try {
+            OrderVO orderVO = orderService.findById(id);
+            model.addAttribute("orderVO", orderVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e);
+        }
+        return "front/order_detail";
+    }
+
+
+    @RequestMapping(value = "shouHuo", method = RequestMethod.GET)
+    public String shouHuo(@RequestParam String id) {
+        try {
+            orderService.shouHuo(id);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e);
+        }
+        return "redirect:/member/order/detail";
+    }
 
     /**
      * 提交微信请求订单，获取pre_id
@@ -173,5 +212,5 @@ public class OrderController {
         return wxMap;
     }
 
-    private String notify_url = "";//WXPayController.notify()
+    private String notify_url = "";//WXPayController.notify()todo
 }

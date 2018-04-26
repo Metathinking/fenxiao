@@ -47,33 +47,34 @@
                     <h2 class="weui-msg__title">没有订单</h2>
                     <p class="weui-msg__desc">您没有任何订单</p>
                 </div>
-
             </div>
         </c:if>
         <c:forEach items="${list}" var="vo">
-            <div class="weui-cells">
-                <div class="weui-cell">
-                    <div class="weui-cell__bd order_item_status">
-                        <p>${f:getOrderDescription(vo.order.status)}</p>
-                    </div>
-                    <div class="weui-cell__ft">${f:format(vo.order.payTime,"yyyy-MM-dd HH:mm:ss")}</div>
-                </div>
-            </div>
-            <c:forEach items="${vo.itemList}" var="item">
-                <div class="row order_item">
-                    <div class="col-xs-4 text-center" style="padding-top: 2%">
-                        <a href="#">
-                            <img class="media-object cart_img" src="${item.image}" alt="...">
-                        </a>
-                    </div>
-                    <div class="col-xs-8 cart_description">
-                        <h6>${item.name}</h6>
-                        <p>容量：${item.rongLiang}</p>
-                        <div>数量：${item.quantity}</div>
-                        <p class="price">总金额：￥${item.totalPrice}</p>
+            <a href="/member/order/detail?orderId=${vo.order.id}">
+                <div class="weui-cells">
+                    <div class="weui-cell">
+                        <div class="weui-cell__bd order_item_status">
+                            <p>${f:getOrderDescription(vo.order.status)}</p>
+                        </div>
+                        <div class="weui-cell__ft">${f:format(vo.order.payTime,"yyyy-MM-dd HH:mm:ss")}</div>
                     </div>
                 </div>
-            </c:forEach>
+                <c:forEach items="${vo.itemList}" var="item">
+                    <div class="row order_item">
+                        <div class="col-xs-4 text-center" style="padding-top: 2%">
+                            <a href="#">
+                                <img class="media-object cart_img" src="${item.image}" alt="...">
+                            </a>
+                        </div>
+                        <div class="col-xs-8 cart_description">
+                            <h6>${item.name}</h6>
+                            <p>容量：${item.rongLiang}</p>
+                            <div>数量：${item.quantity}</div>
+                            <p class="price">总金额：￥${item.totalPrice}</p>
+                        </div>
+                    </div>
+                </c:forEach>
+            </a>
         </c:forEach>
     </div>
 </div>

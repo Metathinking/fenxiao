@@ -8,7 +8,7 @@ import java.util.Map;
 
 public interface OrderService {
 
-    OrderVO affirm(String memberId,List<String> ids);
+    OrderVO affirm(String memberId, List<String> ids);
 
     OrderVO create(OrderVO orderVO);
 
@@ -16,11 +16,13 @@ public interface OrderService {
 
     void update(Order order);
 
-    List<OrderVO> list(Map<String,Object> params);
+    List<OrderVO> list(Map<String, Object> params);
 
-    Order findById(String id);
+    OrderVO findById(String id);
 
-    int getCount(Map<String,Object> params);
+    int getCount(Map<String, Object> params);
 
     void sendProduct(Map<String, String> sendInfo);
+
+    void shouHuo(String orderId);
 }

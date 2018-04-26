@@ -159,33 +159,7 @@ public class OrderServiceImpl implements OrderService {
             db.setStatus(OrderStatus.PAY.name());
             db.setPayTime(System.currentTimeMillis());
             orderRepository.update(db);
-            //todo  订单完成后，再提成和积分
-            //提成
-            YongJinSetting yongJinSetting = yongJinSettingRepository.findById(YongJinSettingServiceImpl.ID);
-            String memberOpenid = db.getMemberOpenid();
-            Member currentMember = memberRepository.findByOpenId(memberOpenid);
-            switch (currentMember.getLevel()) {
-                case 1:
-                    //nothing 没有上级，没有提成
-                    break;
-                case 2:
-                    int yongJin = yongJinSetting.getSecondToFirst();
-                    Member higherLevelMember = memberRepository.findByOpenId(currentMember.getHigherLevelOpenId());
-                    yongJinRecord(db, yongJin, higherLevelMember);
-                    break;
-                case 3:
-                    int memberToSecond = yongJinSetting.getMemberToSecond();
-                    Member secondMember = memberRepository.findByOpenId(currentMember.getHigherLevelOpenId());
-                    yongJinRecord(db, memberToSecond, secondMember);
-                    int memberToFirst = yongJinSetting.getMemberToFirst();
-                    Member firstMember = memberRepository.findByOpenId(secondMember.getHigherLevelOpenId());
-                    yongJinRecord(db, memberToFirst, firstMember);
-                    break;
-                default:
-                    break;
-            }
-            //积分
-            scoreRecord(db, currentMember);
+
         }
     }
 
@@ -274,8 +248,13 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public Order findById(String id) {
-        return orderRepository.findById(id);
+    public OrderVO findById(String id) {
+        Order order = orderRepository.findById(id);
+        List<OrderItem> itemList = orderItemRepository.list(id);
+        OrderVO vo = new OrderVO();
+        vo.setOrder(order);
+        vo.setItemList(itemList);
+        return vo;
     }
 
     @Override
@@ -309,6 +288,40 @@ public class OrderServiceImpl implements OrderService {
             order.setSendTime(System.currentTimeMillis());
             orderRepository.update(order);
         }
+    }
 
+    @Override
+    public void shouHuo(String orderId) {
+        Order db = orderRepository.findById(orderId);
+        if (OrderStatus.FA_HUO.name().equals(db.getStatus())) {
+            db.setStatus(OrderStatus.WAN_CHENG.name());
+            orderRepository.update(db);
+            //提成
+            YongJinSetting yongJinSetting = yongJinSettingRepository.findById(YongJinSettingServiceImpl.ID);
+            String memberOpenid = db.getMemberOpenid();
+            Member currentMember = memberRepository.findByOpenId(memberOpenid);
+            switch (currentMember.getLevel()) {
+                case 1:
+                    //nothing 没有上级，没有提成
+                    break;
+                case 2:
+                    int yongJin = yongJinSetting.getSecondToFirst();
+                    Member higherLevelMember = memberRepository.findByOpenId(currentMember.getHigherLevelOpenId());
+                    yongJinRecord(db, yongJin, higherLevelMember);
+                    break;
+                case 3:
+                    int memberToSecond = yongJinSetting.getMemberToSecond();
+                    Member secondMember = memberRepository.findByOpenId(currentMember.getHigherLevelOpenId());
+                    yongJinRecord(db, memberToSecond, secondMember);
+                    int memberToFirst = yongJinSetting.getMemberToFirst();
+                    Member firstMember = memberRepository.findByOpenId(secondMember.getHigherLevelOpenId());
+                    yongJinRecord(db, memberToFirst, firstMember);
+                    break;
+                default:
+                    break;
+            }
+            //积分
+            scoreRecord(db, currentMember);
+        }
     }
 }
