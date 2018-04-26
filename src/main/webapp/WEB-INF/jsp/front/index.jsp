@@ -48,7 +48,7 @@
     <div class="container-fluid" style="margin-top: 30px">
 
         <div class="row">
-            <c:forEach items="${productList}" var="product">
+            <c:forEach items="${list}" var="product">
 
                 <div class="col-xs-6  product_item text-center">
                     <a href="/product/${product.id}">

@@ -24,13 +24,32 @@ public class PageQuery {
 
     private void resetStartAndEnd() {
         if (size == 0) {
-            size=100;
+            size=30;
         }
         if (index == 0){
             index = 1;
         }
         start = (index - 1) * size;
         end = size;
+    }
+
+
+    public void setPageInfo(){
+        int middlePage = (showPageCount / 2 + 1);
+        int frontPageCount = showPageCount / 2;
+        if(pageCount<showPageCount){
+            startPage=1;
+            endPage=pageCount;
+        } else if(index<=frontPageCount){
+            startPage=1;
+            endPage=showPageCount;
+        }else if(index>=pageCount-frontPageCount){
+            startPage=pageCount-showPageCount+1;
+            endPage=pageCount;
+        }else{
+            startPage=index-frontPageCount;
+            endPage=startPage+showPageCount-1;
+        }
     }
 
     public int getStartPage() {
@@ -85,6 +104,7 @@ public class PageQuery {
     public void setCount(int count) {
         this.count = count;
         setPageCount();
+        setPageInfo();
     }
 
     public int getPageCount() {
@@ -108,22 +128,6 @@ public class PageQuery {
     }
 
 
-    public void setPageInfo(){
-        int middlePage = (showPageCount / 2 + 1);
-        int frontPageCount = showPageCount / 2;
-        if(pageCount<showPageCount){
-            startPage=1;
-            endPage=pageCount;
-        } else if(index<=frontPageCount){
-            startPage=1;
-            endPage=showPageCount;
-        }else if(index>=pageCount-frontPageCount){
-            startPage=pageCount-showPageCount+1;
-            endPage=pageCount;
-        }else{
-            startPage=index-frontPageCount;
-            endPage=startPage+showPageCount-1;
-        }
-    }
+
 
 }

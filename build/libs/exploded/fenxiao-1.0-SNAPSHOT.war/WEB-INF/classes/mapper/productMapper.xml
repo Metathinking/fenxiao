@@ -25,7 +25,8 @@ f_introduction=#{introduction,jdbcType=VARCHAR},f_score=#{score,jdbcType=INTEGER
 where f_id=#{id}</update>
     <delete id="delete">delete from m_product where f_id=#{id}</delete>
     <!--<select id="list" resultMap="m_product">select * from m_product order by f_id limit #{start},#{size}</select>-->
-    <select id="list" resultMap="m_product">select * from m_product order by f_id </select>
+    <select id="list" resultMap="m_product">select * from m_product order by f_id limit #{start},#{size}</select>
     <select id="findById" resultMap="m_product">select * from m_product where f_id=#{id}</select>
     <select id="getMaxId" resultType="int">select IFNULL(max(f_id),10000) FROM m_product</select>
+    <select id="getCount" resultType="int">select count(f_id) FROM m_product</select>
 </mapper>

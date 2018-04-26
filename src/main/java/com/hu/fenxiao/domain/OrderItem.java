@@ -14,11 +14,20 @@ public class OrderItem {
     private String duShu;//度数
     private double price;//价格
     private String image;//图片
+    private int score;//积分
     //    private List<String> imageList;
     private String introduction;//介绍
 
     private int quantity;
     private double totalPrice;
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
 
     public int getId() {
         return id;

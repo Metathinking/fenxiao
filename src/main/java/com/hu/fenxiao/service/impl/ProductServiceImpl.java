@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
 
     @Autowired
     private ProductRepository productRepository;
@@ -30,8 +30,13 @@ public class ProductServiceImpl implements ProductService{
         productRepository.delete(id);
     }
 
-    public List<Product> list() {
-        return productRepository.list();
+    public List<Product> list(Map<String, Object> params) {
+        return productRepository.list(params);
+    }
+
+    @Override
+    public int getCount(Map<String, Object> params) {
+        return productRepository.getCount(params);
     }
 
     public Product findById(String id) {

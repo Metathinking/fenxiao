@@ -247,8 +247,8 @@ table {
 }
 
 td, th {
-    font-size: 13px;
-    line-height: 16px;
+    font-size: 13px;!important;
+    line-height: 26px;!important;
     border-bottom: 1px solid #eee;
     vertical-align: top;
     padding: 8px;

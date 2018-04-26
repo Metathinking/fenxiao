@@ -19,5 +19,7 @@ public interface MemberRepository {
 
     Member findByOpenId(String openid);
 
+    Member findById(int id);
+
     int getMaxId();
 }

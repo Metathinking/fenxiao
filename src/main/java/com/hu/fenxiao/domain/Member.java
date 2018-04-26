@@ -9,7 +9,8 @@ public class Member {
     private String name;
     private String phone;
     private String address;
-
+    private String higherLevelOpenId;//上一级ID，没有则为null
+    private int level;// 1级，2级，3级
     /**
      * 微信属性 start
      */
@@ -26,6 +27,22 @@ public class Member {
      */
 
     private long time;//最后登录时间
+
+    public String getHigherLevelOpenId() {
+        return higherLevelOpenId;
+    }
+
+    public void setHigherLevelOpenId(String higherLevelOpenId) {
+        this.higherLevelOpenId = higherLevelOpenId;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
 
     public long getTime() {
         return time;

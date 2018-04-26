@@ -49,13 +49,18 @@
         <put-attribute name="content" value="/WEB-INF/jsp/admin/yong_jin_setting.jsp"/>
     </definition>
 
-    <definition name="admin/member" extends="baseLayout">
+    <definition name="admin/member_list" extends="baseLayout">
         <put-attribute name="title" value="会员列表"/>
-        <put-attribute name="content" value="/WEB-INF/jsp/admin/member.jsp"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/member_list.jsp"/>
     </definition>
-    <definition name="admin/orderList" extends="baseLayout">
-        <put-attribute name="title" value="Products"/>
-        <put-attribute name="content" value="/WEB-INF/jsp/admin/orderList.jsp"/>
+    <definition name="admin/order_list" extends="baseLayout">
+        <put-attribute name="title" value="订单列表"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/order_list.jsp"/>
+    </definition>
+
+    <definition name="admin/ti_xian_list" extends="baseLayout">
+        <put-attribute name="title" value="提现申请"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/ti_xian_list.jsp"/>
     </definition>
 
 </tiles-definitions>

@@ -3,9 +3,12 @@ package com.hu.fenxiao.controller.front;
 import com.hu.fenxiao.domain.Member;
 import com.hu.fenxiao.domain.Product;
 import com.hu.fenxiao.domain.WeiXinToken;
+import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.service.MemberService;
 import com.hu.fenxiao.service.ProductService;
 import com.hu.fenxiao.util.WXLoginUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,11 +22,15 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URLEncoder;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 
 public class HomeController {
+
+    private Logger logger = LogManager.getLogger(HomeController.class);
 
     @Autowired
     private ProductService productService;
@@ -35,9 +42,25 @@ public class HomeController {
      * @return
      */
     @RequestMapping(value = {"", "home", "index"}, method = RequestMethod.GET)
-    public String home(Model model) {
-        List<Product> productList = productService.list();
-        model.addAttribute("productList", productList);
+    public String home(@RequestParam(required = false) Integer index,Model model) {
+        try {
+            if (index == null) {
+                index = 1;
+            }
+            PageQuery query = new PageQuery();
+            query.setIndex(index);
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("start", query.getStart());
+            map.put("size", query.getSize());
+            List<Product> list = productService.list(map);
+            int count = productService.getCount(map);
+            query.setCount(count);
+            model.addAttribute("list", list);
+//            model.addAttribute("pageQuery", query);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        }
         return "front/index";
     }
 

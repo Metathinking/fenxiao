@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>bu</short-name>
+    <uri>/tag-util</uri>
+
+
+    <function>
+        <name>format</name>
+        <function-class>com.hu.fenxiao.util.TagUtil</function-class>
+        <function-signature>java.lang.String format(long,java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <name>getOrderDescription</name>
+        <function-class>com.hu.fenxiao.util.TagUtil</function-class>
+        <function-signature>java.lang.String getOrderDescription(java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <name>getTiXianStatus</name>
+        <function-class>com.hu.fenxiao.util.TagUtil</function-class>
+        <function-signature>java.lang.String getTiXianStatus(java.lang.String)</function-signature>
+    </function>
+
+    <function>
+        <name>getPageIndex</name>
+        <function-class>com.hu.fenxiao.util.TagUtil</function-class>
+        <function-signature>java.util.List getPageIndex(com.hu.fenxiao.query.PageQuery)</function-signature>
+    </function>
+</taglib>

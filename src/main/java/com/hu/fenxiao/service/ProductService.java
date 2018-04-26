@@ -14,7 +14,9 @@ public interface ProductService {
 
     void delete(String id);
 
-    List<Product> list();
+    List<Product> list(Map<String, Object> params);
+
+    int getCount(Map<String, Object> params);
 
     Product findById(String id);
 }

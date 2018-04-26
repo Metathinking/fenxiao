@@ -58,7 +58,7 @@ public class WXPayController {
             logger.info("transaction_id:" + notifyMap.get("transaction_id"));
             logger.info("out_trade_no:" + notifyMap.get("out_trade_no"));
 
-            orderService.paySuccess(notifyMap.get("out_trade_no"));
+            orderService.paySuccess(notifyMap.get("out_trade_no"));//付款成功，更改订单状态
 
             Map<String, String> resultMap = new HashMap<String, String>();
             resultMap.put("return_code", "SUCCESS");

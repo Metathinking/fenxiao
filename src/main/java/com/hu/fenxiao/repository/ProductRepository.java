@@ -16,7 +16,9 @@ public interface ProductRepository {
 
     void delete(String id);
 
-    List<Product> list();
+    List<Product> list(Map<String, Object> params);
+
+    int getCount(Map<String, Object> params);
 
     int getMaxId();
 

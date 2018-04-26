@@ -14,6 +14,9 @@ public class Order {
     private long orderTime;//下单时间
     private long payTime;//付款时间
     private long sendTime;//发货时间
+    /**
+     * @see com.hu.fenxiao.type.OrderStatus
+     */
     private String status;//状态
     private String remark;//备注信息,可以为null
 

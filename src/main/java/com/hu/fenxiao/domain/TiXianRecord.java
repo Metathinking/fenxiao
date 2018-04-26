@@ -7,10 +7,37 @@ public class TiXianRecord {
 
     private int id;
     private int memberId;
+    private String memberName;
+    private String memberPhone;
     private double money;//金额
     private long requestTime;//时间
     private long overTime;
     private String status;
+    private String info;
+
+    public String getMemberName() {
+        return memberName;
+    }
+
+    public void setMemberName(String memberName) {
+        this.memberName = memberName;
+    }
+
+    public String getMemberPhone() {
+        return memberPhone;
+    }
+
+    public void setMemberPhone(String memberPhone) {
+        this.memberPhone = memberPhone;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
 
     public int getId() {
         return id;

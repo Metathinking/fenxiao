@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.fenxiao.repository.TiXianRecordRepository">
+    <resultMap id="m_ti_xian_record" type="com.hu.fenxiao.domain.TiXianRecord">
+        <id column="f_id" property="id"/>
+        <result column="f_member_id" property="memberId"/>
+        <result column="f_member_name" property="memberName"/>
+        <result column="f_member_phone" property="memberPhone"/>
+        <result column="f_money" property="money"/>
+        <result column="f_request_time" property="requestTime"/>
+        <result column="f_over_time" property="overTime"/>
+        <result column="f_status" property="status"/>
+        <result column="f_info" property="info"/>
+    </resultMap>
+    <insert id="create" parameterType="com.hu.fenxiao.domain.TiXianRecord">
+insert into m_ti_xian_record ( f_id,f_member_id,f_member_name,f_member_phone,f_money,f_request_time,f_over_time,f_status,f_info)
+values (#{id,jdbcType=INTEGER},#{memberId,jdbcType=INTEGER},#{memberName,jdbcType=VARCHAR},#{memberPhone,jdbcType=VARCHAR},
+#{money,jdbcType=DOUBLE},#{requestTime,jdbcType=BIGINT},#{overTime,jdbcType=BIGINT},#{status,jdbcType=VARCHAR},
+#{info,jdbcType=VARCHAR})
+</insert>
+    <update id="update" parameterType="com.hu.fenxiao.domain.TiXianRecord">
+update m_ti_xian_record set f_member_id=#{memberId,jdbcType=INTEGER},f_member_name=#{memberName,jdbcType=VARCHAR},
+f_member_phone=#{memberPhone,jdbcType=VARCHAR},f_money=#{money,jdbcType=DOUBLE},f_request_time=#{requestTime,jdbcType=BIGINT},
+f_over_time=#{overTime,jdbcType=BIGINT},f_status=#{status,jdbcType=VARCHAR},f_info=#{info,jdbcType=VARCHAR} where f_id=#{id}
+</update>
+    <select id="list" resultMap="m_ti_xian_record">
+select * from m_ti_xian_record
+        where 1=1
+        <if test="status != null and status != ''">
+            and f_status=#{status}
+        </if>
+        <if test="search != null and search != ''">
+            and f_member_name like CONCAT(CONCAT('%', #{search}),'%')
+            or f_member_phone  like CONCAT(CONCAT('%', #{search}),'%')
+            or f_info  like CONCAT(CONCAT('%', #{search}),'%')
+        </if>
+        order by f_id desc limit #{start},#{size}
+</select>
+    <select id="listByMemberIdAndStatus" resultMap="m_ti_xian_record">
+select * from m_ti_xian_record
+where f_member_id=#{memberId} and f_status=#{status}
+order by f_id limit #{start},#{size}
+</select>
+    <select id="findById" resultMap="m_ti_xian_record">select * from m_ti_xian_record where f_id=#{id}</select>
+    <select id="getCount" resultType="int">select count(f_id) FROM m_ti_xian_record</select>
+    <select id="getMaxId" resultType="int">select IFNULL(max(f_id),10000) FROM m_ti_xian_record</select>
+</mapper>

@@ -16,10 +16,11 @@ public interface OrderService {
 
     void update(Order order);
 
-    List<Order> list(Map<String,Object> params);
+    List<OrderVO> list(Map<String,Object> params);
 
     Order findById(String id);
 
     int getCount(Map<String,Object> params);
 
+    void sendProduct(Map<String, String> sendInfo);
 }

@@ -11,6 +11,7 @@
         <result column="f_du_shu" property="duShu"/>
         <result column="f_price" property="price"/>
         <result column="f_image" property="image"/>
+        <result column="f_score" property="score"/>
         <result column="f_introduction" property="introduction"/>
         <result column="f_quantity" property="quantity"/>
         <result column="f_total_price" property="totalPrice"/>
@@ -22,7 +23,7 @@ values
         <foreach collection="list" item="item" separator=",">
  (#{item.id,jdbcType=INTEGER},#{item.orderId,jdbcType=INTEGER},#{item.productId,jdbcType=INTEGER},
 #{item.name,jdbcType=VARCHAR},#{item.xiangXing,jdbcType=VARCHAR},#{item.rongLiang,jdbcType=VARCHAR},
-#{item.duShu,jdbcType=VARCHAR},#{item.price,jdbcType=DOUBLE},#{item.image,jdbcType=VARCHAR},
+#{item.duShu,jdbcType=VARCHAR},#{item.price,jdbcType=DOUBLE},#{item.image,jdbcType=VARCHAR},#{item.score,jdbcType=INTEGER},
 #{item.introduction,jdbcType=VARCHAR},#{item.quantity,jdbcType=INTEGER},#{item.totalPrice,jdbcType=DOUBLE})
         </foreach>
 </insert>

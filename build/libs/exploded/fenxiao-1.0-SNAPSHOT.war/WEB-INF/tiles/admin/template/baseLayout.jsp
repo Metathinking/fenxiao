@@ -58,11 +58,13 @@
         </div>
         <div id="user-tools">
             欢迎,
-            <strong>admin</strong>.
+            <strong>管理员</strong>.
             <a href="/admin/product/list">商品管理</a> /
-            <a href="/admin/score_product/list">积分商品</a> /
-            <a href="/admin/member/list">会员管理</a> /
             <a href="/admin/order/list">订单管理</a> /
+            <a href="/admin/score_product/list">积分商品</a> /
+            <a href="/admin/score_order/list">积分订单</a> /
+            <a href="/admin/member/list">会员管理</a> /
+            <a href="/admin/ti_xian/list">提现申请</a> /
             <a href="/admin/yong_jin_setting/edit">抽成设置</a> /
             <a href="/admin/manufacturer/edit">厂商信息</a> /
             <a href="/admin/change_password/">密码修改</a> /

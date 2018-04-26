@@ -12,7 +12,7 @@ public class YongJinSettingServiceImpl implements YongJinSettingService {
     @Autowired
     private YongJinSettingRepository yongJinSettingRepository;
 
-    private final int ID = 10001;
+    public static final int ID = 10001;
 
     @Override
     public YongJinSetting edit(YongJinSetting yongJinSetting) {

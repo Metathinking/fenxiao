@@ -32,7 +32,9 @@ public class Dom4jCreateXML {
 //        createMapper(MemberAccount.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_COUNT,FIND_BY_ID));
 //        createMapper(ScoreRecord.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_COUNT,FIND_BY_ID,GET_MAX_ID));
 //        createMapper(MoneyRecord.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_COUNT,FIND_BY_ID,GET_MAX_ID));
-        createMapper(YongJinSetting.class,directoryPath,Arrays.asList(INSERT,UPDATE,GET_COUNT,FIND_BY_ID));
+//        createMapper(YongJinSetting.class,directoryPath,Arrays.asList(INSERT,UPDATE,GET_COUNT,FIND_BY_ID));
+//        createMapper(SendRecord.class,directoryPath,Arrays.asList(INSERT,LIST,GET_MAX_ID,GET_COUNT,FIND_BY_ID));
+        createMapper(TiXianRecord.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_MAX_ID,GET_COUNT,FIND_BY_ID));
 
     }
 

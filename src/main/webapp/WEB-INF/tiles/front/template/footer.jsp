@@ -29,7 +29,7 @@
                     </a>
                 </div>
                 <div class="col-xs-3 footer-block">
-                    <a class="center-block" href="/member">
+                    <a class="center-block" href="/member/info">
                         <h4><span class="glyphicon glyphicon-user"></span></h4>
                         <h6>我</h6>
                     </a>
