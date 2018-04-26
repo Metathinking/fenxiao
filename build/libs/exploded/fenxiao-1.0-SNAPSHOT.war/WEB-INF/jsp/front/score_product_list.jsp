@@ -21,17 +21,20 @@
                         <img src="${product.image}" class="product_img">
                         <p>${product.name}</p>
                     </a>
-                    <div class="row">
-                        <div class="col-xs-8">
-                            <%--<p class="text-left description">容量：${product.rongLiang}ml</p>--%>
-                            <%--<p class="text-left description">香型：${product.xiangXing}</p>--%>
-                            <p class="text-left description price">积分：￥${product.score}</p>
-                        </div>
-                        <div class="col-xs-4 text-center">
-                            <%--<span class="glyphicon glyphicon-shopping-cart shop-cart" ng-click="addCartItem(${product.id})"></span>--%>
-                            <button type="button" class="btn btn-danger">兑换</button>
-                        </div>
-                    </div>
+                    <div class="text-left description price">积分：${product.score}</div>
+                    <button type="button" class="btn btn-danger btn-sm" style="float: right;margin-bottom: 4%">兑换</button>
+                    <div class="clear"></div>
+                    <%--<div class="row">--%>
+                        <%--<div class="col-xs-8">--%>
+                            <%--&lt;%&ndash;<p class="text-left description">容量：${product.rongLiang}ml</p>&ndash;%&gt;--%>
+                            <%--&lt;%&ndash;<p class="text-left description">香型：${product.xiangXing}</p>&ndash;%&gt;--%>
+                            <%--<p class="text-left description price">积分：${product.score}</p>--%>
+                        <%--</div>--%>
+                        <%--<div class="col-xs-4 text-center">--%>
+                            <%--&lt;%&ndash;<span class="glyphicon glyphicon-shopping-cart shop-cart" ng-click="addCartItem(${product.id})"></span>&ndash;%&gt;--%>
+                            <%--<button type="button" class="btn btn-danger btn-sm">兑换</button>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
                 </div>
             </c:forEach>
         </div>

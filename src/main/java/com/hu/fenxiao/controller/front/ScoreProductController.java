@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -25,7 +26,11 @@ public class ScoreProductController {
     }
 
     @RequestMapping(value = "score_product_list", method = RequestMethod.GET)
-    public String home(Model model) {
+    public String list(Model model, HttpSession session) {
+        Object obj = session.getAttribute("MEMBER");
+        if(obj!=null){
+            model.addAttribute("member",obj);
+        }
         List<ScoreProduct> productList = scoreProductService.list();
         model.addAttribute("productList", productList);
         return "front/score_product_list";

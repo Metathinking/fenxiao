@@ -15,23 +15,23 @@
             <div class="">
                 <div class="row text-center order_nav">
                     <div class="col-xs-3 ${status==null||status==''?'active':''}">
-                        <a class="center-block" href="/member/order/list">
+                        <a class="center-block" href="/member/score_order/list">
                             <h5>全部</h5>
                         </a>
                     </div>
                     <div class="col-xs-3 ${status=='NO_PAY'?'active':''}">
-                        <a class="center-block" href="/member/order/list?status=NO_PAY">
-                            <h5>待付款</h5>
+                        <a class="center-block" href="/member/score_order/list?status=XIAD_DAN">
+                            <h5>未发货</h5>
                         </a>
                     </div>
                     <div class="col-xs-3 ${status=='PAY'?'active':''}">
-                        <a class="center-block" href="/member/order/list?status=PAY">
-                            <h5>待发货</h5>
+                        <a class="center-block" href="/member/score_order/list?status=FA_HUO">
+                            <h5>已发货</h5>
                         </a>
                     </div>
                     <div class="col-xs-3 ${status=='FA_HUO'?'active':''}">
-                        <a class="center-block" href="/member/order/list?status=FA_HUO">
-                            <h5>待收货</h5>
+                        <a class="center-block" href="/member/score_order/list?status=WAN_CHENG">
+                            <h5>完成</h5>
                         </a>
                     </div>
                 </div>
@@ -50,30 +50,28 @@
             </div>
         </c:if>
         <c:forEach items="${list}" var="vo">
-            <a href="/member/order/detail?orderId=${vo.order.id}">
+            <a href="/member/score_order/detail?orderId=${vo.scoreOrder.id}">
                 <div class="weui-cells">
                     <div class="weui-cell">
                         <div class="weui-cell__bd order_item_status">
-                            <p>${f:getOrderDescription(vo.order.status)}</p>
+                            <p>${f:getScoreOrderStatus(vo.scoreOrder.status)}</p>
                         </div>
-                        <div class="weui-cell__ft">${f:format(vo.order.payTime,"yyyy-MM-dd HH:mm:ss")}</div>
+                        <div class="weui-cell__ft">${f:format(vo.scoreOrder.payTime,"yyyy-MM-dd HH:mm:ss")}</div>
                     </div>
                 </div>
-                <c:forEach items="${vo.itemList}" var="item">
-                    <div class="row order_item">
-                        <div class="col-xs-4 text-center" style="padding-top: 2%">
-                            <a href="#">
-                                <img class="media-object cart_img" src="${item.image}" alt="...">
-                            </a>
-                        </div>
-                        <div class="col-xs-8 cart_description">
-                            <h6>${item.name}</h6>
-                            <p>容量：${item.rongLiang}</p>
-                            <div>数量：${item.quantity}</div>
-                            <p class="price">总金额：￥${item.totalPrice}</p>
-                        </div>
+                <div class="row order_item">
+                    <div class="col-xs-4 text-center" style="padding-top: 2%">
+                        <a href="#">
+                            <img class="media-object cart_img" src="${vo.scoreOrderItem.image}" alt="...">
+                        </a>
                     </div>
-                </c:forEach>
+                    <div class="col-xs-8 cart_description">
+                        <h6>${vo.scoreOrderItem.name}</h6>
+                        <p>积分：${vo.scoreOrderItem.score}</p>
+                        <div>数量：${vo.scoreOrderItem.quantity}</div>
+                        <p class="price">总积分：${vo.scoreOrderItem.totalScore}</p>
+                    </div>
+                </div>
             </a>
         </c:forEach>
     </div>

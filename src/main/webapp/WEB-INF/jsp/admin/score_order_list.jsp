@@ -10,11 +10,11 @@
 <%@ taglib prefix="f" uri="/tag-util" %>
 <div class="breadcrumbs">
     <a href="/admin/">首页</a>
-    &rsaquo; 订单管理
+    &rsaquo; 积分订单
 </div>
 <!-- Content -->
 <div id="content" class="flex" ng-controller="orderListController">
-    <h1>订单管理</h1>
+    <h1>积分订单</h1>
     <div id="content-main">
         <div class="module" id="changelist">
             <form id="changelist-form" method="post" novalidate>
@@ -46,11 +46,11 @@
                                 <div class="clear"></div>
                             </th>
                             <th scope="col" class="sortable column-name">
-                                <div class="text">金额(元)</div>
+                                <div class="text">积分</div>
                                 <div class="clear"></div>
                             </th>
                             <th scope="col" class="sortable column-name">
-                                <div class="text">付款时间</div>
+                                <div class="text">下单时间</div>
                                 <div class="clear"></div>
                             </th>
                             <th scope="col" class="sortable column-name">
@@ -70,21 +70,18 @@
                         <tbody>
                         <c:forEach items="${list}" var="vo">
                             <tr class="row1" style="background-color: #79aec8;color: #FFFFFF">
-                                <td>${vo.order.id}</td>
-                                <td>${vo.order.memberName}</td>
-                                <td>${vo.order.phone}</td>
-                                <td>${vo.order.address}</td>
-                                <td>${vo.order.grandTotal}</td>
-                                <td>${f:format(vo.order.payTime,"yyyy-MM-dd HH:mm:ss")}</td>
-                                <td>${f:getOrderDescription(vo.order.status)}</td>
-                                <td>${vo.order.remark}</td>
+                                <td>${vo.scoreOrder.id}</td>
+                                <td>${vo.scoreOrder.memberName}</td>
+                                <td>${vo.scoreOrder.phone}</td>
+                                <td>${vo.scoreOrder.address}</td>
+                                <td>${vo.scoreOrder.grandTotal}</td>
+                                <td>${f:format(vo.scoreOrder.orderTime,"yyyy-MM-dd HH:mm:ss")}</td>
+                                <td>${f:getOrderDescription(vo.scoreOrder.status)}</td>
+                                <td>${vo.scoreOrder.remark}</td>
                                 <td>
                                     <c:choose>
-                                        <c:when test="${vo.order.status=='NO_PAY'}">
-                                            等待付款
-                                        </c:when>
-                                        <c:when test="${vo.order.status=='PAY'}">
-                                            <button ng-click="sendTip(${vo.order.id},${vo.order.memberName},${vo.order.phone},${vo.order.address})"
+                                        <c:when test="${vo.scoreOrder.status=='XIA_DAN'}">
+                                            <button ng-click="sendTip(${vo.scoreOrder.id},${vo.scoreOrder.memberName},${vo.scoreOrder.phone},${vo.scoreOrder.address})"
                                                     data-toggle="modal" data-target="#send">发货
                                             </button>
                                         </c:when>
@@ -94,19 +91,17 @@
                                     </c:choose>
                                 </td>
                             </tr>
-                            <c:forEach items="${vo.itemList}" var="item">
                                 <tr class="row1">
                                     <td>商品信息</td>
-                                    <td>${item.name}</td>
-                                    <td>价格：${item.price}</td>
-                                    <td>数量：${item.quantity}</td>
-                                    <td>金额${item.totalPrice}</td>
+                                    <td>${vo.scoreOrderItem.name}</td>
+                                    <td>积分：${vo.scoreOrderItem.score}</td>
+                                    <td>数量：${vo.scoreOrderItem.quantity}</td>
+                                    <td>总积分：${vo.scoreOrderItem.totalScore}</td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                     <td></td>
                                 </tr>
-                            </c:forEach>
                         </c:forEach>
                         </tbody>
                     </table>
@@ -118,7 +113,7 @@
                                 <span class="this-page">${page}</span>
                             </c:when>
                             <c:otherwise>
-                                <a href="/admin/order/list?index=${page}&status=${status}">${page}</a>
+                                <a href="/admin/score_order/list?index=${page}&status=${status}">${page}</a>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
@@ -202,7 +197,7 @@
 <!-- END Content -->
 <script>
     function reload(_index, _status) {
-        window.location.href = "/admin/order/list?index=" + _index + "&status=" + _status;
+        window.location.href = "/admin/score_order/list?index=" + _index + "&status=" + _status;
     }
 
     app.controller("orderListController", function ($scope, $http) {
@@ -214,7 +209,7 @@
                 name: _name,
                 phone: _phone,
                 address: _address,
-                type:'COMMON'
+                type:'SCORE'
             };
         };
         //提交送货记录
@@ -242,7 +237,7 @@
         $scope.getSendInfo = function (_orderId) {
             var req = {
                 method: 'POST',
-                url: context + '/member/send_record/sendInfo?orderId='+_orderId+"&type=COMMON",
+                url: context + '/member/send_record/sendInfo?orderId='+_orderId+"&type=SCORE",
                 headers: {
                     'Content-Type': 'application/json'
                 },

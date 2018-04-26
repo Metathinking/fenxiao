@@ -16,41 +16,39 @@
                 <span class="glyphicon glyphicon-map-marker"></span>
             </div>
             <div class="col-xs-11">
-                <p>收货人：${orderVO.order.memberName}</p>
-                <p>电话：${orderVO.order.phone}</p>
-                <p>收货地址：${orderVO.order.address}</p>
+                <p>收货人：${orderVO.scoreOrder.memberName}</p>
+                <p>电话：${orderVO.scoreOrder.phone}</p>
+                <p>收货地址：${orderVO.scoreOrder.address}</p>
             </div>
         </div>
         <!-- 商品列表 -->
-        <c:forEach items="${orderVO.itemList}" var="item">
-        <div class="row order_item">
+        <div class="row order_item" >
             <div class="col-xs-4 text-center">
                 <a href="#">
-                    <img class="media-object cart_img" src="${item.image}" alt="...">
+                    <img class="media-object cart_img" src="${orderVO.scoreOrderItem.image}" alt="...">
                 </a>
             </div>
             <div class="col-xs-8 cart_description">
-                <h5>${item.name}</h5>
-                <p>数量：${item.quantity}</p>
-                <p class="price">总金额：￥${item.totalPrice}</p>
+                <h5>${orderVO.scoreOrderItem.name}</h5>
+                <p>数量：${orderVO.scoreOrderItem.quantity}</p>
+                <p class="price">总金额：￥${orderVO.scoreOrderItem.totalPrice}</p>
             </div>
         </div>
-        </c:forEach>
     </div>
     <div class="form-group">
         <label>备注</label>
-        <p>${orderVO.order.remark}</p>
+        <p>${orderVO.scoreOrder.remark}</p>
     </div>
     <footer>
         <nav class="navbar navbar-default navbar-fixed-bottom ">
             <div class="">
                 <div class="row ">
                     <div class="col-xs-8" style="padding-left: 32px">
-                        <h5 class="price">￥${orderVO.order.grandTotal}</h5>
+                        <h5 class="price">${orderVO.scoreOrder.grandTotal}</h5>
                     </div>
                     <div class="col-xs-4 text-center" style="padding-top: 8px">
                         <c:if test="${orderVO.order.status=='FA_HUO'}">
-                            <a class="btn btn-danger" href="/member/order/shouHuo?orderId=${orderVO.order.id}">
+                            <a class="btn btn-danger" href="/member/score_order/shouHuo?orderId=${orderVO.scoreOrder.id}">
                                 确认收货
                             </a>
                         </c:if>

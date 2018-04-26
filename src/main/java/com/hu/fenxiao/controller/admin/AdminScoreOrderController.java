@@ -2,9 +2,9 @@ package com.hu.fenxiao.controller.admin;
 
 
 import com.hu.fenxiao.domain.SendRecord;
-import com.hu.fenxiao.domain.vo.OrderVO;
+import com.hu.fenxiao.domain.vo.ScoreOrderVO;
 import com.hu.fenxiao.query.PageQuery;
-import com.hu.fenxiao.service.OrderService;
+import com.hu.fenxiao.service.ScoreOrderService;
 import com.hu.fenxiao.service.SendRecordService;
 import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.Tip;
@@ -21,14 +21,15 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("admin/order")
-public class AdminOrderController {
+public class AdminScoreOrderController {
 
-    private Logger logger = LogManager.getLogger(AdminOrderController.class);
+    private Logger logger = LogManager.getLogger(AdminScoreOrderController.class);
 
     @Autowired
-    private OrderService orderService;
+    private ScoreOrderService scoreOrderService;
 
-
+    @Autowired
+    private SendRecordService sendRecordService;
 
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String gotoList(@RequestParam(required = false) Integer index,
@@ -46,8 +47,8 @@ public class AdminOrderController {
             if (status != null) {
                 map.put("status", status);
             }
-            List<OrderVO> list = orderService.list(map);
-            int count = orderService.getCount(map);
+            List<ScoreOrderVO> list = scoreOrderService.list(map);
+            int count = scoreOrderService.getCount(map);
             query.setCount(count);
             model.addAttribute("list", list);
             model.addAttribute("pageQuery", query);
@@ -56,30 +57,8 @@ public class AdminOrderController {
             e.printStackTrace();
             logger.error(e.getMessage());
         }
-        return "admin/order_list";
+        return "admin/score_order_list";
     }
 
-//    @RequestMapping(value = "send", method = RequestMethod.POST)
-//    @ResponseBody
-//    public Tip send(@RequestBody Map<String, String> sendInfo) {
-//        try {
-//            orderService.sendProduct(sendInfo);
-//            return new Tip(true, 100, "", null);
-//        } catch (Exception e) {
-//            logger.error(e.getMessage());
-//            return ExceptionTipHandler.handler(e);
-//        }
-//    }
-//
-//    @RequestMapping(value = "sendInfo", method = RequestMethod.POST)
-//    @ResponseBody
-//    public Tip sendInfo(@RequestParam String orderId, @RequestParam String type) {
-//        try {
-//            SendRecord sendRecord = sendRecordService.findByOrderId(orderId, type);
-//            return new Tip(true, 100, "成功", sendRecord);
-//        } catch (Exception e) {
-//            logger.error(e.getMessage());
-//            return ExceptionTipHandler.handler(e);
-//        }
-//    }
+
 }

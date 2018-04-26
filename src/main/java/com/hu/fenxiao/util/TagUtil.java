@@ -2,6 +2,7 @@ package com.hu.fenxiao.util;
 
 import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.type.OrderStatus;
+import com.hu.fenxiao.type.ScoreOrderStatus;
 import com.hu.fenxiao.type.TiXianStatus;
 import org.springframework.stereotype.Component;
 
@@ -39,6 +40,17 @@ public class TagUtil {
      */
     public static String getOrderDescription(String name) {
         OrderStatus status = OrderStatus.valueOf(name);
+        return status.getDescription();
+    }
+
+    /**
+     * 获取积分订单状态信息的描述（description）
+     *
+     * @param name
+     * @return
+     */
+    public static String getScoreOrderStatus(String name) {
+        ScoreOrderStatus status = ScoreOrderStatus.valueOf(name);
         return status.getDescription();
     }
 

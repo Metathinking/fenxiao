@@ -57,7 +57,10 @@
         <put-attribute name="title" value="订单列表"/>
         <put-attribute name="content" value="/WEB-INF/jsp/admin/order_list.jsp"/>
     </definition>
-
+    <definition name="admin/score_order_list" extends="baseLayout">
+        <put-attribute name="title" value="积分订单"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/score_order_list.jsp"/>
+    </definition>
     <definition name="admin/ti_xian_list" extends="baseLayout">
         <put-attribute name="title" value="提现申请"/>
         <put-attribute name="content" value="/WEB-INF/jsp/admin/ti_xian_list.jsp"/>

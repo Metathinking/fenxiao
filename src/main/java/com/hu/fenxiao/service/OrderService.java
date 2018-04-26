@@ -22,7 +22,7 @@ public interface OrderService {
 
     int getCount(Map<String, Object> params);
 
-    void sendProduct(Map<String, String> sendInfo);
+//    void sendProduct(Map<String, String> sendInfo);
 
     void shouHuo(String orderId);
 }

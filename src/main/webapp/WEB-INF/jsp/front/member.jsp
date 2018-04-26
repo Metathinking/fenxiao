@@ -18,7 +18,7 @@
             <p>ID:${member.id}</p>
         </div>
         <div class="col-xs-2" style="height: 100%">
-            <span class="glyphicon glyphicon-chevron-right"></span>
+            <%--<span class="glyphicon glyphicon-chevron-right"></span>--%>
         </div>
     </div>
 </header>

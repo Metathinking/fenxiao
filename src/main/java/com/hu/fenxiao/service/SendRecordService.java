@@ -13,4 +13,6 @@ public interface SendRecordService {
     SendRecord findByOrderId(String id,String type);
 
     int getCount(Map<String, Object> params);
+
+    public void sendProduct(Map<String, String> sendInfo);
 }

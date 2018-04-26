@@ -83,7 +83,7 @@ public class OrderController {
             data.put("out_trade_no", db.getOrder().getId() + "");
             data.put("total_fee", db.getOrder().getGrandTotal() * 100 + "");//金额
             data.put("spbill_create_ip", request.getRemoteAddr());//终端IP
-            data.put("notify_url", "");//通知地址
+            data.put("notify_url", notify_url);//通知地址
             data.put("product_id", db.getOrder().getId() + "");
             Map<String, String> wxMap = this.unifiedOrder(data);
             wxMap.put("totalFee", db.getOrder().getGrandTotal() + "");

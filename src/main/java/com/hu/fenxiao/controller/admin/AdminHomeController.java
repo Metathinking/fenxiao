@@ -13,6 +13,6 @@ public class AdminHomeController {
 
     @RequestMapping(value = {"/", "index", "home"}, method = RequestMethod.GET)
     public String index(HttpServletRequest request) {
-        return "admin/home";
+        return "redirect:/admin/order/list";
     }
 }
