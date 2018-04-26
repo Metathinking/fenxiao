@@ -12,6 +12,9 @@ public class TiXianRecord {
     private double money;//金额
     private long requestTime;//时间
     private long overTime;
+    /**
+     * @see com.hu.fenxiao.type.TiXianStatus
+     */
     private String status;
     private String info;
 

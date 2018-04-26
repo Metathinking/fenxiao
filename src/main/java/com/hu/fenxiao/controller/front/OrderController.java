@@ -8,6 +8,7 @@ import com.hu.fenxiao.domain.Member;
 import com.hu.fenxiao.domain.Order;
 import com.hu.fenxiao.domain.OrderItem;
 import com.hu.fenxiao.domain.vo.OrderVO;
+import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.service.MemberService;
 import com.hu.fenxiao.service.OrderService;
 import com.hu.fenxiao.service.ProductService;
@@ -100,8 +101,37 @@ public class OrderController {
         return "front/pay_success";
     }
 
-    @RequestMapping(value = "order_list", method = RequestMethod.GET)
-    public String order_list() {
+    @RequestMapping(value = "list", method = RequestMethod.GET)
+    public String gotoList(@RequestParam(required = false) Integer index,
+                           @RequestParam(required = false) String status,
+                           Model model,
+                           HttpSession session) {
+        try {
+            model.addAttribute("status", status);
+            if (index == null) {
+                index = 1;
+            }
+            PageQuery query = new PageQuery();
+            query.setIndex(index);
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("start", query.getStart());
+            map.put("size", query.getSize());
+            if (status != null) {
+                map.put("status", status);
+            }
+            Member member = (Member) session.getAttribute("MEMBER");
+            map.put("memberOpenid",member.getOpenid());
+
+            List<OrderVO> list = orderService.list(map);
+            int count = orderService.getCount(map);
+            query.setCount(count);
+            model.addAttribute("list", list);
+            model.addAttribute("pageQuery", query);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        }
         return "front/order_list";
     }
 

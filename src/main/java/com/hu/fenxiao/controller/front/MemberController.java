@@ -41,13 +41,18 @@ public class MemberController {
 
     @RequestMapping(value = "info", method = RequestMethod.GET)
     public String member(HttpSession session, Model model) {
-        Member member = (Member) session.getAttribute("MEMBER");
-        MemberAccount account = memberAccountService.findById(member.getId());
-        model.addAttribute("member", member);
-        model.addAttribute("account", account);
+        try {
+            Member member = (Member) session.getAttribute("MEMBER");
+            MemberAccount account = memberAccountService.findById(member.getId());
+            model.addAttribute("member", member);
+            model.addAttribute("account", account);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e.getMessage());
+        }
         return "front/member";
     }
-    
+
 
     @RequestMapping(value = "ti_xian_request", method = RequestMethod.POST)
     public String tiXianRequest(@RequestBody double money, HttpSession session, Model model) {
@@ -59,6 +64,7 @@ public class MemberController {
             model.addAttribute("error_msg", e.getExceptionMessage());
         } catch (Exception e) {
             e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return "redirect:/member/ti_xian_list";
     }
@@ -78,11 +84,15 @@ public class MemberController {
             List<TiXianRecord> list = tiXianRecordService.list(params);
             int count = tiXianRecordService.getCount(params);
             query.setCount(count);
+
+            MemberAccount account = memberAccountService.findById(member.getId());
+            model.addAttribute("account", account);
+
             model.addAttribute("list", list);
             model.addAttribute("pageQuery", query);
         } catch (Exception e) {
             e.printStackTrace();
-
+            logger.error(e.getMessage());
         }
         return "front/ti_xian_list";
     }
