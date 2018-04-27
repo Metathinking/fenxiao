@@ -1,6 +1,7 @@
 package com.hu.fenxiao.controller.front;
 
 import com.hu.fenxiao.domain.CartItem;
+import com.hu.fenxiao.domain.Member;
 import com.hu.fenxiao.service.CartItemService;
 import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.Tip;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -25,8 +27,9 @@ public class CartController {
 
     @RequestMapping(value = "list",method = RequestMethod.POST)
     @ResponseBody
-    public Tip getList(){
-        List<CartItem> list = cartItemService.list(10001);//todo 模拟
+    public Tip getList(HttpSession session){
+        Member member = (Member) session.getAttribute("MEMBER");
+        List<CartItem> list = cartItemService.list(member.getId());
         return new Tip(true,100,"",list);
     }
 
@@ -38,9 +41,10 @@ public class CartController {
      */
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
-    public Tip addItem(@RequestParam String productId) {
+    public Tip addItem(@RequestParam String productId,HttpSession session) {
         try {
-            cartItemService.edit(10001, productId+"");//todo
+            Member member = (Member) session.getAttribute("MEMBER");
+            cartItemService.edit(member.getId(), productId+"");
             return new Tip(true, 100, "成功");
         } catch (Exception e) {
             return ExceptionTipHandler.handler(e);

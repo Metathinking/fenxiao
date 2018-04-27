@@ -14,10 +14,9 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -55,11 +54,10 @@ public class MemberController {
 
 
     @RequestMapping(value = "ti_xian_request", method = RequestMethod.POST)
-    public String tiXianRequest(@RequestBody double money, HttpSession session, Model model) {
+    public String tiXianRequest(Double money, HttpSession session, RedirectAttributes model) {
         try {
             Member member = (Member) session.getAttribute("MEMBER");
             tiXianRecordService.create(member.getId(), money);
-
         } catch (ServiceException e) {
             model.addAttribute("error_msg", e.getExceptionMessage());
         } catch (Exception e) {
@@ -69,18 +67,31 @@ public class MemberController {
         return "redirect:/member/ti_xian_list";
     }
 
+    /**
+     * @param index
+     * @param error_msg 请求重定向参数
+     * @param model
+     * @param session
+     * @return
+     */
     @RequestMapping(value = "ti_xian_list", method = RequestMethod.GET)
     public String tiXianList(@RequestParam(required = false) Integer index,
+                             @ModelAttribute("error_msg") String error_msg,
                              Model model, HttpSession session) {
         try {
             if (index == null) {
                 index = 1;
+            }
+            if (!StringUtils.isEmpty(error_msg)) {
+                model.addAttribute("error_msg", error_msg);
             }
             PageQuery query = new PageQuery();
             query.setIndex(index);
             Member member = (Member) session.getAttribute("MEMBER");
             Map<String, Object> params = new HashMap<>();
             params.put("memberId", member.getId());
+            params.put("start", query.getStart());
+            params.put("size", query.getSize());
             List<TiXianRecord> list = tiXianRecordService.list(params);
             int count = tiXianRecordService.getCount(params);
             query.setCount(count);

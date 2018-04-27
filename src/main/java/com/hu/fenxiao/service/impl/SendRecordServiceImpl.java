@@ -47,27 +47,19 @@ public class SendRecordServiceImpl implements SendRecordService {
 
 
     @Override
-    public void sendProduct(Map<String, String> sendInfo) {
-        String type = sendInfo.get("type");
+    public void sendProduct(SendRecord sendRecord) {
+        String type = sendRecord.getOrderType();
         if (OrderType.SCORE.name().equals(type)) {
-            String orderId = sendInfo.get("orderId");
-            ScoreOrder order = scoreOrderRepository.findById(orderId);
+            int orderId = sendRecord.getOrderId();
+            ScoreOrder order = scoreOrderRepository.findById(orderId + "");
             if (order == null) {
                 throw new ServiceException(201, "订单不存在");
             }
             if (ScoreOrderStatus.XIA_DAN.name().equals(order.getStatus())) {
-                String name = sendInfo.get("name");
-                String phone = sendInfo.get("phone");
-                String address = sendInfo.get("address");
+
                 int maxId = sendRecordRepository.getMaxId();
                 maxId++;
-                SendRecord sendRecord = new SendRecord();
                 sendRecord.setId(maxId);
-                sendRecord.setName(name);
-                sendRecord.setPhone(phone);
-                sendRecord.setAddress(address);
-                sendRecord.setOrderId(order.getId());
-                sendRecord.setOrderType(OrderType.SCORE.name());
                 sendRecord.setTime(System.currentTimeMillis());
                 sendRecordRepository.create(sendRecord);
                 order.setStatus(ScoreOrderStatus.FA_HUO.name());
@@ -75,31 +67,22 @@ public class SendRecordServiceImpl implements SendRecordService {
                 scoreOrderRepository.update(order);
             }
         } else if (OrderType.COMMON.name().equals(type)) {
-            String orderId = sendInfo.get("orderId");
-            Order order = orderRepository.findById(orderId);
+            int orderId = sendRecord.getOrderId();
+            Order order = orderRepository.findById(orderId+"");
             if (order == null) {
                 throw new ServiceException(201, "订单不存在");
             }
             if (OrderStatus.PAY.name().equals(order.getStatus())) {
-                String name = sendInfo.get("name");
-                String phone = sendInfo.get("phone");
-                String address = sendInfo.get("address");
                 int maxId = sendRecordRepository.getMaxId();
                 maxId++;
-                SendRecord sendRecord = new SendRecord();
                 sendRecord.setId(maxId);
-                sendRecord.setName(name);
-                sendRecord.setPhone(phone);
-                sendRecord.setAddress(address);
-                sendRecord.setOrderId(order.getId());
-                sendRecord.setOrderType(OrderType.COMMON.name());
                 sendRecord.setTime(System.currentTimeMillis());
                 sendRecordRepository.create(sendRecord);
                 order.setStatus(OrderStatus.FA_HUO.name());
                 order.setSendTime(System.currentTimeMillis());
                 orderRepository.update(order);
             }
-        }else{
+        } else {
             throw new ServiceException("订单类型错误，请联系管理员");
         }
 

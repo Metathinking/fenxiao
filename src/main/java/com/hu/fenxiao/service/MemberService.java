@@ -7,6 +7,8 @@ import java.util.Map;
 
 public interface MemberService {
 
+//    void test();
+
     Member edit(Member member);
 
     List<Member> list(Map<String, Object> params);

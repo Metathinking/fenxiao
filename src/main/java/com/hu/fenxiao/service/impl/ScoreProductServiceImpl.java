@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ScoreProductServiceImpl implements ScoreProductService {
@@ -34,8 +35,13 @@ public class ScoreProductServiceImpl implements ScoreProductService {
     }
 
     @Override
-    public List<ScoreProduct> list() {
-        return scoreProductRepository.list();
+    public List<ScoreProduct> list(Map<String,Object> params) {
+        return scoreProductRepository.list(params);
+    }
+
+    @Override
+    public int getCount(Map<String, Object> params) {
+        return scoreProductRepository.getCount(params);
     }
 
     @Override

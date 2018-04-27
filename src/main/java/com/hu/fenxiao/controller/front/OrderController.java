@@ -55,7 +55,8 @@ public class OrderController {
     public Tip beSureGetInfo(HttpSession session) {
         logger.debug("------------获取订单数据----------------");
         List<String> ids = (List<String>) session.getAttribute("ids");
-        OrderVO orderVO = orderService.affirm("", ids);//todo memberId
+        Member member = (Member) session.getAttribute("MEMBER");
+        OrderVO orderVO = orderService.affirm(member.getOpenid(), ids);
         return new Tip(true, 100, "成功", orderVO);
     }
 
@@ -70,6 +71,8 @@ public class OrderController {
     public Tip order_submit(@RequestBody OrderVO orderVO, HttpServletRequest request) {
         logger.debug("---------------提交订单-------------------------");
         try {
+            Member member = (Member) request.getSession().getAttribute("MEMBER");
+            orderVO.getOrder().setMemberOpenid(member.getOpenid());
             OrderVO db = orderService.create(orderVO);
             StringBuilder detail = new StringBuilder();
             List<OrderItem> itemList = db.getItemList();

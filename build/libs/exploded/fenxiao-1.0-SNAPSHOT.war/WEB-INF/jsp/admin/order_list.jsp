@@ -84,12 +84,12 @@
                                             等待付款
                                         </c:when>
                                         <c:when test="${vo.order.status=='PAY'}">
-                                            <button ng-click="sendTip(${vo.order.id},${vo.order.memberName},${vo.order.phone},${vo.order.address})"
+                                            <button ng-click="sendTip(${vo.order.id},'${vo.order.memberName}','${vo.order.phone}','${vo.order.address}')"
                                                     data-toggle="modal" data-target="#send">发货
                                             </button>
                                         </c:when>
                                         <c:when test="${vo.order.status=='FA_HUO'}">
-                                            <button ng-click="getSendInfo()" data-toggle="modal" data-target="#sendInfo">发货记录</button>
+                                            <button ng-click="getSendInfo(${vo.order.id})" data-toggle="modal" data-target="#sendInfo">发货记录</button>
                                         </c:when>
                                     </c:choose>
                                 </td>
@@ -143,7 +143,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label>姓名</label>
-                            <input type="text" class="form-control" ng-model="info.memberName"/>
+                            <input type="text" class="form-control" ng-model="info.name"/>
                         </div>
                         <div class="form-group">
                             <label>电话</label>
@@ -201,7 +201,6 @@
 </div>
 <!-- END Content -->
 <script>
-
     function reload(_index, _status) {
         window.location.href = "/admin/order/list?index=" + _index + "&status=" + _status;
     }
@@ -214,14 +213,15 @@
                 orderId: _orderId,
                 name: _name,
                 phone: _phone,
-                address: _address
+                address: _address,
+                orderType:'COMMON'
             };
         };
         //提交送货记录
         $scope.send = function () {
             var req = {
                 method: 'POST',
-                url: context + '/member/order/send',
+                url: context + '/admin/send_record/send',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -242,7 +242,7 @@
         $scope.getSendInfo = function (_orderId) {
             var req = {
                 method: 'POST',
-                url: context + '/member/order/sendInfo?orderId='+_orderId+"&type=COMMON",
+                url: context + '/admin/send_record/sendInfo?orderId='+_orderId+"&type=COMMON",
                 headers: {
                     'Content-Type': 'application/json'
                 },

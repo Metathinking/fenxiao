@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="f" uri="/tag-util" %>
 
 <div class="breadcrumbs">
     <a href="/admin/">首页</a>
@@ -20,7 +20,7 @@
         <ul class="object-tools">
             <li>
                 <a href="/admin/score_product/edit" class="addlink">
-                   添加商品
+                    添加商品
                 </a>
             </li>
         </ul>
@@ -46,21 +46,31 @@
                         </thead>
                         <tbody>
                         <c:forEach items="${list}" var="product">
-                        <tr class="row1">
-                            <th class="field-name"><a href="/admin/music/product/1/change/">${product.name}</a></th>
-                            <td class="field-score">${product.score} 分</td>
-                            <td class="">
-                                <a href="/admin/score_product/edit?id=${product.id}">编辑</a>|
-                                <a href="/admin/score_product/delete?id=${product.id}">删除</a>
-                            </td>
-                        </tr>
+                            <tr class="row1">
+                                <th class="field-name"><a href="/score_product/${product.id}">${product.name}</a></th>
+                                <td class="field-score">${product.score} 分</td>
+                                <td class="">
+                                    <a href="/admin/score_product/edit?id=${product.id}">编辑</a>|
+                                    <a href="/admin/score_product/delete?id=${product.id}">删除</a>
+                                </td>
+                            </tr>
                         </c:forEach>
                         </tbody>
                     </table>
                 </div>
-                <%--<p class="paginator">--%>
-                    <%--1 product--%>
-                <%--</p>--%>
+                <p class="paginator">
+                    <c:forEach items="${f:getPageIndex(pageQuery)}" var="page">
+                        <c:choose>
+                            <c:when test="${page==pageQuery.index}">
+                                <span class="this-page">${page}</span>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="/admin/score_product/list?index=${page}&status=${status}">${page}</a>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:forEach>
+                    共${pageQuery.count}条,${pageQuery.pageCount}页
+                </p>
             </form>
         </div>
     </div>

@@ -22,8 +22,8 @@
             </div>
         </div>
         <!-- 商品列表 -->
-        <%--<c:forEach items="${orderVO.itemList}" var="item">--%>
-        <div class="row order_item" ng-repeat="item in orderVO.itemList">
+        <c:forEach items="${orderVO.itemList}" var="item">
+        <div class="row order_item">
             <div class="col-xs-4 text-center">
                 <a href="#">
                     <img class="media-object cart_img" src="${item.image}" alt="...">
@@ -35,7 +35,7 @@
                 <p class="price">总金额：￥${item.totalPrice}</p>
             </div>
         </div>
-        <%--</c:forEach>--%>
+        </c:forEach>
     </div>
     <div class="form-group">
         <label>备注</label>

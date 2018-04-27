@@ -28,7 +28,7 @@ public class ScoreOrderServiceImpl implements ScoreOrderService {
     private MemberAccountRepository memberAccountRepository;
 
     @Autowired
-    private SendRecordRepository sendRecordRepository;
+    private ScoreProductRepository scoreProductRepository;
 
     @Autowired
     private ScoreRecordRepository scoreRecordRepository;
@@ -63,7 +63,9 @@ public class ScoreOrderServiceImpl implements ScoreOrderService {
         itemMaxId++;
         scoreOrderItem.setId(itemMaxId);
         scoreOrderItem.setOrderId(scoreOrder.getId());
-
+        ScoreProduct product = scoreProductRepository.findById(scoreOrderItem.getProductId() + "");
+        scoreOrderItem.setImage(product.getImage());
+        scoreOrderItem.setIntroduction(product.getIntroduction());
         scoreOrder.setGrandTotal(grandTotal);
         scoreOrderRepository.create(scoreOrder);
         scoreOrderItemRepository.create(scoreOrderItem);
@@ -127,7 +129,6 @@ public class ScoreOrderServiceImpl implements ScoreOrderService {
     public int getCount(Map<String, Object> params) {
         return scoreOrderRepository.getCount(params);
     }
-
 
 
     @Override

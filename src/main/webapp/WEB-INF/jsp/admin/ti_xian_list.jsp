@@ -17,10 +17,10 @@
     <h1>提现申请</h1>
     <div id="content-main">
         <div class="module" id="changelist">
-            <form id="changelist-form" method="post" novalidate>
+            <div id="changelist-form" novalidate>
                 <form class="actions" method="get" action="/admin/ti_xian/list">
-                    <input type="text" name="search" placeholder="名称/电话/信息">
-                    <button type="submit" class="button">查询</button>
+                    <input type="text" name="search" placeholder="名称/电话/信息" value="${search}">
+                    <input type="submit" class="button" value="查询"/>
                 </form>
                 <div class="actions">
                     <button type="button" class="button" onclick="reload('')">全部</button>
@@ -71,7 +71,7 @@
                         </thead>
                         <tbody>
                         <c:forEach items="${list}" var="item">
-                            <tr class="row1" style="background-color: #79aec8;color: #FFFFFF">
+                            <tr class="row1">
                                 <td>${item.id}</td>
                                 <td>${item.memberName}</td>
                                 <td>${item.memberPhone}</td>
@@ -85,10 +85,11 @@
                                         <c:when test="${item.status=='OVER'}">
                                             已完成
                                         </c:when>
-                                        <c:when test="${vo.order.status=='REQUEST'}">
-                                            <button ng-click="shenHeTip(${item.id},${item.memberName},${item.memberPhone},${item.money},${f:format(item.requestTime,"yyyy-MM-dd HH:mm:ss")})"
-                                                    data-toggle="modal" data-target="#shenHe">审核
-                                            </button>
+                                        <c:when test="${item.status=='REQUEST'}">
+                                            <a href="#"
+                                               ng-click="shenHeTip(${item.id},'${item.memberName}','${item.memberPhone}','${item.money}','${f:format(item.requestTime,"yyyy-MM-dd HH:mm:ss")}')"
+                                               data-toggle="modal" data-target="#shenHe">审核
+                                            </a>
                                         </c:when>
                                     </c:choose>
                                 </td>
@@ -110,7 +111,7 @@
                     </c:forEach>
                     共${pageQuery.count}条,${pageQuery.pageCount}页
                 </p>
-            </form>
+            </div>
         </div>
     </div>
     <br class="clear"/>
@@ -128,13 +129,16 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>姓名:{{info.name}}</label>
+                            <label>姓名:{{info.memberName}}</label>
                         </div>
                         <div class="form-group">
-                            <label>电话:{{info.phone}}</label>
+                            <label>电话:{{info.memberPhone}}</label>
                         </div>
                         <div class="form-group">
                             <label>金额:{{info.money}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label>申请时间:{{info.time}}</label>
                         </div>
                         <div class="form-group">
                             <label>信息</label>
@@ -157,7 +161,7 @@
 <script>
 
     function reload(_status) {
-        window.location.href = "/admin/ti_xian/list?index=" + ${pageQuery.index} +"&status=" + _status + "&search=" +${search};
+        window.location.href = "/admin/ti_xian/list?index=" + ${pageQuery.index} +"&status=" + _status + "&search=${search}";
     }
 
     app.controller("tiXianListController", function ($scope, $http) {
@@ -166,21 +170,24 @@
         $scope.shenHeTip = function (_id, _name, _phone, _money, _time) {
             $scope.info = {
                 id: _id,
-                name: _name,
-                phone: _phone,
+                memberName: _name,
+                memberPhone: _phone,
                 money: _money,
-                time: _time
+                requestTime: _time
             };
         };
         //提交送货记录
         $scope.shenHe = function () {
             var req = {
                 method: 'POST',
-                url: context + '/member/ti_xian/shenHe',
+                url: context + '/admin/ti_xian/shenHe',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                data: $scope.info
+                data: {
+                    id:$scope.info.id,
+                    info:$scope.info.info
+                }
             }
             $http(req).success(function (response, status, headers, cfg) {
                 if (response.success) {
@@ -189,7 +196,6 @@
                     alert(response.msg);
                 }
             }).error(function (response, status, headers, cfg) {
-
             });
         };
 

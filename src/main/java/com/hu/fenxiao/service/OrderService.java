@@ -8,7 +8,7 @@ import java.util.Map;
 
 public interface OrderService {
 
-    OrderVO affirm(String memberId, List<String> ids);
+    OrderVO affirm(String memberOpenId, List<String> ids);
 
     OrderVO create(OrderVO orderVO);
 

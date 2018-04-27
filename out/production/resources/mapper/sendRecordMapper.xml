@@ -19,7 +19,7 @@ values (#{id,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR
 select * from m_send_record order by f_id limit #{start},#{size}
 </select>
     <select id="findByOrderId" resultMap="m_send_record">select * from m_send_record
-where f_order_id=#{id} and f_order_type=#{type}
+where f_order_id=#{orderId} and f_order_type=#{orderType}
 </select>
     <select id="getCount" resultType="int">select count(f_id) FROM m_send_record</select>
     <select id="getMaxId" resultType="int">select IFNULL(max(f_id),10000) FROM m_send_record</select>

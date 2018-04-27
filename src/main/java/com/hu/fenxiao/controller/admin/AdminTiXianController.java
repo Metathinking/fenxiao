@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -39,11 +40,11 @@ public class AdminTiXianController {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("start", query.getStart());
             map.put("size", query.getSize());
-            if (status != null) {
+            if (!StringUtils.isEmpty(status)) {
                 map.put("status", status);
                 model.addAttribute("status", status);
             }
-            if (status != null) {
+            if (!StringUtils.isEmpty(search)) {
                 map.put("search", search);
                 model.addAttribute("search", search);
             }

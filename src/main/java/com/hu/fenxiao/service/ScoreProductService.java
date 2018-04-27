@@ -3,6 +3,7 @@ package com.hu.fenxiao.service;
 import com.hu.fenxiao.domain.ScoreProduct;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ScoreProductService {
 
@@ -12,7 +13,9 @@ public interface ScoreProductService {
 
     void delete(String id);
 
-    List<ScoreProduct> list();
+    List<ScoreProduct> list(Map<String,Object> params);
+
+    int getCount(Map<String,Object> params);
 
     ScoreProduct findById(String id);
 }

@@ -22,6 +22,8 @@
     <%--<script type="text/javascript" src="/admin/jsi18n/"></script>--%>
     <script type="text/javascript" src="/resources/js/vendor/jquery/jquery.js"></script>
     <script type="text/javascript" src="/resources/js/jquery.init.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/resources/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/resources/js/core.js"></script>
     <script type="text/javascript" src="/resources/js/admin/RelatedObjectLookups.js"></script>
     <script type="text/javascript" src="/resources/js/actions.js"></script>

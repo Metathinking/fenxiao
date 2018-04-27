@@ -23,9 +23,9 @@ public class AdminSendRecordController {
 
     @RequestMapping(value = "send", method = RequestMethod.POST)
     @ResponseBody
-    public Tip send(@RequestBody Map<String, String> sendInfo) {
+    public Tip send(@RequestBody SendRecord sendRecord) {
         try {
-            sendRecordService.sendProduct(sendInfo);
+            sendRecordService.sendProduct(sendRecord);
             return new Tip(true, 100, "", null);
         } catch (Exception e) {
             logger.error(e.getMessage());

@@ -28,30 +28,6 @@ public class Member {
 
     private long time;//最后登录时间
 
-    public String getHigherLevelOpenId() {
-        return higherLevelOpenId;
-    }
-
-    public void setHigherLevelOpenId(String higherLevelOpenId) {
-        this.higherLevelOpenId = higherLevelOpenId;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public long getTime() {
-        return time;
-    }
-
-    public void setTime(long time) {
-        this.time = time;
-    }
-
     public int getId() {
         return id;
     }
@@ -82,6 +58,22 @@ public class Member {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getHigherLevelOpenId() {
+        return higherLevelOpenId;
+    }
+
+    public void setHigherLevelOpenId(String higherLevelOpenId) {
+        this.higherLevelOpenId = higherLevelOpenId;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     public String getUnionid() {
@@ -146,5 +138,13 @@ public class Member {
 
     public void setHeadimgurl(String headimgurl) {
         this.headimgurl = headimgurl;
+    }
+
+    public long getTime() {
+        return time;
+    }
+
+    public void setTime(long time) {
+        this.time = time;
     }
 }

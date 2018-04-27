@@ -14,7 +14,7 @@ public interface SendRecordRepository {
 
     List<SendRecord> list(Map<String, Object> params);
 
-    SendRecord findByOrderId(@Param("orderId") String orderId,@Param("type") String type);
+    SendRecord findByOrderId(@Param("orderId") String orderId,@Param("orderType") String type);
 
     int getMaxId();
 

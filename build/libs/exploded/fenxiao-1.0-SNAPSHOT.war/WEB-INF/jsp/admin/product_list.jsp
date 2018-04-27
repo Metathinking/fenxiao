@@ -59,7 +59,7 @@
                         <tbody>
                         <c:forEach items="${list}" var="product">
                         <tr class="row1">
-                            <th class="field-name"><a href="/admin/music/product/1/change/">${product.name}</a></th>
+                            <th class="field-name"><a href="/product/${product.id}">${product.name}</a></th>
                             <td class="field-xiangXing">${product.xiangXing}</td>
                             <td class="field-rongLiang">${product.rongLiang} ml</td>
                             <td class="field-duShu">${product.duShu} 度</td>
@@ -80,7 +80,7 @@
                                 <span class="this-page">${page}</span>
                             </c:when>
                             <c:otherwise>
-                                <a href="/admin/order/list?index=${page}&status=${status}">${page}</a>
+                                <a href="/admin/product/list?index=${page}&status=${status}">${page}</a>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>

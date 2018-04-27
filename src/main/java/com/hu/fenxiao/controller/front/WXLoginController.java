@@ -23,6 +23,13 @@ public class WXLoginController {
     @Autowired
     private MemberService memberService;
 
+    @RequestMapping(value = "testLogin", method = RequestMethod.GET)
+    public String testLogin(HttpSession session) {
+        Member member = memberService.findByOpenId("10002");
+        session.setAttribute("MEMBER", member);
+        return "redirect:/index";
+    }
+
     /**
      * 进入微信登录授权页面
      *
@@ -30,18 +37,18 @@ public class WXLoginController {
      */
     @RequestMapping(value = "login", method = RequestMethod.GET)
     public String gotoLogin() {
+        String wxLoginUrl = "";
         try {
             //加密重定向连接
             String redirectURI = URLEncoder.encode(REDIRECT_URI, "utf-8");
-            String wxLoginUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + APP_ID
+            wxLoginUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + APP_ID
                     + "&redirect_uri=" + redirectURI +
                     "&response_type=code&scope=" + SCOPE + "&state=" + STATE
                     + "#wechat_redirect";
-            return "redirect:" + wxLoginUrl;
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        return "";//todo  登录失败，请重试
+        return "redirect:" + wxLoginUrl;
     }
 
 
@@ -87,7 +94,7 @@ public class WXLoginController {
      */
 
     private String APP_ID = "wx0b80f1b0a4c1602f";//real
-//    private String APP_ID = "wx081395b7cdc2a00e";
+    //    private String APP_ID = "wx081395b7cdc2a00e";
 //    private String APP_SECRET = "4074d7a66e92d0b93b1152d07766ad7e";
     private String APP_SECRET = "44e368e1847de6a9b616fe1ffb92b8e4";//real
     private String REDIRECT_URI = "localhost/wx_login";

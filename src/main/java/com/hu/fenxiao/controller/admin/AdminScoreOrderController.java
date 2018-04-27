@@ -13,6 +13,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -20,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("admin/order")
+@RequestMapping("admin/score_order")
 public class AdminScoreOrderController {
 
     private Logger logger = LogManager.getLogger(AdminScoreOrderController.class);
@@ -34,6 +35,7 @@ public class AdminScoreOrderController {
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String gotoList(@RequestParam(required = false) Integer index,
                            @RequestParam(required = false) String status,
+                           @RequestParam(required = false) String memberOpenid,
                            Model model) {
         try {
             if (index == null) {
@@ -44,8 +46,11 @@ public class AdminScoreOrderController {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("start", query.getStart());
             map.put("size", query.getSize());
-            if (status != null) {
+            if (!StringUtils.isEmpty(status)) {
                 map.put("status", status);
+            }
+            if (!StringUtils.isEmpty(memberOpenid)) {
+                map.put("memberOpenid", memberOpenid);
             }
             List<ScoreOrderVO> list = scoreOrderService.list(map);
             int count = scoreOrderService.getCount(map);

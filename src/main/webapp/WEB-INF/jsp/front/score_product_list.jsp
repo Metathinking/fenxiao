@@ -15,12 +15,12 @@
         <div class="row">
             <c:forEach items="${productList}" var="product">
                 <div class="col-xs-6  product_item text-center">
-                    <a href="/product/${product.id}">
+                    <a href="/score_product/${product.id}">
                         <img src="${product.image}" class="product_img">
                         <p>${product.name}</p>
                     </a>
                     <div class="text-left description price">积分：${product.score}</div>
-                    <button type="button" class="btn btn-danger btn-sm" ng-click="selectProduct(${product.id})"
+                    <button type="button" class="btn btn-danger btn-sm" ng-click="selectProduct(${product.id},'${product.name}',${product.score})"
                             style="float: right;margin-bottom: 4%" data-toggle="modal" data-target="#send">兑换
                     </button>
                     <div class="clear"></div>
@@ -52,17 +52,29 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>{{info.name}}</label>
+                            <label>姓名</label>
+                            <input type="text" class="form-control" ng-model="orderVO.scoreOrder.memberName"/>
                         </div>
                         <div class="form-group">
-                            <label>积分:{{info.score}}</label>
+                            <label>电话</label>
+                            <input type="text" class="form-control" ng-model="orderVO.scoreOrder.phone"/>
+                        </div>
+                        <div class="form-group">
+                            <label>地址</label>
+                            <input type="text" class="form-control" ng-model="orderVO.scoreOrder.address"/>
+                        </div>
+                        <div class="form-group">
+                            <label>{{orderVO.scoreOrderItem.name}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label>积分:{{orderVO.scoreOrderItem.score}}</label>
                         </div>
                         <div class="form-group">
                             <label>数量</label>
-                            <input type="number" class="form-control" ng-model="info.quantity"/>
+                            <input type="number" class="form-control" ng-model="orderVO.scoreOrderItem.quantity"/>
                         </div>
                         <div class="form-group">
-                            <label>总积分：{{info.score*info.quantity}}</label>
+                            <label>总积分：{{orderVO.scoreOrderItem.score*orderVO.scoreOrderItem.quantity}}</label>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -78,9 +90,17 @@
 <script>
     app.controller("scoreOrderController", function ($scope, $http) {
 
+        $scope.orderVO={
+            scoreOrder:{
+                memberName:'${member.name}',
+                phone:'${member.phone}',
+                address:'${member.address}',
+            },
+        }
+
         //送货信息
         $scope.selectProduct = function (_productId, _name, _score) {
-            $scope.info = {
+            $scope.orderVO.scoreOrderItem = {
                 productId: _productId,
                 name: _name,
                 score: _score,
@@ -95,7 +115,7 @@
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                data: $scope.info
+                data: $scope.orderVO
             }
             $http(req).success(function (response, status, headers, cfg) {
                 if (response.success) {

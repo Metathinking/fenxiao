@@ -41,4 +41,20 @@ public class LoginController {
         session.setAttribute("manager", null);
         return "redirect:/adminLogin";
     }
+
+    @RequestMapping(value = "reset",method = RequestMethod.GET)
+    public String gotoReset(){
+        return "admin/reset";
+    }
+
+    @RequestMapping(value = "reset",method = RequestMethod.POST)
+    public String reset(String username, String password,Model model){
+        try {
+            managerService.reset(username,password);
+        } catch (Exception e) {
+            model.addAttribute("errorMessage",e.getMessage());
+            return "admin/reset";
+        }
+        return "redirect:/adminLogin";
+    }
 }

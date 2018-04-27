@@ -7,4 +7,6 @@ public interface ManagerService {
     Manager login(String name, String password);
 
     void changePassword(String name, String password);
+
+    void reset(String username, String password);
 }

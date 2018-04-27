@@ -58,12 +58,12 @@ public class OrderServiceImpl implements OrderService {
      *
      * @return
      */
-    public OrderVO affirm(String memberId, List<String> ids) {
-//        memberService.findByOpenId("16");//todo
-        Member member = new Member();
-        member.setName("李四");
-        member.setPhone("13344445555");
-        member.setAddress("山东滨州");
+    public OrderVO affirm(String memberOpenId, List<String> ids) {
+       Member member =  memberRepository.findByOpenId(memberOpenId);
+//        Member member = new Member();
+//        member.setName("李四");
+//        member.setPhone("13344445555");
+//        member.setAddress("山东滨州");
 
         Order order = new Order();
         order.setMemberOpenid(member.getOpenid());
@@ -116,7 +116,6 @@ public class OrderServiceImpl implements OrderService {
         int maxId = orderRepository.getMaxId();
         maxId++;
         Order order = orderVO.getOrder();
-        order.setMemberOpenid("11");//todo 模拟
         order.setId(maxId);
         order.setOrderTime(System.currentTimeMillis());
         order.setStatus(OrderStatus.NO_PAY.name());
@@ -137,9 +136,6 @@ public class OrderServiceImpl implements OrderService {
         orderRepository.create(order);
         orderItemRepository.create(itemList);
         return orderVO;
-//todo
-//        private long payTime;//付款时间
-//        private long sendTime;//发货时间
     }
 
     /**

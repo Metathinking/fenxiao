@@ -44,7 +44,7 @@
             <div class="col-xs-1"><span class="glyphicon glyphicon-chevron-right"></span></div>
         </div>
     </a>
-    <a href="">
+    <a href="/member/score_order/list">
         <div class="row mine_item">
             <div class="col-xs-1"><span class="glyphicon glyphicon-gift"></span></div>
             <div class="col-xs-9">积分订单</div>

@@ -9,9 +9,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="f" uri="/tag-util" %>
 
-<c:if test="${error_msg!=null}">
-    <div class="errornote">
-        ${error_msg}
+<c:if test="${error_msg!=null&&error_msg!=''}">
+    <div class="alert alert-danger">
+            ${error_msg}
     </div>
 </c:if>
 
@@ -33,8 +33,18 @@
                         <i class="weui-icon-waiting " style="width:20px;margin-right:15px;display:block"></i>
                     </div>
                     <div class="weui-cell__bd">
-                        <p>提现申请(等待审核): <span style="color: #9f3025;">${item.money}</span></p>
+                        <div>提现申请(等待审核): <span style="color: #9f3025;">${item.money}</span></div>
+                        <%--<div style="color: #999999;">申请时间：${f:format(item.requestTime,"yyyy-MM-dd HH:mm:ss")}</div>--%>
                     </div>
+                    <%--<div class="weui-cell__ft">申请时间：${f:format(item.requestTime,"yyyy-MM-dd HH:mm:ss")}</div>--%>
+                </div>
+                <div class="weui-cell">
+                    <%--<div class="weui-cell__hd">--%>
+                        <%--<i class="weui-icon-waiting " style="width:20px;margin-right:15px;display:block"></i>--%>
+                    <%--</div>--%>
+                    <%--<div class="weui-cell__bd">--%>
+                        <%--<p>提现申请(等待审核): <span style="color: #9f3025;">${item.money}</span></p>--%>
+                    <%--</div>--%>
                     <div class="weui-cell__ft">申请时间：${f:format(item.requestTime,"yyyy-MM-dd HH:mm:ss")}</div>
                 </div>
             </div>
@@ -48,6 +58,15 @@
                     <div class="weui-cell__bd">
                         <p>提现申请(完成): <span style="color: #9f3025;">${item.money}</span></p>
                     </div>
+                    <%--<div class="weui-cell__ft">完成时间：${f:format(item.requestTime,"yyyy-MM-dd HH:mm:ss")}</div>--%>
+                </div>
+                <div class="weui-cell">
+                    <%--<div class="weui-cell__hd">--%>
+                        <%--<i class="weui-icon-success " style="width:20px;margin-right:15px;display:block"></i>--%>
+                    <%--</div>--%>
+                    <%--<div class="weui-cell__bd">--%>
+                        <%--<p>${f:format(item.requestTime,"yyyy-MM-dd HH:mm:ss")}</p>--%>
+                    <%--</div>--%>
                     <div class="weui-cell__ft">完成时间：${f:format(item.requestTime,"yyyy-MM-dd HH:mm:ss")}</div>
                 </div>
             </div>
@@ -55,7 +74,7 @@
     </c:choose>
 </c:forEach>
 <!--modal start -->
-<div class="modal fade" id="shenHe" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="shenQing" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <form action="/member/ti_xian_request" method="post">
@@ -67,14 +86,18 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
+                        <label>最大金额:￥${account.money}</label>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
                         <label>金额:</label>
-                        <input type="text" class="form-control" name="money"/>
+                        <input type="text" class="form-control" name="money" ng-model="money"/>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                    <button type="submit" class="btn btn-primary" data-dismiss="modal">申请
-                    </button>
+                    <input type="submit" class="btn btn-primary" value="申请"/>
                 </div>
             </form>
         </div>

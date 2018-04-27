@@ -14,5 +14,5 @@ public interface SendRecordService {
 
     int getCount(Map<String, Object> params);
 
-    public void sendProduct(Map<String, String> sendInfo);
+    public void sendProduct(SendRecord sendRecord);
 }

@@ -2,12 +2,16 @@ package com.hu.fenxiao.service.impl;
 
 import com.hu.fenxiao.domain.Member;
 import com.hu.fenxiao.domain.MemberAccount;
+import com.hu.fenxiao.domain.MoneyRecord;
 import com.hu.fenxiao.domain.TiXianRecord;
 import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.repository.MemberAccountRepository;
 import com.hu.fenxiao.repository.MemberRepository;
+import com.hu.fenxiao.repository.MoneyRecordRepository;
 import com.hu.fenxiao.repository.TiXianRecordRepository;
 import com.hu.fenxiao.service.TiXianRecordService;
+import com.hu.fenxiao.type.MoneyChangeReason;
+import com.hu.fenxiao.type.OrderStatus;
 import com.hu.fenxiao.type.TiXianStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +30,9 @@ public class TiXianRecordServiceImpl implements TiXianRecordService {
 
     @Autowired
     private MemberAccountRepository memberAccountRepository;
+
+    @Autowired
+    private MoneyRecordRepository moneyRecordRepository;
 
     @Override
     public void create(int memberId, double money) {
@@ -82,10 +89,38 @@ public class TiXianRecordServiceImpl implements TiXianRecordService {
         if (memberAccount.getMoney() < db.getMoney()) {
             throw new ServiceException("账户余额不足！");
         }
+        double before = memberAccount.getMoney();
         memberAccount.setMoney(memberAccount.getMoney() - db.getMoney());
         memberAccountRepository.update(memberAccount);
+
+        addMoneyRecord(db, memberAccount, before);
+
         db.setOverTime(System.currentTimeMillis());
         db.setStatus(TiXianStatus.OVER.name());
+        db.setInfo(tiXianRecord.getInfo());
         tiXianRecordRepository.update(db);
+    }
+
+    /**
+     * 保存资金变动记录
+     *
+     * @param db
+     * @param memberAccount
+     * @param before
+     */
+    private void addMoneyRecord(TiXianRecord db, MemberAccount memberAccount, double before) {
+        MoneyRecord moneyRecord = new MoneyRecord();
+        int maxId = moneyRecordRepository.getMaxId();
+        maxId++;
+        moneyRecord.setId(maxId);
+        moneyRecord.setMemberId(db.getMemberId());
+        moneyRecord.setOrderId(db.getId());
+        moneyRecord.setBefore(before);
+        moneyRecord.setMoney(-db.getMoney());
+        moneyRecord.setAfter(memberAccount.getMoney());
+        moneyRecord.setReason(MoneyChangeReason.TI_XIAN.name());
+        moneyRecord.setTime(System.currentTimeMillis());
+        moneyRecord.setStatus(OrderStatus.WAN_CHENG.name());
+        moneyRecordRepository.create(moneyRecord);
     }
 }

@@ -16,11 +16,11 @@
         <result column="f_city" property="city"/>
         <result column="f_country" property="country"/>
         <result column="f_headimgurl" property="headimgurl"/>
-        <result column="f_time" property="f_time"/>
+        <result column="f_time" property="time"/>
     </resultMap>
     <insert id="create" parameterType="com.hu.fenxiao.domain.Member">
 insert into m_member ( f_id,f_name,f_phone,f_address,f_higher_level_open_id,f_level,f_unionid,f_openid,f_nickname,f_sex,
-f_province,f_city,f_country,f_headimgurl)
+f_province,f_city,f_country,f_headimgurl,f_time)
 values (#{id,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR},#{address,jdbcType=VARCHAR},
 #{higherLevelOpenId,jdbcType=VARCHAR},#{level,jdbcType=INTEGER},
 #{unionid,jdbcType=VARCHAR},#{openid,jdbcType=VARCHAR},#{nickname,jdbcType=VARCHAR},#{sex,jdbcType=INTEGER},

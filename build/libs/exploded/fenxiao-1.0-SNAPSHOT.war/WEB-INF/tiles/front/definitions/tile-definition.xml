@@ -59,8 +59,20 @@
     </definition>
 
     <definition name="front/order_detail" extends="front_base_layout">
-        <put-attribute name="title" value="账单详情"/>
+        <put-attribute name="title" value="订单详情"/>
         <put-attribute name="content" value="/WEB-INF/jsp/front/order_detail.jsp"/>
+        <put-attribute name="footer" value=""/>
+    </definition>
+
+    <definition name="front/score_order_list" extends="front_base_layout">
+        <put-attribute name="title" value="积分订单列表"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/front/score_order_list.jsp"/>
+        <put-attribute name="footer" value=""/>
+    </definition>
+
+    <definition name="front/score_order_detail" extends="front_base_layout">
+        <put-attribute name="title" value="积分订单详情"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/front/score_order_detail.jsp"/>
         <put-attribute name="footer" value=""/>
     </definition>
 </tiles-definitions>
