@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface MemberService {
 
-//    void test();
+    void test();
 
     Member edit(Member member);
 

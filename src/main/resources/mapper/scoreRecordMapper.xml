@@ -29,13 +29,21 @@ f_status=#{status,jdbcType=VARCHAR} where f_id=#{id}
 </update>
     <select id="list" resultMap="m_score_record">
 select * from m_score_record
-order by f_id limit #{start},#{size}
+        where 1=1
+        <if test="memberId != null and memberId != ''">
+            and f_member_id=#{memberId}
+        </if>
+order by f_id desc limit #{start},#{size}
 </select>
     <select id="findById" resultMap="m_score_record">
 select * from m_score_record where f_id=#{id}
 </select>
     <select id="getCount" resultType="int">
 select count(f_id) FROM m_score_record
+        where 1=1
+        <if test="memberId != null and memberId != ''">
+            and f_member_id=#{memberId}
+        </if>
 </select>
     <select id="getMaxId" resultType="int">
 select IFNULL(max(f_id),10000) FROM m_score_record

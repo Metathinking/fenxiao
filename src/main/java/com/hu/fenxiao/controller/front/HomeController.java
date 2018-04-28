@@ -1,9 +1,11 @@
 package com.hu.fenxiao.controller.front;
 
+import com.hu.fenxiao.domain.HomeImage;
 import com.hu.fenxiao.domain.Member;
 import com.hu.fenxiao.domain.Product;
 import com.hu.fenxiao.domain.WeiXinToken;
 import com.hu.fenxiao.query.PageQuery;
+import com.hu.fenxiao.service.HomeImageService;
 import com.hu.fenxiao.service.MemberService;
 import com.hu.fenxiao.service.ProductService;
 import com.hu.fenxiao.util.WXLoginUtil;
@@ -35,6 +37,9 @@ public class HomeController {
     @Autowired
     private ProductService productService;
 
+    @Autowired
+    private HomeImageService homeImageService;
+
     /**
      * 进入首页
      *
@@ -42,7 +47,7 @@ public class HomeController {
      * @return
      */
     @RequestMapping(value = {"", "home", "index"}, method = RequestMethod.GET)
-    public String home(@RequestParam(required = false) Integer index,Model model) {
+    public String home(@RequestParam(required = false) Integer index, Model model) {
         try {
             if (index == null) {
                 index = 1;
@@ -56,14 +61,15 @@ public class HomeController {
             int count = productService.getCount(map);
             query.setCount(count);
             model.addAttribute("list", list);
-//            model.addAttribute("pageQuery", query);
+            List<HomeImage> homeImageList = homeImageService.list();
+            model.addAttribute("homeImageList", homeImageList);
+            model.addAttribute("sign", "home");
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.getMessage());
         }
         return "front/index";
     }
-
 
 
 }

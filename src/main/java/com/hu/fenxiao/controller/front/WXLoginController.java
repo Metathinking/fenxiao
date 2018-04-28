@@ -4,6 +4,8 @@ import com.hu.fenxiao.domain.Member;
 import com.hu.fenxiao.domain.WeiXinToken;
 import com.hu.fenxiao.service.MemberService;
 import com.hu.fenxiao.util.WXLoginUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,11 +22,14 @@ import java.net.URLEncoder;
 @Controller
 public class WXLoginController {
 
+    private Logger logger = LogManager.getLogger(WXLoginController.class);
+
     @Autowired
     private MemberService memberService;
 
     @RequestMapping(value = "testLogin", method = RequestMethod.GET)
     public String testLogin(HttpSession session) {
+//        memberService.test();
         Member member = memberService.findByOpenId("10002");
         session.setAttribute("MEMBER", member);
         return "redirect:/index";
@@ -47,6 +52,7 @@ public class WXLoginController {
                     + "#wechat_redirect";
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return "redirect:" + wxLoginUrl;
     }
@@ -62,6 +68,7 @@ public class WXLoginController {
                           @RequestParam(value = "state") String state,
                           Model model,
                           HttpSession session) {
+        logger.debug("-----------------微信登录---------------------");
         String getTokenUrl = String.format(weixinGetAccessToken, code);
         try {
             WeiXinToken token = WXLoginUtil.getObject(getTokenUrl, WeiXinToken.class);
@@ -72,13 +79,15 @@ public class WXLoginController {
             Member db = memberService.edit(member);
             session.setAttribute("MEMBER", member);
 
-            return "redirect:/uc/" + db.getOpenid();
+            return "redirect:/index";
         } catch (MalformedURLException e) {
-            model.addAttribute("授权登录失败");
+            model.addAttribute("error_msg","授权登录失败");
             e.printStackTrace();
+            logger.error(e.getMessage());
         } catch (IOException e) {
-            model.addAttribute("授权登录失败");
+            model.addAttribute("error_msg","授权登录失败");
             e.printStackTrace();
+            logger.error(e.getMessage());
         }
         return "error";
     }
@@ -97,7 +106,8 @@ public class WXLoginController {
     //    private String APP_ID = "wx081395b7cdc2a00e";
 //    private String APP_SECRET = "4074d7a66e92d0b93b1152d07766ad7e";
     private String APP_SECRET = "44e368e1847de6a9b616fe1ffb92b8e4";//real
-    private String REDIRECT_URI = "localhost/wx_login";
+//    private String REDIRECT_URI = "xs154568.gotoip1.com/wx_login";
+    private String REDIRECT_URI = "jiu.leide365.com/wx_login";
     private String SCOPE = "snsapi_userinfo"; //snsapi_base || snsapi_userinfo
     private String STATE = "STATEE";
 

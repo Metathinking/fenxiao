@@ -40,6 +40,7 @@ public class ScoreProductController {
         map.put("size", query.getSize());
         List<ScoreProduct> productList = scoreProductService.list(map);
         model.addAttribute("productList", productList);
+        model.addAttribute("sign", "score");
         return "front/score_product_list";
     }
 }

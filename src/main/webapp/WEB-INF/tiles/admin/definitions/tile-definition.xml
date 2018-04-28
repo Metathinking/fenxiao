@@ -65,5 +65,9 @@
         <put-attribute name="title" value="提现申请"/>
         <put-attribute name="content" value="/WEB-INF/jsp/admin/ti_xian_list.jsp"/>
     </definition>
+    <definition name="admin/home_image" extends="baseLayout">
+        <put-attribute name="title" value="提现申请"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/home_image.jsp"/>
+    </definition>
 
 </tiles-definitions>

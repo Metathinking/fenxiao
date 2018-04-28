@@ -11,38 +11,36 @@
 <div ng-controller="indexController">
     <header class="container-fluid header">
         <!-- 轮转页面 start -->
-        <%--<div class="carousel slide" id="myCarousel" data-ride="carousel">--%>
-        <%--<ol class="carousel-indicators">--%>
-        <%--<li data-target="#myCarousel" data-side-to="0" class="active"></li>--%>
-        <%--<li data-target="#myCarousel" data-side-to="1"></li>--%>
-        <%--<li data-target="#myCarousel" data-side-to="2"></li>--%>
-        <%--<li data-target="#myCarousel" data-side-to="3"></li>--%>
-        <%--</ol>--%>
-        <%--<div class="carousel-inner" role="listbox">--%>
-        <%--<div class="item active text-center">--%>
-        <%--<img src="static/images/1.png"/>--%>
-        <%--<div class="carousel-caption">--%>
-        <%--<h1>GET TO KNOW BOOTSTRAP</h1>--%>
-        <%--<br/>--%>
-        <%--<button type="button" class="btn btn-default">Get Started</button>--%>
-        <%--</div>--%>
-        <%--</div>--%>
-        <%--<div class="item "><img src="static/images/2.png" class="text-center"/></div>--%>
-        <%--<div class="item text-center"><img src="static/images/3.png"/></div>--%>
-        <%--<div class="item text-center"><img src="static/images/4.png"/></div>--%>
-        <%--</div>--%>
-        <%--<!-- slider start -->--%>
-        <%--<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">--%>
-        <%--<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>--%>
-        <%--<span class="sr-only">Previous</span>--%>
-        <%--</a>--%>
-        <%--<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">--%>
-        <%--<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>--%>
-        <%--<span class="sr-only">Next</span>--%>
-        <%--</a>--%>
+        <div class="carousel slide" id="myCarousel" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <c:forEach items="${homeImageList}" var="image" varStatus="status">
+                    <li data-target="#myCarousel" data-side-to="${status.index}" class="${status.index==0?'active':''}"></li>
+                </c:forEach>
+                <%--<li data-target="#myCarousel" data-side-to="0" class="active"></li>--%>
+                <%--<li data-target="#myCarousel" data-side-to="1"></li>--%>
+                <%--<li data-target="#myCarousel" data-side-to="2"></li>--%>
+                <%--<li data-target="#myCarousel" data-side-to="3"></li>--%>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <c:forEach items="${homeImageList}" var="image" varStatus="status">
+                    <div class="item ${status.index==0?'active':''}"><img src="${image.url}"/></div>
+                </c:forEach>
+                <%--<div class="item "><img src="static/images/2.png" class="text-center"/></div>--%>
+                <%--<div class="item text-center"><img src="static/images/3.png"/></div>--%>
+                <%--<div class="item text-center"><img src="static/images/4.png"/></div>--%>
+            </div>
+            <!-- slider start -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
 
-        <%--<!-- slider end -->--%>
-        <%--</div>--%>
+            <!-- slider end -->
+        </div>
         <!-- 轮转页面 end -->
     </header>
     <div class="container-fluid" style="margin-top: 30px">
@@ -62,7 +60,8 @@
                             <p class="text-left description price">价格：￥${product.price}</p>
                         </div>
                         <div class="col-xs-4 text-center">
-                            <span class="glyphicon glyphicon-shopping-cart shop-cart" ng-click="addCartItem(${product.id})"></span>
+                            <span class="glyphicon glyphicon-shopping-cart shop-cart"
+                                  ng-click="addCartItem(${product.id})"></span>
                         </div>
                     </div>
                 </div>

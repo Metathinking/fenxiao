@@ -11,7 +11,7 @@
         <div class="">
             <div class="row text-center">
                 <div class="col-xs-3 footer-block">
-                    <a class="center-block active" href="/">
+                    <a class="center-block ${sign=='home'?'active':''}" href="/">
                         <h4><span class="glyphicon glyphicon-home"></span></h4>
                         <h6>首页</h6>
                     </a>

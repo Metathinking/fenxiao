@@ -2,6 +2,7 @@ package com.hu.fenxiao.util;
 
 import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.type.OrderStatus;
+import com.hu.fenxiao.type.ScoreChangeReason;
 import com.hu.fenxiao.type.ScoreOrderStatus;
 import com.hu.fenxiao.type.TiXianStatus;
 import org.springframework.stereotype.Component;
@@ -56,6 +57,7 @@ public class TagUtil {
 
     /**
      * 分页
+     *
      * @param query
      * @return
      */
@@ -77,6 +79,17 @@ public class TagUtil {
      */
     public static String getTiXianStatus(String name) {
         TiXianStatus status = TiXianStatus.valueOf(name);
+        return status.getDescription();
+    }
+
+    /**
+     * 获取积分变动原因（description）
+     *
+     * @param name
+     * @return
+     */
+    public static String getScoreChangeReason(String name) {
+        ScoreChangeReason status = ScoreChangeReason.valueOf(name);
         return status.getDescription();
     }
 }

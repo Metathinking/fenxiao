@@ -9,15 +9,16 @@ import java.io.*;
 
 public class WXPayConfigImpl implements WXPayConfig {
 
-    private final String APP_ID = "";
-    private final String MCH_ID = "";
-    private final String KEY = "";
+    private final String APP_ID = "wx0b80f1b0a4c1602f";
+    private final String MCH_ID = "1502480891";
+    //    private final String KEY = "CrCb0QVjATcgx84vgJb9sAo7UcRyO7kCLGKRU9C1Wm9";
+    private final String KEY = "44e368e1847de6a9b616fe1ffb92b8e4";//秘钥
     private byte[] certData;
 
     private static WXPayConfigImpl wxPayConfigImpl;
 
     private WXPayConfigImpl() throws IOException {
-        String certPath = "classpath:/apiclient_cert.p12";//todo
+        String certPath = "classpath:apiclient_cert.p12";//todo
         File file = new File(certPath);
         InputStream certStream = new FileInputStream(file);
         this.certData = new byte[(int) file.length()];
@@ -55,20 +56,19 @@ public class WXPayConfigImpl implements WXPayConfig {
 
     @Override
     public InputStream getCertStream() {
-        return null;
+        ByteArrayInputStream certBis;
+        certBis = new ByteArrayInputStream(this.certData);
+        return certBis;
     }
 
     @Override
     public int getHttpConnectTimeoutMs() {
-        return 0;
+        return 2000;
     }
 
     @Override
     public int getHttpReadTimeoutMs() {
-        return 0;
+        return 10000;
     }
 
 }
-//public class WXPayConfigImpl{
-//
-//}

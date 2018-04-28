@@ -69,6 +69,7 @@
             <a href="/admin/ti_xian/list">提现申请</a> /
             <a href="/admin/yong_jin_setting/edit">抽成设置</a> /
             <a href="/admin/manufacturer/edit">厂商信息</a> /
+            <a href="/admin/homeImage/list">首页图片</a> /
             <a href="/admin/change_password/">密码修改</a> /
             <a href="/admin/logout/">退出</a>
         </div>
