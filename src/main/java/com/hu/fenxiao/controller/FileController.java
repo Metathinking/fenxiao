@@ -4,6 +4,8 @@ import com.hu.fenxiao.domain.ImageInfo;
 import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.service.ImageInfoService;
 import com.hu.fenxiao.util.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +32,8 @@ import java.io.*;
 @Controller
 public class FileController {
 
+    private Logger logger = LogManager.getLogger(this.getClass());
+
     @Autowired
     private ImageInfoService imageInfoService;
 
@@ -45,8 +49,9 @@ public class FileController {
 //                serverUrl += ":" + serverPort;
 //            }
 //            return new Tip(true, 100, "保存成功", serverUrl + filePath);
-            return new Tip(true, 100, "保存成功",   filePath);
+            return new Tip(true, 100, "保存成功", filePath);
         } catch (Exception e) {
+            logger.error("",e);
             return ExceptionTipHandler.handler(e);
         }
     }
@@ -141,6 +146,7 @@ public class FileController {
             os.close();
         } catch (IOException e) {
             e.printStackTrace();
+            logger.error("",e);
         }
     }
 }

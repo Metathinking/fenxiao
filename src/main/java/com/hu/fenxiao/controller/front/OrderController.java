@@ -13,6 +13,7 @@ import com.hu.fenxiao.service.MemberService;
 import com.hu.fenxiao.service.OrderService;
 import com.hu.fenxiao.service.ProductService;
 import com.hu.fenxiao.type.OrderStatus;
+import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.Tip;
 import com.hu.fenxiao.wxpay.WXPayConfigImpl;
 import org.apache.logging.log4j.LogManager;
@@ -20,6 +21,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -53,11 +55,17 @@ public class OrderController {
     @RequestMapping(value = "be_sure", method = RequestMethod.POST)
     @ResponseBody
     public Tip beSureGetInfo(HttpSession session) {
-        logger.debug("------------获取订单数据----------------");
-        List<String> ids = (List<String>) session.getAttribute("ids");
-        Member member = (Member) session.getAttribute("MEMBER");
-        OrderVO orderVO = orderService.affirm(member.getOpenid(), ids);
-        return new Tip(true, 100, "成功", orderVO);
+        try {
+            logger.debug("------------获取订单数据----------------");
+            List<String> ids = (List<String>) session.getAttribute("ids");
+            Member member = (Member) session.getAttribute("MEMBER");
+            OrderVO orderVO = orderService.affirm(member.getOpenid(), ids);
+            return new Tip(true, 100, "成功", orderVO);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("",e);
+            return ExceptionTipHandler.handler(e);
+        }
     }
 
     /**
@@ -68,11 +76,18 @@ public class OrderController {
      * @return
      */
     @RequestMapping(value = "order_submit", method = RequestMethod.POST)
+    @ResponseBody
     public Tip order_submit(@RequestBody OrderVO orderVO, HttpServletRequest request) {
         logger.debug("---------------提交订单-------------------------");
         try {
             Member member = (Member) request.getSession().getAttribute("MEMBER");
             orderVO.getOrder().setMemberOpenid(member.getOpenid());
+            if(StringUtils.isEmpty(orderVO.getOrder().getPhone())){
+                return new Tip(false,103,"请填写电话号码");
+            }
+            if(StringUtils.isEmpty(orderVO.getOrder().getAddress())){
+                return new Tip(false,104,"请填写地址信息");
+            }
             OrderVO db = orderService.create(orderVO);
             StringBuilder detail = new StringBuilder();
             List<OrderItem> itemList = db.getItemList();
@@ -93,7 +108,7 @@ public class OrderController {
             return new Tip(true, 100, "成功", wxMap);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
             return new Tip(false, 102, e.getMessage());
         }
     }
@@ -142,7 +157,7 @@ public class OrderController {
 
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
         return "front/order_list";
     }
@@ -161,7 +176,7 @@ public class OrderController {
             model.addAttribute("orderVO", orderVO);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e);
+            logger.error("",e);
         }
         return "front/order_detail";
     }
@@ -173,7 +188,7 @@ public class OrderController {
             orderService.shouHuo(id);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e);
+            logger.error("",e);
         }
         return "redirect:/member/order/detail";
     }
@@ -208,12 +223,12 @@ public class OrderController {
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("--------------微信签名-----------------");
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
         wxMap.put("paySign", sign);
         wxMap.put("pack", "prepay_id=" + resultMap.get("prepay_id"));
         return wxMap;
     }
 
-    private String notify_url = "";//WXPayController.notify()todo
+    private String notify_url = "jiu.leide365.com/notify";//WXPayController.notify()todo
 }

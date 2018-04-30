@@ -18,7 +18,9 @@ public class WXPayConfigImpl implements WXPayConfig {
     private static WXPayConfigImpl wxPayConfigImpl;
 
     private WXPayConfigImpl() throws IOException {
-        String certPath = "classpath:apiclient_cert.p12";//todo
+        String path = this.getClass().getResource("/").toString();
+        path = path.substring(path.indexOf(":")+2);
+        String certPath = path + "apiclient_cert.p12";//todo
         File file = new File(certPath);
         InputStream certStream = new FileInputStream(file);
         this.certData = new byte[(int) file.length()];

@@ -60,7 +60,7 @@ public class AdminScoreOrderController {
             model.addAttribute("status", status);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
         return "admin/score_order_list";
     }

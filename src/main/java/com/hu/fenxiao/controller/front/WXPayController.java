@@ -70,7 +70,7 @@ public class WXPayController {
             out.close();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
     }
 

@@ -44,21 +44,26 @@ public class AdminProductController {
             model.addAttribute("pageQuery", query);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
         return "admin/product_list";
     }
 
     @RequestMapping(value = "edit", method = RequestMethod.GET)
     public String gotoEdit(Model model, @RequestParam(value = "id", required = false) String id) {
-        if (StringUtils.isEmpty(id)) {
-            model.addAttribute("product", new Product());
-        } else {
-            Product product = productService.findById(id);
-            if (product == null) {
-                product = new Product();
+        try {
+            if (StringUtils.isEmpty(id)) {
+                model.addAttribute("product", new Product());
+            } else {
+                Product product = productService.findById(id);
+                if (product == null) {
+                    product = new Product();
+                }
+                model.addAttribute("product", product);
             }
-            model.addAttribute("product", product);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("",e);
         }
         return "admin/product_edit";
     }
@@ -84,6 +89,7 @@ public class AdminProductController {
             }
             return new Tip(true, 100, "保存成功", null);
         } catch (Exception ex) {
+            logger.error("",ex);
             return ExceptionTipHandler.handler(ex);
         }
     }
@@ -98,7 +104,7 @@ public class AdminProductController {
     public String findById(@RequestParam String id, Model model) {
         Product product = productService.findById(id);
         model.addAttribute("product", product);
-        return "product";
+        return "front/product_detail";
     }
 
 }

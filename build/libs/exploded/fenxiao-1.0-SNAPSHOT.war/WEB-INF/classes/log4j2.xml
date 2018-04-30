@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
-    <!--<Properties>-->
-        <!--<Property></Property>-->
-    <!--</Properties>-->
+    <Properties>
+        <Property name="log.path">./logs</Property>
+        <Property name="log.pattern">%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} -%msg%n</Property>
+    </Properties>
     <!--<ThresholdFilter/>-->
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} -%msg%n"/>
         </Console>
+        <RollingFile name="RollingFile" fileName="${web:rootDir}/app.log"
+                     filePattern="log/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd 'at' HH:mm:ss z} %-5level %class{36} %L %M - %msg%xEx%n"/>
+            <SizeBasedTriggeringPolicy size="10MB"/>
+        </RollingFile>
     </Appenders>
+
+
+
     <Loggers>
-        <root level="trace">
+        <root level="error">
+            <appender-ref ref="RollingFile"/>
             <appender-ref ref="Console"/>
         </root>
     </Loggers>

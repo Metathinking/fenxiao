@@ -9,7 +9,7 @@ public interface MemberService {
 
     void test();
 
-    Member edit(Member member);
+    Member edit(Member member,Integer tuiGuangMemberId);
 
     List<Member> list(Map<String, Object> params);
 

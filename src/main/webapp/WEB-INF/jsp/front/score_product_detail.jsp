@@ -11,7 +11,7 @@
 <div class="product_body">
     <div class="container-fluid ">
         <div class="row text-center">
-            <img src="${product.image}"/>
+            <img src="${product.image}" style="max-width: 100%"/>
         </div>
         <div class="row">
             <h2>${product.name}</h2>
@@ -28,7 +28,7 @@
             <div class="product_footer">
                 <div class="row text-center">
                     <div class="col-xs-3">
-                        <h4 class="price">￥${product.score}</h4>
+                        <h4 class="price">积分:${product.score}</h4>
                     </div>
                     <div class="col-xs-6 footer-block">
                         <button type="button" class="btn btn-danger btn-block product_add">
@@ -36,9 +36,9 @@
                         </button>
                     </div>
                     <%--<div class="col-xs-3 footer-block">--%>
-                        <%--<a class="center-block" href="/cart/list">--%>
-                            <%--<h4><span class="glyphicon glyphicon-shopping-cart"></span></h4>--%>
-                        <%--</a>--%>
+                    <%--<a class="center-block" href="/cart/list">--%>
+                    <%--<h4><span class="glyphicon glyphicon-shopping-cart"></span></h4>--%>
+                    <%--</a>--%>
                     <%--</div>--%>
                 </div>
             </div>

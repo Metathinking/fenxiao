@@ -28,7 +28,7 @@ public class AdminSendRecordController {
             sendRecordService.sendProduct(sendRecord);
             return new Tip(true, 100, "", null);
         } catch (Exception e) {
-            logger.error(e.getMessage());
+            logger.error("",e);
             return ExceptionTipHandler.handler(e);
         }
     }
@@ -40,7 +40,7 @@ public class AdminSendRecordController {
             SendRecord sendRecord = sendRecordService.findByOrderId(orderId, type);
             return new Tip(true, 100, "成功", sendRecord);
         } catch (Exception e) {
-            logger.error(e.getMessage());
+            logger.error("",e);
             return ExceptionTipHandler.handler(e);
         }
     }

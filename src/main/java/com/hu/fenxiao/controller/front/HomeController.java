@@ -66,7 +66,7 @@ public class HomeController {
             model.addAttribute("sign", "home");
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
         return "front/index";
     }

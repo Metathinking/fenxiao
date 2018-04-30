@@ -24,8 +24,13 @@ public class AdminHomeImageController {
 
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String gotoEdit(Model model) {
-        List<HomeImage> list = homeImageService.list();
-        model.addAttribute("list", list);
+        try {
+            List<HomeImage> list = homeImageService.list();
+            model.addAttribute("list", list);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("",e);
+        }
         return "admin/home_image";
     }
 
@@ -36,6 +41,7 @@ public class AdminHomeImageController {
             homeImageService.create(homeImage);
             return new Tip(true, 100, "保存成功");
         } catch (Exception e) {
+            logger.error("",e);
             return ExceptionTipHandler.handler(e);
         }
     }
@@ -45,7 +51,7 @@ public class AdminHomeImageController {
         try {
             homeImageService.delete(id);
         } catch (Exception e) {
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
         return "redirect:/admin/homeImage/list";
     }

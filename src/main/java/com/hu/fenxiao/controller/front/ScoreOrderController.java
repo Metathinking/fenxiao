@@ -35,7 +35,7 @@ public class ScoreOrderController {
             return new Tip(true, 100, "兑换成功");
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
             return new Tip(false, 102, e.getMessage());
         }
     }
@@ -78,7 +78,7 @@ public class ScoreOrderController {
 
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
         return "front/score_order_list";
     }
@@ -97,7 +97,7 @@ public class ScoreOrderController {
             model.addAttribute("orderVO", orderVO);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e);
+            logger.error("",e);
         }
         return "front/score_order_detail";
     }
@@ -109,7 +109,7 @@ public class ScoreOrderController {
             scoreOrderService.shouHuo(id);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e);
+            logger.error("",e);
         }
         return "redirect:/member/score_order/detail";
     }

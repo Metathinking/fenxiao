@@ -7,14 +7,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class ErrorController {
 
-    @RequestMapping(value = "error_404",method = RequestMethod.GET)
-    public String error_404(){
+    @RequestMapping(value = "error_404", method = RequestMethod.GET)
+    public String error_404() {
         return "error_404";
     }
 
-    @RequestMapping(value = "error_500",method = RequestMethod.GET)
-    public String error_500(){
-
+    @RequestMapping(value = "error_500", method = RequestMethod.GET)
+    public String error_500() {
         return "error_500";
     }
 }

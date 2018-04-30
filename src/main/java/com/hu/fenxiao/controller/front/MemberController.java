@@ -53,7 +53,7 @@ public class MemberController {
             model.addAttribute("sign", "member");
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
         return "front/member";
     }
@@ -68,7 +68,7 @@ public class MemberController {
             model.addAttribute("error_msg", e.getExceptionMessage());
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
         return "redirect:/member/ti_xian_list";
     }
@@ -109,7 +109,7 @@ public class MemberController {
             model.addAttribute("pageQuery", query);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
         return "front/ti_xian_list";
     }
@@ -145,7 +145,7 @@ public class MemberController {
             model.addAttribute("pageQuery", query);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
         return "front/score_list";
     }

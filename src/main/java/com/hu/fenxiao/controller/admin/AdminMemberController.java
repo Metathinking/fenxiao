@@ -50,7 +50,7 @@ public class AdminMemberController {
             model.addAttribute("search",search);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
         return "admin/member_list";
     }

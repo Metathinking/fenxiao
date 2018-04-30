@@ -37,6 +37,7 @@
 
     <mvc:resources location="/resources/" mapping="/resources/**"/>
     <mvc:resources location="/upload/" mapping="/upload/**"/>
+    <mvc:resources location="/codeImage/" mapping="/codeImage/**"/>
     <mvc:resources location="/" mapping="/*.txt"/>
 
 

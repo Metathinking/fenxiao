@@ -18,7 +18,7 @@
     </resultMap>
     <insert id="create" parameterType="com.hu.fenxiao.domain.OrderItem">
 insert into m_order_item ( f_id,f_order_id,f_product_id,f_name,f_xiang_xing,
-f_rong_liang,f_du_shu,f_price,f_image,f_introduction,f_quantity,f_total_price)
+f_rong_liang,f_du_shu,f_price,f_image,f_score,f_introduction,f_quantity,f_total_price)
 values
         <foreach collection="list" item="item" separator=",">
  (#{item.id,jdbcType=INTEGER},#{item.orderId,jdbcType=INTEGER},#{item.productId,jdbcType=INTEGER},

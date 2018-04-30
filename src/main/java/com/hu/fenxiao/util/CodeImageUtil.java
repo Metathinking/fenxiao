@@ -27,7 +27,7 @@ public class CodeImageUtil {
     private static final int width = 150;
     private static final int height = 150;
 
-    public static String createQRCodeImage(int memberId,String url, HttpServletRequest request) throws WriterException, IOException {
+    public static String createQRCodeImage(int memberId, String url, HttpServletRequest request) throws WriterException, IOException {
         String format = "png";
         String direction = "/codeImage";
         ServletContext servletContext = request.getServletContext();
@@ -37,13 +37,22 @@ public class CodeImageUtil {
             descPath.mkdirs();
         }
         String path = realDirection + File.separator + memberId + "." + format;
+
+        String serverUrl = direction + "/" + memberId + "." + format;
+
+        //如果文件已存在，直接返回
+        File file = new File(path);
+        if (file.exists()) {
+            return serverUrl;
+        }
+
         Hashtable hints = new Hashtable();
         hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
         BitMatrix bitMatrix = new MultiFormatWriter().encode(url, BarcodeFormat.QR_CODE, width, height);
         OutputStream os = new FileOutputStream(path);
         MatrixToImageWriter.writeToStream(bitMatrix, format, os);// 输出图像
 //        String serverUrl = request.getScheme() + "://" + request.getServerName() + direction + "/" + memberId + "." + format;
-        String serverUrl = direction + "/" + memberId + "." + format;
+
         return serverUrl;
     }
 }

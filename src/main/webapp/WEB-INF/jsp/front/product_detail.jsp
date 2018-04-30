@@ -11,7 +11,7 @@
 <div class="product_body" ng-controller="indexController">
     <div class="container-fluid ">
         <div class="row text-center">
-            <img src="${product.image}"/>
+            <img src="${product.image}" style="max-width: 100%"/>
         </div>
         <div class="row">
             <h2>${product.name}</h2>

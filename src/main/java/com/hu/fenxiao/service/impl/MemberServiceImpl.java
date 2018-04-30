@@ -23,14 +23,14 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void test() {
-        for (int i=1;i<2;i++){
+        for (int i = 1; i < 2; i++) {
             Member member = new Member();
-            member.setId(10001+i);
-            member.setName("测试人员"+i);
-            member.setPhone("1333333333"+i);
+            member.setId(10001 + i);
+            member.setName("测试人员" + i);
+            member.setPhone("1333333333" + i);
             member.setAddress("山东滨州");
-            member.setOpenid(member.getId()+"");
-            member.setNickname("测试人员"+i);
+            member.setOpenid(member.getId() + "");
+            member.setNickname("测试人员" + i);
             member.setLevel(1);
             memberRepository.create(member);
             MemberAccount account = new MemberAccount();
@@ -75,13 +75,38 @@ public class MemberServiceImpl implements MemberService {
 //        }
     }
 
-    public Member edit(Member member) {
+    /**
+     * @param member
+     * @param tuiGuangMemberId 推广人id ，可能为null
+     * @return
+     */
+    public Member edit(Member member, Integer tuiGuangMemberId) {
         Member db = findByOpenId(member.getOpenid());
         if (db == null) {
+            //保存推广人员信息
+            if (tuiGuangMemberId != null && tuiGuangMemberId != 0) {
+                Member tuiGuangRen = memberRepository.findById(tuiGuangMemberId);
+                if (tuiGuangRen != null) {
+                    member.setHigherLevelOpenId(tuiGuangRen.getOpenid());
+                    switch (tuiGuangRen.getLevel()) {
+                        case 1:
+                            member.setLevel(2);
+                            break;
+                        case 2:
+                            member.setLevel(3);
+                            break;
+                        case 3:
+                            member.setLevel(3);
+                            break;
+                    }
+                }
+            }
             int maxId = memberRepository.getMaxId();
             maxId++;
             member.setId(maxId);
             member.setName(member.getNickname());
+//            member.setPhone(member.getPhone());
+//            member.setAddress(member.getAddress());
             member.setTime(System.currentTimeMillis());
             memberRepository.create(member);
             MemberAccount account = new MemberAccount();
@@ -91,9 +116,9 @@ public class MemberServiceImpl implements MemberService {
             memberAccountRepository.create(account);
             return member;
         } else {
-            db.setName(member.getName());
-            db.setPhone(member.getPhone());
-            db.setAddress(member.getAddress());
+//            db.setName(member.getName());
+//            db.setPhone(member.getPhone());
+//            db.setAddress(member.getAddress());
             db.setUnionid(member.getUnionid());
             db.setNickname(member.getNickname());
             db.setSex(member.getSex());

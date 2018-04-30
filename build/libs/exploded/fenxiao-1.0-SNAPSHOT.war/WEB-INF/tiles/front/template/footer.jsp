@@ -17,19 +17,19 @@
                     </a>
                 </div>
                 <div class="col-xs-3 footer-block">
-                    <a class="center-block" href="/score_product_list">
+                    <a class="center-block ${sign=='score'?'active':''}" href="/score_product_list">
                         <h4><span class="glyphicon glyphicon-signal"></span></h4>
                         <h6>积分</h6>
                     </a>
                 </div>
                 <div class="col-xs-3 footer-block">
-                    <a class="center-block" href="/member/cart/list">
+                    <a class="center-block ${sign=='cart'?'active':''}" href="/member/cart/list">
                         <h4><span class="glyphicon glyphicon-shopping-cart"></span></h4>
                         <h6>购物车</h6>
                     </a>
                 </div>
                 <div class="col-xs-3 footer-block">
-                    <a class="center-block" href="/member/info">
+                    <a class="center-block ${sign=='member'?'active':''}" href="/member/info">
                         <h4><span class="glyphicon glyphicon-user"></span></h4>
                         <h6>我</h6>
                     </a>

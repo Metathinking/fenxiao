@@ -52,13 +52,13 @@
         </div>
     </a>
 
-    <%--<a href="/member/order/list">--%>
-        <%--<div class="row mine_item" style="margin-top: 1%;">--%>
-            <%--<div class="col-xs-1"><span class="glyphicon glyphicon-list-alt"></span></div>--%>
-            <%--<div class="col-xs-9">我的二维码</div>--%>
-            <%--<div class="col-xs-1"><span class="glyphicon glyphicon-chevron-right jiantou"></span></div>--%>
-        <%--</div>--%>
-    <%--</a>--%>
+    <a href="/member/tui_guang/er_wei_ma">
+        <div class="row mine_item" style="margin-top: 1%;">
+            <div class="col-xs-1"><span class="glyphicon glyphicon-list-alt"></span></div>
+            <div class="col-xs-9">我的二维码</div>
+            <div class="col-xs-1"><span class="glyphicon glyphicon-chevron-right jiantou"></span></div>
+        </div>
+    </a>
     <%--<a href="/member/score_order/list">--%>
         <%--<div class="row mine_item">--%>
             <%--<div class="col-xs-1"><span class="glyphicon glyphicon-gift"></span></div>--%>

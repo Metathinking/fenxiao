@@ -44,21 +44,26 @@ public class AdminScoreProductController {
             model.addAttribute("pageQuery", query);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
         return "admin/score_product_list";
     }
 
     @RequestMapping(value = "edit", method = RequestMethod.GET)
     public String gotoEdit(Model model, @RequestParam(value = "id", required = false) String id) {
-        if (StringUtils.isEmpty(id)) {
-            model.addAttribute("product", new ScoreProduct());
-        } else {
-            ScoreProduct product = scoreProductService.findById(id);
-            if (product == null) {
-                product = new ScoreProduct();
+        try {
+            if (StringUtils.isEmpty(id)) {
+                model.addAttribute("product", new ScoreProduct());
+            } else {
+                ScoreProduct product = scoreProductService.findById(id);
+                if (product == null) {
+                    product = new ScoreProduct();
+                }
+                model.addAttribute("product", product);
             }
-            model.addAttribute("product", product);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("",e);
         }
         return "admin/score_product_edit";
     }
@@ -84,6 +89,7 @@ public class AdminScoreProductController {
             }
             return new Tip(true, 100, "保存成功", null);
         } catch (Exception ex) {
+            logger.error("",ex);
             return ExceptionTipHandler.handler(ex);
         }
     }
@@ -96,8 +102,13 @@ public class AdminScoreProductController {
 
     @RequestMapping(value = "findById", method = RequestMethod.GET)
     public String findById(@RequestParam String id, Model model) {
-        ScoreProduct product = scoreProductService.findById(id);
-        model.addAttribute("product", product);
-        return "product";
+        try {
+            ScoreProduct product = scoreProductService.findById(id);
+            model.addAttribute("product", product);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("",e);
+        }
+        return "front/score_product_detail";
     }
 }

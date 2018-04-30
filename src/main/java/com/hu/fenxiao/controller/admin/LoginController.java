@@ -4,6 +4,8 @@ package com.hu.fenxiao.controller.admin;
 import com.hu.fenxiao.domain.Manager;
 import com.hu.fenxiao.service.ManagerService;
 import com.hu.fenxiao.util.Md5Factory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class LoginController {
 
+    private Logger logger = LogManager.getLogger(AdminYongJinSettingController.class);
+
     @Autowired
     private ManagerService managerService;
 
@@ -26,13 +30,18 @@ public class LoginController {
 
     @RequestMapping(value = "adminLogin", method = RequestMethod.POST)
     public String login(String username, String password, HttpSession session, Model model) {
-        Manager manager = managerService.login(username, Md5Factory.encoding(password));
-        if (manager == null) {
-            model.addAttribute("errorMessage", "用户名或密码错误");
-            return "admin/login";
+        try {
+            Manager manager = managerService.login(username, Md5Factory.encoding(password));
+            if (manager == null) {
+                model.addAttribute("errorMessage", "用户名或密码错误");
+                return "admin/login";
+            }
+            manager.setPassword(null);
+            session.setAttribute("manager", manager);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("",e);
         }
-        manager.setPassword(null);
-        session.setAttribute("manager", manager);
         return "redirect:/admin/home";
     }
 
@@ -53,6 +62,7 @@ public class LoginController {
             managerService.reset(username,password);
         } catch (Exception e) {
             model.addAttribute("errorMessage",e.getMessage());
+            logger.error("",e);
             return "admin/reset";
         }
         return "redirect:/adminLogin";

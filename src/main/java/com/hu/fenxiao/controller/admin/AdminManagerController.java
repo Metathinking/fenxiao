@@ -4,6 +4,8 @@ package com.hu.fenxiao.controller.admin;
 import com.hu.fenxiao.domain.Manager;
 import com.hu.fenxiao.service.ManagerService;
 import com.hu.fenxiao.util.Md5Factory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("admin")
 public class AdminManagerController {
+
+    private Logger logger = LogManager.getLogger(AdminManagerController.class);
 
     @Autowired
     private ManagerService managerService;

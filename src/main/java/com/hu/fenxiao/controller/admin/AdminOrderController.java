@@ -59,7 +59,7 @@ public class AdminOrderController {
             model.addAttribute("status", status);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
         return "admin/order_list";
     }

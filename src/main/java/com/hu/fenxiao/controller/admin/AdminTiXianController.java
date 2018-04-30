@@ -55,7 +55,7 @@ public class AdminTiXianController {
             model.addAttribute("pageQuery", query);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("",e);
         }
         return "admin/ti_xian_list";
     }
@@ -67,6 +67,7 @@ public class AdminTiXianController {
             tiXianRecordService.shenHe(tiXianRecord);
             return new Tip(true, 100, "完成");
         } catch (Exception e) {
+            logger.error("",e);
             return ExceptionTipHandler.handler(e);
         }
 

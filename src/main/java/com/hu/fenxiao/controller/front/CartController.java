@@ -1,10 +1,13 @@
 package com.hu.fenxiao.controller.front;
 
+import com.hu.fenxiao.controller.admin.AdminYongJinSettingController;
 import com.hu.fenxiao.domain.CartItem;
 import com.hu.fenxiao.domain.Member;
 import com.hu.fenxiao.service.CartItemService;
 import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.Tip;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,20 +20,31 @@ import java.util.List;
 @RequestMapping("member/cart")
 public class CartController {
 
+    private Logger logger = LogManager.getLogger(AdminYongJinSettingController.class);
+
     @Autowired
     private CartItemService cartItemService;
 
     @RequestMapping(value = "list", method = RequestMethod.GET)
-    public String list() {
+    public String list(Model model) {
+        model.addAttribute("sign", "cart");
         return "front/cart";
     }
 
     @RequestMapping(value = "list",method = RequestMethod.POST)
     @ResponseBody
     public Tip getList(HttpSession session){
-        Member member = (Member) session.getAttribute("MEMBER");
-        List<CartItem> list = cartItemService.list(member.getId());
-        return new Tip(true,100,"",list);
+        List<CartItem> list = null;
+        try {
+            Member member = (Member) session.getAttribute("MEMBER");
+            list = cartItemService.list(member.getId());
+            return new Tip(true,100,"",list);
+        } catch (Exception e) {
+            logger.error("",e);
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
+        }
+
     }
 
     /**
@@ -47,6 +61,7 @@ public class CartController {
             cartItemService.edit(member.getId(), productId+"");
             return new Tip(true, 100, "成功");
         } catch (Exception e) {
+            logger.error("",e);
             return ExceptionTipHandler.handler(e);
         }
     }
@@ -60,15 +75,27 @@ public class CartController {
     @RequestMapping(value = "raise", method = RequestMethod.POST)
     @ResponseBody
     public Tip raise(@RequestParam String productId) {
-        int quantity = cartItemService.raise(10001, productId);
-        return new Tip(true, 100, quantity + "",quantity);
+        try {
+            int quantity = cartItemService.raise(10001, productId);
+            return new Tip(true, 100, quantity + "",quantity);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("",e);
+            return ExceptionTipHandler.handler(e);
+        }
     }
 
     @RequestMapping(value = "reduce", method = RequestMethod.POST)
     @ResponseBody
     public Tip reduce(@RequestParam String productId) {
-        int quantity = cartItemService.reduce(10001, productId);
-        return new Tip(true, 100, quantity + "",quantity);
+        try {
+            int quantity = cartItemService.reduce(10001, productId);
+            return new Tip(true, 100, quantity + "",quantity);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("",e);
+            return ExceptionTipHandler.handler(e);
+        }
     }
 
     /**
@@ -84,6 +111,7 @@ public class CartController {
             cartItemService.delete(cartItemId);
             return new Tip(true, 100, "成功");
         } catch (Exception e) {
+            logger.error("",e);
             return ExceptionTipHandler.handler(e);
         }
     }

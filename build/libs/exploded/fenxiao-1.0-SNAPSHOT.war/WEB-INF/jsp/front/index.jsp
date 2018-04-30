@@ -14,7 +14,8 @@
         <div class="carousel slide" id="myCarousel" data-ride="carousel">
             <ol class="carousel-indicators">
                 <c:forEach items="${homeImageList}" var="image" varStatus="status">
-                    <li data-target="#myCarousel" data-side-to="${status.index}" class="${status.index==0?'active':''}"></li>
+                    <li data-target="#myCarousel" data-side-to="${status.index}"
+                        class="${status.index==0?'active':''}"></li>
                 </c:forEach>
                 <%--<li data-target="#myCarousel" data-side-to="0" class="active"></li>--%>
                 <%--<li data-target="#myCarousel" data-side-to="1"></li>--%>
@@ -47,7 +48,6 @@
 
         <div class="row">
             <c:forEach items="${list}" var="product">
-
                 <div class="col-xs-6  product_item text-center">
                     <a href="/product/${product.id}">
                         <img src="${product.image}" class="product_img">
@@ -67,5 +67,6 @@
                 </div>
             </c:forEach>
         </div>
+        <div class="clearfix"></div>
     </div>
 </div>

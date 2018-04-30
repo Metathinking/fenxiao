@@ -9,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -32,16 +33,23 @@ public class WXLoginController {
 //        memberService.test();
         Member member = memberService.findByOpenId("10002");
         session.setAttribute("MEMBER", member);
+        logger.error("wolaiceshi");
         return "redirect:/index";
     }
+
 
     /**
      * 进入微信登录授权页面
      *
+     * @param memberId 推广人id
+     * @param session
      * @return
      */
     @RequestMapping(value = "login", method = RequestMethod.GET)
-    public String gotoLogin() {
+    public String gotoLogin(@RequestParam(value = "id", required = false) Integer memberId, HttpSession session) {
+        if (memberId != null && memberId != 0) {
+            session.setAttribute("memberId", memberId);
+        }
         String wxLoginUrl = "";
         try {
             //加密重定向连接
@@ -52,7 +60,7 @@ public class WXLoginController {
                     + "#wechat_redirect";
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("", e);
         }
         return "redirect:" + wxLoginUrl;
     }
@@ -72,22 +80,28 @@ public class WXLoginController {
         String getTokenUrl = String.format(weixinGetAccessToken, code);
         try {
             WeiXinToken token = WXLoginUtil.getObject(getTokenUrl, WeiXinToken.class);
+            model.addAttribute("token",token.getAccess_token());
             String access_token = token.getAccess_token();
             Member member = WXLoginUtil.getObject(String.format(weixinGetUserInfo, access_token, token.getOpenid()), Member.class);
 //            saveImage(user.getHeadimgurl(), request);
             System.out.println(member);
-            Member db = memberService.edit(member);
-            session.setAttribute("MEMBER", member);
+            Integer tuiGuangMemberId = (Integer) session.getAttribute("memberId");
+            Member db = memberService.edit(member, tuiGuangMemberId);
+            session.setAttribute("MEMBER", db);
 
             return "redirect:/index";
         } catch (MalformedURLException e) {
-            model.addAttribute("error_msg","授权登录失败");
+            model.addAttribute("error_msg", "授权登录失败");
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("", e);
         } catch (IOException e) {
-            model.addAttribute("error_msg","授权登录失败");
+            model.addAttribute("error_msg", "授权登录失败");
             e.printStackTrace();
-            logger.error(e.getMessage());
+            logger.error("", e);
+        }catch (Exception e){
+            e.printStackTrace();
+            model.addAttribute("error_msg", e.getMessage());
+            logger.error(e.getMessage(),e);
         }
         return "error";
     }
@@ -106,8 +120,9 @@ public class WXLoginController {
     //    private String APP_ID = "wx081395b7cdc2a00e";
 //    private String APP_SECRET = "4074d7a66e92d0b93b1152d07766ad7e";
     private String APP_SECRET = "44e368e1847de6a9b616fe1ffb92b8e4";//real
-//    private String REDIRECT_URI = "xs154568.gotoip1.com/wx_login";
-    private String REDIRECT_URI = "jiu.leide365.com/wx_login";
+    //    private String REDIRECT_URI = "xs154568.gotoip1.com/wx_login";
+    private String REDIRECT_URI = "http://jiu.leide365.com/wx_login";
+//    private String SCOPE = "snsapi_userinfo"; //snsapi_base || snsapi_userinfo
     private String SCOPE = "snsapi_userinfo"; //snsapi_base || snsapi_userinfo
     private String STATE = "STATEE";
 
