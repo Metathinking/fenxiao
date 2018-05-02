@@ -33,11 +33,12 @@ public class Dom4jCreateXML {
 //        createMapper(ScoreRecord.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_COUNT,FIND_BY_ID,GET_MAX_ID));
 //        createMapper(MoneyRecord.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_COUNT,FIND_BY_ID,GET_MAX_ID));
 //        createMapper(YongJinSetting.class,directoryPath,Arrays.asList(INSERT,UPDATE,GET_COUNT,FIND_BY_ID));
+        createMapper(TuiGuangSetting.class, directoryPath, Arrays.asList(INSERT, UPDATE, GET_COUNT, FIND_BY_ID));
 //        createMapper(SendRecord.class,directoryPath,Arrays.asList(INSERT,LIST,GET_MAX_ID,GET_COUNT,FIND_BY_ID));
 //        createMapper(TiXianRecord.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_MAX_ID,GET_COUNT,FIND_BY_ID));
 //        createMapper(ScoreOrder.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_MAX_ID,GET_COUNT,FIND_BY_ID));
 //        createMapper(ScoreOrderItem.class,directoryPath,Arrays.asList(INSERT,UPDATE,LIST,GET_COUNT,GET_MAX_ID,FIND_BY_ID));
-        createMapper(HomeImage.class,directoryPath,Arrays.asList(INSERT,UPDATE,DELETE,LIST,GET_COUNT,GET_MAX_ID,FIND_BY_ID));
+//        createMapper(HomeImage.class,directoryPath,Arrays.asList(INSERT,UPDATE,DELETE,LIST,GET_COUNT,GET_MAX_ID,FIND_BY_ID));
     }
 
     private static final String INSERT = "INSERT";

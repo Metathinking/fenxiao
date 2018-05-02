@@ -36,7 +36,7 @@
                         </button>
                     </div>
                     <div class="col-xs-3 footer-block">
-                        <a class="center-block" href="/cart/list">
+                        <a class="center-block" href="/member/cart/list">
                             <h4><span class="glyphicon glyphicon-shopping-cart"></span></h4>
                         </a>
                     </div>

@@ -11,16 +11,17 @@ public class WXPayConfigImpl implements WXPayConfig {
 
     private final String APP_ID = "wx0b80f1b0a4c1602f";
     private final String MCH_ID = "1502480891";
-    //    private final String KEY = "CrCb0QVjATcgx84vgJb9sAo7UcRyO7kCLGKRU9C1Wm9";
-    private final String KEY = "44e368e1847de6a9b616fe1ffb92b8e4";//秘钥
+//    private final String KEY = "CrCb0QVjATcgx84vgJb9sAo7UcRyO7kCLGKRU9C1Wm9";
+//    private final String KEY = "44e368e1847de6a9b616fe1ffb92b8e4";//秘钥
+    private final String KEY = "8b5d8420c65641efa831b3e77d7d648d";//秘钥
     private byte[] certData;
 
     private static WXPayConfigImpl wxPayConfigImpl;
 
     private WXPayConfigImpl() throws IOException {
         String path = this.getClass().getResource("/").toString();
-        path = path.substring(path.indexOf(":")+2);
-        String certPath = path + "apiclient_cert.p12";//todo
+        path = path.substring(path.indexOf(":") + 2);
+        String certPath = path + "apiclient_cert.p12";
         File file = new File(certPath);
         InputStream certStream = new FileInputStream(file);
         this.certData = new byte[(int) file.length()];

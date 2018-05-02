@@ -1,7 +1,6 @@
 package com.hu.fenxiao.controller.front;
 
 
-import com.hu.fenxiao.controller.admin.AdminYongJinSettingController;
 import com.hu.fenxiao.domain.Product;
 import com.hu.fenxiao.service.ProductService;
 import org.apache.logging.log4j.LogManager;

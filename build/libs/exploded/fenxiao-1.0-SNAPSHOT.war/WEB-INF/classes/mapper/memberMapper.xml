@@ -38,24 +38,33 @@ f_time=#{time,jdbcType=BIGINT}
 where f_id=#{id}
 </update>
     <select id="list" resultMap="m_member">
-select * from m_member
+        select * from m_member
         where 1=1
         <if test="search != null and search != ''">
-            and f_name like CONCAT(CONCAT('%', #{search}),'%')
-            or f_phone  like CONCAT(CONCAT('%', #{search}),'%')
-            or f_address  like CONCAT(CONCAT('%', #{search}),'%')
+            and ( f_name like CONCAT(CONCAT('%', #{search}),'%')
+            or f_phone like CONCAT(CONCAT('%', #{search}),'%')
+            or f_address like CONCAT(CONCAT('%', #{search}),'%'))
         </if>
-order by f_id limit #{start},#{size}
-</select>
+        <if test="higherLevelOpenId != null and higherLevelOpenId != ''">
+            and f_higher_level_open_id=#{higherLevelOpenId}
+        </if>
+        order by f_id limit #{start},#{size}
+    </select>
     <select id="findByOpenId" resultMap="m_member">select * from m_member where f_openid=#{openid}</select>
     <select id="findById" resultMap="m_member">select * from m_member where f_id=#{id}</select>
     <select id="getCount" resultType="int">select count(f_id) FROM m_member
         where 1=1
         <if test="search != null and search != ''">
-            and f_name like CONCAT(CONCAT('%', #{search}),'%')
-            or f_phone  like CONCAT(CONCAT('%', #{search}),'%')
-            or f_address  like CONCAT(CONCAT('%', #{search}),'%')
+            and ( f_name like CONCAT(CONCAT('%', #{search}),'%')
+            or f_phone like CONCAT(CONCAT('%', #{search}),'%')
+            or f_address like CONCAT(CONCAT('%', #{search}),'%'))
         </if>
-</select>
+        <if test="higherLevelOpenId != null and higherLevelOpenId != ''">
+            and f_higher_level_open_id=#{higherLevelOpenId}
+        </if>
+    </select>
     <select id="getMaxId" resultType="int">select IFNULL(max(f_id),10000) FROM m_member</select>
+    <select id="listByHigherLevelOpenId" resultMap="m_member">
+        select * from m_member where  f_higher_level_open_id=#{higherLevelOpenId}
+    </select>
 </mapper>

@@ -1,8 +1,8 @@
 package com.hu.fenxiao.controller.admin;
 
 
-import com.hu.fenxiao.domain.YongJinSetting;
-import com.hu.fenxiao.service.YongJinSettingService;
+import com.hu.fenxiao.domain.TuiGuangSetting;
+import com.hu.fenxiao.service.TuiGuangSettingService;
 import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.Tip;
 import org.apache.logging.log4j.LogManager;
@@ -16,37 +16,37 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("admin/yong_jin_setting")
-public class AdminYongJinSettingController {
+@RequestMapping("admin/tui_guang_setting")
+public class AdminTuiGuangSettingController {
 
-    private Logger logger = LogManager.getLogger(AdminYongJinSettingController.class);
+    private Logger logger = LogManager.getLogger(AdminTuiGuangSettingController.class);
 
     @Autowired
-    private YongJinSettingService yongJinSettingService;
+    private TuiGuangSettingService tuiGuangSettingService;
 
     @RequestMapping(value = "edit", method = RequestMethod.GET)
     public String gotoEdit(Model model) {
         try {
-            YongJinSetting yongJinSetting = yongJinSettingService.find();
-            if (yongJinSetting==null){
-                yongJinSetting = new YongJinSetting();
+            TuiGuangSetting tuiGuangSetting = tuiGuangSettingService.find();
+            if (tuiGuangSetting == null) {
+                tuiGuangSetting = new TuiGuangSetting();
             }
-            model.addAttribute("yongJinSetting",yongJinSetting);
+            model.addAttribute("tuiGuangSetting", tuiGuangSetting);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error("", e);
         }
-        return "admin/yong_jin_setting";
+        return "admin/tui_guang_setting";
     }
 
-    @RequestMapping(value = "edit",method = RequestMethod.POST)
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
     @ResponseBody
-    public Tip edit(@RequestBody YongJinSetting yongJinSetting){
+    public Tip edit(@RequestBody TuiGuangSetting tuiGuangSetting) {
         try {
-            yongJinSettingService.edit(yongJinSetting);
-            return new Tip(true,100,"信息更新成功");
+            tuiGuangSettingService.edit(tuiGuangSetting);
+            return new Tip(true, 100, "信息更新成功");
         } catch (Exception e) {
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
             return ExceptionTipHandler.handler(e);
         }
     }

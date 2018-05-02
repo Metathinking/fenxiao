@@ -44,9 +44,9 @@
     </definition>
 
 
-    <definition name="admin/yong_jin_setting" extends="baseLayout">
-        <put-attribute name="title" value="佣金设置"/>
-        <put-attribute name="content" value="/WEB-INF/jsp/admin/yong_jin_setting.jsp"/>
+    <definition name="admin/tui_guang_setting" extends="baseLayout">
+        <put-attribute name="title" value="推广设置"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/tui_guang_setting.jsp"/>
     </definition>
 
     <definition name="admin/member_list" extends="baseLayout">

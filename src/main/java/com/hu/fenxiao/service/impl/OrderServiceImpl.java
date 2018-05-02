@@ -7,12 +7,13 @@ import com.hu.fenxiao.repository.*;
 import com.hu.fenxiao.service.OrderService;
 import com.hu.fenxiao.type.MoneyChangeReason;
 import com.hu.fenxiao.type.OrderStatus;
-import com.hu.fenxiao.type.OrderType;
 import com.hu.fenxiao.type.ScoreChangeReason;
+import com.hu.fenxiao.util.NumberUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,9 +40,6 @@ public class OrderServiceImpl implements OrderService {
     private ProductRepository productRepository;
 
     @Autowired
-    private YongJinSettingRepository yongJinSettingRepository;
-
-    @Autowired
     private MoneyRecordRepository moneyRecordRepository;
 
     @Autowired
@@ -53,13 +51,16 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private SendRecordRepository sendRecordRepository;
 
+    @Autowired
+    private TuiGuangSettingRepository tuiGuangSettingRepository;
+
     /**
      * 订单确认
      *
      * @return
      */
     public OrderVO affirm(String memberOpenId, List<String> ids) {
-       Member member =  memberRepository.findByOpenId(memberOpenId);
+        Member member = memberRepository.findByOpenId(memberOpenId);
 //        Member member = new Member();
 //        member.setName("李四");
 //        member.setPhone("13344445555");
@@ -133,6 +134,11 @@ public class OrderServiceImpl implements OrderService {
             grandTotal += orderItem.getPrice() * orderItem.getQuantity();
         }
         order.setGrandTotal(grandTotal);
+
+        Member member = memberRepository.findByOpenId(order.getMemberOpenid());
+        member.setPhone(order.getPhone());
+        member.setAddress(order.getAddress());
+        memberRepository.update(member);
         orderRepository.create(order);
         orderItemRepository.create(itemList);
         return orderVO;
@@ -140,6 +146,7 @@ public class OrderServiceImpl implements OrderService {
 
     /**
      * 付款成功，微信通知，可能重复通知，需要判断
+     * 变更消费金额
      *
      * @param id
      * @return
@@ -156,6 +163,10 @@ public class OrderServiceImpl implements OrderService {
             db.setPayTime(System.currentTimeMillis());
             orderRepository.update(db);
 
+            //更新 memberAccount
+            Member member = memberRepository.findByOpenId(db.getMemberOpenid());
+            MemberAccount account = memberAccountRepository.findById(member.getId());
+            account.setXiaoFeiMoney(account.getXiaoFeiMoney() + db.getGrandTotal());
         }
     }
 
@@ -177,6 +188,7 @@ public class OrderServiceImpl implements OrderService {
         MemberAccount account = memberAccountRepository.findById(currentMember.getId());
         int before = account.getScore();
         account.setScore(before + score);
+        account.setLeiJiScore(account.getLeiJiScore() + score);
 
         int maxId = scoreRecordRepository.getMaxId();
         maxId++;
@@ -195,30 +207,32 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * @param db      产生佣金的订单
-     * @param yongJin 佣金比例
-     * @param member  获得佣金的会员
+     * @param order     产生佣金的订单
+     * @param yongJinLv 佣金比例
+     * @param member    获得佣金的会员
      */
-    private void yongJinRecord(Order db, int yongJin, Member member) {
-        double grandTotal = db.getGrandTotal();
-        double firstYongJin = grandTotal * yongJin / 100;
-        MemberAccount higherLevelAccount = memberAccountRepository.findById(member.getId());
-        double before = higherLevelAccount.getMoney();
-        higherLevelAccount.setMoney(before + firstYongJin);
+    private void yongJinRecord(Order order, int yongJinLv, Member member) {
+        double grandTotal = order.getGrandTotal();
+        double yongJin = grandTotal * yongJinLv / 100;
+        yongJin = NumberUtil.format(yongJin);//保留两位有效数字
+        MemberAccount account = memberAccountRepository.findById(member.getId());
+        double before = account.getMoney();
+        account.setMoney(before + yongJin);
+        account.setLeiJiMoney(account.getLeiJiMoney() + yongJin);
         int maxId = moneyRecordRepository.getMaxId();
         MoneyRecord moneyRecord = new MoneyRecord();
         maxId++;
         moneyRecord.setId(maxId);
         moneyRecord.setMemberId(member.getId());
-        moneyRecord.setOrderId(db.getId());
+        moneyRecord.setOrderId(order.getId());
         moneyRecord.setBefore(before);
-        moneyRecord.setMoney(firstYongJin);
-        moneyRecord.setAfter(higherLevelAccount.getMoney());
+        moneyRecord.setMoney(yongJin);
+        moneyRecord.setAfter(account.getMoney());
         moneyRecord.setReason(MoneyChangeReason.TI_CHENG.getDescription());
         moneyRecord.setTime(System.currentTimeMillis());
-        moneyRecord.setStatus(db.getStatus());
+        moneyRecord.setStatus(order.getStatus());
         moneyRecordRepository.create(moneyRecord);
-        memberAccountRepository.update(higherLevelAccount);
+        memberAccountRepository.update(account);
     }
 
     @Override
@@ -293,28 +307,25 @@ public class OrderServiceImpl implements OrderService {
             db.setStatus(OrderStatus.WAN_CHENG.name());
             orderRepository.update(db);
             //提成
-            YongJinSetting yongJinSetting = yongJinSettingRepository.findById(YongJinSettingServiceImpl.ID);
+            TuiGuangSetting tuiGuangSetting = tuiGuangSettingRepository.findById(TuiGuangSettingServiceImpl.ID);
             String memberOpenid = db.getMemberOpenid();
             Member currentMember = memberRepository.findByOpenId(memberOpenid);
-            switch (currentMember.getLevel()) {
-                case 1:
-                    //nothing 没有上级，没有提成
-                    break;
-                case 2:
-                    int yongJin = yongJinSetting.getSecondToFirst();
-                    Member higherLevelMember = memberRepository.findByOpenId(currentMember.getHigherLevelOpenId());
-                    yongJinRecord(db, yongJin, higherLevelMember);
-                    break;
-                case 3:
-                    int memberToSecond = yongJinSetting.getMemberToSecond();
+            //一级提成
+            if (!StringUtils.isEmpty(currentMember.getHigherLevelOpenId())) {
+                Member firstMember = memberRepository.findByOpenId(currentMember.getHigherLevelOpenId());
+                int memberToSecond = tuiGuangSetting.getFirst();
+                yongJinRecord(db, memberToSecond, firstMember);
+                //二级提成
+                if (!StringUtils.isEmpty(firstMember.getHigherLevelOpenId())) {
                     Member secondMember = memberRepository.findByOpenId(currentMember.getHigherLevelOpenId());
-                    yongJinRecord(db, memberToSecond, secondMember);
-                    int memberToFirst = yongJinSetting.getMemberToFirst();
-                    Member firstMember = memberRepository.findByOpenId(secondMember.getHigherLevelOpenId());
-                    yongJinRecord(db, memberToFirst, firstMember);
-                    break;
-                default:
-                    break;
+                    int memberToFirst = tuiGuangSetting.getSecond();
+                    yongJinRecord(db, memberToFirst, secondMember);
+                    if (!StringUtils.isEmpty(secondMember.getHigherLevelOpenId())) {
+                        Member thirdMember = memberRepository.findByOpenId(currentMember.getHigherLevelOpenId());
+                        int third = tuiGuangSetting.getThird();
+                        yongJinRecord(db, memberToFirst, thirdMember);
+                    }
+                }
             }
             //积分
             scoreRecord(db, currentMember);

@@ -54,6 +54,12 @@
                                 确认收货
                             </a>
                         </c:if>
+                        <c:if test="${orderVO.order.status=='WAN_CHENG'}">
+                            <span class="">
+                                 交易成功
+                            </span>
+
+                        </c:if>
                     </div>
                 </div>
             </div>

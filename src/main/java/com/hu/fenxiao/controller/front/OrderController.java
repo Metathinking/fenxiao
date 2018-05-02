@@ -15,6 +15,7 @@ import com.hu.fenxiao.service.ProductService;
 import com.hu.fenxiao.type.OrderStatus;
 import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.Tip;
+import com.hu.fenxiao.wxpay.ConstantURL;
 import com.hu.fenxiao.wxpay.WXPayConfigImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -63,7 +64,7 @@ public class OrderController {
             return new Tip(true, 100, "成功", orderVO);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error("", e);
             return ExceptionTipHandler.handler(e);
         }
     }
@@ -77,16 +78,16 @@ public class OrderController {
      */
     @RequestMapping(value = "order_submit", method = RequestMethod.POST)
     @ResponseBody
-    public Tip order_submit(@RequestBody OrderVO orderVO, HttpServletRequest request) {
+    public Tip order_submit(@RequestBody OrderVO orderVO, HttpServletRequest request, HttpSession session) {
         logger.debug("---------------提交订单-------------------------");
         try {
             Member member = (Member) request.getSession().getAttribute("MEMBER");
             orderVO.getOrder().setMemberOpenid(member.getOpenid());
-            if(StringUtils.isEmpty(orderVO.getOrder().getPhone())){
-                return new Tip(false,103,"请填写电话号码");
+            if (StringUtils.isEmpty(orderVO.getOrder().getPhone())) {
+                return new Tip(false, 103, "请填写电话号码");
             }
-            if(StringUtils.isEmpty(orderVO.getOrder().getAddress())){
-                return new Tip(false,104,"请填写地址信息");
+            if (StringUtils.isEmpty(orderVO.getOrder().getAddress())) {
+                return new Tip(false, 104, "请填写地址信息");
             }
             OrderVO db = orderService.create(orderVO);
             StringBuilder detail = new StringBuilder();
@@ -99,19 +100,30 @@ public class OrderController {
             data.put("body", "购买商品:" + detail.toString());//商品名称
             data.put("detail", detail.toString());//商品详情
             data.put("out_trade_no", db.getOrder().getId() + "");
-            data.put("total_fee", db.getOrder().getGrandTotal() * 100 + "");//金额
+            data.put("total_fee", ((int) (db.getOrder().getGrandTotal() * 100)) + "");//金额
+            logger.error("total_fee=" + ((int) (db.getOrder().getGrandTotal() * 100)));
             data.put("spbill_create_ip", request.getRemoteAddr());//终端IP
-            data.put("notify_url", notify_url);//通知地址
+            data.put("notify_url", ConstantURL.NOTIFY_URL);//通知地址
             data.put("product_id", db.getOrder().getId() + "");
+            data.put("openid", member.getOpenid());
             Map<String, String> wxMap = this.unifiedOrder(data);
             wxMap.put("totalFee", db.getOrder().getGrandTotal() + "");
+            session.setAttribute("PAY", wxMap);
             return new Tip(true, 100, "成功", wxMap);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error("", e);
             return new Tip(false, 102, e.getMessage());
         }
     }
+
+//    @RequestMapping(value = "pay_sure", method = RequestMethod.GET)
+//    public String paySure(HttpSession session, Model model) {
+//        Object pay = session.getAttribute("PAY");
+//        model.addAttribute("wxMap", pay);
+//        logger.error("pay:" + pay.toString());
+//        return "front/wxpay";
+//    }
 
 
     @RequestMapping(value = "pay_success", method = RequestMethod.GET)
@@ -131,6 +143,7 @@ public class OrderController {
     @RequestMapping(value = "list", method = RequestMethod.GET)
     public String gotoList(@RequestParam(required = false) Integer index,
                            @RequestParam(required = false) String status,
+                           @RequestParam(required = false) String memberOpenid,
                            Model model,
                            HttpSession session) {
         try {
@@ -143,21 +156,23 @@ public class OrderController {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("start", query.getStart());
             map.put("size", query.getSize());
-            if (status != null) {
+            if (!StringUtils.isEmpty(status)) {
                 map.put("status", status);
             }
-            Member member = (Member) session.getAttribute("MEMBER");
-            map.put("memberOpenid", member.getOpenid());
-
+            if (StringUtils.isEmpty(memberOpenid)) {
+                Member member = (Member) session.getAttribute("MEMBER");
+                map.put("memberOpenid", member.getOpenid());
+            } else {
+                map.put("memberOpenid", memberOpenid);
+            }
             List<OrderVO> list = orderService.list(map);
             int count = orderService.getCount(map);
             query.setCount(count);
             model.addAttribute("list", list);
             model.addAttribute("pageQuery", query);
-
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error("", e);
         }
         return "front/order_list";
     }
@@ -165,32 +180,38 @@ public class OrderController {
     /**
      * 订单详情
      *
-     * @param id
+     * @param orderId
      * @param model
      * @return
      */
     @RequestMapping(value = "detail", method = RequestMethod.GET)
-    public String detail(@RequestParam String id, Model model) {
+    public String detail(@RequestParam String orderId, Model model) {
         try {
-            OrderVO orderVO = orderService.findById(id);
+            OrderVO orderVO = orderService.findById(orderId);
             model.addAttribute("orderVO", orderVO);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
         }
         return "front/order_detail";
     }
 
 
+    /**
+     * 确认收货
+     *
+     * @param orderId
+     * @return
+     */
     @RequestMapping(value = "shouHuo", method = RequestMethod.GET)
-    public String shouHuo(@RequestParam String id) {
+    public String shouHuo(@RequestParam String orderId) {
         try {
-            orderService.shouHuo(id);
+            orderService.shouHuo(orderId);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
         }
-        return "redirect:/member/order/detail";
+        return "redirect:/member/order/detail?orderId=" + orderId;
     }
 
     /**
@@ -209,26 +230,30 @@ public class OrderController {
         data.put("trade_type", "JSAPI");//交易类型
 
         Map<String, String> resultMap = wxPay.unifiedOrder(data);//发起请求
+        logger.error("resultMap:" + resultMap.toString());
 
         // 支付JSAPI回传参数
         Map<String, String> wxMap = new HashMap<String, String>();
         wxMap.put("appId", config.getAppID());
-        wxMap.put("timeStamp", "" + new Date().getTime());
+        wxMap.put("timeStamp", System.currentTimeMillis() / 1000 + "");
         wxMap.put("nonceStr", WXPayUtil.generateNonceStr());
         wxMap.put("package", "prepay_id=" + resultMap.get("prepay_id"));
-        wxMap.put("signType", "HMAC-SHA256");
+//        wxMap.put("signType", "HMAC-SHA256");
+        wxMap.put("signType", "MD5");
         String sign = null;
         try {
-            sign = WXPayUtil.generateSignature(wxMap, config.getKey(), WXPayConstants.SignType.HMACSHA256);
+//            sign = WXPayUtil.generateSignature(wxMap, config.getKey(), WXPayConstants.SignType.HMACSHA256);
+            sign = WXPayUtil.generateSignature(wxMap, config.getKey(), WXPayConstants.SignType.MD5);
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("--------------微信签名-----------------");
-            logger.error("",e);
+            logger.error("", e);
         }
         wxMap.put("paySign", sign);
         wxMap.put("pack", "prepay_id=" + resultMap.get("prepay_id"));
+        logger.error(wxMap.toString());
         return wxMap;
     }
 
-    private String notify_url = "jiu.leide365.com/notify";//WXPayController.notify()todo
+
 }

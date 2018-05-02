@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -51,7 +52,7 @@
             <div class="col-xs-1"><span class="glyphicon glyphicon-chevron-right jiantou"></span></div>
         </div>
     </a>
-
+<c:if test="${hasTuiGuangPower}">
     <a href="/member/tui_guang/er_wei_ma">
         <div class="row mine_item" style="margin-top: 1%;">
             <div class="col-xs-1"><span class="glyphicon glyphicon-list-alt"></span></div>
@@ -59,7 +60,23 @@
             <div class="col-xs-1"><span class="glyphicon glyphicon-chevron-right jiantou"></span></div>
         </div>
     </a>
-    <%--<a href="/member/score_order/list">--%>
+    <a href="/member/tui_guang/list">
+        <div class="row mine_item">
+            <div class="col-xs-1"><span class="glyphicon glyphicon-gift"></span></div>
+            <div class="col-xs-9">我的推广</div>
+            <div class="col-xs-1"><span class="glyphicon glyphicon-chevron-right jiantou"></span></div>
+        </div>
+    </a>
+</c:if>
+
+    <%--<a href="/member/tui_guang/er_wei_ma">--%>
+        <%--<div class="row mine_item" style="margin-top: 1%;">--%>
+            <%--<div class="col-xs-1"><span class="glyphicon glyphicon-list-alt"></span></div>--%>
+            <%--<div class="col-xs-9">我的二维码</div>--%>
+            <%--<div class="col-xs-1"><span class="glyphicon glyphicon-chevron-right jiantou"></span></div>--%>
+        <%--</div>--%>
+    <%--</a>--%>
+    <%--<a href="/member/tui_guang/list">--%>
         <%--<div class="row mine_item">--%>
             <%--<div class="col-xs-1"><span class="glyphicon glyphicon-gift"></span></div>--%>
             <%--<div class="col-xs-9">我的推广</div>--%>

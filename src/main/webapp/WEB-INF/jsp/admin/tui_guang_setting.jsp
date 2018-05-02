@@ -10,12 +10,12 @@
 
 <div class="breadcrumbs">
     <a href="/admin/">首页</a>
-    &rsaquo; 佣金设置
+    &rsaquo; 推广设置
 </div>
 <!-- Content -->
-<div id="content" class="colM" ng-controller="yongJinSettingController">
+<div id="content" class="colM" ng-controller="tuiGuangSettingController">
 
-    <h1>佣金设置</h1>
+    <h1>推广设置</h1>
     <div id="content-main">
         <div>
             <c:if test="${not empty errorMessage}">
@@ -25,19 +25,32 @@
             </c:if>
             <fieldset class="module aligned wide">
                 <div class="form-row">
-                    <label class="required" for="id_secondToFirst">二级会员订单，一级会员抽取佣金:</label>
-                    <input type="number" min="0" max="100" ng-model="yongJinSetting.secondToFirst" autofocus required
-                           id="id_secondToFirst"/>%
+                    <label class="required" for="id_money">获取推广资格所需金额:</label>
+                    <input type="number" min="0" ng-model="tuiGuangSetting.money" autofocus required
+                           id="id_money"/>元
                 </div>
                 <div class="form-row">
-                    <label class="required" for="id_memberToFirst">三级会员订单，一级会员抽取佣金:</label>
-                    <input type="number" min="0" max="100" ng-model="yongJinSetting.memberToFirst" required id="id_memberToFirst"/>%
+                    <label class="required" for="id_first">一级会员消费佣金比例:</label>
+                    <input type="number" min="0" max="100" ng-model="tuiGuangSetting.first"  required
+                           id="id_first"/>%
                 </div>
                 <div class="form-row">
-                    <label class="required" for="id_memberToSecond">三级会员订单，二级会员抽取佣金:</label>
-                    <input type="number" min="0" max="100" ng-model="yongJinSetting.memberToSecond" required id="id_memberToSecond"/>%
+                    <label class="required" for="id_second">二级会员消费佣金比例:</label>
+                    <input type="number" min="0" max="100" ng-model="tuiGuangSetting.second" required
+                           id="id_second"/>%
+                </div>
+                <div class="form-row">
+                    <label class="required" for="id_third">三级会员消费佣金比例:</label>
+                    <input type="number" min="0" max="100" ng-model="tuiGuangSetting.third" required
+                           id="id_third"/>%
                 </div>
             </fieldset>
+            <p class="errornote" ng-if="error">
+                {{error}}
+            </p>
+            <p class="successnote" ng-if="success_message">
+                {{success_message}}
+            </p>
             <div class="submit-row">
                 <input type="button" ng-click="save()" value="保存" class="default"/>
             </div>
@@ -47,15 +60,16 @@
 </div>
 <!-- END Content -->
 <script>
-    app.controller("yongJinSettingController", function ($scope, $http) {
+    app.controller("tuiGuangSettingController", function ($scope, $http) {
         $scope.error = "";
         $scope.success_message = "";
 
-        $scope.yongJinSetting = {
-            id: ${yongJinSetting.id},
-            secondToFirst: ${yongJinSetting.secondToFirst},
-            memberToFirst: ${yongJinSetting.memberToFirst},
-            memberToSecond: ${yongJinSetting.memberToSecond}
+        $scope.tuiGuangSetting = {
+            id: ${tuiGuangSetting.id},
+            money: ${tuiGuangSetting.money},
+            first: ${tuiGuangSetting.first},
+            second: ${tuiGuangSetting.second},
+            third: ${tuiGuangSetting.third}
         };
 
 
@@ -63,11 +77,11 @@
         $scope.save = function () {
             var req = {
                 method: 'POST',
-                url: context + '/admin/yong_jin_setting/edit',
+                url: context + '/admin/tui_guang_setting/edit',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                data: $scope.yongJinSetting
+                data: $scope.tuiGuangSetting
             };
             $http(req).success(function (response, status, headers, cfg) {
                 if (response.success) {

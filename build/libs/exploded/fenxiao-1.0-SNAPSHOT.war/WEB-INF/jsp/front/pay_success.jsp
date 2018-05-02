@@ -28,7 +28,7 @@
         <p class="weui-btn-area">
             <%--<a href="javascript:history.back();" class="weui-btn weui-btn_primary">推荐操作</a>--%>
             <a href="/;" class="weui-btn weui-btn_default">返回首页</a>
-            <a href="#" class="weui-btn weui-btn_default">查看订单</a>
+            <a href="/member/order/list" class="weui-btn weui-btn_default">查看订单</a>
         </p>
     </div>
     <div class="weui-msg__extra-area">

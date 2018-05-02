@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.fenxiao.repository.TuiGuangSettingRepository">
+    <resultMap id="m_tui_guang_setting" type="com.hu.fenxiao.domain.TuiGuangSetting">
+        <id column="f_id" property="id"/>
+        <result column="f_money" property="money"/>
+        <result column="f_first" property="first"/>
+        <result column="f_second" property="second"/>
+        <result column="f_third" property="third"/>
+    </resultMap>
+    <insert id="create" parameterType="com.hu.fenxiao.domain.TuiGuangSetting">
+insert into m_tui_guang_setting ( f_id,f_money,f_first,f_second,f_third)
+values (#{id,jdbcType=INTEGER},#{money,jdbcType=DOUBLE},#{first,jdbcType=INTEGER},
+#{second,jdbcType=INTEGER},#{third,jdbcType=INTEGER})
+</insert>
+    <update id="update" parameterType="com.hu.fenxiao.domain.TuiGuangSetting">
+update m_tui_guang_setting
+set f_money=#{money,jdbcType=DOUBLE},f_first=#{first,jdbcType=INTEGER},f_second=#{second,jdbcType=INTEGER},
+f_third=#{third,jdbcType=INTEGER} where f_id=#{id}
+</update>
+    <select id="findById" resultMap="m_tui_guang_setting">select * from m_tui_guang_setting where f_id=#{id}</select>
+    <select id="getCount" resultType="int">select count(f_id) FROM m_tui_guang_setting</select>
+</mapper>

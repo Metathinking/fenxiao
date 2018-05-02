@@ -4,6 +4,7 @@ import com.hu.fenxiao.domain.Member;
 import com.hu.fenxiao.domain.WeiXinToken;
 import com.hu.fenxiao.service.MemberService;
 import com.hu.fenxiao.util.WXLoginUtil;
+import com.hu.fenxiao.wxpay.ConstantURL;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,10 @@ public class WXLoginController {
     @RequestMapping(value = "testLogin", method = RequestMethod.GET)
     public String testLogin(HttpSession session) {
 //        memberService.test();
+//        Member member = memberService.findByOpenId("oTstt1o_so8nHLTJdAMltiDo91vM");
         Member member = memberService.findByOpenId("10002");
+        logger.error("testLogin:"+member);
         session.setAttribute("MEMBER", member);
-        logger.error("wolaiceshi");
         return "redirect:/index";
     }
 
@@ -53,14 +55,14 @@ public class WXLoginController {
         String wxLoginUrl = "";
         try {
             //加密重定向连接
-            String redirectURI = URLEncoder.encode(REDIRECT_URI, "utf-8");
+            String redirectURI = URLEncoder.encode(ConstantURL.REDIRECT_URI, "utf-8");
             wxLoginUrl = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + APP_ID
                     + "&redirect_uri=" + redirectURI +
                     "&response_type=code&scope=" + SCOPE + "&state=" + STATE
                     + "#wechat_redirect";
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
         }
         return "redirect:" + wxLoginUrl;
     }
@@ -80,7 +82,7 @@ public class WXLoginController {
         String getTokenUrl = String.format(weixinGetAccessToken, code);
         try {
             WeiXinToken token = WXLoginUtil.getObject(getTokenUrl, WeiXinToken.class);
-            model.addAttribute("token",token.getAccess_token());
+            model.addAttribute("token", token.getAccess_token());
             String access_token = token.getAccess_token();
             Member member = WXLoginUtil.getObject(String.format(weixinGetUserInfo, access_token, token.getOpenid()), Member.class);
 //            saveImage(user.getHeadimgurl(), request);
@@ -98,10 +100,10 @@ public class WXLoginController {
             model.addAttribute("error_msg", "授权登录失败");
             e.printStackTrace();
             logger.error("", e);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error_msg", e.getMessage());
-            logger.error(e.getMessage(),e);
+            logger.error(e.getMessage(), e);
         }
         return "error";
     }
@@ -117,12 +119,8 @@ public class WXLoginController {
      */
 
     private String APP_ID = "wx0b80f1b0a4c1602f";//real
-    //    private String APP_ID = "wx081395b7cdc2a00e";
-//    private String APP_SECRET = "4074d7a66e92d0b93b1152d07766ad7e";
     private String APP_SECRET = "44e368e1847de6a9b616fe1ffb92b8e4";//real
-    //    private String REDIRECT_URI = "xs154568.gotoip1.com/wx_login";
-    private String REDIRECT_URI = "http://jiu.leide365.com/wx_login";
-//    private String SCOPE = "snsapi_userinfo"; //snsapi_base || snsapi_userinfo
+
     private String SCOPE = "snsapi_userinfo"; //snsapi_base || snsapi_userinfo
     private String STATE = "STATEE";
 

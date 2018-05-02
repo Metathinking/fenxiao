@@ -1,6 +1,5 @@
 package com.hu.fenxiao.controller.front;
 
-import com.hu.fenxiao.controller.admin.AdminYongJinSettingController;
 import com.hu.fenxiao.domain.ScoreProduct;
 import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.service.ScoreProductService;

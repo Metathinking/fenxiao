@@ -11,6 +11,11 @@ footer .main_footer {
     color: #FFFFFF;
 }
 
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;!important;
+    color: #333333;!important;
+}
+
 /*.container-fluid {*/
 /*padding-left: 0;*/
 /*padding-right: 0;*/
@@ -171,7 +176,8 @@ header img {
 .order_item {
     background: #FFFFFF;
     font-size: 18px;
-    padding: 8px;
+    /*padding: 8px;*/
+    border-top: 1px solid #999999;
 }
 
 .order_item_status {

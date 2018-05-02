@@ -51,7 +51,7 @@
         </c:if>
         <c:forEach items="${list}" var="vo">
             <a href="/member/order/detail?orderId=${vo.order.id}">
-                <div class="weui-cells">
+                <div class="row weui-cells" style="padding-top: 0;padding-bottom: 0">
                     <div class="weui-cell">
                         <div class="weui-cell__bd order_item_status">
                             <p>${f:getOrderDescription(vo.order.status)}</p>
@@ -62,15 +62,13 @@
                 <c:forEach items="${vo.itemList}" var="item">
                     <div class="row order_item">
                         <div class="col-xs-4 text-center" style="padding-top: 2%">
-                            <a href="#">
-                                <img class="media-object cart_img" src="${item.image}" alt="...">
-                            </a>
+                            <img class="media-object cart_img" src="${item.image}" alt="...">
                         </div>
                         <div class="col-xs-8 cart_description">
-                            <h6>${item.name}</h6>
-                            <p>容量：${item.rongLiang}</p>
-                            <div>数量：${item.quantity}</div>
-                            <p class="price">总金额：￥${item.totalPrice}</p>
+                            <h5>${item.name}</h5>
+                            <h6>容量：${item.rongLiang}</h6>
+                            <h6>数量：${item.quantity}</h6>
+                            <h5 class="price">总金额：￥${item.totalPrice}</h5>
                         </div>
                     </div>
                 </c:forEach>

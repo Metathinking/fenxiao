@@ -2,6 +2,7 @@ package com.hu.fenxiao.controller.front;
 
 
 import com.hu.fenxiao.util.SHA1;
+import com.hu.fenxiao.wxpay.ConstantURL;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -22,7 +23,6 @@ public class TokenController {
 
     private Logger logger = LogManager.getLogger(this.getClass());
 
-    private String TOKEN = "wxpaytoken";
 
     @RequestMapping(value = "validate")
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
@@ -51,7 +51,7 @@ public class TokenController {
         // 随机数
         String nonce = request.getParameter("nonce");
 
-        String[] str = { TOKEN, timestamp, nonce };
+        String[] str = {ConstantURL.TOKEN, timestamp, nonce};
         Arrays.sort(str); // 字典序排序
         String bigStr = str[0] + str[1] + str[2];
         // SHA1加密
@@ -62,7 +62,7 @@ public class TokenController {
             try {
                 response.getWriter().print(echostr);
             } catch (IOException e) {
-                logger.error("",e);
+                logger.error("", e);
                 e.printStackTrace();
             }
         }

@@ -12,13 +12,13 @@
 <c:set var="context" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 
-<html lang="en-us" >
+<html lang="en-us">
 <head>
     <title>后台管理——<tiles:insertAttribute name="title"/></title>
-    <link rel="stylesheet" type="text/css" href="/resources/css/base.css" />
-    <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/resources/css/changelists.css" />
-    <link rel="stylesheet" type="text/css" href="/resources/css/forms.css" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/changelists.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/css/forms.css"/>
     <%--<script type="text/javascript" src="/admin/jsi18n/"></script>--%>
     <script type="text/javascript" src="/resources/js/vendor/jquery/jquery.js"></script>
     <script type="text/javascript" src="/resources/js/jquery.init.js"></script>
@@ -34,13 +34,14 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/js/fenxiao.js"></script>
     <script charset="utf-8" src="${pageContext.request.contextPath}/resources/js/angular-file-upload.min.js"></script>
     <script charset="utf-8" src="${pageContext.request.contextPath}/resources/js/controller.js"></script>
-    <script charset="utf-8" src="${pageContext.request.contextPath}/resources/kindeditor/kindeditor-all-min.js"></script>
+    <script charset="utf-8"
+            src="${pageContext.request.contextPath}/resources/kindeditor/kindeditor-all-min.js"></script>
     <script charset="utf-8" src="${pageContext.request.contextPath}/resources/kindeditor/lang/zh-CN.js"></script>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/resources/css/responsive.css" />
-    <meta name="robots" content="NONE,NOARCHIVE" />
+    <link rel="stylesheet" type="text/css" href="/resources/css/responsive.css"/>
+    <meta name="robots" content="NONE,NOARCHIVE"/>
     <script>
         var context = "${context}";
     </script>
@@ -48,7 +49,7 @@
 
 
 <body class=" app-companies model-stock change-form"
-      data-admin-utc-offset="0"  ng-app="app">
+      data-admin-utc-offset="0" ng-app="app">
 
 <!-- Container -->
 <div id="container">
@@ -67,7 +68,7 @@
             <a href="/admin/score_order/list">积分订单</a> /
             <a href="/admin/member/list">会员管理</a> /
             <a href="/admin/ti_xian/list">提现申请</a> /
-            <a href="/admin/yong_jin_setting/edit">抽成设置</a> /
+            <a href="/admin/tui_guang_setting/edit">推广设置</a> /
             <a href="/admin/manufacturer/edit">厂商信息</a> /
             <a href="/admin/homeImage/list">首页图片</a> /
             <a href="/admin/change_password/">密码修改</a> /
@@ -77,8 +78,8 @@
     </div>
     <!-- END Header -->
 
-        <tiles:insertAttribute name="content"/>
-        <tiles:insertAttribute name="footer"/>
+    <tiles:insertAttribute name="content"/>
+    <tiles:insertAttribute name="footer"/>
 </div>
 <!--END Container -->
 

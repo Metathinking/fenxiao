@@ -18,7 +18,7 @@
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
             <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                <property name="supportedMediaTypes" value = "text/plain;charset=UTF-8" />
+                <property name="supportedMediaTypes" value="text/plain;charset=UTF-8"/>
             </bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
@@ -29,7 +29,7 @@
         <property name="maxInMemorySize" value="2048000000"/>
     </bean>
 
-    <context:component-scan base-package="com.hu.fenxiao" />
+    <context:component-scan base-package="com.hu.fenxiao"/>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>
         <property name="suffix" value=".jsp"/>
@@ -39,7 +39,6 @@
     <mvc:resources location="/upload/" mapping="/upload/**"/>
     <mvc:resources location="/codeImage/" mapping="/codeImage/**"/>
     <mvc:resources location="/" mapping="/*.txt"/>
-
 
 
     <!--<mvc:interceptors>-->
@@ -106,7 +105,10 @@
             <mvc:mapping path="/admin/**"/>
             <bean class="com.hu.fenxiao.interceptor.AdminInterceptor"></bean>
         </mvc:interceptor>
-
+        <mvc:interceptor>
+            <mvc:mapping path="/member/**"/>
+            <bean class="com.hu.fenxiao.interceptor.MemberInterceptor"></bean>
+        </mvc:interceptor>
     </mvc:interceptors>
     <!--拦截器设置-->
 </beans>

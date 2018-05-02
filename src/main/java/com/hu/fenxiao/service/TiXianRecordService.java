@@ -9,7 +9,7 @@ public interface TiXianRecordService {
 
     void create(int memberId,double money);
 
-    void update(TiXianRecord tiXianRecord);
+//    void update(TiXianRecord tiXianRecord);
 
     List<TiXianRecord> list(Map<String,Object> params);
 

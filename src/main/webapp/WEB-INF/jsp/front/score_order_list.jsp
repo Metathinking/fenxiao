@@ -51,7 +51,7 @@
         </c:if>
         <c:forEach items="${list}" var="vo">
             <a href="/member/score_order/detail?orderId=${vo.scoreOrder.id}">
-                <div class="weui-cells">
+                <div class="row weui-cells" style="padding-top: 0;padding-bottom: 0">
                     <div class="weui-cell">
                         <div class="weui-cell__bd order_item_status">
                             <p>${f:getScoreOrderStatus(vo.scoreOrder.status)}</p>

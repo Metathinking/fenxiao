@@ -51,7 +51,6 @@ public class CodeImageUtil {
         BitMatrix bitMatrix = new MultiFormatWriter().encode(url, BarcodeFormat.QR_CODE, width, height);
         OutputStream os = new FileOutputStream(path);
         MatrixToImageWriter.writeToStream(bitMatrix, format, os);// 输出图像
-//        String serverUrl = request.getScheme() + "://" + request.getServerName() + direction + "/" + memberId + "." + format;
 
         return serverUrl;
     }

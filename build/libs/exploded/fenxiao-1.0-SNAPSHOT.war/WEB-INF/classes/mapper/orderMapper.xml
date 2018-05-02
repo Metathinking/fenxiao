@@ -48,5 +48,5 @@ where f_id=#{id}</update>
             and f_member_openid=#{memberOpenid}
         </if>
 </select>
-    <select id="getMaxId" resultType="int">select IFNULL(max(f_id),10000) FROM m_order</select>
+    <select id="getMaxId" resultType="int">select IFNULL(max(f_id),20000) FROM m_order</select>
 </mapper>

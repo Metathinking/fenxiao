@@ -1,6 +1,6 @@
 package com.hu.fenxiao.controller.front;
 
-import com.hu.fenxiao.controller.admin.AdminYongJinSettingController;
+import com.hu.fenxiao.controller.admin.AdminTuiGuangSettingController;
 import com.hu.fenxiao.domain.CartItem;
 import com.hu.fenxiao.domain.Member;
 import com.hu.fenxiao.service.CartItemService;
@@ -20,7 +20,7 @@ import java.util.List;
 @RequestMapping("member/cart")
 public class CartController {
 
-    private Logger logger = LogManager.getLogger(AdminYongJinSettingController.class);
+    private Logger logger = LogManager.getLogger(AdminTuiGuangSettingController.class);
 
     @Autowired
     private CartItemService cartItemService;

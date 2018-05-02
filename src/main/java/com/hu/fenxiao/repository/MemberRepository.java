@@ -22,4 +22,6 @@ public interface MemberRepository {
     Member findById(int id);
 
     int getMaxId();
+
+    List<Member> listByHigherLevelOpenId(String memberOpenid);
 }

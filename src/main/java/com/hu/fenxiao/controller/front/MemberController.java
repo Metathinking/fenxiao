@@ -51,9 +51,13 @@ public class MemberController {
             model.addAttribute("member", member);
             model.addAttribute("account", account);
             model.addAttribute("sign", "member");
+            boolean hasTuiGuangPower = memberAccountService.hasTuiGuangPower(member.getId());
+//            model.addAttribute("hasTuiGuangPower", hasTuiGuangPower);
+            model.addAttribute("hasTuiGuangPower", true);//todo test
+            logger.error("tui:" + model);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
         }
         return "front/member";
     }
@@ -68,7 +72,7 @@ public class MemberController {
             model.addAttribute("error_msg", e.getExceptionMessage());
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error("", e);
         }
         return "redirect:/member/ti_xian_list";
     }
@@ -109,7 +113,7 @@ public class MemberController {
             model.addAttribute("pageQuery", query);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error("", e);
         }
         return "front/ti_xian_list";
     }
@@ -145,7 +149,7 @@ public class MemberController {
             model.addAttribute("pageQuery", query);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error("", e);
         }
         return "front/score_list";
     }

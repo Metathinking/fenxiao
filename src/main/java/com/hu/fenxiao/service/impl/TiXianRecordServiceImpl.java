@@ -59,10 +59,10 @@ public class TiXianRecordServiceImpl implements TiXianRecordService {
         tiXianRecordRepository.create(tiXianRecord);
     }
 
-    @Override
-    public void update(TiXianRecord tiXianRecord) {
-
-    }
+//    @Override
+//    public void update(TiXianRecord tiXianRecord) {
+//
+//    }
 
     @Override
     public List<TiXianRecord> list(Map<String, Object> params) {

@@ -5,4 +5,6 @@ import com.hu.fenxiao.domain.MemberAccount;
 public interface MemberAccountService {
 
     MemberAccount findById(int id);
+
+    boolean hasTuiGuangPower(int memberId);
 }
