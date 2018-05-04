@@ -52,8 +52,8 @@ public class MemberController {
             model.addAttribute("account", account);
             model.addAttribute("sign", "member");
             boolean hasTuiGuangPower = memberAccountService.hasTuiGuangPower(member.getId());
-//            model.addAttribute("hasTuiGuangPower", hasTuiGuangPower);
-            model.addAttribute("hasTuiGuangPower", true);//todo test
+            model.addAttribute("hasTuiGuangPower", hasTuiGuangPower);
+//            model.addAttribute("hasTuiGuangPower", true);//todo test
             logger.error("tui:" + model);
         } catch (Exception e) {
             e.printStackTrace();

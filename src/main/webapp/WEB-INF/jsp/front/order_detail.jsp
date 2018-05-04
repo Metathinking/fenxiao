@@ -61,7 +61,7 @@
                         </c:if>
                         <c:if test="${orderVO.order.status=='NO_PAY'&&isCurrentMember}">
                             <a class="btn btn-default" style="border-radius: 20px;margin-right: 8px" href="/member/order/cancel?orderId=${orderVO.order.id}">取消订单</a>
-                            <a class="btn btn-danger" style="border-radius: 20px;margin-right: 8px" href="/member/order/re_pay?orderId=${orderVO.order.id}" style="color: #FFFFFF;">付款</a>
+                            <a class="btn btn-danger" style="border-radius: 20px;margin-right: 8px;color: #ffffff;" href="/member/order/re_pay?orderId=${orderVO.order.id}" style="color: #FFFFFF;">付款</a>
                         </c:if>
                     </div>
                 </div>

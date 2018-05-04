@@ -321,19 +321,24 @@ public class OrderServiceImpl implements OrderService {
             //一级提成
             if (!StringUtils.isEmpty(currentMember.getHigherLevelOpenId())) {
                 Member firstMember = memberRepository.findByOpenId(currentMember.getHigherLevelOpenId());
-                int memberToSecond = tuiGuangSetting.getFirst();
-                yongJinRecord(db, memberToSecond, firstMember);
-                //二级提成
-                if (!StringUtils.isEmpty(firstMember.getHigherLevelOpenId())) {
-                    Member secondMember = memberRepository.findByOpenId(currentMember.getHigherLevelOpenId());
-                    int memberToFirst = tuiGuangSetting.getSecond();
-                    yongJinRecord(db, memberToFirst, secondMember);
-                    if (!StringUtils.isEmpty(secondMember.getHigherLevelOpenId())) {
-                        Member thirdMember = memberRepository.findByOpenId(currentMember.getHigherLevelOpenId());
-                        int third = tuiGuangSetting.getThird();
-                        yongJinRecord(db, memberToFirst, thirdMember);
+                if (firstMember != null) {
+                    int memberToSecond = tuiGuangSetting.getFirst();
+                    yongJinRecord(db, memberToSecond, firstMember);
+                    //二级提成
+                    if (!StringUtils.isEmpty(firstMember.getHigherLevelOpenId())) {
+                        Member secondMember = memberRepository.findByOpenId(currentMember.getHigherLevelOpenId());
+                        if (secondMember != null) {
+                            int memberToFirst = tuiGuangSetting.getSecond();
+                            yongJinRecord(db, memberToFirst, secondMember);
+                            if (!StringUtils.isEmpty(secondMember.getHigherLevelOpenId())) {
+                                Member thirdMember = memberRepository.findByOpenId(currentMember.getHigherLevelOpenId());
+                                int third = tuiGuangSetting.getThird();
+                                yongJinRecord(db, memberToFirst, thirdMember);
+                            }
+                        }
                     }
                 }
+
             }
             //积分
             scoreRecord(db, currentMember);
@@ -364,7 +369,7 @@ public class OrderServiceImpl implements OrderService {
             item.setOrderId(order.getId());
         }
         orderRepository.create(order);
-        orderItemRepository.update(itemList,order.getId());
+        orderItemRepository.update(itemList, order.getId());
         orderRepository.delete(orderId);
         OrderVO orderVO = new OrderVO();
         orderVO.setOrder(order);

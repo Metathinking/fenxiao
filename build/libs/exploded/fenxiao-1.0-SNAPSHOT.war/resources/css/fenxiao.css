@@ -10,6 +10,12 @@ footer .main_footer {
     background: #d9534f;
     color: #FFFFFF;
 }
+.footer_icon{
+    margin-bottom: 4px;
+}
+.footer_text{
+    margin-top: 0px;
+}
 
 a:hover, a:visited, a:link, a:active {
     text-decoration: none;
@@ -241,6 +247,7 @@ header img {
 /* 订单确认 start*/
 .info {
     border-bottom: 5px dashed #7d7d7d;
+    margin-bottom: 12px;
 }
 
 /* 订单确认 end*/

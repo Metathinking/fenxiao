@@ -6,4 +6,4 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<p class="text-center">&copy;Company 2016</p>
+<p class="text-center">&copy;Company 2018</p>

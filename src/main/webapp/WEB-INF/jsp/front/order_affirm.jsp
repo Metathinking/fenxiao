@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row order_item info">
             <div class="col-xs-1">
-                <span class="glyphicon glyphicon-map-marker"></span>
+                <span class="glyphicon glyphicon-map-marker" style="margin-top:30px;color:#d9534f"></span>
             </div>
             <div class="col-xs-11" data-toggle="modal" data-target="#addPage">
                 <p>收货人：{{orderVO.order.memberName}}</p>
@@ -21,27 +21,17 @@
             </div>
         </div>
         <!-- 商品列表 -->
-        <%--<c:forEach items="${orderVO.itemList}" var="item">--%>
         <div class="row order_item" ng-repeat="item in orderVO.itemList">
             <div class="col-xs-4 text-center">
-                <a href="#">
-                    <img class="media-object cart_img" ng-src="{{item.image}}" alt="...">
-                </a>
+                <img class="media-object cart_img" ng-src="{{item.image}}" style="margin-top: 8px;">
             </div>
             <div class="col-xs-8 cart_description">
                 <h4>{{item.name}}
-                    <%--<span class="order_item_status">--%>
-                    <%--完成--%>
-                    <%--</span>--%>
                 </h4>
-                <%--<p>容量：500ml</p>--%>
-                <!--<p class="price">价格：￥99999</p>-->
                 <p>数量：{{item.quantity}}</p>
                 <p class="price">总金额：￥{{item.totalPrice}}</p>
-                <%--<p class="order_item_time">2018-9-9 1:12:11</p>--%>
             </div>
         </div>
-        <%--</c:forEach>--%>
     </div>
     <div class="form-group">
         <label>备注</label>
@@ -51,8 +41,8 @@
         <nav class="navbar navbar-default navbar-fixed-bottom ">
             <div class="">
                 <div class="row ">
-                    <div class="col-xs-8" style="padding-left: 32px">
-                        <h4 class="price">￥<span ng-bind="orderVO.order.grandTotal"></span></h4>
+                    <div class="col-xs-8" style="padding-left: 32px;padding-top:14px">
+                        <p class="price">￥<span ng-bind="orderVO.order.grandTotal"></span></p>
                     </div>
                     <div class="col-xs-4 text-center" style="padding-top: 8px">
                         <a class="btn btn-danger" ng-click="submit()">

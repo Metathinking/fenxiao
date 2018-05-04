@@ -8,6 +8,7 @@ import com.hu.fenxiao.repository.MemberRepository;
 import com.hu.fenxiao.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,59 +23,59 @@ public class MemberServiceImpl implements MemberService {
     @Autowired
     private MemberAccountRepository memberAccountRepository;
 
-    @Override
-    public void test() {
-//        for (int i = 1; i < 2; i++) {
+//    @Override
+//    public void test() {
+////        for (int i = 1; i < 2; i++) {
+////            Member member = new Member();
+////            member.setId(10001 + i);
+////            member.setName("测试人员" + i);
+////            member.setPhone("1333333333" + i);
+////            member.setAddress("山东滨州");
+////            member.setOpenid(member.getId() + "");
+////            member.setNickname("测试人员" + i);
+////            member.setLevel(1);
+////            memberRepository.create(member);
+////            MemberAccount account = new MemberAccount();
+////            account.setId(member.getId());
+////            account.setScore(2000);
+////            account.setMoney(2000);
+////            memberAccountRepository.create(account);
+////        }
+//        for (int i = 1; i < 10; i++) {
 //            Member member = new Member();
-//            member.setId(10001 + i);
+//            member.setId(20001 + i);
 //            member.setName("测试人员" + i);
 //            member.setPhone("1333333333" + i);
 //            member.setAddress("山东滨州");
 //            member.setOpenid(member.getId() + "");
 //            member.setNickname("测试人员" + i);
-//            member.setLevel(1);
+//            member.setHigherLevelOpenId(10002 + "");
+//            member.setLevel(2);
 //            memberRepository.create(member);
 //            MemberAccount account = new MemberAccount();
 //            account.setId(member.getId());
-//            account.setScore(2000);
-//            account.setMoney(2000);
+//            account.setScore(0);
+//            account.setMoney(0);
 //            memberAccountRepository.create(account);
 //        }
-        for (int i = 1; i < 10; i++) {
-            Member member = new Member();
-            member.setId(20001 + i);
-            member.setName("测试人员" + i);
-            member.setPhone("1333333333" + i);
-            member.setAddress("山东滨州");
-            member.setOpenid(member.getId() + "");
-            member.setNickname("测试人员" + i);
-            member.setHigherLevelOpenId(10002 + "");
-            member.setLevel(2);
-            memberRepository.create(member);
-            MemberAccount account = new MemberAccount();
-            account.setId(member.getId());
-            account.setScore(0);
-            account.setMoney(0);
-            memberAccountRepository.create(account);
-        }
-        for (int i = 1; i < 5; i++) {
-            Member member = new Member();
-            member.setId(30001 + i);
-            member.setName("测试人员" + i);
-            member.setPhone("1333333333" + i);
-            member.setAddress("山东滨州");
-            member.setOpenid(member.getId() + "");
-            member.setNickname("测试人员" + i);
-            member.setHigherLevelOpenId(20002 + "");
-            member.setLevel(3);
-            memberRepository.create(member);
-            MemberAccount account = new MemberAccount();
-            account.setId(member.getId());
-            account.setScore(0);
-            account.setMoney(0);
-            memberAccountRepository.create(account);
-        }
-    }
+//        for (int i = 1; i < 5; i++) {
+//            Member member = new Member();
+//            member.setId(30001 + i);
+//            member.setName("测试人员" + i);
+//            member.setPhone("1333333333" + i);
+//            member.setAddress("山东滨州");
+//            member.setOpenid(member.getId() + "");
+//            member.setNickname("测试人员" + i);
+//            member.setHigherLevelOpenId(20002 + "");
+//            member.setLevel(3);
+//            memberRepository.create(member);
+//            MemberAccount account = new MemberAccount();
+//            account.setId(member.getId());
+//            account.setScore(0);
+//            account.setMoney(0);
+//            memberAccountRepository.create(account);
+//        }
+//    }
 
     /**
      * @param member
@@ -96,6 +97,9 @@ public class MemberServiceImpl implements MemberService {
             member.setId(maxId);
             member.setName(member.getNickname());
             member.setTime(System.currentTimeMillis());
+            if(StringUtils.isEmpty(member.getName())){
+                member.setName("会员"+member.getId());
+            }
             memberRepository.create(member);
             //同步创建账户
             MemberAccount account = new MemberAccount();
