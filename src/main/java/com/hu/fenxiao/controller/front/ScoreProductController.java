@@ -25,14 +25,18 @@ public class ScoreProductController {
     @Autowired
     private ScoreProductService scoreProductService;
 
-    @RequestMapping(value = "score_product/{productId}",method = RequestMethod.GET)
-    public String detail(@PathVariable String productId, Model model){
+    @RequestMapping(value = "score_product/{productId}", method = RequestMethod.GET)
+    public String detail(@PathVariable String productId, HttpSession session, Model model) {
         try {
+            Object obj = session.getAttribute("MEMBER");
+            if (obj != null) {
+                model.addAttribute("member", obj);
+            }
             ScoreProduct product = scoreProductService.findById(productId);
-            model.addAttribute("product",product);
+            model.addAttribute("product", product);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error("", e);
         }
         return "front/score_product_detail";
     }
@@ -41,8 +45,8 @@ public class ScoreProductController {
     public String list(Model model, HttpSession session) {
         try {
             Object obj = session.getAttribute("MEMBER");
-            if(obj!=null){
-                model.addAttribute("member",obj);
+            if (obj != null) {
+                model.addAttribute("member", obj);
             }
             PageQuery query = new PageQuery();
             Map<String, Object> map = new HashMap<String, Object>();
@@ -53,7 +57,7 @@ public class ScoreProductController {
             model.addAttribute("sign", "score");
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error("", e);
         }
         return "front/score_product_list";
     }

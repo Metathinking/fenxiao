@@ -31,9 +31,8 @@ public class WXLoginController {
 
     @RequestMapping(value = "testLogin", method = RequestMethod.GET)
     public String testLogin(HttpSession session) {
-//        memberService.test();
-        Member member = memberService.findByOpenId("oTstt1o_so8nHLTJdAMltiDo91vM");
-//        Member member = memberService.findByOpenId("10002");
+//        Member member = memberService.findByOpenId("oTstt1o_so8nHLTJdAMltiDo91vM");
+        Member member = memberService.findByOpenId("10002");
         logger.error("testLogin:"+member);
         session.setAttribute("MEMBER", member);
         return "redirect:/index";

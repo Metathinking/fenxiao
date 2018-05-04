@@ -77,6 +77,7 @@
     <!--modal end -->
 </div>
 <script>
+
     app.controller("scoreOrderController", function ($scope, $http) {
 
         $scope.orderVO={
@@ -96,7 +97,7 @@
                 quantity: 1
             };
         };
-        //提交送货记录
+        //申请兑换
         $scope.change = function () {
             var req = {
                 method: 'POST',

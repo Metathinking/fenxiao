@@ -10,6 +10,7 @@ import com.hu.fenxiao.type.ScoreChangeReason;
 import com.hu.fenxiao.type.ScoreOrderStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +34,20 @@ public class ScoreOrderServiceImpl implements ScoreOrderService {
     @Autowired
     private ScoreRecordRepository scoreRecordRepository;
 
+    @Autowired
+    private MemberRepository memberRepository;
+
     @Override
     public ScoreOrderVO create(ScoreOrderVO scoreOrderVO, Member member) {
+        if(StringUtils.isEmpty(scoreOrderVO.getScoreOrder().getMemberName())){
+            throw new ServiceException("请输入收货人名称");
+        }
+        if(StringUtils.isEmpty(scoreOrderVO.getScoreOrder().getPhone())){
+            throw new ServiceException("请输入收货人电话");
+        }
+        if(StringUtils.isEmpty(scoreOrderVO.getScoreOrder().getAddress())){
+            throw new ServiceException("请输入收货人地址");
+        }
         int maxId = scoreOrderRepository.getMaxId();
         maxId++;
         ScoreOrder scoreOrder = scoreOrderVO.getScoreOrder();
@@ -69,6 +82,12 @@ public class ScoreOrderServiceImpl implements ScoreOrderService {
         scoreOrder.setGrandTotal(grandTotal);
         scoreOrderRepository.create(scoreOrder);
         scoreOrderItemRepository.create(scoreOrderItem);
+        //更新会员信息
+        Member db = memberRepository.findById(member.getId());
+        db.setName(scoreOrder.getMemberName());
+        db.setPhone(scoreOrder.getPhone());
+        db.setAddress(scoreOrder.getAddress());
+        memberRepository.update(db);
         return scoreOrderVO;
     }
 

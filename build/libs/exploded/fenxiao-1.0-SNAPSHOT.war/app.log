@@ -15164,3 +15164,659 @@ Caused by: com.mysql.jdbc.exceptions.MySQLSyntaxErrorException: Unknown column '
 2018-05-04 at 10:54:59 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3641af40]
 2018-05-04 at 10:54:59 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3641af40]
 2018-05-04 at 10:54:59 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3641af40]
+2018-05-04 at 12:39:40 CST DEBUG org.apache.ibatis.logging.LogFactory 128 setImplementation - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63141a83]
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:39:45 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_product order by f_id limit ?,? 
+2018-05-04 at 12:39:45 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 0(Integer), 30(Integer)
+2018-05-04 at 12:39:45 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 7
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63141a83]
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63141a83]
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@63141a83]
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@783b1a95]
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:39:45 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select count(f_id) FROM m_product 
+2018-05-04 at 12:39:45 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:39:45 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@783b1a95]
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@783b1a95]
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@783b1a95]
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ea650ed]
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:39:45 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_home_image order by f_id 
+2018-05-04 at 12:39:45 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:39:45 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 5
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ea650ed]
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ea650ed]
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ea650ed]
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7af717af]
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:39:45 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_notice where f_id=(SELECT max(f_id) from m_notice) 
+2018-05-04 at 12:39:45 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:39:45 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 0
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7af717af]
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7af717af]
+2018-05-04 at 12:39:45 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7af717af]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b2f8181]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:39:50 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_product order by f_id limit ?,? 
+2018-05-04 at 12:39:50 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 0(Integer), 30(Integer)
+2018-05-04 at 12:39:50 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 7
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b2f8181]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b2f8181]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b2f8181]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3391c63d]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:39:50 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select count(f_id) FROM m_product 
+2018-05-04 at 12:39:50 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:39:50 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3391c63d]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3391c63d]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3391c63d]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@967016c]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:39:50 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_home_image order by f_id 
+2018-05-04 at 12:39:50 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:39:50 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 5
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@967016c]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@967016c]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@967016c]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e9caa8]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:39:50 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_notice where f_id=(SELECT max(f_id) from m_notice) 
+2018-05-04 at 12:39:50 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:39:50 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 0
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e9caa8]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e9caa8]
+2018-05-04 at 12:39:50 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e9caa8]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7bd167e3]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:39:54 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_product order by f_id limit ?,? 
+2018-05-04 at 12:39:54 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 0(Integer), 30(Integer)
+2018-05-04 at 12:39:54 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 7
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7bd167e3]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7bd167e3]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7bd167e3]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5aae3cdf]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:39:54 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select count(f_id) FROM m_product 
+2018-05-04 at 12:39:54 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:39:54 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5aae3cdf]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5aae3cdf]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5aae3cdf]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3329543]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:39:54 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_home_image order by f_id 
+2018-05-04 at 12:39:54 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:39:54 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 5
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3329543]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3329543]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3329543]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@55aadf75]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:39:54 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_notice where f_id=(SELECT max(f_id) from m_notice) 
+2018-05-04 at 12:39:54 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:39:54 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 0
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@55aadf75]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@55aadf75]
+2018-05-04 at 12:39:54 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@55aadf75]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3979a0ab]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_member where f_openid=? 
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10002(String)
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3979a0ab]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3979a0ab]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3979a0ab]
+2018-05-04 at 12:40:55 CST ERROR com.hu.fenxiao.controller.front.WXLoginController 36 testLogin - testLogin:com.hu.fenxiao.domain.Member@28bc94c
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@526f5df5]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_product order by f_id limit ?,? 
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 0(Integer), 30(Integer)
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 7
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@526f5df5]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@526f5df5]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@526f5df5]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56dfd5e5]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select count(f_id) FROM m_product 
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56dfd5e5]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56dfd5e5]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56dfd5e5]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@579cfbfd]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_home_image order by f_id 
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 5
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@579cfbfd]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@579cfbfd]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@579cfbfd]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48cac8b0]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_notice where f_id=(SELECT max(f_id) from m_notice) 
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 0
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48cac8b0]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48cac8b0]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48cac8b0]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@538dd9cf]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_product order by f_id limit ?,? 
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 0(Integer), 30(Integer)
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 7
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@538dd9cf]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@538dd9cf]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@538dd9cf]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57c366fb]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select count(f_id) FROM m_product 
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57c366fb]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57c366fb]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57c366fb]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7dfb8bbd]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_home_image order by f_id 
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 5
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7dfb8bbd]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7dfb8bbd]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7dfb8bbd]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44a861af]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_notice where f_id=(SELECT max(f_id) from m_notice) 
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:40:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 0
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44a861af]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44a861af]
+2018-05-04 at 12:40:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@44a861af]
+2018-05-04 at 12:41:06 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:41:06 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@17e2eb84]
+2018-05-04 at 12:41:06 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:41:06 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_member_account where f_id=? 
+2018-05-04 at 12:41:06 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10002(Integer)
+2018-05-04 at 12:41:06 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:41:06 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@17e2eb84]
+2018-05-04 at 12:41:06 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@17e2eb84]
+2018-05-04 at 12:41:06 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@17e2eb84]
+2018-05-04 at 12:41:06 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:41:06 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5826737f]
+2018-05-04 at 12:41:06 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:41:06 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_tui_guang_setting where f_id=? 
+2018-05-04 at 12:41:06 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10001(Integer)
+2018-05-04 at 12:41:06 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:41:06 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5826737f]
+2018-05-04 at 12:41:06 CST DEBUG org.mybatis.spring.SqlSessionUtils 99 getSqlSession - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5826737f] from current transaction
+2018-05-04 at 12:41:06 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_member_account where f_id=? 
+2018-05-04 at 12:41:06 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10002(Integer)
+2018-05-04 at 12:41:06 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:41:06 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5826737f]
+2018-05-04 at 12:41:06 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5826737f]
+2018-05-04 at 12:41:06 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5826737f]
+2018-05-04 at 12:41:06 CST ERROR com.hu.fenxiao.controller.front.MemberController 57 member - tui:{member=com.hu.fenxiao.domain.Member@28bc94c, account=com.hu.fenxiao.domain.MemberAccount@6b42d044, sign=member, hasTuiGuangPower=true}
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16ba9d0a]
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_product order by f_id limit ?,? 
+2018-05-04 at 12:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 0(Integer), 30(Integer)
+2018-05-04 at 12:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 7
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16ba9d0a]
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16ba9d0a]
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16ba9d0a]
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b50ef79]
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select count(f_id) FROM m_product 
+2018-05-04 at 12:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b50ef79]
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b50ef79]
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1b50ef79]
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25d89faa]
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_home_image order by f_id 
+2018-05-04 at 12:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 5
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25d89faa]
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25d89faa]
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@25d89faa]
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5ce5b4c6]
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_notice where f_id=(SELECT max(f_id) from m_notice) 
+2018-05-04 at 12:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:41:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 0
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5ce5b4c6]
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5ce5b4c6]
+2018-05-04 at 12:41:09 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5ce5b4c6]
+2018-05-04 at 12:41:11 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:41:11 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@aba8c76]
+2018-05-04 at 12:41:11 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:41:11 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_score_product order by f_id limit ?,? 
+2018-05-04 at 12:41:11 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 0(Integer), 30(Integer)
+2018-05-04 at 12:41:11 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 5
+2018-05-04 at 12:41:11 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@aba8c76]
+2018-05-04 at 12:41:11 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@aba8c76]
+2018-05-04 at 12:41:11 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@aba8c76]
+2018-05-04 at 12:41:12 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:41:12 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@438b69a1]
+2018-05-04 at 12:41:12 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:41:12 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_score_product where f_id=? 
+2018-05-04 at 12:41:12 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10001(String)
+2018-05-04 at 12:41:12 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:41:12 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@438b69a1]
+2018-05-04 at 12:41:12 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@438b69a1]
+2018-05-04 at 12:41:12 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@438b69a1]
+2018-05-04 at 12:42:29 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:42:29 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32383caa]
+2018-05-04 at 12:42:29 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:42:29 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_score_product where f_id=? 
+2018-05-04 at 12:42:29 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10001(String)
+2018-05-04 at 12:42:29 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:42:29 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32383caa]
+2018-05-04 at 12:42:29 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32383caa]
+2018-05-04 at 12:42:29 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@32383caa]
+2018-05-04 at 12:52:26 CST DEBUG org.apache.ibatis.logging.LogFactory 128 setImplementation - Logging initialized using 'class org.apache.ibatis.logging.log4j2.Log4j2Impl' adapter.
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@12657e5c]
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:30 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_product order by f_id limit ?,? 
+2018-05-04 at 12:52:30 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 0(Integer), 30(Integer)
+2018-05-04 at 12:52:30 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 7
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@12657e5c]
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@12657e5c]
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@12657e5c]
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@269d168f]
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:30 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select count(f_id) FROM m_product 
+2018-05-04 at 12:52:30 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:52:30 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@269d168f]
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@269d168f]
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@269d168f]
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53bf36c6]
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:30 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_home_image order by f_id 
+2018-05-04 at 12:52:30 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:52:30 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 5
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53bf36c6]
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53bf36c6]
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@53bf36c6]
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7cd15ccc]
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:30 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_notice where f_id=(SELECT max(f_id) from m_notice) 
+2018-05-04 at 12:52:30 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:52:30 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 0
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7cd15ccc]
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7cd15ccc]
+2018-05-04 at 12:52:30 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7cd15ccc]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4286d45d]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:32 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_product order by f_id limit ?,? 
+2018-05-04 at 12:52:32 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 0(Integer), 30(Integer)
+2018-05-04 at 12:52:32 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 7
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4286d45d]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4286d45d]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4286d45d]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79ac2188]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:32 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select count(f_id) FROM m_product 
+2018-05-04 at 12:52:32 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:52:32 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79ac2188]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79ac2188]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79ac2188]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@756b1b4a]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:32 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_home_image order by f_id 
+2018-05-04 at 12:52:32 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:52:32 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 5
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@756b1b4a]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@756b1b4a]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@756b1b4a]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4481a9c1]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:32 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_notice where f_id=(SELECT max(f_id) from m_notice) 
+2018-05-04 at 12:52:32 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:52:32 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 0
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4481a9c1]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4481a9c1]
+2018-05-04 at 12:52:32 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4481a9c1]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d777fbb]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_product order by f_id limit ?,? 
+2018-05-04 at 12:52:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 0(Integer), 30(Integer)
+2018-05-04 at 12:52:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 7
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d777fbb]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d777fbb]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3d777fbb]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c56249f]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select count(f_id) FROM m_product 
+2018-05-04 at 12:52:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:52:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c56249f]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c56249f]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c56249f]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f4812b2]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_home_image order by f_id 
+2018-05-04 at 12:52:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:52:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 5
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f4812b2]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f4812b2]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f4812b2]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6537006b]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_notice where f_id=(SELECT max(f_id) from m_notice) 
+2018-05-04 at 12:52:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:52:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 0
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6537006b]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6537006b]
+2018-05-04 at 12:52:34 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6537006b]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ecbdff5]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_member where f_openid=? 
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10002(String)
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ecbdff5]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ecbdff5]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ecbdff5]
+2018-05-04 at 12:52:48 CST ERROR com.hu.fenxiao.controller.front.WXLoginController 36 testLogin - testLogin:com.hu.fenxiao.domain.Member@11e571c3
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6a05cc]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_product order by f_id limit ?,? 
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 0(Integer), 30(Integer)
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 7
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6a05cc]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6a05cc]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6a05cc]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d67df0]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select count(f_id) FROM m_product 
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d67df0]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d67df0]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d67df0]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@231d9368]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_home_image order by f_id 
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 5
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@231d9368]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@231d9368]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@231d9368]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@436808be]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_notice where f_id=(SELECT max(f_id) from m_notice) 
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 0
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@436808be]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@436808be]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@436808be]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f7e6255]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_product order by f_id limit ?,? 
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 0(Integer), 30(Integer)
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 7
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f7e6255]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f7e6255]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f7e6255]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c44297e]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select count(f_id) FROM m_product 
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c44297e]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c44297e]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c44297e]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6db9ba0c]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_home_image order by f_id 
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 5
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6db9ba0c]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6db9ba0c]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6db9ba0c]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@542cd3e6]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_notice where f_id=(SELECT max(f_id) from m_notice) 
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:52:48 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 0
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@542cd3e6]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@542cd3e6]
+2018-05-04 at 12:52:48 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@542cd3e6]
+2018-05-04 at 12:52:50 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:50 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57321b70]
+2018-05-04 at 12:52:50 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:50 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_score_product order by f_id limit ?,? 
+2018-05-04 at 12:52:50 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 0(Integer), 30(Integer)
+2018-05-04 at 12:52:50 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 5
+2018-05-04 at 12:52:50 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57321b70]
+2018-05-04 at 12:52:50 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57321b70]
+2018-05-04 at 12:52:50 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57321b70]
+2018-05-04 at 12:52:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:52:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a1e8183]
+2018-05-04 at 12:52:55 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:52:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_score_product where f_id=? 
+2018-05-04 at 12:52:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10001(String)
+2018-05-04 at 12:52:55 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:52:55 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a1e8183]
+2018-05-04 at 12:52:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a1e8183]
+2018-05-04 at 12:52:55 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a1e8183]
+2018-05-04 at 12:53:05 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:53:05 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b0e240e]
+2018-05-04 at 12:53:05 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:53:05 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_member_account where f_id=? 
+2018-05-04 at 12:53:05 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10002(Integer)
+2018-05-04 at 12:53:05 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:53:05 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b0e240e]
+2018-05-04 at 12:53:05 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b0e240e]
+2018-05-04 at 12:53:05 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b0e240e]
+2018-05-04 at 12:53:05 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:53:05 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ab3c71f]
+2018-05-04 at 12:53:05 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:53:05 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_tui_guang_setting where f_id=? 
+2018-05-04 at 12:53:05 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10001(Integer)
+2018-05-04 at 12:53:05 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:53:05 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ab3c71f]
+2018-05-04 at 12:53:05 CST DEBUG org.mybatis.spring.SqlSessionUtils 99 getSqlSession - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ab3c71f] from current transaction
+2018-05-04 at 12:53:05 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_member_account where f_id=? 
+2018-05-04 at 12:53:05 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10002(Integer)
+2018-05-04 at 12:53:05 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:53:05 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ab3c71f]
+2018-05-04 at 12:53:05 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ab3c71f]
+2018-05-04 at 12:53:05 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ab3c71f]
+2018-05-04 at 12:53:05 CST ERROR com.hu.fenxiao.controller.front.MemberController 57 member - tui:{member=com.hu.fenxiao.domain.Member@11e571c3, account=com.hu.fenxiao.domain.MemberAccount@4661d177, sign=member, hasTuiGuangPower=true}
+2018-05-04 at 12:53:07 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:53:07 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74c2bce]
+2018-05-04 at 12:53:07 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:53:07 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_order where 1=1 and f_member_openid=? order by f_id desc limit ?,? 
+2018-05-04 at 12:53:07 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10002(String), 0(Integer), 30(Integer)
+2018-05-04 at 12:53:08 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:53:08 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74c2bce]
+2018-05-04 at 12:53:08 CST DEBUG org.mybatis.spring.SqlSessionUtils 99 getSqlSession - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74c2bce] from current transaction
+2018-05-04 at 12:53:08 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_order_item where f_order_id=? order by f_id 
+2018-05-04 at 12:53:08 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 20004(String)
+2018-05-04 at 12:53:08 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:53:08 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74c2bce]
+2018-05-04 at 12:53:08 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74c2bce]
+2018-05-04 at 12:53:08 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74c2bce]
+2018-05-04 at 12:53:08 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:53:08 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a7da40d]
+2018-05-04 at 12:53:08 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:53:08 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select count(f_id) FROM m_order where 1=1 and f_member_openid=? 
+2018-05-04 at 12:53:08 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10002(String)
+2018-05-04 at 12:53:08 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:53:08 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a7da40d]
+2018-05-04 at 12:53:08 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a7da40d]
+2018-05-04 at 12:53:08 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1a7da40d]
+2018-05-04 at 12:53:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:53:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a73e080]
+2018-05-04 at 12:53:09 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:53:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_order where f_id=? 
+2018-05-04 at 12:53:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 20004(String)
+2018-05-04 at 12:53:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:53:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a73e080]
+2018-05-04 at 12:53:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 99 getSqlSession - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a73e080] from current transaction
+2018-05-04 at 12:53:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_order_item where f_order_id=? order by f_id 
+2018-05-04 at 12:53:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 20004(String)
+2018-05-04 at 12:53:09 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:53:09 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a73e080]
+2018-05-04 at 12:53:09 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a73e080]
+2018-05-04 at 12:53:09 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7a73e080]
+2018-05-04 at 12:54:31 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:54:31 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4dec5d50]
+2018-05-04 at 12:54:31 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:54:31 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_member where f_openid=? 
+2018-05-04 at 12:54:31 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10002(String)
+2018-05-04 at 12:54:31 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:54:31 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4dec5d50]
+2018-05-04 at 12:54:31 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4dec5d50]
+2018-05-04 at 12:54:31 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4dec5d50]
+2018-05-04 at 12:54:31 CST ERROR com.hu.fenxiao.controller.front.WXLoginController 36 testLogin - testLogin:com.hu.fenxiao.domain.Member@5afeb10e
+2018-05-04 at 12:54:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:54:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@698df3bf]
+2018-05-04 at 12:54:34 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:54:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_member_account where f_id=? 
+2018-05-04 at 12:54:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10002(Integer)
+2018-05-04 at 12:54:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:54:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@698df3bf]
+2018-05-04 at 12:54:34 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@698df3bf]
+2018-05-04 at 12:54:34 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@698df3bf]
+2018-05-04 at 12:54:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:54:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@206105bf]
+2018-05-04 at 12:54:34 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:54:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_tui_guang_setting where f_id=? 
+2018-05-04 at 12:54:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10001(Integer)
+2018-05-04 at 12:54:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:54:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@206105bf]
+2018-05-04 at 12:54:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 99 getSqlSession - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@206105bf] from current transaction
+2018-05-04 at 12:54:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_member_account where f_id=? 
+2018-05-04 at 12:54:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10002(Integer)
+2018-05-04 at 12:54:34 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:54:34 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@206105bf]
+2018-05-04 at 12:54:34 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@206105bf]
+2018-05-04 at 12:54:34 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@206105bf]
+2018-05-04 at 12:54:34 CST ERROR com.hu.fenxiao.controller.front.MemberController 57 member - tui:{member=com.hu.fenxiao.domain.Member@5afeb10e, account=com.hu.fenxiao.domain.MemberAccount@2488eb2d, sign=member, hasTuiGuangPower=true}
+2018-05-04 at 12:54:36 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:54:36 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@700831d5]
+2018-05-04 at 12:54:36 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:54:36 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_order where 1=1 and f_member_openid=? order by f_id desc limit ?,? 
+2018-05-04 at 12:54:36 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10002(String), 0(Integer), 30(Integer)
+2018-05-04 at 12:54:36 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:54:36 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@700831d5]
+2018-05-04 at 12:54:36 CST DEBUG org.mybatis.spring.SqlSessionUtils 99 getSqlSession - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@700831d5] from current transaction
+2018-05-04 at 12:54:36 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_order_item where f_order_id=? order by f_id 
+2018-05-04 at 12:54:36 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 20004(String)
+2018-05-04 at 12:54:36 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:54:36 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@700831d5]
+2018-05-04 at 12:54:36 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@700831d5]
+2018-05-04 at 12:54:36 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@700831d5]
+2018-05-04 at 12:54:36 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:54:36 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5fdd34d0]
+2018-05-04 at 12:54:36 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:54:36 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select count(f_id) FROM m_order where 1=1 and f_member_openid=? 
+2018-05-04 at 12:54:36 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 10002(String)
+2018-05-04 at 12:54:36 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:54:36 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5fdd34d0]
+2018-05-04 at 12:54:36 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5fdd34d0]
+2018-05-04 at 12:54:36 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5fdd34d0]
+2018-05-04 at 12:54:37 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:54:37 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2af5842a]
+2018-05-04 at 12:54:37 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:54:37 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_order where f_id=? 
+2018-05-04 at 12:54:37 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 20004(String)
+2018-05-04 at 12:54:37 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:54:37 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2af5842a]
+2018-05-04 at 12:54:37 CST DEBUG org.mybatis.spring.SqlSessionUtils 99 getSqlSession - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2af5842a] from current transaction
+2018-05-04 at 12:54:37 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_order_item where f_order_id=? order by f_id 
+2018-05-04 at 12:54:37 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 20004(String)
+2018-05-04 at 12:54:37 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:54:37 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2af5842a]
+2018-05-04 at 12:54:37 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2af5842a]
+2018-05-04 at 12:54:37 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2af5842a]
+2018-05-04 at 12:57:12 CST DEBUG org.mybatis.spring.SqlSessionUtils 106 getSqlSession - Creating a new SqlSession
+2018-05-04 at 12:57:12 CST DEBUG org.mybatis.spring.SqlSessionUtils 122 getSqlSession - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48d53bdc]
+2018-05-04 at 12:57:12 CST DEBUG org.mybatis.spring.transaction.SpringManagedTransaction 85 openConnection - JDBC Connection [jdbc:mysql://localhost:3306/fenxiao, UserName=root@localhost, MySQL-AB JDBC Driver] will be managed by Spring
+2018-05-04 at 12:57:12 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_order where f_id=? 
+2018-05-04 at 12:57:12 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 20004(String)
+2018-05-04 at 12:57:12 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:57:12 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48d53bdc]
+2018-05-04 at 12:57:13 CST DEBUG org.mybatis.spring.SqlSessionUtils 99 getSqlSession - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48d53bdc] from current transaction
+2018-05-04 at 12:57:13 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select IFNULL(max(f_id),20000) FROM m_order 
+2018-05-04 at 12:57:13 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 
+2018-05-04 at 12:57:13 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:57:13 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48d53bdc]
+2018-05-04 at 12:57:13 CST DEBUG org.mybatis.spring.SqlSessionUtils 99 getSqlSession - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48d53bdc] from current transaction
+2018-05-04 at 12:57:13 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: select * from m_order_item where f_order_id=? order by f_id 
+2018-05-04 at 12:57:13 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 20004(String)
+2018-05-04 at 12:57:13 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==      Total: 1
+2018-05-04 at 12:57:13 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48d53bdc]
+2018-05-04 at 12:57:13 CST DEBUG org.mybatis.spring.SqlSessionUtils 99 getSqlSession - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48d53bdc] from current transaction
+2018-05-04 at 12:57:13 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: insert into m_order ( f_id,f_member_openid,f_member_name,f_phone,f_address,f_grand_total, f_order_time,f_pay_time,f_send_time,f_status,f_remark) values (?, ?,?,?, ?,?,?, ?,?,?,?) 
+2018-05-04 at 12:57:13 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 20005(Integer), 10002(String), 测试人员1(String), 13333333331(String), 山东滨州(String), 796.0(Double), 1525401142083(Long), 0(Long), 0(Long), NO_PAY(String), null
+2018-05-04 at 12:57:13 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==    Updates: 1
+2018-05-04 at 12:57:13 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48d53bdc]
+2018-05-04 at 12:57:13 CST DEBUG org.mybatis.spring.SqlSessionUtils 99 getSqlSession - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48d53bdc] from current transaction
+2018-05-04 at 12:57:13 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: update m_order_item set f_order_id=? WHERE f_id in ( ? ) 
+2018-05-04 at 12:57:13 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 20005(Integer), 10001(Integer)
+2018-05-04 at 12:57:13 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==    Updates: 1
+2018-05-04 at 12:57:13 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48d53bdc]
+2018-05-04 at 12:57:13 CST DEBUG org.mybatis.spring.SqlSessionUtils 99 getSqlSession - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48d53bdc] from current transaction
+2018-05-04 at 12:57:13 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==>  Preparing: delete from m_order where f_id=? 
+2018-05-04 at 12:57:13 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - ==> Parameters: 20004(String)
+2018-05-04 at 12:57:13 CST DEBUG org.apache.ibatis.logging.jdbc.BaseJdbcLogger 139 debug - <==    Updates: 1
+2018-05-04 at 12:57:13 CST DEBUG org.mybatis.spring.SqlSessionUtils 165 closeSqlSession - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48d53bdc]
+2018-05-04 at 12:57:13 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 277 afterCompletion - Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48d53bdc]
+2018-05-04 at 12:57:13 CST DEBUG org.mybatis.spring.SqlSessionUtils$SqlSessionSynchronization 298 afterCompletion - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@48d53bdc]
+2018-05-04 at 12:57:13 CST ERROR com.hu.fenxiao.controller.front.OrderController 117 getPayAndBackMap - total_fee=79600
+2018-05-04 at 12:57:15 CST ERROR com.hu.fenxiao.controller.front.OrderController 274 unifiedOrder - resultMap:{return_msg=openid is invalid, return_code=FAIL}
+2018-05-04 at 12:57:15 CST ERROR com.hu.fenxiao.controller.front.OrderController 295 unifiedOrder - {timeStamp=1525409835, package=prepay_id=null, paySign=293ED19C8B52ABC7BEC23B3D835C8071, appId=wx0b80f1b0a4c1602f, signType=MD5, pack=prepay_id=null, nonceStr=6606aa94863349b79a8cf0c5f84757ad}
