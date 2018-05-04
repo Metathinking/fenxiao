@@ -89,17 +89,6 @@ public class MemberServiceImpl implements MemberService {
                 Member tuiGuangRen = memberRepository.findById(tuiGuangMemberId);
                 if (tuiGuangRen != null) {
                     member.setHigherLevelOpenId(tuiGuangRen.getOpenid());
-//                    switch (tuiGuangRen.getLevel()) {
-//                        case 1:
-//                            member.setLevel(2);
-//                            break;
-//                        case 2:
-//                            member.setLevel(3);
-//                            break;
-//                        case 3:
-//                            member.setLevel(3);
-//                            break;
-//                    }
                 }
             }
             int maxId = memberRepository.getMaxId();

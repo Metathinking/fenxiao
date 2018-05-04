@@ -24,5 +24,9 @@ public interface OrderService {
 
 //    void sendProduct(Map<String, String> sendInfo);
 
-    void shouHuo(String orderId);
+    void shouHuo(String orderId,String memberOpenid);
+
+    OrderVO rePay(String orderId, String memberOpenid);
+
+    void cancel(String orderId, String openid);
 }

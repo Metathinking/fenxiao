@@ -26,7 +26,7 @@ f_reason=#{reason,jdbcType=VARCHAR},f_time=#{time,jdbcType=BIGINT},f_status=#{st
 where f_id=#{id}
 </update>
     <select id="list" resultMap="m_money_record">
-select * from m_money_record order by f_id limit #{start},#{size}
+select * from m_money_record order by f_id DESC limit #{start},#{size}
 </select>
     <select id="findById" resultMap="m_money_record">
 select * from m_money_record where f_id=#{id}</select>

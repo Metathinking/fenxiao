@@ -8,6 +8,7 @@ import com.hu.fenxiao.domain.Member;
 import com.hu.fenxiao.domain.Order;
 import com.hu.fenxiao.domain.OrderItem;
 import com.hu.fenxiao.domain.vo.OrderVO;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.service.MemberService;
 import com.hu.fenxiao.service.OrderService;
@@ -90,40 +91,57 @@ public class OrderController {
                 return new Tip(false, 104, "请填写地址信息");
             }
             OrderVO db = orderService.create(orderVO);
-            StringBuilder detail = new StringBuilder();
-            List<OrderItem> itemList = db.getItemList();
-            for (OrderItem item : itemList) {
-                detail.append(item.getName()).append(";");
-            }
-            Map<String, String> data = new TreeMap<String, String>();
-            //以下参数自己设定
-            data.put("body", "购买商品:" + detail.toString());//商品名称
-            data.put("detail", detail.toString());//商品详情
-            data.put("out_trade_no", db.getOrder().getId() + "");
-            data.put("total_fee", ((int) (db.getOrder().getGrandTotal() * 100)) + "");//金额
-            logger.error("total_fee=" + ((int) (db.getOrder().getGrandTotal() * 100)));
-            data.put("spbill_create_ip", request.getRemoteAddr());//终端IP
-            data.put("notify_url", ConstantURL.NOTIFY_URL);//通知地址
-            data.put("product_id", db.getOrder().getId() + "");
-            data.put("openid", member.getOpenid());
-            Map<String, String> wxMap = this.unifiedOrder(data);
-            wxMap.put("totalFee", db.getOrder().getGrandTotal() + "");
+            Map<String, String> wxMap = getPayAndBackMap(request, db);
             session.setAttribute("PAY", wxMap);
             return new Tip(true, 100, "成功", wxMap);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
             return new Tip(false, 102, e.getMessage());
         }
     }
 
-//    @RequestMapping(value = "pay_sure", method = RequestMethod.GET)
-//    public String paySure(HttpSession session, Model model) {
-//        Object pay = session.getAttribute("PAY");
-//        model.addAttribute("wxMap", pay);
-//        logger.error("pay:" + pay.toString());
-//        return "front/wxpay";
-//    }
+    private Map<String, String> getPayAndBackMap(HttpServletRequest request,
+                                                 OrderVO db) throws Exception {
+        StringBuilder detail = new StringBuilder();
+        List<OrderItem> itemList = db.getItemList();
+        for (OrderItem item : itemList) {
+            detail.append(item.getName()).append(";");
+        }
+        Map<String, String> data = new TreeMap<String, String>();
+        //以下参数自己设定
+        data.put("body", "购买商品:" + detail.toString());//商品名称
+        data.put("detail", detail.toString());//商品详情
+        data.put("out_trade_no", db.getOrder().getId() + "");
+        data.put("total_fee", ((int) (db.getOrder().getGrandTotal() * 100)) + "");//金额
+        logger.error("total_fee=" + ((int) (db.getOrder().getGrandTotal() * 100)));
+        data.put("spbill_create_ip", request.getRemoteAddr());//终端IP
+        data.put("notify_url", ConstantURL.NOTIFY_URL);//通知地址
+        data.put("product_id", db.getOrder().getId() + "");
+        data.put("openid", db.getOrder().getMemberOpenid());
+        Map<String, String> wxMap = this.unifiedOrder(data);
+        wxMap.put("totalFee", db.getOrder().getGrandTotal() + "");
+        return wxMap;
+    }
+
+    @RequestMapping(value = "re_pay", method = RequestMethod.GET)
+    public String paySure(@RequestParam String orderId,
+                          HttpServletRequest request,
+                          Model model) {
+        try {
+            Member member = (Member) request.getSession().getAttribute("MEMBER");
+            OrderVO db = orderService.rePay(orderId, member.getOpenid());
+            Map<String, String> wxMap = getPayAndBackMap(request, db);
+            model.addAttribute("wxMap", wxMap);
+        } catch (ServiceException e) {
+            model.addAttribute("error_msg", e.getExceptionMessage());
+            return "error";
+        } catch (Exception e) {
+            model.addAttribute("error_msg", e.getMessage());
+            return "error";
+        }
+        return "front/wxpay";
+    }
 
 
     @RequestMapping(value = "pay_success", method = RequestMethod.GET)
@@ -186,15 +204,36 @@ public class OrderController {
      * @return
      */
     @RequestMapping(value = "detail", method = RequestMethod.GET)
-    public String detail(@RequestParam String orderId, Model model) {
+    public String detail(@RequestParam String orderId, HttpSession session, Model model) {
         try {
+            Member member = (Member) session.getAttribute("MEMBER");
             OrderVO orderVO = orderService.findById(orderId);
             model.addAttribute("orderVO", orderVO);
+            model.addAttribute("isCurrentMember", member.getOpenid().equals(orderVO.getOrder().getMemberOpenid()));
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.getMessage(), e);
         }
         return "front/order_detail";
+    }
+
+    /**
+     * 订单详情
+     *
+     * @param orderId
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "cancel", method = RequestMethod.GET)
+    public String cancel(@RequestParam String orderId, HttpSession session, Model model) {
+        try {
+            Member member = (Member) session.getAttribute("MEMBER");
+             orderService.cancel(orderId,member.getOpenid());
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e.getMessage(), e);
+        }
+        return "redirect:/member/order/list";
     }
 
 
@@ -205,9 +244,10 @@ public class OrderController {
      * @return
      */
     @RequestMapping(value = "shouHuo", method = RequestMethod.GET)
-    public String shouHuo(@RequestParam String orderId) {
+    public String shouHuo(@RequestParam String orderId, HttpSession session) {
         try {
-            orderService.shouHuo(orderId);
+            Member member = (Member) session.getAttribute("MEMBER");
+            orderService.shouHuo(orderId, member.getOpenid());
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.getMessage(), e);

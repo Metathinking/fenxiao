@@ -23,18 +23,18 @@
         </div>
         <!-- 商品列表 -->
         <c:forEach items="${orderVO.itemList}" var="item">
-        <div class="row order_item">
-            <div class="col-xs-4 text-center">
-                <a href="#">
-                    <img class="media-object cart_img" src="${item.image}" alt="...">
-                </a>
+            <div class="row order_item">
+                <div class="col-xs-4 text-center">
+                    <a href="#">
+                        <img class="media-object cart_img" src="${item.image}" alt="...">
+                    </a>
+                </div>
+                <div class="col-xs-8 cart_description">
+                    <h5>${item.name}</h5>
+                    <p>数量：${item.quantity}</p>
+                    <p class="price">总金额：￥${item.totalPrice}</p>
+                </div>
             </div>
-            <div class="col-xs-8 cart_description">
-                <h5>${item.name}</h5>
-                <p>数量：${item.quantity}</p>
-                <p class="price">总金额：￥${item.totalPrice}</p>
-            </div>
-        </div>
         </c:forEach>
     </div>
     <div class="form-group">
@@ -59,8 +59,9 @@
                                  交易成功
                             </span>
                         </c:if>
-                        <c:if test="${orderVO.order.status='NO_PAY'}">
-
+                        <c:if test="${orderVO.order.status=='NO_PAY'&&isCurrentMember}">
+                            <a class="btn btn-default" href="/member/order/cancel?orderId=${orderVO.order.id}">取消订单</a>
+                            <a class="btn btn-danger" href="/member/order/re_pay?orderId=${orderVO.order.id}">付款</a>
                         </c:if>
                     </div>
                 </div>

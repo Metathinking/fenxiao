@@ -27,10 +27,20 @@ values
 #{item.introduction,jdbcType=VARCHAR},#{item.quantity,jdbcType=INTEGER},#{item.totalPrice,jdbcType=DOUBLE})
         </foreach>
 </insert>
+    <update id="update" parameterType="com.hu.fenxiao.domain.OrderItem">
+        update m_order_item set f_order_id=#{orderId}
+        <where>
+            f_id in
+            <foreach collection="itemList" item="item" open="(" separator="," close=")">
+                #{item.id}
+            </foreach>
+        </where>
+    </update>
     <select id="list" resultMap="m_order_item">
 select * from m_order_item where f_order_id=#{orderId} order by f_id
 </select>
     <select id="getMaxId" resultType="int">
 select IFNULL(max(f_id),10000) FROM m_order_item
 </select>
+    <delete id="deleteByOrderId">delete from m_order_item where f_order_id=#{orderId}</delete>
 </mapper>

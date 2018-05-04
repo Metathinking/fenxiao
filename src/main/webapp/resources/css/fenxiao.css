@@ -7,7 +7,7 @@ body {
 }
 
 footer .main_footer {
-    background: #ea412e;
+    background: #d9534f;
     color: #FFFFFF;
 }
 
@@ -79,7 +79,7 @@ header img {
 
 .product_img {
     max-width: 100%;
-    height: 200px;
+    height: 180px;
     margin: auto;
 }
 
@@ -155,7 +155,7 @@ header img {
 /* mine start*/
 .mine_header {
     padding: 0;
-    background: #ea412e;
+    background: #d9534f;
     color: #FFFFFF;
 }
 
@@ -246,4 +246,7 @@ header img {
 /* 订单确认 end*/
 .jiantou {
     color: #999999;
+}
+.weui-media-box__thumb{
+    border-radius: 50%;
 }

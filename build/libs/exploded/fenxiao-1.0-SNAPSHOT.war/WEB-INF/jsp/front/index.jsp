@@ -48,18 +48,18 @@
         <!--公告 end-->
         <div class="row">
             <c:forEach items="${list}" var="product">
-                <div class="col-xs-6  product_item text-center" style="padding: 0">
+                <div class=" product_item text-center" style="width: 50%;float: left">
                     <a href="/product/${product.id}">
                         <img src="${product.image}" class="product_img">
                         <p>${product.name}</p>
                     </a>
-                    <div class="row">
-                        <div class="col-xs-8">
+                    <div class="" style="width: 100%">
+                        <div class="" style="width: 60%;float: left">
                             <p class="text-left description">容量：${product.rongLiang}ml</p>
                             <p class="text-left description">香型：${product.xiangXing}</p>
                             <p class="text-left description price">价格：￥${product.price}</p>
                         </div>
-                        <div class="col-xs-4 text-center">
+                        <div class=" text-center" style="width: 40%;float: left">
                             <%--<span class="glyphicon glyphicon-shopping-cart shop-cart" ng-click="addCartItem(${product.id})"></span>--%>
                             <span class="glyphicon glyphicon-shopping-cart shop-cart" ng-click="selectProduct(${product.id},'${product.name}','${product.image}',${product.price})"
                                   data-toggle="modal" data-target="#addCartItem"></span>
@@ -67,6 +67,7 @@
                     </div>
                 </div>
             </c:forEach>
+            <div class="clearfix"></div>
         </div>
         <div class="clearfix"></div>
     </div>

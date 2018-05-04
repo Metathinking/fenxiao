@@ -16,7 +16,7 @@ values (#{id,jdbcType=INTEGER},#{name,jdbcType=VARCHAR},#{phone,jdbcType=VARCHAR
 #{orderType,jdbcType=VARCHAR},#{orderId,jdbcType=INTEGER},#{time,jdbcType=BIGINT})
 </insert>
     <select id="list" resultMap="m_send_record">
-select * from m_send_record order by f_id limit #{start},#{size}
+select * from m_send_record order by f_id desc limit #{start},#{size}
 </select>
     <select id="findByOrderId" resultMap="m_send_record">select * from m_send_record
 where f_order_id=#{orderId} and f_order_type=#{orderType}

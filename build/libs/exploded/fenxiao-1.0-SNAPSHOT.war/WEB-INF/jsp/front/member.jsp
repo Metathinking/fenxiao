@@ -24,28 +24,28 @@
 <div class="container-fluid">
     <a href="/member/ti_xian_list">
         <div class="row mine_item" style="margin-top: 5%;">
-            <div class="col-xs-1"><span class="glyphicon glyphicon-credit-card"></span></div>
+            <div class="col-xs-1"><span class="glyphicon glyphicon-credit-card" style="color: #FFC125;font-size: 24px"></span></div>
             <div class="col-xs-9">余额：<span style="color: #9f3025">￥${account.money}</span></div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-chevron-right jiantou"></span></div>
         </div>
     </a>
     <a href="/member/score_list">
         <div class="row mine_item">
-            <div class="col-xs-1"><span class="glyphicon glyphicon-gift"></span></div>
+            <div class="col-xs-1"><span class="glyphicon glyphicon-gift" style="color: #d9534f;font-size: 24px"></span></div>
             <div class="col-xs-9">积分:${account.score}</div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-chevron-right jiantou"></span></div>
         </div>
     </a>
     <a href="/member/order/list">
         <div class="row mine_item" style="margin-top: 1%;">
-            <div class="col-xs-1"><span class="glyphicon glyphicon-list-alt"></span></div>
+            <div class="col-xs-1"><span class="glyphicon glyphicon-list-alt" style="color: #FFC125;font-size: 24px"></span></div>
             <div class="col-xs-9">我的订单</div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-chevron-right jiantou"></span></div>
         </div>
     </a>
     <a href="/member/score_order/list">
         <div class="row mine_item">
-            <div class="col-xs-1"><span class="glyphicon glyphicon-gift"></span></div>
+            <div class="col-xs-1"><span class="glyphicon glyphicon-gift" style="color:#d9534f;font-size: 24px"></span></div>
             <div class="col-xs-9">积分订单</div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-chevron-right jiantou"></span></div>
         </div>
@@ -53,32 +53,18 @@
 <c:if test="${hasTuiGuangPower}">
     <a href="/member/tui_guang/er_wei_ma">
         <div class="row mine_item" style="margin-top: 1%;">
-            <div class="col-xs-1"><span class="glyphicon glyphicon-list-alt"></span></div>
+            <div class="col-xs-1"><span class="glyphicon glyphicon-qrcode" style="color:#000080;font-size: 24px"></span></div>
             <div class="col-xs-9">我的二维码</div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-chevron-right jiantou"></span></div>
         </div>
     </a>
     <a href="/member/tui_guang/list">
         <div class="row mine_item">
-            <div class="col-xs-1"><span class="glyphicon glyphicon-gift"></span></div>
+            <div class="col-xs-1"><span class="glyphicon glyphicon-list" style="color:#2E8B57;font-size: 24px"></span></div>
             <div class="col-xs-9">我的推广</div>
             <div class="col-xs-1"><span class="glyphicon glyphicon-chevron-right jiantou"></span></div>
         </div>
     </a>
 </c:if>
 
-    <%--<a href="/member/tui_guang/er_wei_ma">--%>
-        <%--<div class="row mine_item" style="margin-top: 1%;">--%>
-            <%--<div class="col-xs-1"><span class="glyphicon glyphicon-list-alt"></span></div>--%>
-            <%--<div class="col-xs-9">我的二维码</div>--%>
-            <%--<div class="col-xs-1"><span class="glyphicon glyphicon-chevron-right jiantou"></span></div>--%>
-        <%--</div>--%>
-    <%--</a>--%>
-    <%--<a href="/member/tui_guang/list">--%>
-        <%--<div class="row mine_item">--%>
-            <%--<div class="col-xs-1"><span class="glyphicon glyphicon-gift"></span></div>--%>
-            <%--<div class="col-xs-9">我的推广</div>--%>
-            <%--<div class="col-xs-1"><span class="glyphicon glyphicon-chevron-right jiantou"></span></div>--%>
-        <%--</div>--%>
-    <%--</a>--%>
 </div>

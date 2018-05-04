@@ -36,7 +36,7 @@ select * from m_score_order
         <if test="memberOpenid != null and memberOpenid != ''">
             and f_member_openid=#{memberOpenid}
         </if>
-order by f_id limit #{start},#{size}</select>
+order by f_id desc limit #{start},#{size}</select>
     <select id="findById" resultMap="m_score_order">select * from m_score_order where f_id=#{id}</select>
     <select id="getCount" resultType="int">
         select count(f_id) FROM m_score_order

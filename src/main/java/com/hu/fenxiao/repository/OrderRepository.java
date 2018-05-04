@@ -20,4 +20,6 @@ public interface OrderRepository {
     int getCount(Map<String,Object> params);
 
     int getMaxId();
+
+    void delete(String orderId);
 }

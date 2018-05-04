@@ -300,15 +300,23 @@ public class OrderServiceImpl implements OrderService {
 //        }
 //    }
 
+    /**
+     * 确认收货，检查生成订单的会员与确认收货会员是否是同一个人
+     *
+     * @param orderId
+     * @param memberOpenid
+     */
     @Override
-    public void shouHuo(String orderId) {
+    public void shouHuo(String orderId, String memberOpenid) {
         Order db = orderRepository.findById(orderId);
+        if (!db.getMemberOpenid().equals(memberOpenid)) {
+            throw new ServiceException("只有本人才可以确认收货");
+        }
         if (OrderStatus.FA_HUO.name().equals(db.getStatus())) {
             db.setStatus(OrderStatus.WAN_CHENG.name());
             orderRepository.update(db);
             //提成
             TuiGuangSetting tuiGuangSetting = tuiGuangSettingRepository.findById(TuiGuangSettingServiceImpl.ID);
-            String memberOpenid = db.getMemberOpenid();
             Member currentMember = memberRepository.findByOpenId(memberOpenid);
             //一级提成
             if (!StringUtils.isEmpty(currentMember.getHigherLevelOpenId())) {
@@ -330,5 +338,50 @@ public class OrderServiceImpl implements OrderService {
             //积分
             scoreRecord(db, currentMember);
         }
+    }
+
+    /**
+     * 未付款订单重新付款
+     *
+     * @param orderId
+     * @param memberOpenid
+     * @return
+     */
+    @Override
+    public OrderVO rePay(String orderId, String memberOpenid) {
+        Order order = orderRepository.findById(orderId);
+        if (!OrderStatus.NO_PAY.name().equals(order.getStatus())) {
+            throw new ServiceException("只有未付款订单可以继续付款!");
+        }
+        if (!order.getMemberOpenid().equals(memberOpenid)) {
+            throw new ServiceException("只有本人才可以付款");
+        }
+        int maxId = orderRepository.getMaxId();
+        maxId++;
+        List<OrderItem> itemList = orderItemRepository.list(orderId);
+        order.setId(maxId);
+        for (OrderItem item : itemList) {
+            item.setOrderId(order.getId());
+        }
+        orderRepository.create(order);
+        orderItemRepository.update(itemList,order.getId());
+        orderRepository.delete(orderId);
+        OrderVO orderVO = new OrderVO();
+        orderVO.setOrder(order);
+        orderVO.setItemList(itemList);
+        return orderVO;
+    }
+
+    @Override
+    public void cancel(String orderId, String memberOpenid) {
+        Order order = orderRepository.findById(orderId);
+        if (!OrderStatus.NO_PAY.name().equals(order.getStatus())) {
+            throw new ServiceException("只有未付款订单可以取消!");
+        }
+        if (!order.getMemberOpenid().equals(memberOpenid)) {
+            throw new ServiceException("只有本人才可以取消");
+        }
+        orderRepository.delete(orderId);
+        orderItemRepository.deleteByOrderId(orderId);
     }
 }

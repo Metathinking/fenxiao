@@ -43,6 +43,7 @@ f_over_time=#{overTime,jdbcType=BIGINT},f_status=#{status,jdbcType=VARCHAR},f_in
     <select id="listByMemberIdAndStatus" resultMap="m_ti_xian_record">
 select * from m_ti_xian_record
 where f_member_id=#{memberId} and f_status=#{status}
+order by f_id desc
 </select>
     <select id="findById" resultMap="m_ti_xian_record">select * from m_ti_xian_record where f_id=#{id}</select>
     <select id="getCount" resultType="int">select count(f_id) FROM m_ti_xian_record</select>

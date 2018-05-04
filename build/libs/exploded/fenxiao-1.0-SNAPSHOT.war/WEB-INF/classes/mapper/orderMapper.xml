@@ -36,7 +36,7 @@ where f_id=#{id}</update>
         <if test="memberOpenid != null and memberOpenid != ''">
             and f_member_openid=#{memberOpenid}
         </if>
-        order by f_id limit #{start},#{size}
+        order by f_id desc limit #{start},#{size}
 </select>
     <select id="findById" resultMap="m_order">select * from m_order where f_id=#{id}</select>
     <select id="getCount" resultType="int">select count(f_id) FROM m_order
@@ -49,4 +49,5 @@ where f_id=#{id}</update>
         </if>
 </select>
     <select id="getMaxId" resultType="int">select IFNULL(max(f_id),20000) FROM m_order</select>
+    <delete id="delete">delete from m_order where f_id=#{id}</delete>
 </mapper>

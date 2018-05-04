@@ -14,27 +14,16 @@
     <div class="container-fluid" style="margin-top: 30px">
         <div class="row">
             <c:forEach items="${productList}" var="product">
-                <div class="col-xs-6  product_item text-center">
+                <div class="product_item text-center" style="width: 50%;float: left">
                     <a href="/score_product/${product.id}">
                         <img src="${product.image}" class="product_img">
                         <p>${product.name}</p>
                     </a>
-                    <div class="text-left description price">积分：${product.score}</div>
+                    <div class="text-left description price" style="width: 50%;float: left">积分：${product.score}</div>
                     <button type="button" class="btn btn-danger btn-sm" ng-click="selectProduct(${product.id},'${product.name}',${product.score})"
-                            style="float: right;margin-bottom: 4%" data-toggle="modal" data-target="#send">兑换
+                            style="float: right;margin-bottom: 4%;margin-right: 4%" data-toggle="modal" data-target="#send">兑换
                     </button>
-                    <div class="clear"></div>
-                        <%--<div class="row">--%>
-                        <%--<div class="col-xs-8">--%>
-                        <%--&lt;%&ndash;<p class="text-left description">容量：${product.rongLiang}ml</p>&ndash;%&gt;--%>
-                        <%--&lt;%&ndash;<p class="text-left description">香型：${product.xiangXing}</p>&ndash;%&gt;--%>
-                        <%--<p class="text-left description price">积分：${product.score}</p>--%>
-                        <%--</div>--%>
-                        <%--<div class="col-xs-4 text-center">--%>
-                        <%--&lt;%&ndash;<span class="glyphicon glyphicon-shopping-cart shop-cart" ng-click="addCartItem(${product.id})"></span>&ndash;%&gt;--%>
-                        <%--<button type="button" class="btn btn-danger btn-sm">兑换</button>--%>
-                        <%--</div>--%>
-                        <%--</div>--%>
+                    <div class="clearfix"></div>
                 </div>
             </c:forEach>
         </div>
@@ -79,7 +68,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="change()">兑换</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="change()">兑换</button>
                     </div>
                 </form>
             </div>

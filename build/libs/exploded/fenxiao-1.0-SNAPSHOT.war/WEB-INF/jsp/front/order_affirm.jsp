@@ -148,7 +148,6 @@
             }
             $http(req).success(function (response, status, headers, cfg) {
                 if (response.success) {
-//                    window.location.href="/member/order/pay_sure";
                     //支付模块 start
                     function onBridgeReady() {
                         WeixinJSBridge.invoke(
@@ -161,13 +160,12 @@
                                 "paySign": response.data.paySign, //微信签名
                             },
                             function (res) {
-                                alert(res);
                                 if (res.err_msg == "get_brand_wcpay_request:ok") {
                                     window.location.href = context + "/member/order/pay_success";
                                     alert("支付成功");
                                     // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
                                 } else {
-                                    alert("支付失败");
+                                    alert("支付已取消,可进入订单列表进行付款。");
                                 }
                             }
                         );
@@ -185,7 +183,6 @@
                     }
                     //支付模块 end
                 } else {
-                    alert(response.msg);
                 }
             }).error(function (response, status, headers, cfg) {
 
