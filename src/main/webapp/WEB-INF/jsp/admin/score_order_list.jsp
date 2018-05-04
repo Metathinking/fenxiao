@@ -81,11 +81,11 @@
                                     <c:choose>
                                         <c:when test="${vo.scoreOrder.status=='XIA_DAN'}">
                                             <button ng-click="sendTip(${vo.scoreOrder.id},'${vo.scoreOrder.memberName}','${vo.scoreOrder.phone}','${vo.scoreOrder.address}')"
-                                               class="btn btn-primary"     data-toggle="modal" data-target="#send">发货
+                                               class="btn btn-warning"  data-toggle="modal" data-target="#send">发货
                                             </button>
                                         </c:when>
                                         <c:when test="${vo.scoreOrder.status=='FA_HUO'}">
-                                            <button class="btn btn-default" ng-click="getSendInfo(${vo.scoreOrder.id})" data-toggle="modal" data-target="#sendInfo">发货记录</button>
+                                            <button class="btn btn-warning" ng-click="getSendInfo(${vo.scoreOrder.id})" data-toggle="modal" data-target="#sendInfo">发货记录</button>
                                         </c:when>
                                     </c:choose>
                                 </td>

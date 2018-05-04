@@ -84,12 +84,12 @@
                                             等待付款
                                         </c:when>
                                         <c:when test="${vo.order.status=='PAY'}">
-                                            <button ng-click="sendTip(${vo.order.id},'${vo.order.memberName}','${vo.order.phone}','${vo.order.address}')"
+                                            <button class="btn btn-warning" ng-click="sendTip(${vo.order.id},'${vo.order.memberName}','${vo.order.phone}','${vo.order.address}')"
                                                     data-toggle="modal" data-target="#send">发货
                                             </button>
                                         </c:when>
                                         <c:when test="${vo.order.status=='FA_HUO'||vo.order.status=='WAN_CHENG'}">
-                                            <button ng-click="getSendInfo(${vo.order.id})" data-toggle="modal" data-target="#sendInfo">发货记录</button>
+                                            <button class="btn btn-warning" ng-click="getSendInfo(${vo.order.id})" data-toggle="modal" data-target="#sendInfo">发货记录</button>
                                         </c:when>
                                     </c:choose>
                                 </td>

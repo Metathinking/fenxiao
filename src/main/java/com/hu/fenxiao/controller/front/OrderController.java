@@ -208,6 +208,9 @@ public class OrderController {
         try {
             Member member = (Member) session.getAttribute("MEMBER");
             OrderVO orderVO = orderService.findById(orderId);
+            if (orderVO.getOrder()==null){
+                return "redirect:/member/order/list";
+            }
             model.addAttribute("orderVO", orderVO);
             model.addAttribute("isCurrentMember", member.getOpenid().equals(orderVO.getOrder().getMemberOpenid()));
         } catch (Exception e) {

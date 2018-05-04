@@ -48,7 +48,7 @@
                     <div class="col-xs-3" style="padding-left: 32px;padding-top: 15px">
                         <p class="price">￥${orderVO.order.grandTotal}</p>
                     </div>
-                    <div class="col-xs-9 text-center" style="padding-top: 8px">
+                    <div class="col-xs-9 text-right" style="padding-top: 8px">
                         <c:if test="${orderVO.order.status=='FA_HUO'}">
                             <a class="btn btn-danger" href="/member/order/shouHuo?orderId=${orderVO.order.id}">
                                 确认收货
@@ -60,8 +60,8 @@
                             </span>
                         </c:if>
                         <c:if test="${orderVO.order.status=='NO_PAY'&&isCurrentMember}">
-                            <a class="btn btn-default" href="/member/order/cancel?orderId=${orderVO.order.id}">取消订单</a>
-                            <a class="btn btn-danger" href="/member/order/re_pay?orderId=${orderVO.order.id}" style="color: #FFFFFF;">付款</a>
+                            <a class="btn btn-default" style="border-radius: 20px;margin-right: 8px" href="/member/order/cancel?orderId=${orderVO.order.id}">取消订单</a>
+                            <a class="btn btn-danger" style="border-radius: 20px;margin-right: 8px" href="/member/order/re_pay?orderId=${orderVO.order.id}" style="color: #FFFFFF;">付款</a>
                         </c:if>
                     </div>
                 </div>
