@@ -87,7 +87,7 @@
                                         </c:when>
                                         <c:when test="${item.status=='REQUEST'}">
                                             <a href="#"
-                                               ng-click="shenHeTip(${item.id},'${item.memberName}','${item.memberPhone}','${item.money}','${f:format(item.requestTime,"yyyy-MM-dd HH:mm:ss")}')"
+                                               ng-click="shenHeTip(${item.id},'${item.memberName}','${item.memberPhone}','${item.money}','${f:format(item.requestTime,"yyyy-MM-dd HH:mm:ss")}','${item.memberWords}')"
                                                data-toggle="modal" data-target="#shenHe">审核
                                             </a>
                                         </c:when>
@@ -138,7 +138,10 @@
                             <label>金额:{{info.money}}</label>
                         </div>
                         <div class="form-group">
-                            <label>申请时间:{{info.time}}</label>
+                            <label>申请时间:{{info.requestTime}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label>用户留言:{{info.memberWords}}</label>
                         </div>
                         <div class="form-group">
                             <label>信息</label>
@@ -167,13 +170,14 @@
     app.controller("tiXianListController", function ($scope, $http) {
 
         //送货信息
-        $scope.shenHeTip = function (_id, _name, _phone, _money, _time) {
+        $scope.shenHeTip = function (_id, _name, _phone, _money, _time, _memberWords) {
             $scope.info = {
                 id: _id,
                 memberName: _name,
                 memberPhone: _phone,
                 money: _money,
-                requestTime: _time
+                requestTime: _time,
+                memberWords: _memberWords
             };
         };
         //提交送货记录
@@ -185,8 +189,8 @@
                     'Content-Type': 'application/json'
                 },
                 data: {
-                    id:$scope.info.id,
-                    info:$scope.info.info
+                    id: $scope.info.id,
+                    info: $scope.info.info
                 }
             }
             $http(req).success(function (response, status, headers, cfg) {

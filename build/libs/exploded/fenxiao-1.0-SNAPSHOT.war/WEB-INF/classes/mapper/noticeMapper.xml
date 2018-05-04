@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hu.fenxiao.repository.NoticeRepository">
+    <resultMap id="m_notice" type="com.hu.fenxiao.domain.Notice">
+        <id column="f_id" property="id"/>
+        <result column="f_content" property="content"/>
+        <result column="f_time" property="time"/>
+    </resultMap>
+    <insert id="create" parameterType="com.hu.fenxiao.domain.Notice">
+insert into m_notice ( f_id,f_content,f_time)
+values (#{id,jdbcType=INTEGER},#{content,jdbcType=VARCHAR},#{time,jdbcType=BIGINT})
+</insert>
+    <update id="update" parameterType="com.hu.fenxiao.domain.Notice">
+update m_notice set f_content=#{content,jdbcType=VARCHAR},f_time=#{time,jdbcType=BIGINT}
+where f_id=#{id}
+</update>
+    <delete id="delete">delete from m_notice where f_id=#{id}</delete>
+    <select id="list" resultMap="m_notice">select * from m_notice order by f_time desc limit #{start},#{size}</select>
+    <select id="findById" resultMap="m_notice">select * from m_notice where f_id=#{id}</select>
+    <select id="getTheLastOne" resultMap="m_notice">
+select * from m_notice where f_id=(SELECT max(f_id) from m_notice)
+</select>
+    <select id="getCount" resultType="int">select count(f_id) FROM m_notice</select>
+    <select id="getMaxId" resultType="int">select IFNULL(max(f_id),10000) FROM m_notice</select>
+</mapper>

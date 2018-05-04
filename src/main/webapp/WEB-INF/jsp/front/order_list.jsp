@@ -15,22 +15,22 @@
             <div class="">
                 <div class="row text-center order_nav">
                     <div class="col-xs-3 ${status==null||status==''?'active':''}">
-                        <a class="center-block" href="/member/order/list">
+                        <a class="center-block" href="/member/order/list?openid=${openid}">
                             <h5>全部</h5>
                         </a>
                     </div>
                     <div class="col-xs-3 ${status=='NO_PAY'?'active':''}">
-                        <a class="center-block" href="/member/order/list?status=NO_PAY">
+                        <a class="center-block" href="/member/order/list?status=NO_PAY&openid=${openid}">
                             <h5>待付款</h5>
                         </a>
                     </div>
                     <div class="col-xs-3 ${status=='PAY'?'active':''}">
-                        <a class="center-block" href="/member/order/list?status=PAY">
+                        <a class="center-block" href="/member/order/list?status=PAY&openid=${openid}">
                             <h5>待发货</h5>
                         </a>
                     </div>
                     <div class="col-xs-3 ${status=='FA_HUO'?'active':''}">
-                        <a class="center-block" href="/member/order/list?status=FA_HUO">
+                        <a class="center-block" href="/member/order/list?status=FA_HUO&openid=${openid}">
                             <h5>待收货</h5>
                         </a>
                     </div>

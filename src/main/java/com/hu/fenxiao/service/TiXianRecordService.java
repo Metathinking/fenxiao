@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface TiXianRecordService {
 
-    void create(int memberId,double money);
+    void create(int memberId,double money,String memberWords);
 
 //    void update(TiXianRecord tiXianRecord);
 

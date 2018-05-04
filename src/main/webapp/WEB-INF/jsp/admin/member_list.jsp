@@ -109,7 +109,16 @@
                             <label>{{account.memberName}}</label>
                         </div>
                         <div class="form-group">
+                            <label>累计消费：￥{{account.xiaoFeiMoney}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label>累计佣金：￥{{account.leiJiMoney}}</label>
+                        </div>
+                        <div class="form-group">
                             <label>账户余额：￥{{account.money}}</label>
+                        </div>
+                        <div class="form-group">
+                            <label>累计积分：{{account.leiJiScore}}</label>
                         </div>
                         <div class="form-group">
                             <label>积分：{{account.score}}</label>

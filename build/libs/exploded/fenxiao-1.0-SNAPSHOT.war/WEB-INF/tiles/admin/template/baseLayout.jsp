@@ -69,6 +69,7 @@
             <a href="/admin/member/list">会员管理</a> /
             <a href="/admin/ti_xian/list">提现申请</a> /
             <a href="/admin/tui_guang_setting/edit">推广设置</a> /
+            <a href="/admin/notice/list">公告管理</a> /
             <a href="/admin/manufacturer/edit">厂商信息</a> /
             <a href="/admin/homeImage/list">首页图片</a> /
             <a href="/admin/change_password/">密码修改</a> /

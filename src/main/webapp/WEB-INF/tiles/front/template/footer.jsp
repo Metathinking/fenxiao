@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<footer class="container-fluid">
+<footer class="container-fluid" id="footer">
     <nav class="navbar navbar-default navbar-fixed-bottom main_footer">
         <div class="">
             <div class="row text-center">

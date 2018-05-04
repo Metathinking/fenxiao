@@ -12,8 +12,10 @@ footer .main_footer {
 }
 
 a:hover, a:visited, a:link, a:active {
-    text-decoration: none;!important;
-    color: #333333;!important;
+    text-decoration: none;
+!important;
+    color: #333333;
+!important;
 }
 
 /*.container-fluid {*/
@@ -93,7 +95,7 @@ header img {
 }
 
 .cart_item_delete {
-    color: #d6d6d6;
+    color: #c7c7c7;
     float: right;
     margin-right: 15px
 }
@@ -126,6 +128,29 @@ header img {
     padding: auto auto;
 }
 
+.cart_footer {
+    width: 100%;
+    position: fixed;
+    background: #FFFFFF;
+    bottom: 65px;
+    padding: 8px;
+}
+
+.jie_suan_btn {
+    padding-right: 25px;
+    padding-left: 25px;
+    border-radius: 15px;
+}
+
+.check_btn {
+    font-size: 24px;
+    color: #d9534f;
+}
+
+.check_item {
+    margin-top: 100%;
+}
+
 /*cart item end*/
 /* mine start*/
 .mine_header {
@@ -137,6 +162,7 @@ header img {
 .mine_header_img {
     width: 100%;
     margin: 20px;
+    border-radius: 50%;
 }
 
 .mine_item {

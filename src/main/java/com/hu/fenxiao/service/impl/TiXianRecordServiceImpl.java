@@ -35,7 +35,7 @@ public class TiXianRecordServiceImpl implements TiXianRecordService {
     private MoneyRecordRepository moneyRecordRepository;
 
     @Override
-    public void create(int memberId, double money) {
+    public void create(int memberId, double money, String memberWords) {
         MemberAccount memberAccount = memberAccountRepository.findById(memberId);
         if (memberAccount.getMoney() < money) {
             throw new ServiceException("账户余额不足！");
@@ -55,6 +55,7 @@ public class TiXianRecordServiceImpl implements TiXianRecordService {
         tiXianRecord.setMemberPhone(member.getPhone());
         tiXianRecord.setMoney(money);
         tiXianRecord.setRequestTime(System.currentTimeMillis());
+        tiXianRecord.setMemberWords(memberWords);
         tiXianRecord.setStatus(TiXianStatus.REQUEST.name());
         tiXianRecordRepository.create(tiXianRecord);
     }

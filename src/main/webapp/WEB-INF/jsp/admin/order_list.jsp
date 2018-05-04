@@ -88,7 +88,7 @@
                                                     data-toggle="modal" data-target="#send">发货
                                             </button>
                                         </c:when>
-                                        <c:when test="${vo.order.status=='FA_HUO'}">
+                                        <c:when test="${vo.order.status=='FA_HUO'||vo.order.status=='WAN_CHENG'}">
                                             <button ng-click="getSendInfo(${vo.order.id})" data-toggle="modal" data-target="#sendInfo">发货记录</button>
                                         </c:when>
                                     </c:choose>

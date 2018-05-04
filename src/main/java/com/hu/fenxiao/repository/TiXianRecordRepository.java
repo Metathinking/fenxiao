@@ -14,13 +14,15 @@ public interface TiXianRecordRepository {
 
     void update(TiXianRecord tiXianRecord);
 
-    List<TiXianRecord> list(Map<String,Object> params);
+    List<TiXianRecord> list(Map<String, Object> params);
 
     TiXianRecord findById(String id);
 
-    int getCount(Map<String,Object> params);
+    void delete(String id);
+
+    int getCount(Map<String, Object> params);
 
     int getMaxId();
 
-   List<TiXianRecord> listByMemberIdAndStatus(@Param("memberId")int memberId,@Param("status") String status);
+    List<TiXianRecord> listByMemberIdAndStatus(@Param("memberId") int memberId, @Param("status") String status);
 }

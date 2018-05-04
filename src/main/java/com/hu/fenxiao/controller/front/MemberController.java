@@ -64,17 +64,50 @@ public class MemberController {
 
 
     @RequestMapping(value = "ti_xian_request", method = RequestMethod.POST)
-    public String tiXianRequest(Double money, HttpSession session, RedirectAttributes model) {
+    public String tiXianRequest(Double money,
+                                String memberWords,
+                                HttpSession session,
+                                RedirectAttributes model) {
         try {
+            boolean correct = isCorrect(money);
+            if (!correct) {
+                model.addAttribute("error_msg", "请输入正确的金额");
+                return "redirect:/member/ti_xian_list";
+            }
+            if (StringUtils.isEmpty(memberWords)) {
+                model.addAttribute("error_msg", "请输入提现信息，否则无法提现");
+                return "redirect:/member/ti_xian_list";
+            }
             Member member = (Member) session.getAttribute("MEMBER");
-            tiXianRecordService.create(member.getId(), money);
+            tiXianRecordService.create(member.getId(), money, memberWords);
         } catch (ServiceException e) {
             model.addAttribute("error_msg", e.getExceptionMessage());
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
         }
         return "redirect:/member/ti_xian_list";
+    }
+
+    /**
+     * 提现金额不能 为空，且最多有两位小数
+     *
+     * @param money
+     * @return
+     */
+    private boolean isCorrect(Double money) {
+        if (money == null || money <= 0) {
+            return false;
+        }
+        String moneyStr = money.toString();
+        boolean contains = moneyStr.contains(".");
+        if (contains) {
+            String substring = moneyStr.substring(moneyStr.indexOf(".") + 1);
+            if (substring.length() > 2) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**

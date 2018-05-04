@@ -31,16 +31,16 @@ public class CartController {
         return "front/cart";
     }
 
-    @RequestMapping(value = "list",method = RequestMethod.POST)
+    @RequestMapping(value = "list", method = RequestMethod.POST)
     @ResponseBody
-    public Tip getList(HttpSession session){
+    public Tip getList(HttpSession session) {
         List<CartItem> list = null;
         try {
             Member member = (Member) session.getAttribute("MEMBER");
             list = cartItemService.list(member.getId());
-            return new Tip(true,100,"",list);
+            return new Tip(true, 100, "", list);
         } catch (Exception e) {
-            logger.error("",e);
+            logger.error("", e);
             e.printStackTrace();
             return ExceptionTipHandler.handler(e);
         }
@@ -55,13 +55,18 @@ public class CartController {
      */
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
-    public Tip addItem(@RequestParam String productId,HttpSession session) {
+    public Tip addItem(@RequestParam String productId,
+                       @RequestParam(required = false) Integer quantity,
+                       HttpSession session) {
         try {
+            if (quantity == null || quantity == 0) {
+                quantity = 1;
+            }
             Member member = (Member) session.getAttribute("MEMBER");
-            cartItemService.edit(member.getId(), productId+"");
+            cartItemService.edit(member.getId(), productId, quantity);
             return new Tip(true, 100, "成功");
         } catch (Exception e) {
-            logger.error("",e);
+            logger.error("", e);
             return ExceptionTipHandler.handler(e);
         }
     }
@@ -74,26 +79,28 @@ public class CartController {
      */
     @RequestMapping(value = "raise", method = RequestMethod.POST)
     @ResponseBody
-    public Tip raise(@RequestParam String productId) {
+    public Tip raise(@RequestParam String productId, HttpSession session) {
         try {
-            int quantity = cartItemService.raise(10001, productId);
-            return new Tip(true, 100, quantity + "",quantity);
+            Member member = (Member) session.getAttribute("MEMBER");
+            int quantity = cartItemService.raise(member.getId(), productId);
+            return new Tip(true, 100, quantity + "", quantity);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error("", e);
             return ExceptionTipHandler.handler(e);
         }
     }
 
     @RequestMapping(value = "reduce", method = RequestMethod.POST)
     @ResponseBody
-    public Tip reduce(@RequestParam String productId) {
+    public Tip reduce(@RequestParam String productId, HttpSession session) {
         try {
-            int quantity = cartItemService.reduce(10001, productId);
-            return new Tip(true, 100, quantity + "",quantity);
+            Member member = (Member) session.getAttribute("MEMBER");
+            int quantity = cartItemService.reduce(member.getId(), productId);
+            return new Tip(true, 100, quantity + "", quantity);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error("", e);
             return ExceptionTipHandler.handler(e);
         }
     }
@@ -111,7 +118,7 @@ public class CartController {
             cartItemService.delete(cartItemId);
             return new Tip(true, 100, "成功");
         } catch (Exception e) {
-            logger.error("",e);
+            logger.error("", e);
             return ExceptionTipHandler.handler(e);
         }
     }

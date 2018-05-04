@@ -16,7 +16,7 @@
             <div class="weui-media-box weui-media-box_appmsg">
                 <div class="weui-media-box__hd">
                     <img class="weui-media-box__thumb"
-                         src="/resources/img/default_avatar.svg"
+                         src="${first.member.headimgurl}"
                          alt="">
                 </div>
                 <div class="weui-media-box__bd">
@@ -40,7 +40,7 @@
                 <div class="weui-media-box weui-media-box_appmsg">
                     <div class="weui-media-box__hd">
                         <img class="weui-media-box__thumb"
-                             src="/resources/img/default_avatar.svg"
+                             src="${second.member.headimgurl}"
                              alt="">
                     </div>
                     <div class="weui-media-box__bd">
@@ -64,7 +64,7 @@
                     <div class="weui-media-box weui-media-box_appmsg">
                         <div class="weui-media-box__hd">
                             <img class="weui-media-box__thumb"
-                                 src="/resources/img/default_avatar.svg"
+                                 src="${third.headimgurl}"
                                  alt="">
                         </div>
                         <div class="weui-media-box__bd">

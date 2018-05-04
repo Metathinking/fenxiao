@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface CartItemService {
 
-    void edit(int memberId,String productId);
+    void edit(int memberId,String productId,int quantity);
 
     void update(CartItem cartItem);
 

@@ -92,7 +92,11 @@
                 <div class="modal-body">
                     <div class="form-group">
                         <label>金额:</label>
-                        <input type="text" class="form-control" name="money" ng-model="money"/>
+                        <input type="text" class="form-control" name="money" />
+                    </div>
+                    <div class="form-group">
+                        <label>用户留言:</label>
+                        <textarea class="form-control" name="memberWords" rows="5"></textarea>
                     </div>
                 </div>
                 <div class="modal-footer">

@@ -43,6 +43,10 @@
         <put-attribute name="content" value="/WEB-INF/jsp/admin/manufacturer.jsp"/>
     </definition>
 
+    <definition name="admin/notice_list" extends="baseLayout">
+        <put-attribute name="title" value="公告管理"/>
+        <put-attribute name="content" value="/WEB-INF/jsp/admin/notice_list.jsp"/>
+    </definition>
 
     <definition name="admin/tui_guang_setting" extends="baseLayout">
         <put-attribute name="title" value="推广设置"/>

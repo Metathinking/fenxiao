@@ -58,6 +58,8 @@
                             <span class="">
                                  交易成功
                             </span>
+                        </c:if>
+                        <c:if test="${orderVO.order.status='NO_PAY'}">
 
                         </c:if>
                     </div>

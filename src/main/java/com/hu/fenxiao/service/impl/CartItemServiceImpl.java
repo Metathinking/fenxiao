@@ -20,13 +20,12 @@ public class CartItemServiceImpl implements CartItemService {
     private ProductRepository productRepository;
 
     @Override
-    public void edit(int memberId, String productId) {
+    public void edit(int memberId, String productId, int quantity) {
         CartItem cartItem = cartItemRepository.findByCartIdAndProductId(memberId, productId);
-//        CartItem cartItem = cartItemRepository.findByCartIdAndProductId(memberId, 10001);
         if (cartItem == null) {
-            create(memberId, productId);
+            create(memberId, productId,quantity);
         } else {
-            int quantity = cartItem.getQuantity() + 1;
+            quantity = cartItem.getQuantity() + quantity;
             cartItem.setQuantity(quantity);
             cartItem.setTotalPrice(quantity * cartItem.getPrice());
             cartItemRepository.update(cartItem);
@@ -39,7 +38,7 @@ public class CartItemServiceImpl implements CartItemService {
      * @param userId
      * @param productId
      */
-    private void create(int userId, String productId) {
+    private void create(int userId, String productId,int quantity) {
         int maxId = cartItemRepository.getMaxId();
         Product product = productRepository.findById(productId);
         maxId++;
@@ -49,7 +48,7 @@ public class CartItemServiceImpl implements CartItemService {
         db.setProductId(product.getId());
         db.setName(product.getName());
         db.setPrice(product.getPrice());
-        db.setQuantity(1);
+        db.setQuantity(quantity);
         db.setTotalPrice(product.getPrice());
         db.setProductImage(product.getImage());
         cartItemRepository.create(db);
@@ -94,7 +93,7 @@ public class CartItemServiceImpl implements CartItemService {
             cartItemRepository.update(cartItem);
             return cartItem.getQuantity();
         } else {
-            create(memberId, productId);
+            create(memberId, productId,1);
             return 1;
         }
     }
@@ -108,7 +107,7 @@ public class CartItemServiceImpl implements CartItemService {
             cartItemRepository.update(cartItem);
             return cartItem.getQuantity();
         } else {
-            create(memberId, productId);
+            create(memberId, productId,1);
             return 1;
         }
     }

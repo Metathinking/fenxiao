@@ -10,17 +10,15 @@
 
 <header class="container-fluid mine_header">
     <div class="">
-        <div class="col-xs-2 text-center">
+        <div class="col-xs-4 text-center">
             <img src="/resources/img/tou.png" class="mine_header_img"/>
         </div>
-        <div class="col-xs-8">
+        <div class="col-xs-8" style="padding-top: 20px">
             <h4>${member.name}</h4>
             <p>VIP会员</p>
             <p>ID:${member.id}</p>
         </div>
-        <div class="col-xs-2" style="height: 100%">
-            <%--<span class="glyphicon glyphicon-chevron-right"></span>--%>
-        </div>
+
     </div>
 </header>
 <div class="container-fluid">

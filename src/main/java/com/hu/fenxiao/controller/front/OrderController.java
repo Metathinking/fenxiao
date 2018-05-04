@@ -164,6 +164,7 @@ public class OrderController {
                 map.put("memberOpenid", member.getOpenid());
             } else {
                 map.put("memberOpenid", memberOpenid);
+                model.addAttribute("openid", memberOpenid);
             }
             List<OrderVO> list = orderService.list(map);
             int count = orderService.getCount(map);

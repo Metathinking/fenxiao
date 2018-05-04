@@ -1,12 +1,10 @@
 package com.hu.fenxiao.controller.front;
 
-import com.hu.fenxiao.domain.HomeImage;
-import com.hu.fenxiao.domain.Member;
-import com.hu.fenxiao.domain.Product;
-import com.hu.fenxiao.domain.WeiXinToken;
+import com.hu.fenxiao.domain.*;
 import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.service.HomeImageService;
 import com.hu.fenxiao.service.MemberService;
+import com.hu.fenxiao.service.NoticeService;
 import com.hu.fenxiao.service.ProductService;
 import com.hu.fenxiao.util.WXLoginUtil;
 import org.apache.logging.log4j.LogManager;
@@ -40,6 +38,9 @@ public class HomeController {
     @Autowired
     private HomeImageService homeImageService;
 
+    @Autowired
+    private NoticeService noticeService;
+
     /**
      * 进入首页
      *
@@ -64,9 +65,12 @@ public class HomeController {
             List<HomeImage> homeImageList = homeImageService.list();
             model.addAttribute("homeImageList", homeImageList);
             model.addAttribute("sign", "home");
+            //查询公告
+            Notice notice = noticeService.getTheLastOne();
+            model.addAttribute("notice", notice);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error("", e);
         }
         return "front/index";
     }

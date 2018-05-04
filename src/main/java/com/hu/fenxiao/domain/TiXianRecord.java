@@ -16,7 +16,16 @@ public class TiXianRecord {
      * @see com.hu.fenxiao.type.TiXianStatus
      */
     private String status;
-    private String info;
+    private String memberWords;//用户留言
+    private String info;//审核信息
+
+    public String getMemberWords() {
+        return memberWords;
+    }
+
+    public void setMemberWords(String memberWords) {
+        this.memberWords = memberWords;
+    }
 
     public String getMemberName() {
         return memberName;
