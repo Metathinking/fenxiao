@@ -124,6 +124,14 @@ public class OrderController {
         return wxMap;
     }
 
+    /**
+     * 未支付订单重新支付
+     *
+     * @param orderId
+     * @param request
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "re_pay", method = RequestMethod.GET)
     public String paySure(@RequestParam String orderId,
                           HttpServletRequest request,
@@ -166,7 +174,7 @@ public class OrderController {
                            HttpSession session) {
         try {
             model.addAttribute("status", status);
-            if (index == null) {
+            if (index == null || index == 0) {
                 index = 1;
             }
             PageQuery query = new PageQuery();
@@ -208,7 +216,7 @@ public class OrderController {
         try {
             Member member = (Member) session.getAttribute("MEMBER");
             OrderVO orderVO = orderService.findById(orderId);
-            if (orderVO.getOrder()==null){
+            if (orderVO.getOrder() == null) {
                 return "redirect:/member/order/list";
             }
             model.addAttribute("orderVO", orderVO);
@@ -231,7 +239,7 @@ public class OrderController {
     public String cancel(@RequestParam String orderId, HttpSession session, Model model) {
         try {
             Member member = (Member) session.getAttribute("MEMBER");
-             orderService.cancel(orderId,member.getOpenid());
+            orderService.cancel(orderId, member.getOpenid());
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.getMessage(), e);

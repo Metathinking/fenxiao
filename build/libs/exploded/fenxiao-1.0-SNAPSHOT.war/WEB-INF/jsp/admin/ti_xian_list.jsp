@@ -55,6 +55,10 @@
                                 <div class="text">审核时间</div>
                                 <div class="clear"></div>
                             </th>
+                            <%--<th scope="col" class="sortable column-name">--%>
+                                <%--<div class="text">用户留言</div>--%>
+                                <%--<div class="clear"></div>--%>
+                            <%--</th>--%>
                             <th scope="col" class="sortable column-name">
                                 <div class="text">状态</div>
                                 <div class="clear"></div>
@@ -78,6 +82,7 @@
                                 <td>${item.money}</td>
                                 <td>${f:format(item.requestTime,"yyyy-MM-dd HH:mm:ss")}</td>
                                 <td>${f:format(item.overTime,"yyyy-MM-dd HH:mm:ss")}</td>
+                                <%--<td>${item.memberWords}</td>--%>
                                 <td>${f:getTiXianStatus(item.status)}</td>
                                 <td>${item.info}</td>
                                 <td>
@@ -150,7 +155,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="shenHe()">审核
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="shenHe('true')">通过
+                        </button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal" ng-click="shenHe('false')">不通过
                         </button>
                     </div>
                 </form>
@@ -181,10 +188,10 @@
             };
         };
         //提交送货记录
-        $scope.shenHe = function () {
+        $scope.shenHe = function (_isPass) {
             var req = {
                 method: 'POST',
-                url: context + '/admin/ti_xian/shenHe',
+                url: context + '/admin/ti_xian/shenHe?isPass=' + _isPass,
                 headers: {
                     'Content-Type': 'application/json'
                 },

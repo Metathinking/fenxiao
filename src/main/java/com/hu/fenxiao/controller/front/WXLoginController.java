@@ -31,8 +31,8 @@ public class WXLoginController {
 
     @RequestMapping(value = "testLogin", method = RequestMethod.GET)
     public String testLogin(HttpSession session) {
-//        Member member = memberService.findByOpenId("oTstt1o_so8nHLTJdAMltiDo91vM");
-        Member member = memberService.findByOpenId("10002");
+        Member member = memberService.findByOpenId("oTstt1o_so8nHLTJdAMltiDo91vM");
+//        Member member = memberService.findByOpenId("10002");
         logger.error("testLogin:" + member);
         session.setAttribute("MEMBER", member);
         return "redirect:/index";
@@ -84,7 +84,11 @@ public class WXLoginController {
             model.addAttribute("token", token.getAccess_token());
             String access_token = token.getAccess_token();
             Member member = WXLoginUtil.getObject(String.format(weixinGetUserInfo, access_token, token.getOpenid()), Member.class);
-//            saveImage(user.getHeadimgurl(), request);
+            //获取成员信息失败时，重新申请登录 todo huyubo
+            if(StringUtils.isEmpty(member.getOpenid())){
+                return "redirect:/login";
+            }
+
             Integer tuiGuangMemberId = (Integer) session.getAttribute("memberId");
             logger.error("memberEdit:" + member.toString());
             Member db = memberService.edit(member, tuiGuangMemberId);

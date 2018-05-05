@@ -7,7 +7,7 @@ import java.util.Map;
 
 public interface TiXianRecordService {
 
-    void create(int memberId,double money,String memberWords);
+    void create(int memberId,double money,String memberWords,String phone);
 
 //    void update(TiXianRecord tiXianRecord);
 
@@ -17,5 +17,7 @@ public interface TiXianRecordService {
 
     int getCount(Map<String,Object> params);
 
-    void shenHe(TiXianRecord tiXianRecord);
+    void shenHe(TiXianRecord tiXianRecord,boolean isPass);
+
+    void cancel(String id);
 }

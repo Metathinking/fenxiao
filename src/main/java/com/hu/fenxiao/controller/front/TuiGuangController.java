@@ -55,7 +55,7 @@ public class TuiGuangController {
                            HttpSession session,
                            Model model) {
         try {
-            if (index == null) {
+            if (index == null || index == 0) {
                 index = 1;
             }
             Member member = (Member) session.getAttribute("MEMBER");

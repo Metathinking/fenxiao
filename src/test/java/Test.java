@@ -9,12 +9,14 @@ import java.math.RoundingMode;
 public class Test {
 
     public static void main(String[] args) {
-       double a=1.2365;
-        String aStr = String.valueOf(a);
-        boolean contains = aStr.contains(".");
-        if (contains){
-            String substring = aStr.substring(aStr.indexOf(".")+1);
-            System.out.println(substring);
-        }
+       double a=10.0/3;
+        System.out.println(a);
+        System.out.println(NumberUtil.format(a));
+//        String aStr = String.valueOf(a);
+//        boolean contains = aStr.contains(".");
+//        if (contains){
+//            String substring = aStr.substring(aStr.indexOf(".")+1);
+//            System.out.println(substring);
+//        }
     }
 }

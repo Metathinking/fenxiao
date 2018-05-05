@@ -84,3 +84,27 @@
         </c:forEach>
     </c:forEach>
 </c:forEach>
+<c:if test="${pageQuery.pageCount>1}">
+    <div class="container-fluid">
+        <ul class="pagination" style="width:100%;">
+            <c:choose>
+                <c:when test="${pageQuery.index==1}">
+                    <li class="disabled"><a href="javascript:;" style="font-size:20px;padding-left: 32px;padding-right: 32px">上一页</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="?index=${pageQuery.index-1}" style="font-size:20px;padding-left: 32px;padding-right: 32px">上一页</a></li>
+                </c:otherwise>
+            </c:choose>
+
+            <c:choose>
+                <c:when test="${pageQuery.pageCount==pageQuery.index}">
+                    <li class="disabled" style="float: right"><a href="javascript:;" style="font-size:20px;padding-left: 32px;padding-right: 32px">下一页</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li style="float: right"><a href="?index=${pageQuery.index+1}" style="font-size:20px;padding-left: 32px;padding-right: 32px">下一页</a></li>
+                </c:otherwise>
+            </c:choose>
+
+        </ul>
+    </div>
+</c:if>

@@ -56,7 +56,7 @@ public class ScoreOrderController {
                            HttpSession session) {
         try {
             model.addAttribute("status", status);
-            if (index == null) {
+            if (index == null || index == 0) {
                 index = 1;
             }
             PageQuery query = new PageQuery();

@@ -55,19 +55,27 @@ public class AdminTiXianController {
             model.addAttribute("pageQuery", query);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error("", e);
         }
         return "admin/ti_xian_list";
     }
 
+    /**
+     * @param tiXianRecord
+     * @param isPass       是否通过
+     * @return
+     */
     @RequestMapping(value = "shenHe", method = RequestMethod.POST)
     @ResponseBody
-    public Tip shenHe(@RequestBody TiXianRecord tiXianRecord) {
+    public Tip shenHe(@RequestBody TiXianRecord tiXianRecord, @RequestParam(required = false) Boolean isPass) {
         try {
-            tiXianRecordService.shenHe(tiXianRecord);
+            if (isPass == null) {
+                isPass = true;
+            }
+            tiXianRecordService.shenHe(tiXianRecord,isPass);
             return new Tip(true, 100, "完成");
         } catch (Exception e) {
-            logger.error("",e);
+            logger.error("", e);
             return ExceptionTipHandler.handler(e);
         }
 

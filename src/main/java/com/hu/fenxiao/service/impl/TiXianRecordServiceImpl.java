@@ -35,7 +35,7 @@ public class TiXianRecordServiceImpl implements TiXianRecordService {
     private MoneyRecordRepository moneyRecordRepository;
 
     @Override
-    public void create(int memberId, double money, String memberWords) {
+    public void create(int memberId, double money, String memberWords, String phone) {
         MemberAccount memberAccount = memberAccountRepository.findById(memberId);
         if (memberAccount.getMoney() < money) {
             throw new ServiceException("账户余额不足！");
@@ -52,12 +52,15 @@ public class TiXianRecordServiceImpl implements TiXianRecordService {
         tiXianRecord.setId(maxId);
         tiXianRecord.setMemberId(member.getId());
         tiXianRecord.setMemberName(member.getName());
-        tiXianRecord.setMemberPhone(member.getPhone());
+        tiXianRecord.setMemberPhone(phone);
         tiXianRecord.setMoney(money);
         tiXianRecord.setRequestTime(System.currentTimeMillis());
         tiXianRecord.setMemberWords(memberWords);
         tiXianRecord.setStatus(TiXianStatus.REQUEST.name());
         tiXianRecordRepository.create(tiXianRecord);
+        //更新用户信息
+        member.setPhone(phone);
+        memberRepository.update(member);
     }
 
 //    @Override
@@ -81,25 +84,44 @@ public class TiXianRecordServiceImpl implements TiXianRecordService {
     }
 
     @Override
-    public void shenHe(TiXianRecord tiXianRecord) {
+    public void shenHe(TiXianRecord tiXianRecord, boolean isPass) {
         TiXianRecord db = tiXianRecordRepository.findById(tiXianRecord.getId() + "");
         if (db == null) {
             throw new ServiceException("系统错误，请刷新后重试");
         }
-        MemberAccount memberAccount = memberAccountRepository.findById(db.getMemberId());
-        if (memberAccount.getMoney() < db.getMoney()) {
-            throw new ServiceException("账户余额不足！");
+        if (isPass) {//审核通过
+            MemberAccount memberAccount = memberAccountRepository.findById(db.getMemberId());
+            if (memberAccount.getMoney() < db.getMoney()) {
+                throw new ServiceException("账户余额不足！");
+            }
+            double before = memberAccount.getMoney();
+            memberAccount.setMoney(memberAccount.getMoney() - db.getMoney());
+            memberAccountRepository.update(memberAccount);
+
+            addMoneyRecord(db, memberAccount, before);
+
+            db.setOverTime(System.currentTimeMillis());
+            db.setStatus(TiXianStatus.OVER.name());
+            db.setInfo(tiXianRecord.getInfo());
+            tiXianRecordRepository.update(db);
+        } else {//审核未通过
+            db.setOverTime(System.currentTimeMillis());
+            db.setStatus(TiXianStatus.REFUSE.name());
+            db.setInfo(tiXianRecord.getInfo());
+            tiXianRecordRepository.update(db);
         }
-        double before = memberAccount.getMoney();
-        memberAccount.setMoney(memberAccount.getMoney() - db.getMoney());
-        memberAccountRepository.update(memberAccount);
+    }
 
-        addMoneyRecord(db, memberAccount, before);
 
-        db.setOverTime(System.currentTimeMillis());
-        db.setStatus(TiXianStatus.OVER.name());
-        db.setInfo(tiXianRecord.getInfo());
-        tiXianRecordRepository.update(db);
+    @Override
+    public void cancel(String id) {
+        TiXianRecord record = tiXianRecordRepository.findById(id);
+        if (TiXianStatus.REQUEST.name().equals(record.getStatus())) {
+            record.setStatus(TiXianStatus.CANCEL.name());
+            tiXianRecordRepository.update(record);
+        } else {
+            throw new ServiceException("只有待审核状态下可以取消");
+        }
     }
 
     /**

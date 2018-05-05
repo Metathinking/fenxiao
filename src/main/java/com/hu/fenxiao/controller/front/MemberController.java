@@ -52,8 +52,8 @@ public class MemberController {
             model.addAttribute("account", account);
             model.addAttribute("sign", "member");
             boolean hasTuiGuangPower = memberAccountService.hasTuiGuangPower(member.getId());
-//            model.addAttribute("hasTuiGuangPower", hasTuiGuangPower);
-            model.addAttribute("hasTuiGuangPower", true);
+            model.addAttribute("hasTuiGuangPower", hasTuiGuangPower);
+//            model.addAttribute("hasTuiGuangPower", true);
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.getMessage(), e);
@@ -64,6 +64,7 @@ public class MemberController {
 
     @RequestMapping(value = "ti_xian_request", method = RequestMethod.POST)
     public String tiXianRequest(Double money,
+                                String phone,
                                 String memberWords,
                                 HttpSession session,
                                 RedirectAttributes model) {
@@ -73,12 +74,16 @@ public class MemberController {
                 model.addAttribute("error_msg", "请输入正确的金额");
                 return "redirect:/member/ti_xian_list";
             }
+            if (StringUtils.isEmpty(phone)) {
+                model.addAttribute("error_msg", "请输入联系电话");
+                return "redirect:/member/ti_xian_list";
+            }
             if (StringUtils.isEmpty(memberWords)) {
                 model.addAttribute("error_msg", "请输入提现信息，否则无法提现");
                 return "redirect:/member/ti_xian_list";
             }
             Member member = (Member) session.getAttribute("MEMBER");
-            tiXianRecordService.create(member.getId(), money, memberWords);
+            tiXianRecordService.create(member.getId(), money, memberWords, phone);
         } catch (ServiceException e) {
             model.addAttribute("error_msg", e.getExceptionMessage());
         } catch (Exception e) {
@@ -121,7 +126,7 @@ public class MemberController {
                              @ModelAttribute("error_msg") String error_msg,
                              Model model, HttpSession session) {
         try {
-            if (index == null) {
+            if (index == null || index == 0) {
                 index = 1;
             }
             if (!StringUtils.isEmpty(error_msg)) {
@@ -137,17 +142,36 @@ public class MemberController {
             List<TiXianRecord> list = tiXianRecordService.list(params);
             int count = tiXianRecordService.getCount(params);
             query.setCount(count);
-
             MemberAccount account = memberAccountService.findById(member.getId());
             model.addAttribute("account", account);
-
+            Member db = memberService.findByOpenId(member.getOpenid());
+            model.addAttribute("member", db);
             model.addAttribute("list", list);
             model.addAttribute("pageQuery", query);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
         }
         return "front/ti_xian_list";
+    }
+
+    /**
+     * 取消申请
+     *
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "ti_xian_cancel", method = RequestMethod.GET)
+    public String tiXianCancel(String id, RedirectAttributes model) {
+        try {
+            tiXianRecordService.cancel(id);
+        } catch (ServiceException e) {
+            model.addAttribute("error_msg", e.getExceptionMessage());
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error(e.getMessage(), e);
+        }
+        return "redirect:/member/ti_xian_list";
     }
 
     /**
@@ -160,7 +184,7 @@ public class MemberController {
     public String scoreList(@RequestParam(required = false) Integer index,
                             Model model, HttpSession session) {
         try {
-            if (index == null) {
+            if (index == null || index == 0) {
                 index = 1;
             }
             PageQuery query = new PageQuery();
