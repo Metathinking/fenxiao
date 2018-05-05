@@ -13,7 +13,7 @@
     <div class="container-fluid">
         <div class="row order_item info">
             <div class="col-xs-1">
-                <span class="glyphicon glyphicon-map-marker"></span>
+                <span class="glyphicon glyphicon-map-marker" style="margin-top: 20px"></span>
             </div>
             <div class="col-xs-11">
                 <p>收货人：${orderVO.order.memberName}</p>
@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-xs-9 text-right" style="padding-top: 8px">
                         <c:if test="${orderVO.order.status=='FA_HUO'}">
-                            <a class="btn btn-danger" href="/member/order/shouHuo?orderId=${orderVO.order.id}">
+                            <a class="btn btn-danger" style="border-radius: 20px;margin-right: 8px;color: #ffffff;" href="/member/order/shouHuo?orderId=${orderVO.order.id}">
                                 确认收货
                             </a>
                         </c:if>

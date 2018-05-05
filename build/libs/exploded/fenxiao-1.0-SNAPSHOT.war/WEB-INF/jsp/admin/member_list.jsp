@@ -44,10 +44,6 @@
                                 <div class="clear"></div>
                             </th>
                             <th scope="col" class="sortable column-price">
-                                <div class="text">等级</div>
-                                <div class="clear"></div>
-                            </th>
-                            <th scope="col" class="sortable column-price">
                                 <div class="text">
                                     操作
                                 </div>
@@ -62,7 +58,6 @@
                                 <td class="field-xiangXing">${item.name}</td>
                                 <td class="field-rongLiang">${item.phone} </td>
                                 <td class="field-duShu">${item.address}</td>
-                                <td class="field-price">${item.level}</td>
                                 <td class="">
                                     <a href="/admin/order/list?memberOpenid=${item.openid}">消费详情</a>|
                                     <a href="/admin/score_order/list?memberOpenid=${item.openid}">积分订单</a>|

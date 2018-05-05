@@ -31,9 +31,9 @@ public class WXLoginController {
 
     @RequestMapping(value = "testLogin", method = RequestMethod.GET)
     public String testLogin(HttpSession session) {
-        Member member = memberService.findByOpenId("oTstt1o_so8nHLTJdAMltiDo91vM");
-//        Member member = memberService.findByOpenId("10002");
-        logger.error("testLogin:"+member);
+//        Member member = memberService.findByOpenId("oTstt1o_so8nHLTJdAMltiDo91vM");
+        Member member = memberService.findByOpenId("10002");
+        logger.error("testLogin:" + member);
         session.setAttribute("MEMBER", member);
         return "redirect:/index";
     }
@@ -86,6 +86,7 @@ public class WXLoginController {
             Member member = WXLoginUtil.getObject(String.format(weixinGetUserInfo, access_token, token.getOpenid()), Member.class);
 //            saveImage(user.getHeadimgurl(), request);
             Integer tuiGuangMemberId = (Integer) session.getAttribute("memberId");
+            logger.error("memberEdit:" + member.toString());
             Member db = memberService.edit(member, tuiGuangMemberId);
             session.setAttribute("MEMBER", db);
 

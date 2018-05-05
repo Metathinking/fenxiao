@@ -147,4 +147,25 @@ public class Member {
     public void setTime(long time) {
         this.time = time;
     }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", address='" + address + '\'' +
+                ", higherLevelOpenId='" + higherLevelOpenId + '\'' +
+                ", level=" + level +
+                ", unionid='" + unionid + '\'' +
+                ", openid='" + openid + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", sex=" + sex +
+                ", province='" + province + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", headimgurl='" + headimgurl + '\'' +
+                ", time=" + time +
+                '}';
+    }
 }

@@ -1,6 +1,8 @@
 package com.hu.fenxiao.util;
 
 import com.google.gson.Gson;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
@@ -12,6 +14,8 @@ import java.net.URL;
  * 微信登录工具
  */
 public class WXLoginUtil {
+
+    private static Logger logger = LogManager.getLogger(WXLoginUtil.class);
 
     /**
      * 获取数据
@@ -30,6 +34,7 @@ public class WXLoginUtil {
         byte[] buff = new byte[inputStream.available()];
         inputStream.read(buff);
         String result = new String(buff, "utf-8");
+        logger.error(result);
         Gson gson = new Gson();
         T obj = gson.fromJson(result, t);
         inputStream.close();

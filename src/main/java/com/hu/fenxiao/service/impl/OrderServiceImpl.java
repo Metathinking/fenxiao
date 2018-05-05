@@ -215,6 +215,7 @@ public class OrderServiceImpl implements OrderService {
         double grandTotal = order.getGrandTotal();
         double yongJin = grandTotal * yongJinLv / 100;
         yongJin = NumberUtil.format(yongJin);//保留两位有效数字
+        logger.error("yongJin:"+yongJin);
         MemberAccount account = memberAccountRepository.findById(member.getId());
         double before = account.getMoney();
         account.setMoney(before + yongJin);
@@ -314,7 +315,14 @@ public class OrderServiceImpl implements OrderService {
         }
         if (OrderStatus.FA_HUO.name().equals(db.getStatus())) {
             db.setStatus(OrderStatus.WAN_CHENG.name());
+
             orderRepository.update(db);
+            //更新账户信息
+            Member dbMember = memberRepository.findByOpenId(db.getMemberOpenid());
+            MemberAccount account = memberAccountRepository.findById(dbMember.getId());
+            double xiaofei = account.getXiaoFeiMoney() + db.getGrandTotal();
+            account.setXiaoFeiMoney(xiaofei);
+            memberAccountRepository.update(account);
             //提成
             TuiGuangSetting tuiGuangSetting = tuiGuangSettingRepository.findById(TuiGuangSettingServiceImpl.ID);
             Member currentMember = memberRepository.findByOpenId(memberOpenid);
@@ -386,7 +394,8 @@ public class OrderServiceImpl implements OrderService {
         if (!order.getMemberOpenid().equals(memberOpenid)) {
             throw new ServiceException("只有本人才可以取消");
         }
-        orderRepository.delete(orderId);
-        orderItemRepository.deleteByOrderId(orderId);
+        order.setStatus(OrderStatus.CLOSE.name());
+        orderRepository.update(order);
+//        orderItemRepository.deleteByOrderId(orderId);
     }
 }
