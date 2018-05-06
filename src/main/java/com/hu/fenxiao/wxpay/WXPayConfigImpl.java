@@ -9,11 +9,9 @@ import java.io.*;
 
 public class WXPayConfigImpl implements WXPayConfig {
 
-    private final String APP_ID = "wx0b80f1b0a4c1602f";
-    private final String MCH_ID = "1502480891";
-//    private final String KEY = "CrCb0QVjATcgx84vgJb9sAo7UcRyO7kCLGKRU9C1Wm9";
-//    private final String KEY = "44e368e1847de6a9b616fe1ffb92b8e4";//秘钥
-    private final String KEY = "8b5d8420c65641efa831b3e77d7d648d";//秘钥
+    private final String APP_ID = "";
+    private final String MCH_ID = "";
+    private final String KEY = "";//秘钥
     private byte[] certData;
 
     private static WXPayConfigImpl wxPayConfigImpl;
