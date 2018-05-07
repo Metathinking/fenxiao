@@ -3,6 +3,7 @@ package com.hu.fenxiao.controller.admin;
 
 import com.hu.fenxiao.domain.SendRecord;
 import com.hu.fenxiao.domain.vo.OrderVO;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.service.OrderService;
 import com.hu.fenxiao.service.SendRecordService;
@@ -28,7 +29,6 @@ public class AdminOrderController {
 
     @Autowired
     private OrderService orderService;
-
 
 
     @RequestMapping(value = "list", method = RequestMethod.GET)
@@ -57,34 +57,12 @@ public class AdminOrderController {
             model.addAttribute("list", list);
             model.addAttribute("pageQuery", query);
             model.addAttribute("status", status);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
         }
         return "admin/order_list";
     }
-
-//    @RequestMapping(value = "send", method = RequestMethod.POST)
-//    @ResponseBody
-//    public Tip send(@RequestBody Map<String, String> sendInfo) {
-//        try {
-//            orderService.sendProduct(sendInfo);
-//            return new Tip(true, 100, "", null);
-//        } catch (Exception e) {
-//            logger.error(e.getMessage());
-//            return ExceptionTipHandler.handler(e);
-//        }
-//    }
-//
-//    @RequestMapping(value = "sendInfo", method = RequestMethod.POST)
-//    @ResponseBody
-//    public Tip sendInfo(@RequestParam String orderId, @RequestParam String type) {
-//        try {
-//            SendRecord sendRecord = sendRecordService.findByOrderId(orderId, type);
-//            return new Tip(true, 100, "成功", sendRecord);
-//        } catch (Exception e) {
-//            logger.error(e.getMessage());
-//            return ExceptionTipHandler.handler(e);
-//        }
-//    }
 }

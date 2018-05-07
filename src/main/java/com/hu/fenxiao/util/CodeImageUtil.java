@@ -24,8 +24,8 @@ import java.util.Hashtable;
  */
 public class CodeImageUtil {
 
-    private static final int width = 150;
-    private static final int height = 150;
+    private static final int width = 120;
+    private static final int height = 120;
 
     public static String createQRCodeImage(int memberId, String url, HttpServletRequest request) throws WriterException, IOException {
         String format = "png";

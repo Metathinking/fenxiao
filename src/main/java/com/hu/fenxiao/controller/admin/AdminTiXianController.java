@@ -1,6 +1,7 @@
 package com.hu.fenxiao.controller.admin;
 
 import com.hu.fenxiao.domain.TiXianRecord;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.service.TiXianRecordService;
 import com.hu.fenxiao.util.ExceptionTipHandler;
@@ -53,9 +54,11 @@ public class AdminTiXianController {
             query.setCount(count);
             model.addAttribute("list", list);
             model.addAttribute("pageQuery", query);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
         }
         return "admin/ti_xian_list";
     }
@@ -72,10 +75,13 @@ public class AdminTiXianController {
             if (isPass == null) {
                 isPass = true;
             }
-            tiXianRecordService.shenHe(tiXianRecord,isPass);
+            tiXianRecordService.shenHe(tiXianRecord, isPass);
             return new Tip(true, 100, "完成");
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
         } catch (Exception e) {
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
             return ExceptionTipHandler.handler(e);
         }
 

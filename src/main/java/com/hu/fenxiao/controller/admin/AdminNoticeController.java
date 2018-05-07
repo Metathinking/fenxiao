@@ -1,6 +1,7 @@
 package com.hu.fenxiao.controller.admin;
 
 import com.hu.fenxiao.domain.Notice;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.service.NoticeService;
 import com.hu.fenxiao.util.ExceptionTipHandler;
@@ -43,6 +44,8 @@ public class AdminNoticeController {
             query.setCount(count);
             model.addAttribute("list", list);
             model.addAttribute("pageQuery", query);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.getMessage(), e);
@@ -55,6 +58,8 @@ public class AdminNoticeController {
     public String add(String content) {
         try {
             noticeService.create(content);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
         }
@@ -67,6 +72,9 @@ public class AdminNoticeController {
         try {
             noticeService.update(notice);
             return new Tip(true, 100, "保存成功");
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
             return ExceptionTipHandler.handler(e);
@@ -77,6 +85,8 @@ public class AdminNoticeController {
     public String delete(@RequestParam String id) {
         try {
             noticeService.delete(id);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
         }
@@ -85,6 +95,7 @@ public class AdminNoticeController {
 
     /**
      * 设置为最新
+     *
      * @param id
      * @return
      */
@@ -92,6 +103,8 @@ public class AdminNoticeController {
     public String updateToNew(@RequestParam String id) {
         try {
             noticeService.updateToNew(id);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
         }

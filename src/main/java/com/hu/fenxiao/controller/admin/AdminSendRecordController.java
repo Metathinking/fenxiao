@@ -1,6 +1,7 @@
 package com.hu.fenxiao.controller.admin;
 
 import com.hu.fenxiao.domain.SendRecord;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.service.SendRecordService;
 import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.Tip;
@@ -27,8 +28,11 @@ public class AdminSendRecordController {
         try {
             sendRecordService.sendProduct(sendRecord);
             return new Tip(true, 100, "", null);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
         } catch (Exception e) {
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
             return ExceptionTipHandler.handler(e);
         }
     }
@@ -39,8 +43,11 @@ public class AdminSendRecordController {
         try {
             SendRecord sendRecord = sendRecordService.findByOrderId(orderId, type);
             return new Tip(true, 100, "成功", sendRecord);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
         } catch (Exception e) {
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
             return ExceptionTipHandler.handler(e);
         }
     }

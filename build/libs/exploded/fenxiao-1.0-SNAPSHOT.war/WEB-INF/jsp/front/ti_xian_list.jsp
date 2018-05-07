@@ -136,8 +136,6 @@
                     <div class="form-group">
                         <label>最大金额:￥${account.money}</label>
                     </div>
-                </div>
-                <div class="modal-body">
                     <div class="form-group">
                         <label>金额:</label>
                         <input type="text" class="form-control" name="money"/>
@@ -147,7 +145,7 @@
                         <input type="text" class="form-control" name="phone" value="${member.phone}"/>
                     </div>
                     <div class="form-group">
-                        <label>用户留言:</label>
+                        <label>用户留言:（提现方式：1.支付宝；2.微信号；3.银行卡号。如：工商银行：6222 02xxxxxxx 张三）</label>
                         <textarea class="form-control" name="memberWords" rows="5"></textarea>
                     </div>
                 </div>

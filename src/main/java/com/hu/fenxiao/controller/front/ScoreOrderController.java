@@ -2,8 +2,10 @@ package com.hu.fenxiao.controller.front;
 
 import com.hu.fenxiao.domain.Member;
 import com.hu.fenxiao.domain.vo.ScoreOrderVO;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.service.ScoreOrderService;
+import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.Tip;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -75,10 +77,11 @@ public class ScoreOrderController {
             query.setCount(count);
             model.addAttribute("list", list);
             model.addAttribute("pageQuery", query);
-
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
         }
         return "front/score_order_list";
     }

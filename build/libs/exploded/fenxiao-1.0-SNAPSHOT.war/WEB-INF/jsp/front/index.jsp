@@ -40,7 +40,7 @@
         <!--公告 start-->
         <c:if test="${notice!=null}">
             <div class="row" style="background: #FFFFFF">
-                <marquee>
+                <marquee style="margin-top:6px;font-size:16px">
                         ${notice.content}
                 </marquee>
             </div>
@@ -68,6 +68,11 @@
                 </div>
             </c:forEach>
             <div class="clearfix"></div>
+        </div>
+        <div class="row" style="background: #FFFFFF;">
+            <a style="margin:5px;font-size:16px;float: right" href="/guan_zhu">
+                点击关注公众号>>
+            </a>
         </div>
         <div class="clearfix"></div>
     </div>

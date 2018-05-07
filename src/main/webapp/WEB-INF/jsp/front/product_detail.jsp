@@ -26,10 +26,10 @@
         <nav class="navbar navbar-default navbar-fixed-bottom ">
             <div class="product_footer">
                 <div class="row text-center">
-                    <div class="col-xs-3">
-                        <h4 class="price">￥${product.price}</h4>
+                    <div class="col-xs-3" style="padding-top: 15px">
+                        <p class="price">￥${product.price}</p>
                     </div>
-                    <div class="col-xs-6 footer-block">
+                    <div class="col-xs-6 footer-block" style="padding-top: 10px">
                         <button type="button" class="btn btn-danger btn-block product_add"
                                 ng-click="selectProduct(${product.id},'${product.name}','${product.image}',${product.price})"
                                 data-toggle="modal" data-target="#addCartItem">

@@ -1,6 +1,7 @@
 package com.hu.fenxiao.controller.admin;
 
 import com.hu.fenxiao.domain.Product;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.service.ProductService;
 import com.hu.fenxiao.util.ExceptionTipHandler;
@@ -27,7 +28,7 @@ public class AdminProductController {
     private ProductService productService;
 
     @RequestMapping(value = "list", method = RequestMethod.GET)
-    public String list(@RequestParam(required = false) Integer index,Model model) {
+    public String list(@RequestParam(required = false) Integer index, Model model) {
         try {
             if (index == null) {
                 index = 1;
@@ -42,9 +43,11 @@ public class AdminProductController {
             query.setCount(count);
             model.addAttribute("list", list);
             model.addAttribute("pageQuery", query);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
         }
         return "admin/product_list";
     }
@@ -61,9 +64,11 @@ public class AdminProductController {
                 }
                 model.addAttribute("product", product);
             }
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
         }
         return "admin/product_edit";
     }
@@ -88,9 +93,12 @@ public class AdminProductController {
                 }
             }
             return new Tip(true, 100, "保存成功", null);
-        } catch (Exception ex) {
-            logger.error("",ex);
-            return ExceptionTipHandler.handler(ex);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            return ExceptionTipHandler.handler(e);
         }
     }
 

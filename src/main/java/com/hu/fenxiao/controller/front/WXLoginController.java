@@ -2,7 +2,9 @@ package com.hu.fenxiao.controller.front;
 
 import com.hu.fenxiao.domain.Member;
 import com.hu.fenxiao.domain.WeiXinToken;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.service.MemberService;
+import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.WXLoginUtil;
 import com.hu.fenxiao.wxpay.ConstantURL;
 import org.apache.logging.log4j.LogManager;
@@ -85,24 +87,26 @@ public class WXLoginController {
             String access_token = token.getAccess_token();
             Member member = WXLoginUtil.getObject(String.format(weixinGetUserInfo, access_token, token.getOpenid()), Member.class);
             //获取成员信息失败时，重新申请登录 todo huyubo
-            if(StringUtils.isEmpty(member.getOpenid())){
+            if (StringUtils.isEmpty(member.getOpenid())) {
                 return "redirect:/login";
             }
 
             Integer tuiGuangMemberId = (Integer) session.getAttribute("memberId");
-            logger.error("memberEdit:" + member.toString());
+//            logger.error("memberEdit:" + member.toString());
             Member db = memberService.edit(member, tuiGuangMemberId);
             session.setAttribute("MEMBER", db);
 
             return "redirect:/index";
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (MalformedURLException e) {
             model.addAttribute("error_msg", "授权登录失败");
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
         } catch (IOException e) {
             model.addAttribute("error_msg", "授权登录失败");
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error_msg", e.getMessage());

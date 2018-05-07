@@ -3,9 +3,11 @@ package com.hu.fenxiao.controller.front;
 import com.google.zxing.WriterException;
 import com.hu.fenxiao.domain.Member;
 import com.hu.fenxiao.domain.vo.MemberVO;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.service.MemberService;
 import com.hu.fenxiao.util.CodeImageUtil;
+import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.wxpay.ConstantURL;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -70,6 +72,8 @@ public class TuiGuangController {
             query.setCount(count);
             model.addAttribute("memberVO", memberVO);
             model.addAttribute("pageQuery", query);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.getMessage(), e);

@@ -23,12 +23,14 @@
         }
         .content{
             position: absolute;
-            bottom: 4%;
+            bottom: 6%;
             width: 100%;
-            height: 15%;
+            height: 12%;
         }
         .content_img{
             margin: auto;
+            width: 120px;
+            height: 120px;
             /*height: 20%;*/
         }
     </style>

@@ -1,6 +1,7 @@
 package com.hu.fenxiao.controller.admin;
 
 import com.hu.fenxiao.domain.Manufacturer;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.service.ManufacturerService;
 import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.Tip;
@@ -25,25 +26,30 @@ public class AdminManufacturerController {
     public String gotoEdit(Model model) {
         try {
             Manufacturer manufacturer = manufacturerService.find();
-            if (manufacturer==null){
+            if (manufacturer == null) {
                 manufacturer = new Manufacturer();
             }
-            model.addAttribute("manufacturer",manufacturer);
+            model.addAttribute("manufacturer", manufacturer);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
         }
         return "admin/manufacturer";
     }
 
-    @RequestMapping(value = "edit",method = RequestMethod.POST)
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
     @ResponseBody
-    public Tip edit(@RequestBody Manufacturer manufacturer){
+    public Tip edit(@RequestBody Manufacturer manufacturer) {
         try {
             manufacturerService.edit(manufacturer);
-            return new Tip(true,100,"信息更新成功");
+            return new Tip(true, 100, "信息更新成功");
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
         } catch (Exception e) {
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
             return ExceptionTipHandler.handler(e);
         }
     }

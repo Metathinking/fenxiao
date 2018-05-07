@@ -58,6 +58,7 @@ public class AdminScoreOrderController {
             model.addAttribute("list", list);
             model.addAttribute("pageQuery", query);
             model.addAttribute("status", status);
+
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("",e);

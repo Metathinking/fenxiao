@@ -1,6 +1,7 @@
 package com.hu.fenxiao.controller.admin;
 
 import com.hu.fenxiao.domain.HomeImage;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.service.HomeImageService;
 import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.Tip;
@@ -27,9 +28,11 @@ public class AdminHomeImageController {
         try {
             List<HomeImage> list = homeImageService.list();
             model.addAttribute("list", list);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
         }
         return "admin/home_image";
     }
@@ -40,8 +43,11 @@ public class AdminHomeImageController {
         try {
             homeImageService.create(homeImage);
             return new Tip(true, 100, "保存成功");
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
         } catch (Exception e) {
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
             return ExceptionTipHandler.handler(e);
         }
     }
@@ -50,8 +56,10 @@ public class AdminHomeImageController {
     public String delete(@RequestParam String id) {
         try {
             homeImageService.delete(id);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
         }
         return "redirect:/admin/homeImage/list";
     }

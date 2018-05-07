@@ -62,7 +62,7 @@ public class TokenController {
             try {
                 response.getWriter().print(echostr);
             } catch (IOException e) {
-                logger.error("", e);
+                logger.error(e.getMessage(), e);
                 e.printStackTrace();
             }
         }

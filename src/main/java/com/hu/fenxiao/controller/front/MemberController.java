@@ -10,6 +10,7 @@ import com.hu.fenxiao.service.MemberAccountService;
 import com.hu.fenxiao.service.MemberService;
 import com.hu.fenxiao.service.ScoreRecordService;
 import com.hu.fenxiao.service.TiXianRecordService;
+import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.Tip;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -54,6 +55,8 @@ public class MemberController {
             boolean hasTuiGuangPower = memberAccountService.hasTuiGuangPower(member.getId());
             model.addAttribute("hasTuiGuangPower", hasTuiGuangPower);
 //            model.addAttribute("hasTuiGuangPower", true);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.getMessage(), e);
@@ -148,6 +151,8 @@ public class MemberController {
             model.addAttribute("member", db);
             model.addAttribute("list", list);
             model.addAttribute("pageQuery", query);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.getMessage(), e);
@@ -203,9 +208,11 @@ public class MemberController {
 
             model.addAttribute("list", list);
             model.addAttribute("pageQuery", query);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
         }
         return "front/score_list";
     }

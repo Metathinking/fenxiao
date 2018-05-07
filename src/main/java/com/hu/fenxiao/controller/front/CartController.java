@@ -3,6 +3,7 @@ package com.hu.fenxiao.controller.front;
 import com.hu.fenxiao.controller.admin.AdminTuiGuangSettingController;
 import com.hu.fenxiao.domain.CartItem;
 import com.hu.fenxiao.domain.Member;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.service.CartItemService;
 import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.Tip;
@@ -39,8 +40,11 @@ public class CartController {
             Member member = (Member) session.getAttribute("MEMBER");
             list = cartItemService.list(member.getId());
             return new Tip(true, 100, "", list);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
         } catch (Exception e) {
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
             e.printStackTrace();
             return ExceptionTipHandler.handler(e);
         }
@@ -65,8 +69,11 @@ public class CartController {
             Member member = (Member) session.getAttribute("MEMBER");
             cartItemService.edit(member.getId(), productId, quantity);
             return new Tip(true, 100, "成功");
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
         } catch (Exception e) {
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
             return ExceptionTipHandler.handler(e);
         }
     }
@@ -84,9 +91,12 @@ public class CartController {
             Member member = (Member) session.getAttribute("MEMBER");
             int quantity = cartItemService.raise(member.getId(), productId);
             return new Tip(true, 100, quantity + "", quantity);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
             return ExceptionTipHandler.handler(e);
         }
     }
@@ -98,9 +108,12 @@ public class CartController {
             Member member = (Member) session.getAttribute("MEMBER");
             int quantity = cartItemService.reduce(member.getId(), productId);
             return new Tip(true, 100, quantity + "", quantity);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
             return ExceptionTipHandler.handler(e);
         }
     }
@@ -117,8 +130,11 @@ public class CartController {
         try {
             cartItemService.delete(cartItemId);
             return new Tip(true, 100, "成功");
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
         } catch (Exception e) {
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
             return ExceptionTipHandler.handler(e);
         }
     }

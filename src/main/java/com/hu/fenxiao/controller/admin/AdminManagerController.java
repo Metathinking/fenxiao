@@ -50,7 +50,6 @@ public class AdminManagerController {
             model.addAttribute("errorMessage", errorMessage);
             return "admin/change_password";
         } else {
-
             managerService.changePassword(manager.getName(), Md5Factory.encoding(new_password1));
             return "redirect:/admin/logout";
         }

@@ -63,9 +63,12 @@ public class OrderController {
             Member member = (Member) session.getAttribute("MEMBER");
             OrderVO orderVO = orderService.affirm(member.getOpenid(), ids);
             return new Tip(true, 100, "成功", orderVO);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
             return ExceptionTipHandler.handler(e);
         }
     }
@@ -94,6 +97,9 @@ public class OrderController {
             Map<String, String> wxMap = getPayAndBackMap(request, db);
             session.setAttribute("PAY", wxMap);
             return new Tip(true, 100, "成功", wxMap);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
         } catch (Exception e) {
             e.printStackTrace();
             logger.error(e.getMessage(), e);
@@ -197,9 +203,11 @@ public class OrderController {
             query.setCount(count);
             model.addAttribute("list", list);
             model.addAttribute("pageQuery", query);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
         }
         return "front/order_list";
     }

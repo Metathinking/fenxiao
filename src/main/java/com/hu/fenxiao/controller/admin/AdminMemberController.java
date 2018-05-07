@@ -1,8 +1,10 @@
 package com.hu.fenxiao.controller.admin;
 
 import com.hu.fenxiao.domain.Member;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.service.MemberService;
+import com.hu.fenxiao.util.ExceptionTipHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,10 +49,12 @@ public class AdminMemberController {
             query.setCount(count);
             model.addAttribute("list", list);
             model.addAttribute("pageQuery", query);
-            model.addAttribute("search",search);
+            model.addAttribute("search", search);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
         }
         return "admin/member_list";
     }

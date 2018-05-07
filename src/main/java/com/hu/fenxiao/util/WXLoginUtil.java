@@ -26,7 +26,7 @@ public class WXLoginUtil {
      * @return
      * @throws IOException
      */
-    public static  <T> T getObject(String urlString, Class<T> t) throws IOException {
+    public static <T> T getObject(String urlString, Class<T> t) throws IOException {
         URL url = new URL(urlString);
         HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
         urlConnection.connect();
@@ -34,7 +34,9 @@ public class WXLoginUtil {
         byte[] buff = new byte[inputStream.available()];
         inputStream.read(buff);
         String result = new String(buff, "utf-8");
-        logger.error(result);
+        if (result.contains("errcode")) {
+            logger.error(result);
+        }
         Gson gson = new Gson();
         T obj = gson.fromJson(result, t);
         inputStream.close();
@@ -42,10 +44,9 @@ public class WXLoginUtil {
         return obj;
     }
 
-    private static final String getportrait ="";//todo
+    private static final String getportrait = "";//todo
 
     /**
-     *
      * @param portrait
      * @param request
      */

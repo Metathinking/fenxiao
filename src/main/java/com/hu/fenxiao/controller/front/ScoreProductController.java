@@ -1,8 +1,10 @@
 package com.hu.fenxiao.controller.front;
 
 import com.hu.fenxiao.domain.ScoreProduct;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.service.ScoreProductService;
+import com.hu.fenxiao.util.ExceptionTipHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +36,11 @@ public class ScoreProductController {
             }
             ScoreProduct product = scoreProductService.findById(productId);
             model.addAttribute("product", product);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
         }
         return "front/score_product_detail";
     }
@@ -55,9 +59,11 @@ public class ScoreProductController {
             List<ScoreProduct> productList = scoreProductService.list(map);
             model.addAttribute("productList", productList);
             model.addAttribute("sign", "score");
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
         }
         return "front/score_product_list";
     }

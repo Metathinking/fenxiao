@@ -1,6 +1,7 @@
 package com.hu.fenxiao.controller.admin;
 
 import com.hu.fenxiao.domain.ScoreProduct;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.service.ScoreProductService;
 import com.hu.fenxiao.util.ExceptionTipHandler;
@@ -42,9 +43,11 @@ public class AdminScoreProductController {
             query.setCount(count);
             model.addAttribute("list", list);
             model.addAttribute("pageQuery", query);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
         }
         return "admin/score_product_list";
     }
@@ -61,9 +64,11 @@ public class AdminScoreProductController {
                 }
                 model.addAttribute("product", product);
             }
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
         }
         return "admin/score_product_edit";
     }
@@ -88,8 +93,11 @@ public class AdminScoreProductController {
                 }
             }
             return new Tip(true, 100, "保存成功", null);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
         } catch (Exception ex) {
-            logger.error("",ex);
+            logger.error(ex.getMessage(), ex);
             return ExceptionTipHandler.handler(ex);
         }
     }
@@ -105,9 +113,11 @@ public class AdminScoreProductController {
         try {
             ScoreProduct product = scoreProductService.findById(id);
             model.addAttribute("product", product);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
         }
         return "front/score_product_detail";
     }

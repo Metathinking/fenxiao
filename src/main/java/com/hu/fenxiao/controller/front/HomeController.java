@@ -1,11 +1,13 @@
 package com.hu.fenxiao.controller.front;
 
 import com.hu.fenxiao.domain.*;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.query.PageQuery;
 import com.hu.fenxiao.service.HomeImageService;
 import com.hu.fenxiao.service.MemberService;
 import com.hu.fenxiao.service.NoticeService;
 import com.hu.fenxiao.service.ProductService;
+import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.WXLoginUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -68,12 +70,24 @@ public class HomeController {
             //查询公告
             Notice notice = noticeService.getTheLastOne();
             model.addAttribute("notice", notice);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("", e);
+            logger.error(e.getMessage(), e);
         }
         return "front/index";
     }
 
 
+    /**
+     * 进入关注公众号页面
+     *
+     * @return
+     */
+    @RequestMapping(value = "guan_zhu", method = RequestMethod.GET)
+    public String guanZhu(Model model) {
+        model.addAttribute("codeImageUrl", "/resources/img/gong_zhong_hao.jpg");
+        return "front/er_wei_ma";
+    }
 }

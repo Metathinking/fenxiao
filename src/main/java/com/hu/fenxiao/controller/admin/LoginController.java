@@ -2,7 +2,9 @@ package com.hu.fenxiao.controller.admin;
 
 
 import com.hu.fenxiao.domain.Manager;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.service.ManagerService;
+import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.Md5Factory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -37,9 +39,11 @@ public class LoginController {
             }
             manager.setPassword(null);
             session.setAttribute("manager", manager);
+        } catch (ServiceException e) {
+            e.printStackTrace();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
         }
         return "redirect:/admin/home";
     }
@@ -50,18 +54,21 @@ public class LoginController {
         return "redirect:/adminLogin";
     }
 
-    @RequestMapping(value = "reset",method = RequestMethod.GET)
-    public String gotoReset(){
+    @RequestMapping(value = "reset", method = RequestMethod.GET)
+    public String gotoReset() {
         return "admin/reset";
     }
 
-    @RequestMapping(value = "reset",method = RequestMethod.POST)
-    public String reset(String username, String password,Model model){
+    @RequestMapping(value = "reset", method = RequestMethod.POST)
+    public String reset(String username, String password, Model model) {
         try {
-            managerService.reset(username,password);
+            managerService.reset(username, password);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            model.addAttribute("errorMessage", e.getMessage());
         } catch (Exception e) {
-            model.addAttribute("errorMessage",e.getMessage());
-            logger.error("",e);
+            model.addAttribute("errorMessage", e.getMessage());
+            logger.error(e.getMessage(), e);
             return "admin/reset";
         }
         return "redirect:/adminLogin";

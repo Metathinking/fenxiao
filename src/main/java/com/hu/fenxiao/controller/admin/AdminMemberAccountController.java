@@ -1,6 +1,7 @@
 package com.hu.fenxiao.controller.admin;
 
 import com.hu.fenxiao.domain.MemberAccount;
+import com.hu.fenxiao.exception.ServiceException;
 import com.hu.fenxiao.service.MemberAccountService;
 import com.hu.fenxiao.util.ExceptionTipHandler;
 import com.hu.fenxiao.util.Tip;
@@ -27,9 +28,12 @@ public class AdminMemberAccountController {
         try {
             MemberAccount account = memberAccountService.findById(id);
             return new Tip(true, 100, "成功", account);
+        } catch (ServiceException e) {
+            e.printStackTrace();
+            return ExceptionTipHandler.handler(e);
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("",e);
+            logger.error(e.getMessage(), e);
             return ExceptionTipHandler.handler(e);
         }
     }
