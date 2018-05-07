@@ -125,8 +125,8 @@ public class WXLoginController {
      * &state=STATE#wechat_redirect
      */
 
-    private String APP_ID = "wx0b80f1b0a4c1602f";//real
-    private String APP_SECRET = "44e368e1847de6a9b616fe1ffb92b8e4";//real
+    private String APP_ID = "";//real
+    private String APP_SECRET = "";//real
 
     private String SCOPE = "snsapi_userinfo"; //snsapi_base || snsapi_userinfo
     private String STATE = "STATEE";
